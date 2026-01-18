@@ -135,7 +135,6 @@
         background: rgba(0, 0, 0, 0.6);
         border: var(--border-width-thin) solid rgba(255, 255, 255, 0.25);
         border-radius: 0;
-        border-top: none;
     }
 
     .nav-link {
