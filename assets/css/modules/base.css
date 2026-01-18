@@ -254,9 +254,9 @@ section {
         margin-top: -50px;
     }
 
-    /* Links セクション - 極限までパディングを削減 */
+    /* Links セクション */
     .links-section {
-        padding-top: 0;
+        padding-top: var(--space-2);
         padding-bottom: var(--space-2);
         margin-top: 0;
     }
@@ -479,6 +479,7 @@ section {
 
     .information-section .info-list {
         padding: 0 var(--space-3);
+        gap: var(--space-1);
     }
 
     .links-section .container {
@@ -487,15 +488,19 @@ section {
 
     .info-item {
         padding: var(--space-2) var(--space-3);
+        align-items: flex-start;
     }
 
     .info-date {
         font-size: var(--text-xs);
-        min-width: 50px;
+        min-width: 70px;
+        flex-shrink: 0;
+        padding-top: 2px;
     }
 
     .info-text {
         font-size: var(--text-sm);
+        line-height: 1.5;
     }
 }
 
