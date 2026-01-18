@@ -1,0 +1,140 @@
+/* ===========================
+   Button System - 統一デザイン
+   =========================== */
+
+.section-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-4);
+}
+
+/* ベースボタンスタイル - 統一された基盤 */
+.btn,
+.btn-hero {
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: solid var(--border-width-thin) #FFF;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Primary Button - 濃いパープル背景で高コントラスト */
+.btn-primary,
+.btn-primary-hero {
+    background: linear-gradient(135deg, #7C61C4 0%, #6B4FB8 50%, #5A3FA0 100%);
+    color: #FFFFFF;
+    border-color: var(--color-purple-secondary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover,
+.btn-primary-hero:hover {
+    background: linear-gradient(135deg, #9B7EDE 0%, #8B6DD4 50%, #7C61C4 100%);
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    transform: translateY(-2px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Secondary Button - 透明背景・明るいパープルボーダーで高コントラスト */
+.btn-secondary,
+.btn-secondary-hero {
+    background-color: transparent;
+    color: #E0CFFF;
+    border-color: var(--color-purple-secondary);
+}
+
+.btn-secondary:hover,
+.btn-secondary-hero:hover {
+    background-color: rgba(124, 97, 196, 0.3);
+    border-color: var(--color-purple-secondary);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating CTA - Primary スタイルに統一 */
+.floating-cta {
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-6);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.btn-floating {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: linear-gradient(135deg, #7C61C4 0%, #6B4FB8 50%, #5A3FA0 100%);
+    border: 1px solid var(--color-purple-vivid);
+    color: #FFFFFF;
+    font-size: var(--text-base);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    font-family: var(--font-body);
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-floating:hover {
+    background: linear-gradient(135deg, #9B7EDE 0%, #8B6DD4 50%, #7C61C4 100%);
+    color: #FFFFFF;
+    border-color: var(--color-purple-secondary);
+    transform: translateY(-2px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.btn-floating-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ボタン内アイコンスタイル */
+.btn-icon {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+    margin-left: var(--space-1);
+}
+
+/* モバイルではフローティングボタンをコンパクトに */
+@media (max-width: 768px) {
+    .floating-cta {
+        bottom: var(--space-3);
+        right: 8px;
+    }
+
+    .btn-floating {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        white-space: nowrap;
+        border-width: 1px;
+    }
+
+    .btn-floating-text {
+        display: inline;
+    }
+
+    .btn-floating-icon {
+        width: var(--icon-lg);
+        height: var(--icon-lg);
+    }
+}

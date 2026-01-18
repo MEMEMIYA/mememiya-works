@@ -1,0 +1,106 @@
+/* ===========================
+   CSS Variables & Design Tokens
+   =========================== */
+
+:root {
+    /* ダークパープル カラーシステム - MEMEMIYA Brand */
+    --color-bg: #000000;
+    --color-surface: #0A0A0A;
+    --color-border: #1A1A1A;
+
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #CCCCCC;
+    --color-text-tertiary: #999999;
+
+    /* パープルアクセント - 神椿風ソフトトーン（強化版） */
+    --color-purple-primary: #9B7EDE;      /* メインパープル */
+    --color-purple-secondary: #C4B5FD;    /* ライトパープル */
+    --color-purple-tertiary: #7C61C4;     /* ダークパープル */
+    --color-purple-vivid: #B794F6;        /* 鮮やかなパープル（CTA用） */
+    --color-pink-accent: #E0B4FF;         /* ピンクアクセント（強化） */
+    --color-lavender: #B8A5E3;            /* ラベンダー */
+
+    /* グラデーション定義 */
+    --gradient-purple-primary: linear-gradient(135deg, #B794F6 0%, #9B7EDE 50%, #7C61C4 100%);
+    --gradient-purple-subtle: linear-gradient(135deg, rgba(183, 148, 246, 0.2) 0%, rgba(155, 126, 222, 0.1) 100%);
+
+    /* アクセントカラー（透明度調整） */
+    --color-accent: rgba(155, 126, 222, 0.15);
+    --color-accent-hover: rgba(183, 148, 246, 0.3);
+
+    /* スペーシングシステム（8pxベース） */
+    --space-1: 0.5rem;    /* 8px */
+    --space-2: 1rem;      /* 16px */
+    --space-3: 1.5rem;    /* 24px */
+    --space-4: 2rem;      /* 32px */
+    --space-6: 3rem;      /* 48px */
+    --space-8: 4rem;      /* 64px */
+    --space-12: 6rem;     /* 96px */
+    --space-16: 8rem;     /* 128px */
+    --space-24: 12rem;    /* 192px */
+
+    /* タイポグラフィスケール */
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Noto Sans JP', 'Helvetica Neue', Helvetica, 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
+    --font-mono: 'Azeret Mono', monospace;
+    --font-serif: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
+
+    /* タイポグラフィスケール - 1.25倍率（Major Third）で統一 */
+    --text-2xs: 0.64rem;   /* 10.24px - モバイル最小値 */
+    --text-xs: 0.8rem;     /* 12.8px */
+    --text-sm: 0.875rem;   /* 14px */
+    --text-base: 1rem;     /* 16px - ベース */
+    --text-lg: 1.125rem;   /* 18px */
+    --text-xl: 1.25rem;    /* 20px */
+    --text-2xl: 1.563rem;  /* 25px */
+    --text-3xl: 1.953rem;  /* 31.25px */
+    --text-4xl: 2.441rem;  /* 39px */
+    --text-5xl: 3.052rem;  /* 48.83px */
+
+    /* 行間システム - コンテンツタイプ別に最適化（洗練版） */
+    --leading-none: 1;
+    --leading-tight: 1.2;      /* 見出し用 */
+    --leading-snug: 1.4;       /* サブ見出し・短文用 */
+    --leading-normal: 1.8;     /* 本文用（デフォルト）- より広く */
+    --leading-relaxed: 2.0;    /* 長文用 - より広く */
+    --leading-loose: 2.2;      /* 引用・特別な強調用 */
+
+    /* 文字間隔システム（控えめに調整） */
+    --tracking-tighter: -0.02em;
+    --tracking-tight: -0.01em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.02em;   /* より控えめに（0.04em → 0.02em） */
+    --tracking-wider: 0.03em;  /* より控えめに（0.04em → 0.03em） */
+    --tracking-widest: 0.06em; /* より控えめに（0.08em → 0.06em） */
+
+    /* トランジション - 統一されたイージング（じんわり余韻のある動き） */
+    --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --transition-fast: 200ms var(--ease-in-out-smooth);
+    --transition-base: 350ms var(--ease-in-out-smooth);
+    --transition-slow: 500ms var(--ease-out-expo);
+
+    /* レイアウト */
+    --max-width: 1200px;
+    --nav-height: 56px;
+
+    /* ボーダーシステム */
+    --border-width-thin: 1px;
+    --border-width-thick: 2px;
+    --border-color-default: rgba(255, 255, 255, 0.12);
+    --border-color-hover: var(--color-purple-primary);
+
+    /* アニメーション遅延システム */
+    --delay-1: 0.3s;
+    --delay-2: 0.6s;
+    --delay-3: 0.9s;
+
+    /* アイコンサイズシステム */
+    --icon-xs: 12px;
+    --icon-sm: 16px;
+    --icon-base: 20px;
+    --icon-lg: 24px;
+    --icon-xl: 32px;
+}

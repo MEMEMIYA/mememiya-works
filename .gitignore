@@ -1,0 +1,20 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.cache/
+dist/
+build/
+.vscode/
+.idea/
+
+# Temporary files
+tmpclaude-*
+
+# Work in progress files
+assets/memo.txt
+assets/videos/*_02.mp4
+assets/thirdparty
+docs/No-Commit Documents
+.claude/settings.local.json
+.claude/settings.json

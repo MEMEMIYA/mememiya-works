@@ -1,0 +1,162 @@
+/* ===========================
+   Navigation
+   =========================== */
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: transparent;
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    z-index: 1000;
+    transition: all var(--transition-base);
+}
+
+.main-nav.scrolled {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    border-bottom-color: rgba(255, 255, 255, 0.04);
+}
+
+.nav-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 var(--space-6);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-img {
+    height: 36px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px 4px 0 0;
+    overflow: hidden;
+}
+
+.nav-link {
+    position: relative;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: none;
+    padding: var(--space-2) var(--space-4);
+    transition: all var(--transition-base);
+    color: var(--color-text-secondary);
+    background: transparent;
+    line-height: var(--leading-tight);
+    border-right: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-links li:last-child .nav-link {
+    border-right: none;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-purple-primary);
+    transform: scaleX(0);
+    transition: transform var(--transition-base) var(--ease-out-cubic);
+}
+
+.nav-link:hover {
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-link.active {
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-text-primary);
+}
+
+.nav-link.active::after {
+    transform: scaleX(1);
+    height: 3px;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-1);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    transition: all var(--transition-base);
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 var(--space-2);
+        gap: var(--space-2);
+    }
+
+    .nav-logo-img {
+        height: 28px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        background: rgba(0, 0, 0, 0.6);
+        border: var(--border-width-thin) solid rgba(255, 255, 255, 0.25);
+        border-radius: 4px 4px 0 0;
+    }
+
+    .nav-link {
+        font-size: var(--text-xs);
+        padding: 6px var(--space-2);
+        border-right: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-links li:last-child .nav-link {
+        border-right: none;
+    }
+
+    .nav-link::after {
+        height: 2px;
+    }
+
+    .nav-link.active::after {
+        height: 2px;
+    }
+
+    /* ハンバーガーメニューボタンを非表示 */
+    .nav-toggle {
+        display: none;
+    }
+}

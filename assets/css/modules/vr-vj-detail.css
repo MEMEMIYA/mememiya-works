@@ -1,0 +1,239 @@
+/* ===========================
+   VR VJ Detail Section
+   =========================== */
+.vr-vj-detail-section {
+    margin-bottom: var(--space-8);
+    padding: var(--space-6) 0;
+}
+
+.vr-vj-detail-wrapper {
+    margin-top: var(--space-6);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vr-vj-detail-card {
+    padding: var(--space-6);
+    background: transparent;
+    border-left: solid 3px var(--color-purple-primary);
+    border-bottom: solid 1px rgba(255, 255, 255, 0.08);
+    position: relative;
+    margin-top: var(--space-4);
+}
+
+.vr-vj-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: solid 1px rgba(255, 255, 255, 0.08);
+}
+
+.vr-vj-title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.vr-vj-price {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--color-purple-primary);
+    letter-spacing: 0.04em;
+}
+
+.vr-vj-description {
+    margin-bottom: var(--space-4);
+}
+
+.vr-vj-description p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    margin: 0 0 var(--space-2) 0;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+.vr-vj-description p:last-child {
+    margin-bottom: 0;
+}
+
+.vr-vj-features,
+.vr-vj-conditions,
+.vr-vj-genre {
+    margin-bottom: var(--space-4);
+    padding: var(--space-3) 0;
+    background: transparent;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.06);
+}
+
+.vr-vj-features:last-child,
+.vr-vj-conditions:last-child,
+.vr-vj-genre:last-child {
+    margin-bottom: 0;
+}
+
+.features-title,
+.conditions-title,
+.genre-title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin: 0 0 var(--space-3) 0;
+    font-family: var(--font-body);
+    color: var(--color-purple-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.features-title::before,
+.conditions-title::before,
+.genre-title::before {
+    content: '';
+    width: 2px;
+    height: 16px;
+    background: var(--color-purple-primary);
+}
+
+.features-list,
+.conditions-list,
+.genre-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.features-list li,
+.conditions-list li,
+.genre-list li {
+    padding-left: var(--space-3);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    font-family: var(--font-body);
+    font-weight: 600;
+    position: relative;
+}
+
+.features-list li::before,
+.conditions-list li::before,
+.genre-list li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    color: var(--color-purple-primary);
+    font-weight: 700;
+}
+
+.features-list li strong,
+.conditions-list li strong,
+.genre-list li strong {
+    color: var(--color-text-primary);
+    font-weight: 700;
+}
+
+.features-list li ul,
+.conditions-list li ul,
+.genre-list li ul {
+    margin-top: var(--space-2);
+    padding-left: var(--space-4);
+    list-style: none;
+}
+
+.features-list li ul li,
+.conditions-list li ul li,
+.genre-list li ul li {
+    padding-left: var(--space-3);
+    font-size: var(--text-xs);
+}
+
+.features-list li ul li::before,
+.conditions-list li ul li::before,
+.genre-list li ul li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--color-text-tertiary);
+    font-weight: 600;
+}
+
+.conditions-list li small {
+    display: block;
+    margin-top: var(--space-1);
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    font-style: italic;
+    line-height: var(--leading-normal);
+}
+
+/* VR VJ Detail Mobile */
+@media (max-width: 768px) {
+    .vr-vj-detail-section {
+        padding: var(--space-4) 0;
+        margin-bottom: var(--space-6);
+    }
+
+    .vr-vj-detail-card {
+        padding: var(--space-4);
+    }
+
+    .vr-vj-header {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: var(--space-2);
+    }
+
+    .vr-vj-title {
+        font-size: var(--text-lg);
+    }
+
+    .vr-vj-price {
+        font-size: var(--text-sm);
+        font-family: var(--font-mono);
+        font-weight: 600;
+        color: var(--color-purple-secondary);
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+    }
+
+    .vr-vj-description p {
+        font-size: var(--text-sm);
+    }
+
+    .features-title,
+    .conditions-title,
+    .genre-title {
+        font-size: var(--text-base);
+    }
+
+    .features-list li,
+    .conditions-list li,
+    .genre-list li {
+        padding-left: var(--space-3);
+        font-size: var(--text-xs);
+    }
+}
+
+/* ===========================
+   VR VJ Detail テキスト選択有効化
+   =========================== */
+.vr-vj-detail-wrapper,
+.vr-vj-detail-wrapper * {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    cursor: text !important;
+    pointer-events: auto !important;
+}

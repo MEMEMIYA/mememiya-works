@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMEMIYA - Video Creator / VJ Artist / Technical Director</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="MEMEMIYA（メメミヤ）は、TouchDesignerを中心としたリアルタイム映像演出、VJパフォーマンス、3DCG制作を行うテクニカルディレクターです。VRイベントやライブイベントでのビジュアル演出を手がけています。">
+    <meta name="keywords" content="MEMEMIYA,VJ,ビジュアルアーティスト,TouchDesigner,リアルタイム映像,3DCG,VR,イベント演出,テクニカルディレクター,オーディオビジュアル">
+    <meta name="author" content="MEMEMIYA">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mememiya.com/">
+    <meta property="og:title" content="MEMEMIYA - Video Creator / VJ Artist / Technical Director">
+    <meta property="og:description" content="TouchDesignerを中心としたリアルタイム映像演出、VJパフォーマンス、3DCG制作を行うテクニカルディレクター">
+    <meta property="og:image" content="https://mememiya.com/assets/images/ogp/OGP_01.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="MEMEMIYA Portfolio">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mememiya.com/">
+    <meta property="twitter:title" content="MEMEMIYA - Video Creator / VJ Artist / Technical Director">
+    <meta property="twitter:description" content="TouchDesignerを中心としたリアルタイム映像演出、VJパフォーマンス、3DCG制作を行うテクニカルディレクター">
+    <meta property="twitter:image" content="https://mememiya.com/assets/images/ogp/OGP_01.png">
+    <meta property="twitter:site" content="@_MEMEMIYA">
+    <meta property="twitter:creator" content="@_MEMEMIYA">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon/Favicon_MEMEMIYA_huti_ver3.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon/Favicon_MEMEMIYA_huti_ver3.png">
+    
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://mememiya.com">
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@200;300;400;500;600&family=Azeret+Mono:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css?v=30">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "MEMEMIYA",
+        "alternateName": "メメミヤ",
+        "jobTitle": ["Video Creator", "VJ", "Technical Director"],
+        "description": "TouchDesignerを中心としたリアルタイム映像演出、VJパフォーマンス、3DCG制作を行うテクニカルディレクター",
+        "url": "https://mememiya.com",
+        "image": "https://mememiya.com/assets/images/LOGO_MEMEMIYA.png",
+        "sameAs": [
+            "https://twitter.com/_MEMEMIYA",
+            "https://www.instagram.com/_mememiya",
+            "https://www.youtube.com/@mememiya",
+            "https://github.com/MEMEMIYA",
+            "https://www.vivivit.com/mememiya"
+        ],
+        "knowsAbout": [
+            "TouchDesigner",
+            "Real-time 3DCG",
+            "VJ Performance",
+            "3DCG",
+            "VR Space Design",
+            "Audio Visual"
+        ],
+        "memberOf": "Iwaken Lab. 技術コミュニティ",
+        "email": "mememiya.am@gmail.com"
+    }
+    </script>
+</head>
+<body>
+    <!-- Skeleton Loader - removed for instant page load -->
+
+    <!-- ===========================
+         WebGL Shader Background
+         =========================== -->
+    <!-- シェーダー背景 -->
+    <canvas id="shaderCanvas"></canvas>
+
+    <!-- ===========================
+         Navigation
+         =========================== -->
+    <!-- 固定ナビゲーションバー -->
+    <nav class="main-nav" id="mainNav" role="navigation" aria-label="メインナビゲーション">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#hero" aria-label="MEMEMIYAホームページ">
+                    <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="nav-logo-img">
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="#hero" class="nav-link active" role="menuitem" aria-current="page">Home</a></li>
+                <li role="none"><a href="contact.html" class="nav-link" role="menuitem">依頼・相談</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを開く" aria-expanded="false" aria-controls="navLinks">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===========================
+         Hero Section with Video Background
+         =========================== -->
+    <!-- メインビジュアル: デモ映像背景、タイトル、サブタイトル、タグ -->
+    <section id="hero" class="hero-section">
+        <!-- 背景ビデオ -->
+        <div class="hero-video-background">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="assets/videos/hero-video_03.mp4" type="video/mp4">
+            </video>
+            <!-- ビデオオーバーレイ（グラデーション） -->
+            <div class="hero-video-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-logo-wrapper animate-fade-in">
+                <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="hero-logo-img" loading="eager">
+            </div>
+            <p class="hero-subtitle animate-slide-up delay-1">映像クリエイター  /  テクニカルディレクター  /  VJ</p>
+            <div class="hero-tags animate-slide-up delay-2">
+                <span class="tag">リアルタイム3DCG</span>
+                <span class="tag">オーディオビジュアル</span>
+                <span class="tag">TouchDesigner</span>
+            </div>
+            <div class="hero-cta animate-slide-up delay-3">
+                <a href="#works" class="btn-hero btn-primary-hero">作品を見る</a>
+                <a href="contact.html" class="btn-hero btn-primary-hero">依頼・相談</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Information Section
+         =========================== -->
+    <!-- お知らせセクション -->
+    <section id="information" class="information-section">
+        <div class="container">
+            <h2 class="section-title" data-text="Information">Information</h2>
+            <div class="info-list">
+                <!-- スケルトンスクリーン（information-data.jsで置き換え） -->
+                <div class="info-skeleton">
+                    <div class="skeleton-date"></div>
+                    <div class="skeleton-text-info"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Featured Works Section
+         =========================== -->
+    <!-- 注目作品: 最新作・代表作を大きく表示 -->
+    <section id="featured" class="featured-section">
+        <div class="container">
+            <h2 class="section-title" data-text="Featured Works">Featured Works</h2>
+            <p class="section-description">これまでの活動の中から、特に力を入れて制作した作品をピックアップしました</p>
+
+            <div class="featured-works-grid">
+                <!-- Skeleton loader -->
+                <div class="skeleton-card">
+                    <div class="skeleton-image"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-text short"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton-image"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-text short"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Profile Section
+         =========================== -->
+    <!-- プロフィール: 画像、名前、バッジ、自己紹介 -->
+    <section id="about" class="profile-section">
+        <div class="container">
+            <h2 class="section-title" data-text="Profile">Profile</h2>
+
+            <div class="profile-layout">
+                <!-- Profile Header: 画像と基本情報 -->
+                <div class="profile-header">
+                    <div class="profile-image-frame">
+                        <img src="assets/images/artistPhoto/MEMEMIYA_promotionPhoto.png" alt="MEMEMIYA" class="profile-photo" loading="lazy">
+                    </div>
+                    <h3 class="profile-name-large">MEMEMIYA</h3>
+                    <p class="profile-name-reading">メメミヤ</p>
+                    <div class="profile-roles">
+                        <span class="role-tag">映像クリエイター</span>
+                        <span class="role-tag">VJ</span>
+                        <span class="role-tag">テクニカルディレクター</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Description and Skills -->
+<div class="profile-right-column">
+                    <!-- Catchcopy -->
+                    <p class="profile-catchcopy">テクノロジーと映像で、音楽体験に新たな次元を</p>
+
+                    <!-- Description -->
+                    <div class="profile-description">
+                        <p class="description-text">　3DCGを用いた映像クリエイター兼VJとして活動。音楽に連動する映像表現が得意で、MVやライブ映像、インタラクティブ映像などを手掛けています。センサーを用いた演出やプロジェクションマッピングも得意としており、企画から制作まで一貫して行えるのが強みです。VJとしては関東圏のDJVJイベントやVRChat・Cluster等のVR空間で活動中。プリレンダVJとジェネラティブVJ（ジェネVJ）の両手法を使い分け、TouchDesigner、Unity、Resolume Arenaを駆使したリアルタイムの映像演出を提供します。</p>
+                        <p class="description-text">　今後はジェネVJとしての技術を磨き、映像やライブ演出の側面からイベントの熱量を高める演出を追求していきます。これまで取り組んできた音と映像の連動やセンサー活用、XRライブといった領域をさらに拡張し、あわせてジェネVJという手法の認知拡大とコミュニティの活性化にも尽力してまいります。</p>
+                    </div>
+
+                    <!-- 経歴・受賞歴 -->
+                    <div class="profile-meta-compact">
+                        <div class="meta-row">
+                            <span class="meta-label">経歴</span>
+                            <span class="meta-content">2026年3月 大学卒業予定 / 2023年10月 Iwaken Lab.加入 / 2022年9月 VJ活動開始</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">受賞歴</span>
+                            <span class="meta-content"><span class="achievement-badge-inline">ファイナリスト</span> 第16回TOHOシネマズ学生映画祭</span>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section - コンパクト -->
+                    <div class="profile-skills">
+                        <h4 class="skills-section-title">スキルセット</h4>
+
+                        <!-- メインスキル -->
+                        <div class="skill-group-main">
+                            <div class="skill-tags-main">
+                                <span class="skill-tag main">TouchDesigner</span>
+                                <span class="skill-tag main">Premiere Pro</span>
+                                <span class="skill-tag main">Blender</span>
+                                <span class="skill-tag main">Unity</span>
+                                <span class="skill-tag main">Resolume Arena</span>
+                            </div>
+                        </div>
+
+                        <!-- サブスキル（折りたたみ可能） -->
+                        <details class="skill-details">
+                            <summary class="skill-details-summary">その他のスキル</summary>
+                            <div class="skill-tags-sub">
+                                <span class="skill-tag sub">After Effects</span>
+                                <span class="skill-tag sub">Python</span>
+                                <span class="skill-tag sub">Maya</span>
+                                <span class="skill-tag sub">Photoshop</span>
+                                <span class="skill-tag sub">Illustrator</span>
+                                <span class="skill-tag sub">LightRoom</span>
+                                <span class="skill-tag sub">Substance Painter</span>
+                                <span class="skill-tag sub">Audition</span>
+                                <span class="skill-tag sub">DaVinci Resolve</span>
+                                <span class="skill-tag sub">YMM4</span>
+                                <span class="skill-tag sub">Unreal Engine</span>
+                                <span class="skill-tag sub">GLSL</span>
+                                <span class="skill-tag sub">HTML</span>
+                                <span class="skill-tag sub">CSS</span>
+                                <span class="skill-tag sub">JavaScript</span>
+                                <span class="skill-tag sub">C#</span>
+                                <span class="skill-tag sub">Github</span>
+                                <span class="skill-tag sub">Fork</span>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Works Section (統合: VJ/Video/VR)
+         =========================== -->
+    <!-- 全作品一覧: フィルター機能付き -->
+    <section id="works" class="works-section">
+        <div class="container">
+            <h2 class="section-title" data-text="Works">Works</h2>
+            <p class="section-description">これまで手がけてきた制作物や、特徴的なVJ演出事例をまとめています。</p>
+
+            <!-- フィルターボタン -->
+            <div class="works-filter-buttons">
+                <!-- すべて表示ボタン -->
+                <div class="filter-group filter-group-all">
+                    <button class="filter-btn filter-all active" data-filter="all">すべて</button>
+                </div>
+
+                <!-- 作品形態フィルター -->
+                <div class="filter-group filter-group-worktype">
+                    <div class="filter-group-label">作品形態</div>
+                    <div class="filter-group-buttons">
+                        <button class="filter-btn filter-category" data-filter="VJ">VJ</button>
+                        <button class="filter-btn filter-category" data-filter="ジェネVJ">ジェネVJ</button>
+                        <button class="filter-btn filter-category" data-filter="VJシステム制作">VJシステム</button>
+                        <button class="filter-btn filter-category" data-filter="ライブ">ライブ</button>
+                        <button class="filter-btn filter-category" data-filter="プロジェクションマッピング">プロジェクションマッピング</button>
+                        <button class="filter-btn filter-category" data-filter="インタラクティブ映像">インタラクティブ</button>
+                        <button class="filter-btn filter-category" data-filter="ミュージックビデオ">MV</button>
+                        <button class="filter-btn filter-category" data-filter="プロモーションビデオ">PV</button>
+                        <button class="filter-btn filter-category" data-filter="アプリ内演出制作">アプリ内演出</button>
+                        <button class="filter-btn filter-category" data-filter="WebAR">WebAR</button>
+                        <button class="filter-btn filter-category" data-filter="モーションキャプチャー">モーションキャプチャー</button>
+                    </div>
+                </div>
+
+                <!-- 役職カテゴリフィルター -->
+                <div class="filter-group filter-group-role">
+                    <div class="filter-group-label">役職</div>
+                    <div class="filter-group-buttons">
+                        <button class="filter-btn filter-role" data-filter="モデリング">モデリング</button>
+                        <button class="filter-btn filter-role" data-filter="プログラミング">プログラミング</button>
+                        <button class="filter-btn filter-role" data-filter="ディレクション">ディレクション</button>
+                    </div>
+                </div>
+
+                <!-- 制作形態フィルター -->
+                <div class="filter-group filter-group-teamtype">
+                    <div class="filter-group-label">制作形態</div>
+                    <div class="filter-group-buttons">
+                        <button class="filter-btn filter-teamtype" data-filter="個人制作">個人制作</button>
+                        <button class="filter-btn filter-teamtype" data-filter="チーム制作">チーム制作</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作品グリッド - JavaScriptで動的に生成 -->
+            <div class="works-grid">
+                <!-- Skeleton loader -->
+                <div class="skeleton-card-small">
+                    <div class="skeleton-image-small"></div>
+                    <div class="skeleton-content-small">
+                        <div class="skeleton-title-small"></div>
+                        <div class="skeleton-text-small"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card-small">
+                    <div class="skeleton-image-small"></div>
+                    <div class="skeleton-content-small">
+                        <div class="skeleton-title-small"></div>
+                        <div class="skeleton-text-small"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card-small">
+                    <div class="skeleton-image-small"></div>
+                    <div class="skeleton-content-small">
+                        <div class="skeleton-title-small"></div>
+                        <div class="skeleton-text-small"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card-small">
+                    <div class="skeleton-image-small"></div>
+                    <div class="skeleton-content-small">
+                        <div class="skeleton-title-small"></div>
+                        <div class="skeleton-text-small"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card-small">
+                    <div class="skeleton-image-small"></div>
+                    <div class="skeleton-content-small">
+                        <div class="skeleton-title-small"></div>
+                        <div class="skeleton-text-small"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card-small">
+                    <div class="skeleton-image-small"></div>
+                    <div class="skeleton-content-small">
+                        <div class="skeleton-title-small"></div>
+                        <div class="skeleton-text-small"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- もっと見るボタン -->
+            <div class="works-load-more">
+                <button class="btn btn-secondary">もっと見る</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         VJ Works Section - Compact
+         =========================== -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <h2 class="section-title" data-text="VJ Works">VJ Works</h2>
+
+            <!-- VJ情報グリッド -->
+            <div class="vj-info-grid">
+                <div class="vj-info-card glass-card">
+                    <div class="info-label">ブッキング</div>
+                    <div class="info-value">2026年2月分まで受付中</div>
+                    <div class="info-detail">日中～終電まで / 日程は要相談</div>
+                </div>
+                <div class="vj-info-card glass-card">
+                    <div class="info-label">活動エリア</div>
+                    <div class="info-value">関東圏・VR</div>
+                    <div class="info-detail">VRChat・Clusterで活動中</div>
+                </div>
+                <div class="vj-info-card glass-card">
+                    <div class="info-label">VJスタイル</div>
+                    <div class="info-value">プリレンダ / ジェネラティブ</div>
+                    <div class="info-detail">状況に応じて併用します</div>
+                </div>
+                <div class="vj-info-card glass-card">
+                    <div class="info-label">対応ジャンル</div>
+                    <div class="info-value">オールジャンル</div>
+                    <div class="info-detail">EDM・アニソン・ボカロ・JPOP等</div>
+                </div>
+            </div>
+
+            <!-- コンパクトフィルター -->
+            <div class="compact-filter-section">
+                <h3 class="compact-section-title">過去のイベント出演</h3>
+                <div class="filter-buttons-compact">
+                    <button class="filter-btn-compact filter-all active" data-filter="all">すべて</button>
+                    <button class="filter-btn-compact filter-type" data-filter="vr">VR</button>
+                    <button class="filter-btn-compact filter-type" data-filter="real">Real</button>
+                    <button class="filter-btn-compact filter-year" data-filter="2025">2025</button>
+                    <button class="filter-btn-compact filter-year" data-filter="2024">2024</button>
+                    <button class="filter-btn-compact filter-year" data-filter="2023">2023</button>
+                    <button class="filter-btn-compact filter-year" data-filter="2022">2022</button>
+                </div>
+            </div>
+
+            <!-- コンパクトイベントリスト -->
+            <div class="event-list-compact">
+                <div class="event-item-compact glass-card" data-type="real" data-year="2025">
+                    <div class="event-thumb-compact">
+                        <img src="assets/images/fallback/Fallback_Flyer_NoImage_03.png" alt="新入生歓迎会" loading="lazy">
+                        <span class="event-tag-compact real">Real</span>
+                    </div>
+                    <div class="event-details-compact">
+                        <div class="event-date-compact">2025.04.26</div>
+                        <h4 class="event-title-compact">新入生歓迎会</h4>
+                    </div>
+                </div>
+
+                <div class="event-item-compact glass-card" data-type="vr" data-year="2024" data-gallery="assets/images/flyers/FLYER_pjt年の瀬に向け_20241223.png">
+                    <div class="event-thumb-compact">
+                        <img src="assets/images/flyers/FLYER_pjt年の瀬に向け_20241223.png" alt="pjt_年の瀬に向け" loading="lazy">
+                        <span class="event-tag-compact vr">VR</span>
+                    </div>
+                    <div class="event-details-compact">
+                        <div class="event-date-compact">2024.12.23</div>
+                        <h4 class="event-title-compact">pjt_年の瀬に向け</h4>
+                    </div>
+                </div>
+
+                <div class="event-item-compact glass-card" data-type="vr" data-year="2024" data-gallery="assets/images/flyers/FLYER_INFINITY_20241214.jpg">
+                    <div class="event-thumb-compact">
+                        <img src="assets/images/flyers/FLYER_INFINITY_20241214.jpg" alt="CLUBINFINITY2024LAST" loading="lazy">
+                        <span class="event-tag-compact vr">VR</span>
+                    </div>
+                    <div class="event-details-compact">
+                        <div class="event-date-compact">2024.12.13</div>
+                        <h4 class="event-title-compact">CLUBINFINITY2024LAST</h4>
+                    </div>
+                </div>
+
+                <div class="event-item-compact glass-card" data-type="vr" data-year="2024" data-gallery="assets/images/flyers/FLYER_INFINITY0_20241109.jpg">
+                    <div class="event-thumb-compact">
+                        <img src="assets/images/flyers/FLYER_INFINITY0_20241109.jpg" alt="INFINITY" loading="lazy">
+                        <span class="event-tag-compact vr">VR</span>
+                    </div>
+                    <div class="event-details-compact">
+                        <div class="event-date-compact">2024.11.09</div>
+                        <h4 class="event-title-compact">INFINITY</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Links Section
+         =========================== -->
+    <!-- 外部リンク: SNS、作品サイト、技術ブログなど -->
+    <section id="links" class="links-section">
+        <div class="container">
+            <h2 class="section-title" data-text="Links">Links</h2>
+            <div class="links-grid">
+                <a href="https://twitter.com/_MEMEMIYA" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
+                    <div class="link-icon">
+                        <svg viewBox="0 0 1200 1227" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
+                        </svg>
+                    </div>
+                    <h3>X</h3>
+                    <p>日々の活動はこちらで発信中</p>
+                </a>
+                <a href="https://www.instagram.com/_mememiya" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
+                    <div class="link-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="18.5" cy="5.5" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>ビジュアル作品を投稿しています</p>
+                </a>
+                <a href="https://www.youtube.com/@mememiya" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
+                    <div class="link-icon">
+                        <svg viewBox="0 0 159 110" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M154 17.5c-1.82-6.73-7.07-12-13.8-13.8C128.2 0 79 0 79 0S29.8 0 17.8 3.7C11.07 5.5 5.82 10.77 4 17.5 0 29.5 0 55 0 55s0 25.5 4 37.5c1.82 6.73 7.07 12 13.8 13.8C29.8 110 79 110 79 110s49.2 0 61.2-3.7c6.73-1.8 11.98-7.07 13.8-13.8 4-12 4-37.5 4-37.5s0-25.5-4-37.5zM63 79V31l40 24-40 24z"/>
+                        </svg>
+                    </div>
+                    <h3>YouTube</h3>
+                    <p>VJ映像や制作物をアップロード</p>
+                </a>
+                <a href="https://note.com/mememiya" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
+                    <div class="link-icon">
+                        <img src="assets/images/logo/note_icon.png" alt="note Logo" style="width: 24px; height: 24px; object-fit: contain;">
+                    </div>
+                    <h3>note</h3>
+                    <p>技術記事・制作ノート</p>
+                </a>
+                <a href="https://qiita.com/MEMEMIYA" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
+                    <div class="link-icon">
+                        <img src="assets/images/logo/qiita-white-icon.png" alt="Qiita Logo" style="width: 24px; height: 24px; object-fit: contain;">
+                    </div>
+                    <h3>Qiita</h3>
+                    <p>技術記事を投稿</p>
+                </a>
+                <a href="https://www.vivivit.com/mememiya" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
+                    <div class="link-icon">
+                        <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT Logo" style="height: 20px; width: auto; object-fit: contain;">
+                    </div>
+                    <h3>ViViViT</h3>
+                    <p>ポートフォリオをまとめています</p>
+                </a>
+                <a href="https://vrchat.com/home/user/usr_18f25113-51f7-4edd-819a-a68203d54c01" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
+                    <div class="link-icon">
+                        <img src="assets/images/logo/VRChat Logo Outline White.png" alt="VRChat Logo" style="height: 28px; width: auto; object-fit: contain;">
+                    </div>
+                    <h3>VRChat</h3>
+                    <p>VR空間で活動中</p>
+                </a>
+                <a href="https://github.com/MEMEMIYA" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
+                    <div class="link-icon">
+                        <svg viewBox="0 0 98 96" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
+                        </svg>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>制作したコードを公開中</p>
+                </a>
+                <a href="https://www.iwakenlab.jp/MEMEMIYA-7a885da8744540a4908c0af15f7974ad" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
+                    <div class="link-icon">
+                        <img src="assets/images/logo/Iwaken Lab._logo_icon.png" alt="IwakenLab Logo" style="width: 24px; height: 24px; object-fit: contain; filter: brightness(0) invert(1);">
+                    </div>
+                    <h3>IwakenLab</h3>
+                    <p>ポートフォリオ・活動情報</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Contact Section - Compact
+         =========================== -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title" data-text="Contact">Contact</h2>
+            <p class="section-description">映像制作、VJ、ライブ演出のご相談はお気軽にご連絡ください。</p>
+            <p class="section-description">その他、技術的なサポートやコラボレーションも大歓迎です。</p>
+
+            <!-- Contact CTA -->
+            <div class="contact-cta-section">
+                <div class="contact-cta-card glass-card">
+                    <div class="cta-buttons">
+                        <a href="mailto:mememiya.am@gmail.com" class="btn btn-secondary">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            メールで相談
+                        </a>
+                        <a href="https://twitter.com/_MEMEMIYA" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+                            </svg>
+                            (Twitter) - DM可
+                        </a>
+                        <a href="https://www.instagram.com/_mememiya" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="18" cy="6" r="1" fill="currentColor"/>
+                            </svg>
+                            Instagram - DM可
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-detail-link">
+                <a href="contact.html" class="btn btn-primary">
+                    <span class="btn-text-main">依頼・相談</span>
+                    <span class="btn-text-sub">詳しくはこちら</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Footer - Compact
+         =========================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="footer-logo-img" loading="lazy">
+                </div>
+                <div class="footer-links">
+                    <a href="#hero" class="footer-link">Home</a>
+                    <a href="contact.html" class="footer-link">依頼・相談</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://twitter.com/_MEMEMIYA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/_mememiya" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="18" cy="6" r="1" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@mememiya" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 9.71a8.5 8.5 0 0 0-.91-4.13 2.92 2.92 0 0 0-1.72-1A78.36 78.36 0 0 0 12 4.27a78.45 78.45 0 0 0-8.34.3 2.87 2.87 0 0 0-1.46.74c-.9.83-1 2.25-1.1 3.45a48.29 48.29 0 0 0 0 6.48 9.55 9.55 0 0 0 .3 2 3.14 3.14 0 0 0 .71 1.36 2.86 2.86 0 0 0 1.49.78 45.18 45.18 0 0 0 6.5.33c3.5.05 6.57 0 10.2-.28a2.88 2.88 0 0 0 1.53-.78 2.49 2.49 0 0 0 .61-1 10.58 10.58 0 0 0 .52-3.4c.04-.56.04-3.94.04-4.54ZM9.74 14.85V8.66l5.92 3.11c-1.66.92-3.85 1.96-5.92 3.08Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://note.com/mememiya" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="note">
+                        <img src="assets/images/logo/note_icon.png" alt="note Logo" style="width: 18px; height: 18px; object-fit: contain; filter: brightness(0.6);">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===========================
+         Table of Contents Navigation
+         =========================== -->
+    <!-- 固定目次ナビゲーション（画面右側） -->
+    <nav class="table-of-contents" id="tocNav" aria-label="目次ナビゲーション">
+        <ul class="toc-list" id="tocList">
+            <li class="toc-item">
+                <a href="#hero" class="toc-link active" data-section="hero">
+                    <span class="toc-dot"></span>
+                    <span class="toc-text">Home</span>
+                </a>
+            </li>
+            <li class="toc-item">
+                <a href="#information" class="toc-link" data-section="information">
+                    <span class="toc-dot"></span>
+                    <span class="toc-text">Information</span>
+                </a>
+            </li>
+            <li class="toc-item">
+                <a href="#featured" class="toc-link" data-section="featured">
+                    <span class="toc-dot"></span>
+                    <span class="toc-text">Featured Works</span>
+                </a>
+            </li>
+            <li class="toc-item">
+                <a href="#about" class="toc-link" data-section="about">
+                    <span class="toc-dot"></span>
+                    <span class="toc-text">Profile</span>
+                </a>
+            </li>
+            <li class="toc-item">
+                <a href="#works" class="toc-link" data-section="works">
+                    <span class="toc-dot"></span>
+                    <span class="toc-text">Works</span>
+                </a>
+            </li>
+            <li class="toc-item">
+                <a href="#process" class="toc-link" data-section="process">
+                    <span class="toc-dot"></span>
+                    <span class="toc-text">VJ Works</span>
+                </a>
+            </li>
+            <li class="toc-item">
+                <a href="#links" class="toc-link" data-section="links">
+                    <span class="toc-dot"></span>
+                    <span class="toc-text">Links</span>
+                </a>
+            </li>
+            <li class="toc-item">
+                <a href="#contact" class="toc-link" data-section="contact">
+                    <span class="toc-dot"></span>
+                    <span class="toc-text">Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ===========================
+         JavaScript
+         =========================== -->
+    <!-- ===========================
+         Fixed Social Links Bar
+         =========================== -->
+    <!-- 固定ソーシャルリンクバー（画面左側） -->
+    <div class="floating-social-bar">
+        <a href="https://twitter.com/_MEMEMIYA" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+            </svg>
+        </a>
+        <a href="https://www.instagram.com/_mememiya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="18" cy="6" r="1" fill="currentColor"/>
+            </svg>
+        </a>
+        <a href="https://www.youtube.com/@mememiya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 9.71a8.5 8.5 0 0 0-.91-4.13 2.92 2.92 0 0 0-1.72-1A78.36 78.36 0 0 0 12 4.27a78.45 78.45 0 0 0-8.34.3 2.87 2.87 0 0 0-1.46.74c-.9.83-1 2.25-1.1 3.45a48.29 48.29 0 0 0 0 6.48 9.55 9.55 0 0 0 .3 2 3.14 3.14 0 0 0 .71 1.36 2.86 2.86 0 0 0 1.49.78 45.18 45.18 0 0 0 6.5.33c3.5.05 6.57 0 10.2-.28a2.88 2.88 0 0 0 1.53-.78 2.49 2.49 0 0 0 .61-1 10.58 10.58 0 0 0 .52-3.4c.04-.56.04-3.94.04-4.54ZM9.74 14.85V8.66l5.92 3.11c-1.66.92-3.85 1.96-5.92 3.08Z" fill="currentColor"/>
+            </svg>
+        </a>
+        <a href="https://note.com/mememiya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="note">
+            <img src="assets/images/logo/note_icon.png" alt="note Logo" style="width: 28px; height: 28px; object-fit: contain;">
+        </a>
+        <a href="https://qiita.com/MEMEMIYA" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Qiita">
+            <img src="assets/images/logo/qiita-white-icon.png" alt="Qiita Logo" style="width: 28px; height: 28px; object-fit: contain;">
+        </a>
+        <a href="https://www.vivivit.com/mememiya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="ViViViT">
+            <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT Logo" style="width: 50px; height: 50px; object-fit: contain;">
+        </a>
+        <a href="https://vrchat.com/home/user/usr_18f25113-51f7-4edd-819a-a68203d54c01" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="VRChat">
+            <img src="assets/images/logo/VRChat Logo Outline White.png" alt="VRChat Logo" style="width: 50px; height: 50px; object-fit: contain;">
+        </a>
+        <a href="https://github.com/MEMEMIYA" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/>
+            </svg>
+        </a>
+        <a href="https://www.iwakenlab.jp/MEMEMIYA-7a885da8744540a4908c0af15f7974ad" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="IwakenLab">
+            <img src="assets/images/logo/Iwaken Lab._logo_icon.png" alt="IwakenLab Logo" style="width: 28px; height: 28px; object-fit: contain; filter: brightness(0) invert(1);">
+        </a>
+    </div>
+
+    <!-- ===========================
+         Fixed CTA Button
+         =========================== -->
+    <!-- 固定CTAボタン（画面右下） -->
+    <div class="floating-cta">
+        <a href="contact.html" class="btn-floating">
+            <span class="btn-floating-text">依頼・相談</span>
+        </a>
+    </div>
+
+    <!-- 3D背景シェーダー -->
+    <script src="assets/js/background.js"></script>
+
+    <!-- Information Data (分離ファイル) -->
+    <script src="assets/js/information-data.js"></script>
+
+    <!-- Featured Works Data (分離ファイル) - script.jsより先に読み込む -->
+    <script src="assets/js/featured-works.js"></script>
+
+    <!-- VJ Events Data (分離ファイル) - works-data.jsより先に読み込む -->
+    <script src="assets/js/vj-events-data.js"></script>
+
+    <!-- UI・インタラクション -->
+    <script src="assets/js/script.js?v=10"></script>
+
+    <!-- Works Data -->
+    <script src="assets/js/works-data.js?v=5"></script>
+
+    <!-- Works Rendering -->
+    <script src="assets/js/works-render.js?v=10"></script>
+</body>
+</html>
