@@ -47,28 +47,25 @@
 }
 
 @media (max-width: 768px) {
-    .services-compact-section {
+    .services-compact-section,
+    .faq-compact-section {
         margin-bottom: var(--space-6);
         padding: var(--space-4) 0;
+        margin-left: calc(-1 * var(--space-2));
+        margin-right: calc(-1 * var(--space-2));
+        width: calc(100% + var(--space-4));
     }
 
     .services-compact-grid {
         grid-template-columns: 1fr;
         gap: var(--space-2);
         max-width: none;
-        width: calc(100% + var(--space-4));
-        margin-left: calc(-1 * var(--space-2));
-        margin-right: calc(-1 * var(--space-2));
+        width: 100%;
+        margin: 0;
     }
 
     .service-compact-card {
         padding: var(--space-3);
-    }
-
-    .faq-compact-section {
-        margin-left: calc(-1 * var(--space-2));
-        margin-right: calc(-1 * var(--space-2));
-        width: calc(100% + var(--space-4));
     }
 
     .faq-compact-list {
@@ -79,6 +76,15 @@
 
     .faq-compact-item {
         padding: var(--space-3);
+    }
+}
+
+@media (max-width: 480px) {
+    .services-compact-section,
+    .faq-compact-section {
+        margin-left: calc(-1 * var(--space-1));
+        margin-right: calc(-1 * var(--space-1));
+        width: calc(100% + var(--space-2));
     }
 }
 

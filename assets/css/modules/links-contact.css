@@ -380,3 +380,43 @@
     font-weight: 400;
 }
 
+/* Contact Page Mobile */
+@media (max-width: 768px) {
+    .contact-page-section {
+        padding-left: var(--space-2);
+        padding-right: var(--space-2);
+    }
+
+    .contact-page-section .container {
+        padding: 0 var(--space-2);
+    }
+
+    .page-title {
+        font-size: var(--text-3xl);
+    }
+
+    .page-description {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-6);
+    }
+
+    .contact-info-section {
+        margin-bottom: var(--space-4);
+    }
+
+    .contact-info-section .contact-info-compact {
+        padding: var(--space-3);
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-page-section {
+        padding-left: var(--space-1);
+        padding-right: var(--space-1);
+    }
+
+    .contact-page-section .container {
+        padding: 0 var(--space-1);
+    }
+}
+
