@@ -61,11 +61,24 @@
         margin-right: calc(-1 * var(--space-2));
     }
 
-    .faq-compact-list {
-        max-width: none;
-        width: calc(100% + var(--space-4));
+    .service-compact-card {
+        padding: var(--space-3);
+    }
+
+    .faq-compact-section {
         margin-left: calc(-1 * var(--space-2));
         margin-right: calc(-1 * var(--space-2));
+        width: calc(100% + var(--space-4));
+    }
+
+    .faq-compact-list {
+        max-width: none;
+        width: 100%;
+        margin: 0;
+    }
+
+    .faq-compact-item {
+        padding: var(--space-3);
     }
 }
 
