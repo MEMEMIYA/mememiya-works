@@ -1,6 +1,10 @@
 // Information Data - お知らせ情報
 const informationData = [
     {
+        date: '2026/1/24',
+        text: 'VR空間でのVJ：受付を停止しました'
+    },
+    {
         date: '2026/1/19',
         text: 'VJブッキング受付期間を『2026年2月実施分まで』に変更'
     },
