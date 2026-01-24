@@ -2,7 +2,7 @@
 const informationData = [
     {
         date: '2026/1/24',
-        text: 'VR空間でのVJ：受付を停止しました'
+        text: 'VJブッキングの新規受付を停止しました'
     },
     {
         date: '2026/1/19',
