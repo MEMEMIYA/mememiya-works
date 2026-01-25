@@ -224,24 +224,28 @@ section {
         order: 3 !important;
     }
 
-    #featured {
+    #scheduled-events {
         order: 4 !important;
     }
 
-    #about {
+    #featured {
         order: 5 !important;
     }
 
-    #works {
+    #about {
         order: 6 !important;
     }
 
-    #process {
+    #works {
         order: 7 !important;
     }
 
-    #contact {
+    #process {
         order: 8 !important;
+    }
+
+    #contact {
+        order: 9 !important;
     }
 
     section {
@@ -464,7 +468,6 @@ section {
         margin-top: -50px;
         padding-top: calc(var(--space-4) + 50px);
         padding-bottom: var(--space-2);
-        order: 1.5 !important;
     }
 
     /* スマホ版はInformationタイトルを非表示 */
