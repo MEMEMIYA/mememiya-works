@@ -1,11 +1,11 @@
 // Upcoming Events Data - 今後のイベント出演予定
 const upcomingEventsData = [
     {
-        date: '2026/2',
+        date: '2026/3',
         hidden: true  // 詳細非公開
     },
     {
-        date: '2026/2',
+        date: '2026/3',
         hidden: true  // 詳細非公開
     }
     // 公開イベントの例:

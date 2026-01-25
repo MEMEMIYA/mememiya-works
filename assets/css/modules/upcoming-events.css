@@ -12,7 +12,7 @@
 .upcoming-events-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-2);
     max-width: 800px;
     margin: 0 auto;
 }
@@ -21,21 +21,26 @@
     display: flex;
     align-items: center;
     gap: var(--space-4);
-    padding: var(--space-4) var(--space-5);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: var(--space-3) var(--space-4);
+    border: solid 1px rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color var(--transition-base) var(--ease-out-cubic);
 }
 
-.upcoming-event-item:hover {
-    transform: translateX(4px);
+/* リンクがあるカードのみホバー効果 */
+.upcoming-event-item:has(.event-title a):hover {
+    border-color: var(--color-purple-primary);
 }
 
 .event-date {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
-    color: var(--color-purple-primary);
     font-weight: 600;
+    color: var(--color-purple-primary);
+    letter-spacing: 0.04em;
     white-space: nowrap;
-    min-width: 90px;
+    min-width: 80px;
 }
 
 .event-details {
@@ -47,50 +52,57 @@
     font-size: var(--text-base);
     font-weight: 600;
     color: var(--color-text-primary);
-    margin: 0 0 var(--space-1) 0;
+    letter-spacing: 0.02em;
+    margin: 0;
+    line-height: 1.4;
 }
 
 .event-title a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--transition-base) var(--ease-out-cubic);
 }
 
 .event-title a:hover {
-    color: var(--color-purple-primary);
+    color: var(--color-purple-secondary);
 }
 
 .event-meta {
     display: flex;
     gap: var(--space-3);
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
+    margin-top: var(--space-1);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
 }
 
 .event-role {
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-purple-secondary);
 }
 
 .event-venue {
-    opacity: 0.8;
+    color: var(--color-text-tertiary);
 }
 
 .no-events {
     text-align: center;
-    color: var(--color-text-secondary);
-    font-size: var(--text-base);
-    padding: var(--space-8) 0;
+    color: var(--color-text-tertiary);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: var(--space-6) 0;
 }
 
 /* 非公開イベント */
 .event-hidden {
-    opacity: 0.7;
+    border-style: dashed;
 }
 
 .event-title-hidden {
     font-style: italic;
-    color: var(--color-text-secondary);
+    color: var(--color-text-tertiary);
+    font-weight: 600;
 }
 
 /* Responsive */
@@ -102,12 +114,13 @@
     .upcoming-event-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--space-2);
-        padding: var(--space-3) var(--space-4);
+        gap: var(--space-1);
+        padding: var(--space-3);
     }
 
     .event-date {
         font-size: var(--text-xs);
+        min-width: auto;
     }
 
     .event-title {
