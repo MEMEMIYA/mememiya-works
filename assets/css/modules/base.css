@@ -469,6 +469,22 @@ section {
     }
 }
 
+/* タブレット向け（iPad mini等） */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .info-item {
+        padding: 8px var(--space-3);
+    }
+
+    .info-date {
+        font-size: var(--text-xs);
+        min-width: 70px;
+    }
+
+    .info-text {
+        font-size: var(--text-sm);
+    }
+}
+
 @media (max-width: 768px) {
     .information-section {
         margin-top: -50px;
@@ -476,8 +492,17 @@ section {
         padding-bottom: var(--space-2);
     }
 
-    /* スマホ版はInformationタイトルを非表示 */
+    /* スマホ版のInformationタイトル */
     .information-section .section-title {
+        font-size: var(--text-xs);
+        margin-bottom: var(--space-2);
+        padding: 0 var(--space-3);
+        color: var(--color-text-tertiary);
+        text-align: left;
+    }
+
+    .information-section .section-title::before,
+    .information-section .section-title::after {
         display: none;
     }
 
