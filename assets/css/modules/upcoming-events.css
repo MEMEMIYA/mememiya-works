@@ -101,7 +101,7 @@
 
 /* 非公開イベント */
 .event-hidden {
-    border-style: dashed;
+    /* スタイルは通常のイベントと同じ */
 }
 
 .event-title-hidden {
@@ -144,6 +144,7 @@
     }
 
     .upcoming-event-item {
+        position: relative;
         flex-direction: row;
         align-items: center;
         gap: var(--space-2);
@@ -155,6 +156,16 @@
         border-top: none;
         background: rgba(155, 126, 222, 0.03);
         margin-bottom: 2px;
+    }
+
+    /* リンクのタップ領域をアイテム全体に拡大 */
+    .event-title a::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
     .upcoming-event-item:first-child {
