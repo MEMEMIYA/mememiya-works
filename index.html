@@ -159,6 +159,24 @@
     </section>
 
     <!-- ===========================
+         Upcoming Events Section
+         =========================== -->
+    <!-- 今後のイベント出演予定 -->
+    <section id="upcoming-events" class="upcoming-events-section">
+        <div class="container">
+            <h2 class="section-title" data-text="Upcoming Events">Upcoming Events</h2>
+            <p class="section-description">今後のイベント出演予定</p>
+            <div class="upcoming-events-list">
+                <!-- upcoming-events-data.jsで置き換え -->
+                <div class="info-skeleton">
+                    <div class="skeleton-date"></div>
+                    <div class="skeleton-text-info"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
          Featured Works Section
          =========================== -->
     <!-- 注目作品: 最新作・代表作を大きく表示 -->
@@ -671,6 +689,12 @@
                 </a>
             </li>
             <li class="toc-item">
+                <a href="#upcoming-events" class="toc-link" data-section="upcoming-events">
+                    <span class="toc-dot"></span>
+                    <span class="toc-text">Upcoming Events</span>
+                </a>
+            </li>
+            <li class="toc-item">
                 <a href="#featured" class="toc-link" data-section="featured">
                     <span class="toc-dot"></span>
                     <span class="toc-text">Featured Works</span>
@@ -771,6 +795,9 @@
 
     <!-- Information Data (分離ファイル) -->
     <script src="assets/js/information-data.js?v=2"></script>
+
+    <!-- Upcoming Events Data (分離ファイル) -->
+    <script src="assets/js/upcoming-events-data.js?v=1"></script>
 
     <!-- Featured Works Data (分離ファイル) - script.jsより先に読み込む -->
     <script src="assets/js/featured-works.js"></script>
