@@ -107,7 +107,7 @@
     }
 
     .footer-links {
-        gap: var(--space-1);
+        gap: var(--space-4);
     }
 
     .footer-social-link {
