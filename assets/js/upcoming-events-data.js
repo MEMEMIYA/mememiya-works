@@ -1,11 +1,11 @@
 // Upcoming Events Data - 今後のイベント出演予定
 const upcomingEventsData = [
     {
-        date: '2026/3',
+        date: '2026/3/15',
         hidden: true  // 詳細非公開
     },
     {
-        date: '2026/3',
+        date: '2026/3/21',
         hidden: true  // 詳細非公開
     }
     // 公開イベントの例:
@@ -35,7 +35,7 @@ function renderUpcomingEvents() {
                 <div class="upcoming-event-item glass-card event-hidden">
                     <div class="event-date">${event.date}</div>
                     <div class="event-details">
-                        <h3 class="event-title event-title-hidden">詳細は後日公開</h3>
+                        <h3 class="event-title event-title-hidden">VJ出演（詳細は後日公開）</h3>
                     </div>
                 </div>
             `;

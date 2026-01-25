@@ -108,23 +108,61 @@
 /* Responsive */
 @media (max-width: 768px) {
     .upcoming-events-section {
-        padding: var(--space-12) 0;
+        padding: var(--space-2) 0;
+    }
+
+    /* スマホ版は小さなラベルを表示 */
+    .upcoming-events-section .section-title {
+        font-size: var(--text-xs);
+        margin-bottom: var(--space-1);
+        padding: 0 var(--space-3);
+        color: var(--color-purple-secondary);
+        text-align: left;
+    }
+
+    .upcoming-events-section .section-title::before,
+    .upcoming-events-section .section-title::after {
+        display: none;
+    }
+
+    .upcoming-events-section .section-description {
+        display: none;
+    }
+
+    .upcoming-events-section .container {
+        padding: 0;
+    }
+
+    .upcoming-events-list {
+        padding: 0 var(--space-3);
+        gap: var(--space-1);
     }
 
     .upcoming-event-item {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
-        gap: var(--space-1);
-        padding: var(--space-3);
+        gap: var(--space-3);
+        padding: var(--space-2) var(--space-3);
+        border-radius: 0;
+        border-left: 2px solid var(--color-purple-primary);
+        background: rgba(155, 126, 222, 0.03);
     }
 
     .event-date {
         font-size: var(--text-xs);
-        min-width: auto;
+        min-width: 70px;
+        flex-shrink: 0;
+        padding-top: 2px;
     }
 
     .event-title {
         font-size: var(--text-sm);
+        line-height: 1.5;
+    }
+
+    .event-title-hidden {
+        font-size: var(--text-sm);
+        line-height: 1.5;
     }
 
     .event-meta {
