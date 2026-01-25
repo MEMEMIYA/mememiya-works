@@ -13,19 +13,19 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .upcoming-event-item {
     display: flex;
     align-items: flex-start;
-    gap: var(--space-3);
+    gap: var(--space-2);
     padding: 10px var(--space-3);
     border: none;
     border-bottom: solid 1px rgba(255, 255, 255, 0.08);
     border-radius: 0;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.03);
     transition: border-color var(--transition-base) var(--ease-out-cubic);
 }
 
@@ -120,9 +120,9 @@
     /* スマホ版は小さなラベルを表示 */
     .upcoming-events-section .section-title {
         font-size: var(--text-xs);
-        margin-bottom: var(--space-1);
+        margin-bottom: var(--space-2);
         padding: 0 var(--space-3);
-        color: var(--color-purple-secondary);
+        color: var(--color-text-tertiary);
         text-align: left;
     }
 
@@ -151,12 +151,10 @@
         gap: var(--space-2);
         padding: 8px var(--space-2);
         border-radius: 0;
-        border-left: 2px solid var(--color-purple-primary);
-        border-right: none;
-        border-bottom: none;
-        border-top: none;
-        background: rgba(155, 126, 222, 0.03);
-        margin-bottom: 2px;
+        border: none;
+        border-bottom: solid 1px rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        margin: 0;
     }
 
     /* リンクのタップ領域をアイテム全体に拡大 */
@@ -170,7 +168,7 @@
     }
 
     .upcoming-event-item:first-child {
-        border-top: none;
+        border-top: solid 1px rgba(255, 255, 255, 0.08);
     }
 
     .event-date {
