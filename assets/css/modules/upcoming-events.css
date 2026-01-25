@@ -19,7 +19,7 @@
 
 .upcoming-event-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-3);
     padding: 10px var(--space-3);
     border: none;
@@ -39,13 +39,14 @@
 }
 
 .event-date {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
     font-weight: 600;
     color: var(--color-purple-primary);
     letter-spacing: 0.04em;
     white-space: nowrap;
     min-width: 70px;
+    line-height: 1.4;
 }
 
 .event-details {
@@ -146,7 +147,7 @@
     .upcoming-event-item {
         position: relative;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
         gap: var(--space-2);
         padding: 8px var(--space-2);
         border-radius: 0;
@@ -173,9 +174,10 @@
     }
 
     .event-date {
-        font-size: var(--text-2xs);
+        font-size: var(--text-xs);
         min-width: 60px;
         flex-shrink: 0;
+        line-height: 1.4;
     }
 
     .event-title {
