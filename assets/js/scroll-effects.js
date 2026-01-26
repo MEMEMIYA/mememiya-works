@@ -10,24 +10,29 @@ const easing = {
 };
 
 // Intersection Observer for sections (fade-in animation)
-const fadeInObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-});
+// スマホ版では無効化
+const isMobileDevice = window.innerWidth <= 768;
 
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(50px)';
-    section.style.transition = 'opacity 0.8s, transform 0.8s';
-    fadeInObserver.observe(section);
-});
+if (!isMobileDevice) {
+    const fadeInObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(50px)';
+        section.style.transition = 'opacity 0.8s, transform 0.8s';
+        fadeInObserver.observe(section);
+    });
+}
 
 // Navigation background on scroll
 const nav = document.querySelector('.main-nav');
