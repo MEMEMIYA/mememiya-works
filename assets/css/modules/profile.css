@@ -356,12 +356,12 @@
     }
 
     .profile-roles {
-        gap: 8px;
+        gap: 6px;
     }
 
     .role-tag {
-        font-size: var(--text-sm);
-        padding: 4px 8px;
+        font-size: var(--text-xs);
+        padding: 3px 6px;
     }
 
     .profile-right-column {
