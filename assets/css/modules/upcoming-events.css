@@ -47,6 +47,8 @@
     white-space: nowrap;
     min-width: 70px;
     line-height: 1.4;
+    user-select: text;
+    cursor: text;
 }
 
 .event-details {
