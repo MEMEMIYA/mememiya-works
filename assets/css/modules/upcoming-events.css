@@ -108,8 +108,7 @@
 }
 
 .event-title-hidden {
-    font-style: italic;
-    color: var(--color-text-tertiary);
+    color: var(--color-text-primary);
     font-weight: 600;
 }
 
