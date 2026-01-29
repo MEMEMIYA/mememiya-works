@@ -24,6 +24,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Remove sensitive files
+        run: |
+          rm -f .gitignore
+          rm -f CLAUDE.md
+          rm -rf .claude
+          rm -rf docs
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
