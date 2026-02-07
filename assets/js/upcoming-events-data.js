@@ -24,7 +24,8 @@ const upcomingEventsData = [
         image: 'assets/images/flyers/中庭_20260321.jpg',
         description: '内と外を融合したXR体験の実験場。XR・空間表現・インタラクションを軸に活動するエンジニア/アーティストによるグループ展。メディアアート、パフォーマンス、DJ/VJが交差する多様な創造表現の場。',
         openingParty: 'オープニングパーティー 17:00-19:40',
-        participants: 'Exhibition: donabe, Dolphiiiin, Ekito, Siosai, さくたま, はまちゃん, ふぁゔ / DJ: KBSNK, Pinieon / VJ: MEMEMIYA, sakiyama / AudioVisual Performance: foana × Luna'
+        participants: 'Exhibition: donabe, Dolphiiiin, Ekito, Siosai, さくたま, はまちゃん, ふぁゔ / DJ: KBSNK, Pinieon / VJ: MEMEMIYA, sakiyama / AudioVisual Performance: foana × Luna',
+        hashtag: '#中庭'
     }
     // 公開イベントの例:
     // {
@@ -115,6 +116,7 @@ function renderUpcomingEvents() {
                             </div>
                             ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
                             ${event.participants ? `<div class="event-participants-section"><div class="event-participants-title">参加アーティスト</div><p class="event-participants">${event.participants}</p></div>` : ''}
+                            ${event.hashtag ? `<div class="event-hashtag">${event.hashtag}</div>` : ''}
                             ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">チケット購入・イベント詳細はこちら ↗</a>` : ''}
                         </div>
                     </div>
