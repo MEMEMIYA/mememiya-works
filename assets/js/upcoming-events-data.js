@@ -1,12 +1,20 @@
 // Upcoming Events Data - 今後のイベント出演予定
 const upcomingEventsData = [
     {
+        date: '2026/2/22',
+        hidden: true  // 詳細非公開
+    },
+    {
         date: '2026/3/15',
         hidden: true  // 詳細非公開
     },
     {
         date: '2026/3/21',
-        hidden: true  // 詳細非公開
+        title: 'グループ展「中庭」',
+        role: 'VJ',
+        venue: 'Pot Gallery（南青山）',
+        link: 'https://nakaniwa.peatix.com/',
+        image: 'assets/images/flyers/中庭_20260321.jpg'
     }
     // 公開イベントの例:
     // {
@@ -32,7 +40,12 @@ function renderUpcomingEvents() {
         if (event.hidden) {
             // 非公開イベント
             return `
-                <div class="upcoming-event-item glass-card event-hidden">
+                <div class="upcoming-event-item glass-card event-hidden${event.image ? ' has-image' : ''}">
+                    ${event.image ? `
+                    <div class="event-thumb-upcoming">
+                        <img src="${event.image}" alt="イベントフライヤー" loading="lazy">
+                    </div>
+                    ` : ''}
                     <div class="event-date">${event.date}</div>
                     <div class="event-details">
                         <h3 class="event-title event-title-hidden">VJ出演（詳細は後日公開）</h3>
@@ -42,7 +55,12 @@ function renderUpcomingEvents() {
         } else {
             // 公開イベント
             return `
-                <div class="upcoming-event-item glass-card">
+                <div class="upcoming-event-item glass-card${event.image ? ' has-image' : ''}">
+                    ${event.image ? `
+                    <div class="event-thumb-upcoming">
+                        <img src="${event.image}" alt="${event.title} フライヤー" loading="lazy">
+                    </div>
+                    ` : ''}
                     <div class="event-date">${event.date}</div>
                     <div class="event-details">
                         <h3 class="event-title">${event.link ? `<a href="${event.link}" target="_blank" rel="noopener noreferrer">${event.title}</a>` : event.title}</h3>

@@ -103,14 +103,44 @@
 }
 
 /* 非公開イベント */
-.event-hidden {
-    /* スタイルは通常のイベントと同じ */
-}
-
 .event-title-hidden {
     color: var(--color-text-primary);
     font-weight: 600;
 }
+
+
+/* 画像付きイベント */
+.upcoming-event-item.has-image {
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-3);
+}
+
+.event-thumb-upcoming {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    border: solid 1px rgba(255, 255, 255, 0.12);
+}
+
+.event-thumb-upcoming img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* 画像付きイベントの日付とタイトルのレイアウト */
+.upcoming-event-item.has-image .event-date {
+    min-width: auto;
+}
+
+.upcoming-event-item.has-image .event-details {
+    width: 100%;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -191,5 +221,15 @@
 
     .event-meta {
         font-size: var(--text-2xs);
+    }
+
+    /* 画像付きイベントのレスポンシブ */
+    .upcoming-event-item.has-image {
+        padding: var(--space-2);
+    }
+
+    .event-thumb-upcoming {
+        max-width: 100%;
+        border-radius: 6px;
     }
 }
