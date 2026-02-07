@@ -50,9 +50,13 @@ function renderUpcomingEvents() {
                         <img src="${event.image}" alt="イベントフライヤー" loading="lazy">
                     </div>
                     ` : ''}
-                    <div class="event-date">${event.date}</div>
-                    <div class="event-details">
-                        <h3 class="event-title event-title-hidden">VJ出演（詳細は後日公開）</h3>
+                    <div class="event-content">
+                        <div class="event-header" style="border-bottom: none; padding-bottom: 0;">
+                            <div class="event-date">${event.date}</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title event-title-hidden" style="font-size: var(--text-lg); margin-top: var(--space-1);">VJ出演（詳細は後日公開）</h3>
+                        </div>
                     </div>
                 </div>
             `;

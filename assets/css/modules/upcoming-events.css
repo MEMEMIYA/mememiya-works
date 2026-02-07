@@ -385,13 +385,16 @@
 
 /* 非公開イベント */
 .event-title-hidden {
-    color: var(--color-text-primary);
-    font-weight: 600;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    font-size: var(--text-base);
+    letter-spacing: 0.02em;
 }
 
 /* 画像なしイベント（非公開イベント用）*/
 .upcoming-event-item:not(.has-image) .event-content {
-    padding: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    gap: var(--space-2);
 }
 
 .upcoming-event-item:not(.has-image) .event-date {
