@@ -170,7 +170,6 @@
     background: rgba(155, 126, 222, 0.3);
     border-color: var(--color-purple-primary);
     color: #fff;
-    box-shadow: 0 0 15px rgba(155, 126, 222, 0.5);
     transform: translateX(4px);
 }
 
