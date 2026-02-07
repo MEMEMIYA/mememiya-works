@@ -395,6 +395,8 @@
 .upcoming-event-item:not(.has-image) .event-content {
     padding: var(--space-4) var(--space-6);
     gap: var(--space-2);
+    margin-left: 300px;
+    /* 画像付きイベントと位置を揃える */
 }
 
 .upcoming-event-item:not(.has-image) .event-date {

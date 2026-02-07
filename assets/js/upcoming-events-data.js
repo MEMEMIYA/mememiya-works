@@ -3,7 +3,7 @@ const upcomingEventsData = [
     {
         date: '2026/2/22',
         role: 'VJ',
-        venue_type: 'VR',
+        venue_type: 'VRChat',
         hidden: true  // 詳細非公開
     },
     {
