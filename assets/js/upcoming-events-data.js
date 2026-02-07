@@ -105,7 +105,7 @@ function renderUpcomingEvents() {
                             </div>
                             ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
                             ${event.participants ? `<div class="event-participants-section"><div class="event-participants-title">参加アーティスト</div><p class="event-participants">${event.participants}</p></div>` : ''}
-                            ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">イベント詳細はこちら ↗</a>` : ''}
+                            ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">チケット購入・イベント詳細はこちら ↗</a>` : ''}
                         </div>
                     </div>
                 </div>
@@ -132,16 +132,16 @@ function initImageLightbox() {
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const backdrop = lightbox.querySelector('.lightbox-backdrop');
 
-    // 画像クリック時の処理
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('.event-thumb-upcoming img')) {
-            const img = e.target.closest('.event-thumb-upcoming img');
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    });
+    // 画像クリック時の処理（無効化）
+    // document.addEventListener('click', (e) => {
+    //     if (e.target.closest('.event-thumb-upcoming img')) {
+    //         const img = e.target.closest('.event-thumb-upcoming img');
+    //         lightboxImg.src = img.src;
+    //         lightboxImg.alt = img.alt;
+    //         lightbox.classList.add('active');
+    //         document.body.style.overflow = 'hidden';
+    //     }
+    // });
 
     // 閉じる処理
     const closeLightbox = () => {
