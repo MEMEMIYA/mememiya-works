@@ -54,6 +54,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .event-thumb-upcoming:hover {
@@ -63,7 +64,7 @@
 .event-thumb-upcoming img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
@@ -78,10 +79,10 @@
 /* イベントコンテンツ */
 .event-content {
     flex: 1;
-    padding: var(--space-4) var(--space-5);
+    padding: var(--space-5);
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-5);
     min-width: 0;
 }
 
@@ -92,28 +93,23 @@
     align-items: flex-start;
     gap: var(--space-4);
     flex-wrap: wrap;
+    padding-bottom: var(--space-4);
+    border-bottom: solid 1px rgba(255, 255, 255, 0.06);
 }
 
 .event-date-group {
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
+    gap: var(--space-2);
 }
 
 .event-date {
     font-family: var(--font-mono);
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: 700;
     color: var(--color-purple-primary);
     letter-spacing: 0.05em;
     line-height: 1.2;
-}
-
-.event-date::before {
-    content: '■ ';
-    opacity: 0.5;
-    font-size: 0.6em;
-    vertical-align: middle;
 }
 
 .event-period {
@@ -132,18 +128,12 @@
     letter-spacing: 0.04em;
 }
 
-.event-hours::before {
-    content: '● ';
-    opacity: 0.4;
-    font-size: 0.7em;
-}
-
 /* イベントHPボタン */
 .event-link-button {
     display: inline-flex;
     align-items: center;
     gap: var(--space-1);
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-2) var(--space-3);
     font-family: var(--font-body);
     font-size: var(--text-sm);
     font-weight: 600;
@@ -171,17 +161,17 @@
 
 .event-title {
     font-family: var(--font-body);
-    font-size: var(--text-3xl);
+    font-size: var(--text-2xl);
     font-weight: 700;
     color: var(--color-text-primary);
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
     margin: 0;
     line-height: 1.3;
 }
 
 .event-description {
     font-family: var(--font-body);
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     font-weight: 400;
     color: var(--color-text-secondary);
     letter-spacing: 0.02em;
@@ -202,7 +192,7 @@
 .event-role {
     font-weight: 700;
     color: var(--color-purple-secondary);
-    padding: var(--space-1) var(--space-3);
+    padding: var(--space-1) var(--space-2);
     background: linear-gradient(135deg, rgba(196, 181, 253, 0.15) 0%, rgba(155, 126, 222, 0.1) 100%);
     border: solid 1px rgba(196, 181, 253, 0.2);
     border-radius: 0;
@@ -214,14 +204,13 @@
 }
 
 .event-venue::before {
-    content: '▸ ';
-    opacity: 0.4;
-    font-size: 0.8em;
+    content: '📍 ';
+    opacity: 0.7;
 }
 
 .event-my-role {
     font-family: var(--font-body);
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     font-weight: 500;
     color: var(--color-text-primary);
     letter-spacing: 0.02em;
@@ -238,16 +227,10 @@
     font-weight: 500;
     color: var(--color-text-secondary);
     letter-spacing: 0.02em;
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-2) var(--space-3);
     background: rgba(155, 126, 222, 0.06);
     border-radius: 0;
     line-height: 1.6;
-}
-
-.event-opening-party::before {
-    content: '◆ ';
-    opacity: 0.4;
-    font-size: 0.7em;
 }
 
 .event-participants-section {

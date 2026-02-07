@@ -11,16 +11,14 @@ const upcomingEventsData = [
     {
         date: '2026/3/21',
         title: 'グループ展「中庭」',
-        role: 'VJ',
         venue: 'Pot Gallery（南青山）',
         venue_type: 'REAL',  // 'REAL' または 'VR'
         link: 'https://nakaniwa.peatix.com/',
         image: 'assets/images/flyers/中庭_20260321.jpg',
         description: '内と外を融合したXR体験の実験場。XR・空間表現・インタラクションを軸に活動するエンジニア/アーティストによるグループ展。メディアアート、パフォーマンス、DJ/VJが交差する多様な創造表現の場。',
-        period: '3/21(土) - 3/22(日)',
         hours: '11:00 - 19:00',
         openingParty: '3/21(土) 17:00-19:40',
-        myRole: 'リアルタイム生成によるGenerative VJパフォーマンス',
+        myRole: 'ジェネVJ',
         participants: 'Exhibition: donabe, Dolphiiim, Ekito, Siosai, さくたま, はまちゃん, ふぁう / DJ: KBSNK, Pinieon / VJ: MEMEMIYA, sakiyama / Audiovisual Performance: foana × Luna'
     }
     // 公開イベントの例:
