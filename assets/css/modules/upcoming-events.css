@@ -164,8 +164,9 @@
 }
 
 .event-hidden .event-title-hidden {
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     margin-top: 0;
+    font-weight: 500;
 }
 
 /* イベントコンテンツ */
@@ -196,7 +197,7 @@
 }
 
 .event-date {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: var(--text-3xl);
     font-weight: 700;
     color: var(--color-purple-primary);
@@ -305,12 +306,12 @@
 
 .event-meta {
     display: flex;
-    gap: var(--space-2);
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: var(--space-1);
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     letter-spacing: 0.04em;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .event-role {

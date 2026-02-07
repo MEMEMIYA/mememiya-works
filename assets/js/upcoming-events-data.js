@@ -81,7 +81,7 @@ function renderUpcomingEvents() {
                             <div class="event-date">${formatDate(event.date)}</div>
                         </div>
                         <div class="event-details">
-                            <h3 class="event-title event-title-hidden" style="font-size: var(--text-lg); margin-top: var(--space-1);">VJ出演（詳細は後日公開）</h3>
+                            <h3 class="event-title event-title-hidden">VJ出演（詳細は後日公開）</h3>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,6 @@ function renderUpcomingEvents() {
                                 <div class="event-date">${formatDate(event.date)}</div>
                                 ${event.period ? `<div class="event-period">${event.period}</div>` : ''}
                                 ${event.hours ? `<div class="event-hours">${event.hours}</div>` : ''}
-                                ${event.openingParty ? `<div class="event-opening-party">${event.openingParty}</div>` : ''}
                             </div>
                         </div>
                         <div class="event-details">
@@ -113,10 +112,11 @@ function renderUpcomingEvents() {
                             ${event.description ? `<p class="event-description">${event.description}</p>` : ''}
                             <div class="event-meta">
                                 ${event.venue ? `<span class="event-venue">${event.venue}</span>` : ''}
+                                ${event.openingParty ? `<div class="event-opening-party">${event.openingParty}</div>` : ''}
+                                ${event.hashtag ? `<div class="event-hashtag">${event.hashtag}</div>` : ''}
                             </div>
                             ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
                             ${event.participants ? `<div class="event-participants-section"><div class="event-participants-title">参加アーティスト</div><p class="event-participants">${event.participants}</p></div>` : ''}
-                            ${event.hashtag ? `<div class="event-hashtag">${event.hashtag}</div>` : ''}
                             ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">チケット購入・イベント詳細はこちら ↗</a>` : ''}
                         </div>
                     </div>
