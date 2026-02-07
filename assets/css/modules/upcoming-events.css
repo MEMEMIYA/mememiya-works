@@ -221,35 +221,33 @@
 .event-venue {
     color: var(--color-text-secondary);
     padding: var(--space-1) 0;
-    padding-left: var(--space-3);
+    padding-left: var(--space-4);
     position: relative;
 }
 
 .event-venue::before {
     content: '';
     position: absolute;
-    left: 0;
+    left: 4px;
     top: 50%;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     background: var(--color-purple-primary);
     border-radius: 50% 50% 50% 0;
-    transform: translateY(-50%) rotate(-45deg);
-    opacity: 0.7;
+    transform: translateY(-60%) rotate(-45deg);
+    opacity: 0.8;
 }
 
 .event-venue::after {
     content: '';
     position: absolute;
-    left: 2px;
+    left: 7px;
     top: 50%;
-    transform: translateY(-50%);
     width: 4px;
     height: 4px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     border-radius: 50%;
-    transform: translateY(-60%) rotate(-45deg);
+    transform: translateY(-75%) rotate(-45deg);
 }
 
 .event-my-role {
