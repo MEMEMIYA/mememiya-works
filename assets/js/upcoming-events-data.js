@@ -49,6 +49,10 @@ function renderUpcomingEvents() {
             // 非公開イベント
             return `
                 <div class="upcoming-event-item glass-card event-hidden${event.image ? ' has-image' : ''}">
+                    <div class="event-tags-top-right">
+                        ${event.role ? `<span class="tag event-role-tag">${event.role}</span>` : ''}
+                        ${event.venue_type ? `<span class="tag event-venue-type-tag">${event.venue_type}</span>` : ''}
+                    </div>
                     ${event.image ? `
                     <div class="event-thumb-upcoming">
                         <img src="${event.image}" alt="イベントフライヤー" loading="lazy">
