@@ -11,14 +11,13 @@ const upcomingEventsData = [
     {
         date: '2026/3/21',
         title: 'グループ展「中庭」',
+        role: 'ジェネVJ',
         venue: 'Pot Gallery（南青山）',
         venue_type: 'REAL',  // 'REAL' または 'VR'
         link: 'https://nakaniwa.peatix.com/',
         image: 'assets/images/flyers/中庭_20260321.jpg',
         description: '内と外を融合したXR体験の実験場。XR・空間表現・インタラクションを軸に活動するエンジニア/アーティストによるグループ展。メディアアート、パフォーマンス、DJ/VJが交差する多様な創造表現の場。',
-        hours: '11:00 - 19:00',
-        openingParty: '3/21(土) 17:00-19:40',
-        myRole: 'ジェネVJ',
+        openingParty: 'オープニングパーティー: 3/21(土) 17:00-19:40',
         participants: 'Exhibition: donabe, Dolphiiim, Ekito, Siosai, さくたま, はまちゃん, ふぁう / DJ: KBSNK, Pinieon / VJ: MEMEMIYA, sakiyama / Audiovisual Performance: foana × Luna'
     }
     // 公開イベントの例:
@@ -73,8 +72,8 @@ function renderUpcomingEvents() {
                                 <div class="event-date">${event.date}</div>
                                 ${event.period ? `<div class="event-period">${event.period}</div>` : ''}
                                 ${event.hours ? `<div class="event-hours">${event.hours}</div>` : ''}
+                                ${event.openingParty ? `<div class="event-opening-party">${event.openingParty}</div>` : ''}
                             </div>
-                            ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">イベントHP ↗</a>` : ''}
                         </div>
                         <div class="event-details">
                             <h3 class="event-title">${event.title}</h3>
@@ -84,8 +83,8 @@ function renderUpcomingEvents() {
                                 ${event.venue ? `<span class="event-venue">${event.venue}</span>` : ''}
                             </div>
                             ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
-                            ${event.openingParty ? `<div class="event-opening-party">オープニングパーティー: ${event.openingParty}</div>` : ''}
                             ${event.participants ? `<div class="event-participants-section"><div class="event-participants-title">参加アーティスト</div><p class="event-participants">${event.participants}</p></div>` : ''}
+                            ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">イベントHP ↗</a>` : ''}
                         </div>
                     </div>
                 </div>

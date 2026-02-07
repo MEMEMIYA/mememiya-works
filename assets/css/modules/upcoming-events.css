@@ -79,7 +79,7 @@
 /* イベントコンテンツ */
 .event-content {
     flex: 1;
-    padding: var(--space-5);
+    padding: var(--space-6);
     display: flex;
     flex-direction: column;
     gap: var(--space-5);
@@ -125,6 +125,14 @@
     font-size: var(--text-sm);
     font-weight: 500;
     color: var(--color-text-tertiary);
+    letter-spacing: 0.04em;
+}
+
+.event-opening-party {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
     letter-spacing: 0.04em;
 }
 
@@ -201,11 +209,35 @@
 .event-venue {
     color: var(--color-text-secondary);
     padding: var(--space-1) 0;
+    padding-left: var(--space-3);
+    position: relative;
 }
 
 .event-venue::before {
-    content: '📍 ';
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 12px;
+    background: var(--color-purple-primary);
+    border-radius: 50% 50% 50% 0;
+    transform: translateY(-50%) rotate(-45deg);
     opacity: 0.7;
+}
+
+.event-venue::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    transform: translateY(-60%) rotate(-45deg);
 }
 
 .event-my-role {
@@ -227,9 +259,6 @@
     font-weight: 500;
     color: var(--color-text-secondary);
     letter-spacing: 0.02em;
-    padding: var(--space-2) var(--space-3);
-    background: rgba(155, 126, 222, 0.06);
-    border-radius: 0;
     line-height: 1.6;
 }
 
@@ -243,7 +272,7 @@
     font-weight: 600;
     color: var(--color-text-secondary);
     letter-spacing: 0.02em;
-    margin-bottom: var(--space-2);
+    margin-bottom: 0.5rem;
 }
 
 .event-participants {
