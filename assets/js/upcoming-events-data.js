@@ -11,10 +11,16 @@ const upcomingEventsData = [
     {
         date: '2026/3/21',
         title: 'グループ展「中庭」',
-        role: 'VJ',
+        role: 'Generative VJ',
         venue: 'Pot Gallery（南青山）',
         link: 'https://nakaniwa.peatix.com/',
-        image: 'assets/images/flyers/中庭_20260321.jpg'
+        image: 'assets/images/flyers/中庭_20260321.jpg',
+        description: '内と外を融合したXR体験の実験場。XR・空間表現・インタラクションを軸に活動するエンジニア/アーティストによるグループ展。メディアアート、パフォーマンス、DJ/VJが交差する多様な創造表現の場。',
+        period: '3/21(土) - 3/22(日)',
+        hours: '11:00 - 19:00',
+        openingParty: '3/21(土) 17:00-19:40',
+        myRole: 'リアルタイム生成によるジェネレーティブVJパフォーマンス',
+        participants: 'Exhibition: donabe, Dolphiiim, Ekito, Siosai, さくたま, はまちゃん, ふぁう / DJ: KBSNK, Pinieon / VJ: MEMEMIYA, sakiyama / Audiovisual Performance: foana × Luna'
     }
     // 公開イベントの例:
     // {
@@ -61,12 +67,25 @@ function renderUpcomingEvents() {
                         <img src="${event.image}" alt="${event.title} フライヤー" loading="lazy">
                     </div>
                     ` : ''}
-                    <div class="event-date">${event.date}</div>
-                    <div class="event-details">
-                        <h3 class="event-title">${event.link ? `<a href="${event.link}" target="_blank" rel="noopener noreferrer">${event.title}</a>` : event.title}</h3>
-                        <div class="event-meta">
-                            <span class="event-role">${event.role}</span>
-                            ${event.venue ? `<span class="event-venue">${event.venue}</span>` : ''}
+                    <div class="event-content">
+                        <div class="event-header">
+                            <div class="event-date-group">
+                                <div class="event-date">${event.date}</div>
+                                ${event.period ? `<div class="event-period">${event.period}</div>` : ''}
+                                ${event.hours ? `<div class="event-hours">${event.hours}</div>` : ''}
+                            </div>
+                            ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">イベントHP ↗</a>` : ''}
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">${event.title}</h3>
+                            ${event.description ? `<p class="event-description">${event.description}</p>` : ''}
+                            <div class="event-meta">
+                                <span class="event-role">${event.role}</span>
+                                ${event.venue ? `<span class="event-venue">${event.venue}</span>` : ''}
+                            </div>
+                            ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
+                            ${event.openingParty ? `<div class="event-opening-party">オープニングパーティー: ${event.openingParty}</div>` : ''}
+                            ${event.participants ? `<div class="event-participants-section"><div class="event-participants-title">参加アーティスト</div><p class="event-participants">${event.participants}</p></div>` : ''}
                         </div>
                     </div>
                 </div>
@@ -75,5 +94,54 @@ function renderUpcomingEvents() {
     }).join('');
 }
 
+// 画像ライトボックス機能
+function initImageLightbox() {
+    // ライトボックス用のHTML要素を作成
+    const lightbox = document.createElement('div');
+    lightbox.className = 'image-lightbox';
+    lightbox.innerHTML = `
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="閉じる">✕</button>
+            <img class="lightbox-image" src="" alt="">
+        </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('.lightbox-image');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const backdrop = lightbox.querySelector('.lightbox-backdrop');
+
+    // 画像クリック時の処理
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.event-thumb-upcoming img')) {
+            const img = e.target.closest('.event-thumb-upcoming img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    // 閉じる処理
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    closeBtn.addEventListener('click', closeLightbox);
+    backdrop.addEventListener('click', closeLightbox);
+
+    // ESCキーで閉じる
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+}
+
 // DOM読み込み後に実行
-document.addEventListener('DOMContentLoaded', renderUpcomingEvents);
+document.addEventListener('DOMContentLoaded', () => {
+    renderUpcomingEvents();
+    initImageLightbox();
+});
