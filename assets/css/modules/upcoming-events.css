@@ -275,7 +275,6 @@
     background: rgba(155, 126, 222, 0.3);
     border-color: var(--color-purple-primary);
     color: #fff;
-    transform: translateX(4px);
 }
 
 .event-details {
