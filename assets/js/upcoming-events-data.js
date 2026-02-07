@@ -4,12 +4,14 @@ const upcomingEventsData = [
         date: '2026/2/22',
         role: 'VJ',
         venue_type: 'VRChat',
+        image: 'placeholder',
         hidden: true  // 詳細非公開
     },
     {
         date: '2026/3/15',
         role: 'VJ',
         venue_type: 'REAL',
+        image: 'placeholder',
         hidden: true  // 詳細非公開
     },
     {
@@ -54,8 +56,13 @@ function renderUpcomingEvents() {
                         ${event.venue_type ? `<span class="tag event-venue-type-tag">${event.venue_type}</span>` : ''}
                     </div>
                     ${event.image ? `
-                    <div class="event-thumb-upcoming">
-                        <img src="${event.image}" alt="イベントフライヤー" loading="lazy">
+                    <div class="event-thumb-upcoming ${event.image === 'placeholder' ? 'event-thumb-placeholder' : ''}">
+                        ${event.image === 'placeholder' ?
+                        `<div class="placeholder-content">
+                                <div class="placeholder-text">詳細は後日公開</div>
+                            </div>` :
+                        `<img src="${event.image}" alt="イベントフライヤー" loading="lazy">`
+                    }
                     </div>
                     ` : ''}
                     <div class="event-content">
@@ -98,7 +105,7 @@ function renderUpcomingEvents() {
                             </div>
                             ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
                             ${event.participants ? `<div class="event-participants-section"><div class="event-participants-title">参加アーティスト</div><p class="event-participants">${event.participants}</p></div>` : ''}
-                            ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">イベントHP ↗</a>` : ''}
+                            ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">イベント詳細はこちら ↗</a>` : ''}
                         </div>
                     </div>
                 </div>
