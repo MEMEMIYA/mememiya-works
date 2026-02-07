@@ -113,8 +113,31 @@
 
 /* 非公開イベント用のコンパクトスタイル */
 .event-hidden .event-thumb-placeholder {
-    max-width: 200px;
-    min-width: 200px;
+    max-width: 300px;
+    min-width: 300px;
+    transition: all var(--transition-slow);
+}
+
+.event-hidden .event-thumb-placeholder:hover {
+    background: rgba(155, 126, 222, 0.08);
+}
+
+.event-hidden .event-thumb-placeholder:hover::before {
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
 }
 
 .event-hidden .placeholder-content {
@@ -122,13 +145,18 @@
 }
 
 .event-hidden .placeholder-text {
-    font-size: var(--text-sm);
-    writing-mode: vertical-rl;
-    letter-spacing: 0.2em;
+    font-size: var(--text-base);
+    writing-mode: horizontal-tb;
+    letter-spacing: 0.15em;
+    transition: color var(--transition-base);
+}
+
+.event-hidden .event-thumb-placeholder:hover .placeholder-text {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .event-hidden .event-content {
-    padding: var(--space-3) var(--space-4) var(--space-3) calc(var(--space-6) + 200px);
+    padding: var(--space-3) var(--space-4) var(--space-3) calc(var(--space-6) + 100px);
     gap: var(--space-2);
 }
 
