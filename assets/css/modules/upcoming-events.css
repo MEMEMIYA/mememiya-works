@@ -176,10 +176,10 @@
 /* イベントコンテンツ */
 .event-content {
     flex: 1;
-    padding: var(--space-6);
+    padding: var(--space-4);
     display: flex;
     flex-direction: column;
-    gap: var(--space-5);
+    gap: var(--space-3);
     min-width: 0;
 }
 
@@ -188,16 +188,16 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: var(--space-4);
+    gap: var(--space-3);
     flex-wrap: wrap;
-    padding-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
     border-bottom: solid 1px rgba(255, 255, 255, 0.06);
 }
 
 .event-date-group {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-1);
 }
 
 .event-date {
@@ -286,7 +286,7 @@
 .event-details {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-2);
 }
 
 .event-title {
