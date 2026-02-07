@@ -109,7 +109,7 @@
 /* 非公開イベント用のコンパクトスタイル */
 .event-hidden .event-thumb-placeholder {
     max-width: 400px;
-    min-width: 300px;
+    min-width: 400px;
     transition: all var(--transition-slow);
 }
 
