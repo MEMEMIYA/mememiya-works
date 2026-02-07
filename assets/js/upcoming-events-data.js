@@ -13,6 +13,7 @@ const upcomingEventsData = [
         title: 'グループ展「中庭」',
         role: 'Generative VJ',
         venue: 'Pot Gallery（南青山）',
+        venue_type: 'REAL',  // 'REAL' または 'VR'
         link: 'https://nakaniwa.peatix.com/',
         image: 'assets/images/flyers/中庭_20260321.jpg',
         description: '内と外を融合したXR体験の実験場。XR・空間表現・インタラクションを軸に活動するエンジニア/アーティストによるグループ展。メディアアート、パフォーマンス、DJ/VJが交差する多様な創造表現の場。',
@@ -64,6 +65,7 @@ function renderUpcomingEvents() {
                 <div class="upcoming-event-item glass-card${event.image ? ' has-image' : ''}">
                     ${event.image ? `
                     <div class="event-thumb-upcoming">
+                        ${event.venue_type ? `<span class="tag event-venue-tag">${event.venue_type}</span>` : ''}
                         <img src="${event.image}" alt="${event.title} フライヤー" loading="lazy">
                     </div>
                     ` : ''}
