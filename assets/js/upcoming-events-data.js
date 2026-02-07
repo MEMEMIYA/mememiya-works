@@ -2,10 +2,14 @@
 const upcomingEventsData = [
     {
         date: '2026/2/22',
+        role: 'VJ',
+        venue_type: 'VR',
         hidden: true  // 詳細非公開
     },
     {
         date: '2026/3/15',
+        role: 'VJ',
+        venue_type: 'REAL',
         hidden: true  // 詳細非公開
     },
     {
