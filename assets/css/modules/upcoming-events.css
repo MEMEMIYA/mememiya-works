@@ -86,11 +86,6 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(45deg,
-            rgba(255, 255, 255, 0.02),
-            rgba(255, 255, 255, 0.02) 10px,
-            transparent 10px,
-            transparent 20px);
 }
 
 .placeholder-content {
@@ -113,7 +108,7 @@
 
 /* 非公開イベント用のコンパクトスタイル */
 .event-hidden .event-thumb-placeholder {
-    max-width: 300px;
+    max-width: 400px;
     min-width: 300px;
     transition: all var(--transition-slow);
 }
