@@ -361,7 +361,7 @@
     justify-content: center;
     line-height: 1;
     transition: all var(--transition-base);
-    z-index: 10001;
+    z-index: 1;
 }
 
 .lightbox-close:hover {
