@@ -36,6 +36,16 @@ const upcomingEventsData = [
     // }
 ];
 
+// 日付をフォーマット（年を小さく、月/日を大きく、曜日を追加）
+function formatDate(dateString) {
+    const [year, month, day] = dateString.split('/');
+    const date = new Date(year, month - 1, day);
+    const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
+    const weekday = weekdays[date.getDay()];
+
+    return `<span class="date-year">${year}</span><span class="date-main">${month}/${day}</span><span class="date-weekday">(${weekday})</span>`;
+}
+
 // イベント予定をレンダリング
 function renderUpcomingEvents() {
     const container = document.querySelector('.upcoming-events-list');
@@ -67,7 +77,7 @@ function renderUpcomingEvents() {
                     ` : ''}
                     <div class="event-content">
                         <div class="event-header" style="border-bottom: none; padding-bottom: 0;">
-                            <div class="event-date">${event.date}</div>
+                            <div class="event-date">${formatDate(event.date)}</div>
                         </div>
                         <div class="event-details">
                             <h3 class="event-title event-title-hidden" style="font-size: var(--text-lg); margin-top: var(--space-1);">VJ出演（詳細は後日公開）</h3>
@@ -91,7 +101,7 @@ function renderUpcomingEvents() {
                     <div class="event-content">
                         <div class="event-header">
                             <div class="event-date-group">
-                                <div class="event-date">${event.date}</div>
+                                <div class="event-date">${formatDate(event.date)}</div>
                                 ${event.period ? `<div class="event-period">${event.period}</div>` : ''}
                                 ${event.hours ? `<div class="event-hours">${event.hours}</div>` : ''}
                                 ${event.openingParty ? `<div class="event-opening-party">${event.openingParty}</div>` : ''}
