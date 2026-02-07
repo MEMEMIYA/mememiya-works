@@ -121,6 +121,40 @@
     text-align: center;
 }
 
+/* 非公開イベント用のコンパクトスタイル */
+.event-hidden .event-thumb-placeholder {
+    max-width: 200px;
+    min-width: 200px;
+}
+
+.event-hidden .placeholder-content {
+    min-height: 120px;
+}
+
+.event-hidden .placeholder-text {
+    font-size: var(--text-sm);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.2em;
+}
+
+.event-hidden .event-content {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-2);
+}
+
+.event-hidden .event-header {
+    padding-bottom: 0;
+}
+
+.event-hidden .event-date {
+    font-size: var(--text-sm);
+}
+
+.event-hidden .event-title-hidden {
+    font-size: var(--text-base);
+    margin-top: 0;
+}
+
 /* イベントコンテンツ */
 .event-content {
     flex: 1;
