@@ -60,9 +60,12 @@ function renderUpcomingEvents() {
             // 公開イベント
             return `
                 <div class="upcoming-event-item glass-card${event.image ? ' has-image' : ''}">
+                    <div class="event-tags-top-right">
+                        ${event.role ? `<span class="tag event-role-tag">${event.role}</span>` : ''}
+                        ${event.venue_type ? `<span class="tag event-venue-type-tag">${event.venue_type}</span>` : ''}
+                    </div>
                     ${event.image ? `
                     <div class="event-thumb-upcoming">
-                        ${event.venue_type ? `<span class="tag event-venue-tag">${event.venue_type}</span>` : ''}
                         <img src="${event.image}" alt="${event.title} フライヤー" loading="lazy">
                     </div>
                     ` : ''}
@@ -79,7 +82,6 @@ function renderUpcomingEvents() {
                             <h3 class="event-title">${event.title}</h3>
                             ${event.description ? `<p class="event-description">${event.description}</p>` : ''}
                             <div class="event-meta">
-                                <span class="event-role">${event.role}</span>
                                 ${event.venue ? `<span class="event-venue">${event.venue}</span>` : ''}
                             </div>
                             ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
