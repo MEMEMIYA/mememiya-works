@@ -116,7 +116,6 @@ function renderUpcomingEvents() {
                                 ${event.hashtag ? `<div class="event-hashtag">${event.hashtag}</div>` : ''}
                             </div>
                             ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
-                            ${event.participants ? `<div class="event-participants-section"><div class="event-participants-title">参加アーティスト</div><p class="event-participants">${event.participants}</p></div>` : ''}
                             ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">チケット購入・イベント詳細はこちら ↗</a>` : ''}
                         </div>
                     </div>
