@@ -359,7 +359,6 @@ a.event-hashtag:hover {
     text-decoration: none;
     background: rgba(155, 126, 222, 0.1);
     border-radius: 4px;
-    box-shadow: 0 0 8px rgba(155, 126, 222, 0.2);
 }
 
 /* Buttons */
@@ -398,7 +397,22 @@ a.event-hashtag:hover {
     color: #000;
     /* Contrast text on hover */
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(155, 126, 222, 0.2);
+}
+
+.event-link-button::after {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'/%3E%3Cpolyline points='7 7 17 7 17 17'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'/%3E%3Cpolyline points='7 7 17 7 17 17'/%3E%3C/svg%3E") no-repeat center / contain;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.event-link-button:hover::after {
+    transform: translate(2px, -2px);
 }
 
 .event-link-button:hover::before {
@@ -409,11 +423,12 @@ a.event-hashtag:hover {
 /* Responsive */
 @media (max-width: 768px) {
     .upcoming-events-section {
-        padding: var(--space-4) 0;
+        padding: var(--space-3) 0 0 0;
     }
 
     .upcoming-events-list {
-        padding: 0 var(--space-3);
+        padding: 0;
+        gap: var(--space-2);
     }
 
     .upcoming-event-item {
@@ -425,25 +440,57 @@ a.event-hashtag:hover {
         width: 100%;
         max-width: 100%;
         height: auto;
-        min-height: 200px;
-        /* Ensure visible height */
+        min-height: auto;
+        aspect-ratio: 16/9;
+        /* Ensure visible height without being too tall */
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .event-thumb-upcoming img {
-        height: auto;
-        min-height: 100%;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .placeholder-text {
+        letter-spacing: 0.02em;
+        line-height: 1.2;
     }
 
     .event-content {
         padding: var(--space-3);
     }
 
+    .event-details {
+        gap: 6px;
+        /* Slightly tighter */
+    }
+
     .event-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--space-1);
+        gap: 2px;
+        width: 100%;
+        padding-bottom: 6px;
+        /* Reduced from 8px */
+        margin-bottom: 6px;
+        /* Reduced from 8px */
+    }
+
+    .event-date-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+    }
+
+    .event-period,
+    .event-hours {
+        text-align: left;
+        color: var(--color-text-tertiary);
+        margin-left: 2px;
     }
 
     .date-main {
@@ -452,38 +499,72 @@ a.event-hashtag:hover {
 
     .event-title {
         font-size: 1.2rem;
+        margin-top: 0;
+        margin-bottom: 2px;
+        /* Ensure small space to description */
+        line-height: 1.3;
+    }
+
+    .event-description {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        /* Tighter line height for mobile */
+        margin-bottom: 2px;
     }
 
     .event-meta {
         flex-direction: column;
-        gap: var(--space-2);
+        gap: 2px;
+        align-items: flex-start;
+        padding-top: 6px;
+        /* Slightly tighter */
+        margin-top: 0;
+    }
+
+    .event-meta .break-row {
+        display: none;
+        /* Let flex-direction column handle the break */
     }
 
     /* Keep hidden events compact and horizontal even on mobile */
     .upcoming-event-item.event-hidden {
         flex-direction: row;
         min-height: 70px;
-        height: 70px;
+        height: auto;
+        /* Allow growth if text wraps */
+        align-items: stretch;
     }
 
     .upcoming-event-item.event-hidden .event-thumb-upcoming {
         width: 70px;
         min-width: 70px;
         max-width: 70px;
-        height: 100%;
+        height: auto;
+        aspect-ratio: auto;
         border-right: 1px solid rgba(255, 255, 255, 0.12);
         border-bottom: none;
     }
 
     .upcoming-event-item.event-hidden .event-content {
-        padding: 0 var(--space-3);
-        gap: var(--space-2);
+        padding: var(--space-2) var(--space-3);
+        gap: var(--space-1);
+        flex-direction: column;
+        /* Stack date and title on very narrow screens if needed, but row usually ok */
+        justify-content: center;
+        align-items: flex-start;
+        padding-right: var(--space-2);
+        /* Less padding on right since tags map be hidden */
     }
 
     .upcoming-event-item.event-hidden .event-header {
-        width: auto;
-        min-width: auto;
-        margin-right: var(--space-2);
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+        flex-direction: row;
+        /* Keep date components horizontal */
+        align-items: baseline;
     }
 
     .upcoming-event-item.event-hidden .date-year {
@@ -501,10 +582,86 @@ a.event-hashtag:hover {
 
     .upcoming-event-item.event-hidden .event-title-hidden {
         font-size: 0.9rem;
+        white-space: normal;
+        /* Allow wrapping */
+        overflow: visible;
+        text-overflow: clip;
     }
 
     .upcoming-event-item.event-hidden .event-tags-top-right {
         display: none;
-        /* Hide tags on mobile if too cramped, or adjust */
+        /* Hide tags on mobile if too cramped */
+    }
+}
+
+/* Galaxy Z Fold / Narrow Screen Optimizations */
+@media (max-width: 400px) {
+
+    /* Narrow screen padding adjustments */
+    .upcoming-events-list {
+        padding: 0;
+        gap: var(--space-2);
+    }
+
+    .event-content {
+        padding: var(--space-3) var(--space-2);
+    }
+
+    /* Date Header Compactness */
+    .date-main {
+        font-size: 1.6rem;
+    }
+
+    .date-year {
+        font-size: 0.8rem;
+    }
+
+    .date-weekday {
+        font-size: 0.8rem;
+    }
+
+    /* Allow flexible wrapping for venue location label */
+    .event-venue {
+        flex-wrap: wrap;
+        /* Allow content to wrap below label if needed */
+        line-height: 1.4;
+        align-items: baseline;
+    }
+
+    /* Ensure label breaks cleanly if needed */
+    .event-venue::before {
+        content: 'LOCATION:';
+        display: inline-block;
+        white-space: nowrap;
+        margin-right: 4px;
+        flex-shrink: 0;
+    }
+
+    /* Better handling for opening party time text */
+    .event-opening-party {
+        white-space: normal;
+        word-break: break-word;
+        line-height: 1.4;
+    }
+
+    /* Button Text Adjustments */
+    .event-link-button {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 12px;
+        font-size: 0.8rem;
+        /* Allow text to wrap if absolutely necessary but prefer 1 line */
+        white-space: normal;
+        text-align: center;
+    }
+
+    /* Reduce image height slightly more to save vertical space */
+    .event-thumb-upcoming {
+        aspect-ratio: 21/9;
+    }
+
+    .event-title {
+        font-size: 1.1rem;
+        margin-top: 0;
     }
 }

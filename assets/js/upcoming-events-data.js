@@ -122,7 +122,7 @@ function renderUpcomingEvents() {
                         `<div class="event-hashtag">${event.hashtag}</div>`}` : ''}
                             </div>
                             ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
-                            ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">チケット購入・イベント詳細はこちら ↗</a>` : ''}
+                            ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">チケット購入・イベント詳細はこちら</a>` : ''}
                         </div>
                     </div>
                 </div>
