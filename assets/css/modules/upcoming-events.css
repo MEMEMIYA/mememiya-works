@@ -134,8 +134,13 @@
 }
 
 .upcoming-event-item.event-hidden .placeholder-text {
-    display: none;
-    /* Hide text in compact mode */
+    display: block;
+    /* Show text in compact mode */
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.15em;
+    width: 100%;
 }
 
 /* Content Section */
@@ -160,10 +165,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-6);
     /* Add padding-right to prevent tags overlapping */
     padding-right: 80px;
-    gap: var(--space-4);
+    gap: var(--space-2);
     height: 100%;
 }
 
@@ -173,21 +178,23 @@
     padding-bottom: 0;
     margin-bottom: 0;
     flex-shrink: 0;
-    width: 140px;
+    width: 125px;
 }
 
 .upcoming-event-item.event-hidden .event-date {
     opacity: 0.8;
     margin: 0;
+    align-items: center;
 }
 
 .upcoming-event-item.event-hidden .date-main {
-    font-size: 1.4rem;
+    font-size: 0.9rem;
 }
 
 .upcoming-event-item.event-hidden .date-year,
 .upcoming-event-item.event-hidden .date-weekday {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+    line-height: 1.4;
 }
 
 /* Title styles */
@@ -195,12 +202,12 @@
     flex: 1;
     margin: 0;
     gap: 0;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .upcoming-event-item.event-hidden .event-title-hidden {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 400;
     color: var(--color-text-secondary);
     letter-spacing: 0.05em;
@@ -281,7 +288,7 @@
 
 .event-title-hidden {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.8rem;
     /* Still prominent but slightly smaller than known titles */
     font-weight: 500;
     color: var(--color-text-secondary);

@@ -9,6 +9,7 @@ const upcomingEventsData = [
     },
     {
         date: '2026/3/15',
+        title: 'VJ出演（内輪イベント）',
         role: 'VJ',
         venue_type: 'REAL',
         image: 'placeholder',
@@ -71,7 +72,7 @@ function renderUpcomingEvents() {
                     <div class="event-thumb-upcoming ${event.image === 'placeholder' ? 'event-thumb-placeholder' : ''}">
                         ${event.image === 'placeholder' ?
                         `<div class="placeholder-content">
-                                <div class="placeholder-text">詳細は後日公開</div>
+                                <div class="placeholder-text">Coming Soon</div>
                             </div>` :
                         `<img src="${event.image}" alt="イベントフライヤー" loading="lazy">`
                     }
@@ -82,7 +83,7 @@ function renderUpcomingEvents() {
                             <div class="event-date">${formatDate(event.date)}</div>
                         </div>
                         <div class="event-details">
-                            <h3 class="event-title event-title-hidden">VJ出演（詳細は後日公開）</h3>
+                            <h3 class="event-title event-title-hidden">${event.title ? event.title : 'VJ出演（詳細は後日公開）'}</h3>
                         </div>
                     </div>
                 </div>
