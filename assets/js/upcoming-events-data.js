@@ -115,9 +115,11 @@ function renderUpcomingEvents() {
                             <div class="event-meta">
                                 ${event.venue ? `<span class="event-venue">${event.venue}</span>` : ''}
                                 ${event.openingParty ? `<div class="event-opening-party">${event.openingParty}</div>` : ''}
-                                ${event.hashtag ? (event.hashtagSearchUrl ?
-                    `<a href="${event.hashtagSearchUrl}" class="event-hashtag" target="_blank" rel="noopener noreferrer">${event.hashtag}</a>` :
-                    `<div class="event-hashtag">${event.hashtag}</div>`) : ''}
+                                ${event.hashtag ? `
+                                <div class="break-row"></div>
+                                ${event.hashtagSearchUrl ?
+                        `<a href="${event.hashtagSearchUrl}" class="event-hashtag" target="_blank" rel="noopener noreferrer">${event.hashtag}</a>` :
+                        `<div class="event-hashtag">${event.hashtag}</div>`}` : ''}
                             </div>
                             ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
                             ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">チケット購入・イベント詳細はこちら ↗</a>` : ''}
