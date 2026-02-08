@@ -382,12 +382,14 @@
 .event-opening-party::before {
     content: '';
     position: absolute;
-    left: 6px;
+    left: 4px;
     top: 50%;
-    width: 6px;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.6);
-    transform: translateY(-50%) rotate(45deg);
+    width: 10px;
+    height: 9px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-top: 3px solid rgba(255, 255, 255, 0.7);
+    transform: translateY(-50%);
     opacity: 0.8;
 }
 
@@ -406,11 +408,26 @@
 .event-hashtag::before {
     content: '';
     position: absolute;
-    left: 6px;
+    left: 5px;
+    top: 50%;
+    width: 10px;
+    height: 6px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-left: none;
+    transform: translateY(-50%);
+    opacity: 0.8;
+}
+
+.event-hashtag::after {
+    content: '';
+    position: absolute;
+    left: 3px;
     top: 50%;
     width: 6px;
     height: 6px;
-    background: rgba(255, 255, 255, 0.6);
+    border-left: 1px solid rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
     transform: translateY(-50%) rotate(45deg);
     opacity: 0.8;
 }
