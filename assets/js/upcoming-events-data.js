@@ -78,7 +78,7 @@ function renderUpcomingEvents() {
                     </div>
                     ` : ''}
                     <div class="event-content">
-                        <div class="event-header" style="border-bottom: none; padding-bottom: 0;">
+                        <div class="event-header">
                             <div class="event-date">${formatDate(event.date)}</div>
                         </div>
                         <div class="event-details">
