@@ -232,7 +232,7 @@
 
 
 .event-date {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     color: var(--color-text-primary);
     line-height: 1;
     display: flex;
@@ -263,7 +263,7 @@
 
 .event-period,
 .event-hours {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.8rem;
     color: var(--color-text-tertiary);
     text-align: right;
@@ -323,7 +323,7 @@
 }
 
 .event-venue {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.85rem;
     color: var(--color-text-primary);
     display: flex;
@@ -338,14 +338,14 @@
 }
 
 .event-opening-party {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.85rem;
     color: var(--color-text-secondary);
 }
 
 /* Hashtag */
 .event-hashtag {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.85rem;
     color: var(--color-purple-secondary);
     text-decoration: none;
@@ -372,7 +372,7 @@ a.event-hashtag:hover {
     background: transparent;
     border: 1px solid var(--color-purple-primary);
     color: var(--color-purple-primary);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.85rem;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
@@ -381,22 +381,10 @@ a.event-hashtag:hover {
     z-index: 1;
 }
 
-.event-link-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background: var(--color-purple-primary);
-    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: -1;
-}
-
 .event-link-button:hover {
-    color: #000;
-    /* Contrast text on hover */
-    transform: translateY(-2px);
+    background: rgba(155, 126, 222, 0.1);
+    color: var(--color-purple-secondary);
+    border-color: var(--color-purple-secondary);
 }
 
 .event-link-button::after {
@@ -408,15 +396,11 @@ a.event-hashtag:hover {
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'/%3E%3Cpolyline points='7 7 17 7 17 17'/%3E%3C/svg%3E") no-repeat center / contain;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'/%3E%3Cpolyline points='7 7 17 7 17 17'/%3E%3C/svg%3E") no-repeat center / contain;
     flex-shrink: 0;
-    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.3s ease;
 }
 
 .event-link-button:hover::after {
-    transform: translate(2px, -2px);
-}
-
-.event-link-button:hover::before {
-    width: 100%;
+    transform: translate(1px, -1px);
 }
 
 
