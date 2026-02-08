@@ -111,29 +111,31 @@
     text-align: center;
 }
 
-/* Hidden Event Styles (Restored visual weight) */
-/* Hidden Event Styles (Subdued) */
-.event-hidden .upcoming-event-item {
-    min-height: 250px;
-    opacity: 0.7;
-    /* Make the whole card slightly dimmer */
-    transition: opacity var(--transition-base);
+/* Hidden Event Styles (Super Compact) */
+.upcoming-event-item.event-hidden {
+    min-height: 80px;
+    height: 80px;
+    opacity: 0.6;
+    align-items: center;
+    cursor: default;
 }
 
-.event-hidden .upcoming-event-item:hover {
-    opacity: 1;
-    /* Brighten on hover */
+/* Hover effect removed for non-clickable items */
+
+/* Shrink image area for hidden events */
+.upcoming-event-item.event-hidden .event-thumb-upcoming {
+    /* Width constraints removed to match regular event layout */
+    height: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.event-hidden .placeholder-text {
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    /* Smaller text */
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.4);
-    /* Dimmer text */
-    letter-spacing: 0.05em;
-    text-align: center;
+.upcoming-event-item.event-hidden .event-thumb-upcoming img {
+    object-fit: cover;
+}
+
+.upcoming-event-item.event-hidden .placeholder-text {
+    display: none;
+    /* Hide text in compact mode */
 }
 
 /* Content Section */
@@ -144,6 +146,68 @@
     flex-direction: column;
     gap: var(--space-3);
     min-width: 0;
+}
+
+/* Adjust tags for compact mode */
+.upcoming-event-item.event-hidden .event-tags-top-right {
+    top: 50%;
+    transform: translateY(-50%);
+    right: var(--space-4);
+}
+
+/* Horizontal layout for content */
+.upcoming-event-item.event-hidden .event-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 var(--space-4);
+    /* Add padding-right to prevent tags overlapping */
+    padding-right: 80px;
+    gap: var(--space-4);
+    height: 100%;
+}
+
+/* Reset header styles for horizontal layout */
+.upcoming-event-item.event-hidden .event-header {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: 140px;
+}
+
+.upcoming-event-item.event-hidden .event-date {
+    opacity: 0.8;
+    margin: 0;
+}
+
+.upcoming-event-item.event-hidden .date-main {
+    font-size: 1.4rem;
+}
+
+.upcoming-event-item.event-hidden .date-year,
+.upcoming-event-item.event-hidden .date-weekday {
+    font-size: 0.9rem;
+}
+
+/* Title styles */
+.upcoming-event-item.event-hidden .event-details {
+    flex: 1;
+    margin: 0;
+    gap: 0;
+    justify-content: center;
+}
+
+.upcoming-event-item.event-hidden .event-title-hidden {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.05em;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Header (Date) */
@@ -157,26 +221,7 @@
     margin-bottom: var(--space-2);
 }
 
-.event-hidden .event-header {
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-    /* Dashed border for tentative feel */
-}
 
-.event-hidden .event-date {
-    opacity: 0.8;
-}
-
-.event-hidden .event-title-hidden {
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    /* Smaller title */
-    font-weight: 400;
-    /* Regular weight */
-    color: var(--color-text-secondary);
-    /* Secondary color */
-    letter-spacing: 0.05em;
-    margin: 0;
-}
 
 .event-date {
     font-family: var(--font-mono);
@@ -236,7 +281,7 @@
 
 .event-title-hidden {
     font-family: var(--font-body);
-    font-size: 1.25rem;
+    font-size: 1rem;
     /* Still prominent but slightly smaller than known titles */
     font-weight: 500;
     color: var(--color-text-secondary);
@@ -298,8 +343,10 @@
 
 a.event-hashtag:hover {
     color: var(--color-purple-primary);
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    text-decoration: none;
+    background: rgba(155, 126, 222, 0.1);
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(155, 126, 222, 0.2);
 }
 
 /* Buttons */
@@ -399,8 +446,52 @@ a.event-hashtag:hover {
         gap: var(--space-2);
     }
 
-    .event-hidden .event-thumb-upcoming {
-        /* On mobile, keep hidden event images standard size */
-        height: 200px;
+    /* Keep hidden events compact and horizontal even on mobile */
+    .upcoming-event-item.event-hidden {
+        flex-direction: row;
+        min-height: 70px;
+        height: 70px;
+    }
+
+    .upcoming-event-item.event-hidden .event-thumb-upcoming {
+        width: 70px;
+        min-width: 70px;
+        max-width: 70px;
+        height: 100%;
+        border-right: 1px solid rgba(255, 255, 255, 0.12);
+        border-bottom: none;
+    }
+
+    .upcoming-event-item.event-hidden .event-content {
+        padding: 0 var(--space-3);
+        gap: var(--space-2);
+    }
+
+    .upcoming-event-item.event-hidden .event-header {
+        width: auto;
+        min-width: auto;
+        margin-right: var(--space-2);
+    }
+
+    .upcoming-event-item.event-hidden .date-year {
+        display: none;
+        /* Hide year on mobile to save space */
+    }
+
+    .upcoming-event-item.event-hidden .date-main {
+        font-size: 1.1rem;
+    }
+
+    .upcoming-event-item.event-hidden .date-weekday {
+        font-size: 0.8rem;
+    }
+
+    .upcoming-event-item.event-hidden .event-title-hidden {
+        font-size: 0.9rem;
+    }
+
+    .upcoming-event-item.event-hidden .event-tags-top-right {
+        display: none;
+        /* Hide tags on mobile if too cramped, or adjust */
     }
 }
