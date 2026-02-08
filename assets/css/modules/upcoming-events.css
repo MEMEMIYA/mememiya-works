@@ -71,7 +71,6 @@
     width: auto;
     max-width: 400px;
     min-width: 300px;
-    /* Reverted to original responsive width */
     flex-shrink: 0;
     position: relative;
     cursor: default;
@@ -124,9 +123,9 @@
 
 /* Shrink image area for hidden events */
 .upcoming-event-item.event-hidden .event-thumb-upcoming {
-    /* Width constraints removed to match regular event layout */
     height: 100%;
     border-right: 1px solid rgba(255, 255, 255, 0.12);
+    order: 1;
 }
 
 .upcoming-event-item.event-hidden .event-thumb-upcoming img {
@@ -135,7 +134,6 @@
 
 .upcoming-event-item.event-hidden .placeholder-text {
     display: block;
-    /* Show text in compact mode */
     font-size: 0.9rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.7);
@@ -153,11 +151,14 @@
     min-width: 0;
 }
 
-/* Adjust tags for compact mode */
+/* Adjust tags for compact mode - flow layout instead of absolute */
 .upcoming-event-item.event-hidden .event-tags-top-right {
-    top: 50%;
-    transform: translateY(-50%);
-    right: var(--space-4);
+    position: static;
+    transform: none;
+    flex-shrink: 0;
+    align-self: center;
+    order: 3;
+    padding-right: var(--space-3);
 }
 
 /* Horizontal layout for content */
@@ -165,11 +166,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 var(--space-6);
-    /* Add padding-right to prevent tags overlapping */
-    padding-right: 80px;
+    padding: 0 var(--space-4);
     gap: var(--space-2);
     height: 100%;
+    order: 2;
 }
 
 /* Reset header styles for horizontal layout */
@@ -200,6 +200,7 @@
 /* Title styles */
 .upcoming-event-item.event-hidden .event-details {
     flex: 1;
+    min-width: 0;
     margin: 0;
     gap: 0;
     justify-content: flex-start;
@@ -278,12 +279,13 @@
 .event-title {
     font-family: var(--font-body);
     font-size: 1.5rem;
-    /* ~24px */
     font-weight: 700;
     color: var(--color-text-primary);
     letter-spacing: 0.04em;
     line-height: 1.4;
     margin-top: var(--space-1);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .event-title-hidden {
@@ -308,7 +310,7 @@
 .event-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-1);
+    gap: 4px;
     margin-top: 0;
     padding-top: var(--space-1);
     border-top: 1px dashed rgba(255, 255, 255, 0.1);
@@ -317,7 +319,7 @@
 .event-meta .break-row {
     flex-basis: 100%;
     height: 0;
-    margin: 0;
+    margin: -2px 0;
 }
 
 .event-venue {
@@ -325,15 +327,14 @@
     font-size: 0.85rem;
     color: var(--color-text-primary);
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 6px;
+    flex-wrap: wrap;
+    word-break: break-word;
 }
 
 .event-venue::before {
-    content: 'LOCATION:';
-    font-size: 0.7rem;
-    color: var(--color-text-tertiary);
-    opacity: 0.7;
+    content: none;
 }
 
 .event-opening-party {
@@ -358,7 +359,6 @@ a.event-hashtag:hover {
     color: var(--color-purple-primary);
     text-decoration: none;
     background: rgba(155, 126, 222, 0.1);
-    border-radius: 4px;
 }
 
 /* Buttons */
@@ -433,6 +433,7 @@ a.event-hashtag:hover {
 
     .upcoming-event-item {
         flex-direction: column;
+        min-height: auto;
         border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
@@ -506,10 +507,7 @@ a.event-hashtag:hover {
     }
 
     .event-description {
-        font-size: 0.85rem;
-        line-height: 1.6;
-        /* Tighter line height for mobile */
-        margin-bottom: 2px;
+        display: none;
     }
 
     .event-meta {
@@ -517,13 +515,32 @@ a.event-hashtag:hover {
         gap: 2px;
         align-items: flex-start;
         padding-top: 6px;
-        /* Slightly tighter */
         margin-top: 0;
     }
 
     .event-meta .break-row {
         display: none;
-        /* Let flex-direction column handle the break */
+    }
+
+    .event-link-button {
+        align-self: stretch;
+        justify-content: center;
+        white-space: normal;
+        text-align: center;
+        font-size: 0.8rem;
+        padding: 10px 16px;
+    }
+
+    .event-tags-top-right {
+        top: var(--space-1);
+        right: var(--space-1);
+        gap: var(--space-1);
+    }
+
+    .tag.event-role-tag,
+    .tag.event-venue-type-tag {
+        font-size: 0.65rem;
+        padding: 2px 5px;
     }
 
     /* Keep hidden events compact and horizontal even on mobile */
@@ -597,17 +614,10 @@ a.event-hashtag:hover {
 /* Galaxy Z Fold / Narrow Screen Optimizations */
 @media (max-width: 400px) {
 
-    /* Narrow screen padding adjustments */
-    .upcoming-events-list {
-        padding: 0;
-        gap: var(--space-2);
-    }
-
     .event-content {
-        padding: var(--space-3) var(--space-2);
+        padding: var(--space-2);
     }
 
-    /* Date Header Compactness */
     .date-main {
         font-size: 1.6rem;
     }
@@ -620,42 +630,17 @@ a.event-hashtag:hover {
         font-size: 0.8rem;
     }
 
-    /* Allow flexible wrapping for venue location label */
-    .event-venue {
-        flex-wrap: wrap;
-        /* Allow content to wrap below label if needed */
-        line-height: 1.4;
-        align-items: baseline;
-    }
-
-    /* Ensure label breaks cleanly if needed */
-    .event-venue::before {
-        content: 'LOCATION:';
-        display: inline-block;
-        white-space: nowrap;
-        margin-right: 4px;
-        flex-shrink: 0;
-    }
-
-    /* Better handling for opening party time text */
     .event-opening-party {
         white-space: normal;
         word-break: break-word;
         line-height: 1.4;
     }
 
-    /* Button Text Adjustments */
     .event-link-button {
-        width: 100%;
-        justify-content: center;
         padding: 10px 12px;
-        font-size: 0.8rem;
-        /* Allow text to wrap if absolutely necessary but prefer 1 line */
-        white-space: normal;
-        text-align: center;
+        font-size: 0.75rem;
     }
 
-    /* Reduce image height slightly more to save vertical space */
     .event-thumb-upcoming {
         aspect-ratio: 21/9;
     }
@@ -663,5 +648,28 @@ a.event-hashtag:hover {
     .event-title {
         font-size: 1.1rem;
         margin-top: 0;
+    }
+
+    .event-venue {
+        font-size: 0.8rem;
+    }
+
+    .event-venue::before {
+        font-size: 0.65rem;
+    }
+
+    /* Hidden events: narrower thumb */
+    .upcoming-event-item.event-hidden .event-thumb-upcoming {
+        width: 56px;
+        min-width: 56px;
+        max-width: 56px;
+    }
+
+    .upcoming-event-item.event-hidden .date-main {
+        font-size: 1rem;
+    }
+
+    .upcoming-event-item.event-hidden .event-title-hidden {
+        font-size: 0.8rem;
     }
 }
