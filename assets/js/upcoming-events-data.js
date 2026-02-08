@@ -25,7 +25,8 @@ const upcomingEventsData = [
         description: '内と外を融合したXR体験の実験場。XR・空間表現・インタラクションを軸に活動するエンジニア/アーティストによるグループ展。メディアアート、パフォーマンス、DJ/VJが交差する多様な創造表現の場。',
         openingParty: 'オープニングパーティー 17:00-19:40',
         participants: 'Exhibition: donabe, Dolphiiiin, Ekito, Siosai, さくたま, はまちゃん, ふぁゔ / DJ: KBSNK, Pinieon / VJ: MEMEMIYA, sakiyama / AudioVisual Performance: foana × Luna',
-        hashtag: '#中庭'
+        hashtag: '#中庭',
+        hashtagSearchUrl: 'https://twitter.com/search?q=%23中庭%20since%3A2026-02-07%20until%3A2026-03-31&src=typed_query&f=live'
     }
     // 公開イベントの例:
     // {
@@ -113,7 +114,9 @@ function renderUpcomingEvents() {
                             <div class="event-meta">
                                 ${event.venue ? `<span class="event-venue">${event.venue}</span>` : ''}
                                 ${event.openingParty ? `<div class="event-opening-party">${event.openingParty}</div>` : ''}
-                                ${event.hashtag ? `<div class="event-hashtag">${event.hashtag}</div>` : ''}
+                                ${event.hashtag ? (event.hashtagSearchUrl ?
+                    `<a href="${event.hashtagSearchUrl}" class="event-hashtag" target="_blank" rel="noopener noreferrer">${event.hashtag}</a>` :
+                    `<div class="event-hashtag">${event.hashtag}</div>`) : ''}
                             </div>
                             ${event.myRole ? `<div class="event-my-role">${event.myRole}</div>` : ''}
                             ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">チケット購入・イベント詳細はこちら ↗</a>` : ''}
