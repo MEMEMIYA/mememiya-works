@@ -375,6 +375,20 @@
     color: var(--color-text-secondary);
     letter-spacing: 0.02em;
     line-height: 1.6;
+    padding-left: var(--space-4);
+    position: relative;
+}
+
+.event-opening-party::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateY(-50%) rotate(45deg);
+    opacity: 0.8;
 }
 
 
