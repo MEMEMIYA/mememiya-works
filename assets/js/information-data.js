@@ -1,5 +1,9 @@
 // Information Data - お知らせ情報
 const informationData = [
+{
+        date: '2026/2/08',
+        text: '展示イベント「中庭」でのVJ情報を追記'
+    },
     {
         date: '2026/1/24',
         text: 'VJブッキングの新規受付を停止しました'
