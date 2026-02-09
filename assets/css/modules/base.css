@@ -313,11 +313,11 @@ section {
     text-align: center;
     margin-bottom: var(--space-6);
     color: var(--color-text-primary);
-    letter-spacing: var(--tracking-wide);
-    font-weight: 700;
+    letter-spacing: 0.15em;
+    font-weight: 200;
     position: relative;
     padding-bottom: var(--space-3);
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     text-transform: none;
     line-height: var(--leading-tight);
 }

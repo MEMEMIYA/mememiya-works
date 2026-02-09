@@ -42,6 +42,7 @@
     /* タイポグラフィスケール */
     --font-display: 'Bebas Neue', sans-serif;
     --font-body: 'Noto Sans JP', 'Helvetica Neue', Helvetica, 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
+    --font-heading: 'M PLUS 1p', 'Noto Sans JP', sans-serif;
     --font-mono: 'Azeret Mono', monospace;
     --font-serif: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
 
