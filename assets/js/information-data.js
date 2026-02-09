@@ -2,7 +2,7 @@
 const informationData = [
 {
         date: '2026/2/08',
-        text: '展示イベント「中庭」でのVJ情報を追記'
+        text: '展示イベント「中庭」でのVJ情報を追加'
     },
     {
         date: '2026/1/24',
