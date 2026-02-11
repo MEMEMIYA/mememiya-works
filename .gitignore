@@ -18,3 +18,6 @@ assets/thirdparty
 docs/No-Commit Documents
 .claude/settings.local.json
 .claude/settings.json
+
+# Tests
+tests/
