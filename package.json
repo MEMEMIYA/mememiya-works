@@ -3,6 +3,8 @@
     "puppeteer": "^24.25.0"
   },
   "scripts": {
-    "test": "node tests/e2e.test.js"
+    "test": "node tests/run-all.js",
+    "test:e2e": "node tests/e2e.test.js",
+    "test:comprehensive": "node tests/comprehensive.test.js"
   }
 }
