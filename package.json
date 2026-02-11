@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "puppeteer": "^24.25.0"
+  },
+  "scripts": {
+    "test": "node tests/e2e.test.js"
   }
 }

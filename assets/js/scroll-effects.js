@@ -27,6 +27,8 @@ if (!isMobileDevice) {
     });
 
     document.querySelectorAll('section').forEach(section => {
+        // ヒーローセクションは独自のアニメーションがあるため除外
+        if (section.id === 'hero') return;
         section.style.opacity = '0';
         section.style.transform = 'translateY(50px)';
         section.style.transition = 'opacity 0.8s, transform 0.8s';

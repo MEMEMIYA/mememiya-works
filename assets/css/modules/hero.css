@@ -10,6 +10,7 @@
     overflow: hidden;
     background: transparent;
     margin-bottom: -35vh;
+    z-index: 3;
 }
 
 .hero-cursor {
@@ -156,6 +157,14 @@
     gap: var(--space-4);
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-cta .btn-hero {
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
 }
 
 .scroll-indicator {
