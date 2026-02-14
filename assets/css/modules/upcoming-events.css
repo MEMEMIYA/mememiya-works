@@ -78,7 +78,7 @@
     min-width: 300px;
     flex-shrink: 0;
     position: relative;
-    cursor: default;
+    cursor: pointer;
     border-right: solid 1px rgba(255, 255, 255, 0.12);
     overflow: hidden;
     display: flex;
@@ -92,6 +92,11 @@
     height: 100%;
     object-fit: contain;
     display: block;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.event-thumb-upcoming:not(.event-gallery):hover img {
+    transform: scale(1.02);
 }
 
 .event-thumb-placeholder {
@@ -236,42 +241,71 @@
 
 
 
+.event-date-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+    gap: 4px;
+}
+
 .event-date {
     font-family: var(--font-body);
     color: var(--color-text-primary);
-    line-height: 1;
     display: flex;
-    align-items: baseline;
-    gap: 8px;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .date-year {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 400;
     color: var(--color-text-tertiary);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+}
+
+.date-main-line {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    line-height: 1;
 }
 
 .date-main {
-    font-size: 2.2rem;
-    font-weight: 300;
+    font-size: 2.4rem;
+    font-weight: 600;
     color: var(--color-purple-secondary);
-    letter-spacing: 0.02em;
+    letter-spacing: -0.02em;
 }
 
 .date-weekday {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--color-text-tertiary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
     margin-left: 2px;
 }
 
-.event-period,
-.event-hours {
+/* Time & Role info */
+.event-time-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 2px;
+}
+
+.event-period {
     font-family: var(--font-body);
     font-size: 0.8rem;
     color: var(--color-text-tertiary);
-    text-align: right;
+}
+
+.event-hours {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.03em;
 }
 
 /* Event Details */
@@ -356,16 +390,8 @@
     color: var(--color-text-secondary);
 }
 
-/* Hashtag */
+/* Hashtag (base for non-link hashtags) */
 .event-hashtag {
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    color: var(--color-purple-secondary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
     align-self: flex-start;
 }
 
@@ -379,13 +405,175 @@
     pointer-events: none;
 }
 
-a.event-hashtag:hover {
-    color: var(--color-purple-primary);
-    text-decoration: none;
+.event-meta > .event-official-account {
+    padding-left: 0;
+    margin-left: 1em;
 }
 
-.event-meta > a.event-hashtag:hover::before {
+.event-meta > .event-official-account::before {
+    left: -1em;
+    pointer-events: none;
+}
+
+.event-meta > a.event-hashtag:hover::before,
+.event-meta > a.event-official-account:hover::before {
     color: var(--color-text-tertiary);
+}
+
+/* Image Lightbox */
+.image-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.image-lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    z-index: 1;
+}
+
+.lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    display: block;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s ease;
+}
+
+.lightbox-close:hover {
+    color: #fff;
+}
+
+/* Gallery (multiple images - horizontal layout for portrait flyers) */
+.event-gallery {
+    display: flex;
+    flex-direction: row;
+    min-width: 400px;
+    max-width: 500px;
+    align-items: stretch;
+}
+
+.event-gallery img {
+    width: 50%;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.event-gallery img:hover {
+    transform: scale(1.03);
+    z-index: 1;
+}
+
+.event-gallery img + img {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Participants */
+.event-participants {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+/* My Role */
+.event-my-role {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-purple-secondary);
+    font-weight: 500;
+    margin-top: var(--space-1);
+}
+
+/* Official Account & Hashtag shared tag style */
+.event-official-account,
+a.event-hashtag {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-purple-secondary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border: 1px solid rgba(155, 126, 222, 0.25);
+    border-radius: 0;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    width: fit-content;
+}
+
+.event-official-account:hover,
+a.event-hashtag:hover {
+    color: var(--color-purple-primary);
+    border-color: rgba(155, 126, 222, 0.5);
+}
+
+/* Button/Link Icons (SVG and IMG) */
+.button-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.1em;
+}
+
+.event-official-account .button-icon {
+    width: 0.85em;
+    height: 0.85em;
+}
+
+.event-link-button svg.button-icon {
+    width: 1.1em;
+    height: 1.1em;
+}
+
+.event-link-button img.button-icon {
+    height: 1.2em;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Button Group */
+.event-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
 }
 
 /* Buttons */
@@ -394,7 +582,6 @@ a.event-hashtag:hover {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: var(--space-2);
     padding: 10px 20px;
     background: transparent;
     border: 1px solid var(--color-purple-primary);
@@ -459,6 +646,23 @@ a.event-hashtag:hover {
         border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
+    .event-gallery {
+        min-width: 0;
+        max-width: 100%;
+        flex-direction: row;
+        aspect-ratio: auto;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .event-gallery img {
+        width: 50%;
+        object-fit: cover;
+    }
+
+    .event-buttons {
+        flex-direction: column;
+    }
+
     .event-thumb-upcoming img {
         height: 100%;
         width: 100%;
@@ -491,18 +695,8 @@ a.event-hashtag:hover {
     }
 
     .event-date-group {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
         width: 100%;
-    }
-
-    .event-period,
-    .event-hours {
-        text-align: left;
-        color: var(--color-text-tertiary);
-        margin-left: 2px;
+        gap: 2px;
     }
 
     .date-main {
@@ -652,7 +846,7 @@ a.event-hashtag:hover {
         font-size: 0.75rem;
     }
 
-    .event-thumb-upcoming {
+    .event-thumb-upcoming:not(.event-gallery) {
         aspect-ratio: 21/9;
     }
 
