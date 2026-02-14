@@ -84,7 +84,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #000;
+    background: transparent;
 }
 
 .event-thumb-upcoming img {
@@ -390,34 +390,21 @@
     color: var(--color-text-secondary);
 }
 
-/* Hashtag (base for non-link hashtags) */
-.event-hashtag {
+/* Hashtag & Official Account - prevent full-width stretch in flex column */
+.event-hashtag,
+.event-official-account {
     align-self: flex-start;
 }
 
-.event-meta > .event-hashtag {
-    padding-left: 0;
-    margin-left: 1em;
-}
-
-.event-meta > .event-hashtag::before {
-    left: -1em;
-    pointer-events: none;
-}
-
+.event-meta > .event-hashtag,
 .event-meta > .event-official-account {
-    padding-left: 0;
     margin-left: 1em;
+    padding: 4px 10px;
 }
 
+.event-meta > .event-hashtag::before,
 .event-meta > .event-official-account::before {
     left: -1em;
-    pointer-events: none;
-}
-
-.event-meta > a.event-hashtag:hover::before,
-.event-meta > a.event-official-account:hover::before {
-    color: var(--color-text-tertiary);
 }
 
 /* Image Lightbox */
@@ -527,12 +514,15 @@
 a.event-hashtag {
     font-family: var(--font-body);
     font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.4;
     color: var(--color-purple-secondary);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 4px;
     padding: 4px 10px;
+    background: transparent;
     border: 1px solid rgba(155, 126, 222, 0.25);
     border-radius: 0;
     transition: border-color 0.2s ease, color 0.2s ease;
