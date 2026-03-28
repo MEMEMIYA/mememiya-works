@@ -179,6 +179,7 @@ function initWorkModals() {
         const mediaContainer = modal.querySelector('.work-modal-media');
         const galleryGrid = modal.querySelector('.work-modal-gallery-grid');
         const youtubeData = item.dataset.youtube;
+        const externalVideo = item.dataset.externalVideo;
         const img = item.querySelector('.work-thumbnail, .featured-image, .event-flyer img, .event-thumb-compact img');
         const video = item.querySelector('.featured-video, .hero-video');
         const iframe = item.querySelector('iframe');
@@ -197,8 +198,16 @@ function initWorkModals() {
         const hasFlyerImage = (galleryData && galleryData.includes('/flyers/')) ||
                                (img && (img.src.includes('/flyers/') || img.src.includes('/fallback/')));
 
+        // External video (埋め込み不可の動画) - リンクボタンで表示
+        if (externalVideo) {
+            mediaContainer.style.display = 'block';
+            const linkContainer = document.createElement('div');
+            linkContainer.style.cssText = 'display: flex; align-items: center; justify-content: center; aspect-ratio: 16/9; background: rgba(20, 20, 20, 1);';
+            linkContainer.innerHTML = `<a href="${externalVideo}" target="_blank" rel="noopener noreferrer" class="event-link-button" style="font-size: 1rem;"><svg class="button-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:1.2em;height:1.2em;"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg> YouTubeで見る</a>`;
+            mediaContainer.appendChild(linkContainer);
+        }
         // YouTube video handling - 複数対応
-        if (youtubeData) {
+        else if (youtubeData) {
             mediaContainer.style.display = 'block';
 
             // 以前のshorts-modeクラスをクリア

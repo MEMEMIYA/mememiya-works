@@ -1,6 +1,46 @@
 // VJ Events Data - イベント出演履歴
 const vjEventsData = [
     {
+        id: 'nakaniwa',
+        title: 'グループ展「中庭」',
+        date: '2026.3.21',
+        year: '2026',
+        type: 'real',
+        thumbnail: 'assets/images/flyers/FLYER_中庭_20260321.jpg',
+        gallery: [
+            'assets/images/flyers/FLYER_中庭_20260321.jpg',
+            'assets/images/subImage/nakaniwa_combine_02.png'
+        ],
+        venue: 'Pot Gallery（南青山）| 内と外を融合したXR体験の実験場',
+        hashtags: ['中庭']
+    },
+    {
+        id: 'uchiiwa-20260315',
+        title: 'The Third Graduation After Party',
+        date: '2026.3.15',
+        year: '2026',
+        type: 'real',
+        thumbnail: 'assets/images/flyers/FLYER_IPUTDUNK_20260315.png',
+        gallery: [
+            'assets/images/flyers/FLYER_IPUTDUNK_20260315.png'
+        ],
+        venue: '無記入'
+    },
+    {
+        id: 'excite-ep14',
+        title: 'CLUB EXCITE (Ep.14)',
+        date: '2026.2.22',
+        year: '2026',
+        type: 'vr',
+        thumbnail: 'assets/images/flyers/FLYER_EXCITE_20260222_02.png',
+        gallery: [
+            'assets/images/flyers/FLYER_EXCITE_20260222_02.png',
+            'assets/images/flyers/FLYER_EXCITE_20260222_01.png'
+        ],
+        venue: 'VRChat | クラブミュージック、フェスティバルミュージック、EDM全般を取り扱うDJイベント',
+        hashtags: ['CLUBEXCITE']
+    },
+    {
         id: 'rftp',
         title: 'Remember Future Tea Party',
         date: '2025.12.17',
@@ -262,6 +302,10 @@ const vjEventsData = [
         date: '2022.12.12',
         year: '2022',
         type: 'real',
+        thumbnail: 'assets/images/flyers/FLYER_BREAKOUTvol02_20221212.png',
+        gallery: [
+            'assets/images/flyers/FLYER_BREAKOUTvol02_20221212.png'
+        ],
         venue: '無記入'
     },
     {

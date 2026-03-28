@@ -4,6 +4,24 @@ const worksData = {
     all: [
         // Featured Works用の作品
         {
+            id: 'nakaniwa',
+            title: 'グループ展「中庭」',
+            year: '2026',
+            yearMonth: '2026年3月',
+            categories: ['ジェネVJ', 'ライブ', '個人制作'],
+            thumbnail: 'assets/images/thumbnails/Thumbnail_nakaniwa.png',
+            youtubeIds: ['kkovyf6ik-Q'],
+            gallery: [
+                'assets/images/subImage/nakaniwa_combine_01.png'
+            ],
+            description: '南青山のPot Galleryで行われたグループ展『中庭』の一日目に開催されたオープニングイベントにて、PinieonさんのジェネVJを担当しました。',
+            tags: ['ジェネVJ', 'グループ展'],
+            meta: {
+                制作形態: '個人制作',
+                tools: 'Unity　Sound2Light　TouchDesigner'
+            }
+        },
+        {
             id: 'not-applicable',
             title: 'Not Applicable',
             year: '2025',

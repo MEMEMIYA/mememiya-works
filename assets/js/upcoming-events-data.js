@@ -1,50 +1,5 @@
 // Upcoming Events Data - 今後のイベント出演予定
 const upcomingEventsData = [
-    {
-        date: '2026/2/22',
-        title: 'CLUB EXCITE (Ep.14)',
-        role: 'VJ',
-        venue_type: 'VRChat',
-        image: 'assets/images/flyers/FLYER_EXCITE_20260222_01.png',
-        gallery: [
-            'assets/images/flyers/FLYER_EXCITE_20260222_01.png',
-            'assets/images/flyers/FLYER_EXCITE_20260222_02.png'
-        ],
-        description: 'クラブミュージック、フェスティバルミュージック、EDM全般を取り扱うDJイベント。',
-        hours: '21:00 - 23:50',
-        participants: 'DJ: Comet, hosoken, MYOUGADANI, かに / VJ: MEMEMIYA, ぴくるす',
-        myRole: 'VJ（21:00-22:20 担当）',
-        hashtag: '#CLUBEXCITE',
-        hashtagSearchUrl: 'https://x.com/search?q=%23CLUBEXCITE&src=typed_query&f=live',
-        tweetUrl: 'https://x.com/_MEMEMIYA/status/2014547796108705869',
-        groupUrl: 'https://vrchat.com/home/group/grp_4d406d1f-6fd5-4612-b848-0e59d56a79c1',
-        officialAccount: 'https://x.com/CLUB_EXCITE_VR',
-        officialAccountName: 'CLUB EXCITE'
-    },
-    {
-        date: '2026/3/15',
-        title: 'VJ出演（内輪イベント）',
-        role: 'VJ',
-        venue_type: 'REAL',
-        image: 'placeholder',
-        hidden: true  // 詳細非公開
-    },
-    {
-        date: '2026/3/21',
-        title: 'グループ展「中庭」',
-        role: 'ジェネVJ',
-        venue: 'Pot Gallery（南青山）',
-        venue_type: 'REAL',  // 'REAL' または 'VR'
-        link: 'https://nakaniwa.peatix.com/',
-        linkText: 'チケット購入・イベント詳細はこちら',
-        tweetUrl: 'https://x.com/nakaniwa28/status/2020053551771447460?s=20',
-        image: 'assets/images/flyers/FLYER_中庭_20260321.jpg',
-        description: '内と外を融合したXR体験の実験場。XR・空間表現・インタラクションを軸に活動するエンジニア/アーティストによるグループ展。メディアアート、パフォーマンス、DJ/VJが交差する多様な創造表現の場。',
-        openingParty: 'オープニングパーティー 17:00-19:40',
-        participants: 'Exhibition: donabe, Dolphiiiin, Ekito, Siosai, さくたま, はまちゃん, ふぁゔ / DJ: KBSNK, Pinieon / VJ: MEMEMIYA, sakiyama / AudioVisual Performance: foana × Luna',
-        hashtag: '#中庭',
-        hashtagSearchUrl: 'https://twitter.com/search?q=%23中庭%20since%3A2026-02-07%20until%3A2026-03-31&src=typed_query&f=live'
-    }
     // 公開イベントの例:
     // {
     //     date: '2026/2/15',

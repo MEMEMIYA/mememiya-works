@@ -120,7 +120,7 @@ function renderAllWorks() {
         const primaryCategory = work.categories[0];
         const galleryAttr = work.gallery && work.gallery.length > 0 ? `data-gallery="${work.gallery.join(',')}"` : '';
         const youtubeValue = (work.youtubeIds && work.youtubeIds.length > 0) ? work.youtubeIds.join(',') : (work.youtube || '');
-        const hasContent = youtubeValue || (work.gallery && work.gallery.length > 0);
+        const hasContent = youtubeValue || work.externalVideo || (work.gallery && work.gallery.length > 0);
         const noContentClass = hasContent ? '' : 'no-content';
 
         // カテゴリバッジを生成（最初の1つのみ表示）
@@ -130,7 +130,7 @@ function renderAllWorks() {
         }).join('');
 
         return `
-        <div class="work-item glass-card ${noContentClass}" data-category="${categories}" data-youtube="${youtubeValue}" ${galleryAttr}>
+        <div class="work-item glass-card ${noContentClass}" data-category="${categories}" data-youtube="${youtubeValue}" ${galleryAttr} ${work.externalVideo ? `data-external-video="${work.externalVideo}"` : ''}>
             <div class="work-media">
                 <img src="${work.thumbnail}" alt="${work.title}" class="work-thumbnail" loading="lazy">
                 ${categoryBadges ? `<div class="work-category-badges">${categoryBadges}</div>` : ''}

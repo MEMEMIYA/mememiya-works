@@ -100,6 +100,7 @@
     object-position: top center;
     mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    filter: brightness(0.45);
 }
 
 .hero-video-overlay {

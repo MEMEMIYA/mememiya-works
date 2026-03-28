@@ -1,7 +1,11 @@
 // Information Data - お知らせ情報
 const informationData = [
-{
-        date: '2026/2/14',
+    {
+        date: '2026/3/29',
+        text: 'VJ実績・制作物一覧を更新しました'
+    },
+    {
+        date: '2026/2/16',
         text: 'CLUB EXCITE (Ep.14) のイベント情報を追加'
     },
     {
