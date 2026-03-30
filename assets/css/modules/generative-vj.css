@@ -12,8 +12,8 @@
     letter-spacing: 0;
     margin: var(--space-2) 0;
     padding: var(--space-2) var(--space-3);
-    border-left: 2px solid rgba(155, 126, 222, 0.4);
-    background: rgba(155, 126, 222, 0.03);
+    border-left: 2px solid rgba(139, 92, 246, 0.4);
+    background: rgba(139, 92, 246, 0.03);
 }
 
 .generative-vj-note .note-label {

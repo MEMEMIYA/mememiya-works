@@ -257,15 +257,15 @@
     font-weight: 600;
     font-family: var(--font-mono);
     color: var(--color-purple-primary);
-    background-color: rgba(155, 126, 222, 0.1);
-    border: solid 1px rgba(155, 126, 222, 0.3);
+    background-color: rgba(139, 92, 246, 0.1);
+    border: solid 1px rgba(139, 92, 246, 0.3);
     text-decoration: none;
     transition: all var(--transition-base);
     line-height: 1;
 }
 
 .event-hashtag:hover {
-    background-color: rgba(155, 126, 222, 0.2);
+    background-color: rgba(139, 92, 246, 0.2);
     border-color: var(--color-purple-primary);
     color: var(--color-purple-secondary);
     transform: translateY(-1px);

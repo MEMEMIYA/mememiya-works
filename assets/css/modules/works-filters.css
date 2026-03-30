@@ -166,7 +166,7 @@
 }
 
 .filter-role.active {
-    background: rgba(155, 126, 222, 0.25);
+    background: rgba(139, 92, 246, 0.25);
     color: var(--color-purple-secondary);
     font-weight: 700;
 }
@@ -196,7 +196,7 @@
 .filter-teamtype.active {
     border-width: 1px;
     border-color: var(--color-purple-primary);
-    background: rgba(155, 126, 222, 0.15);
+    background: rgba(139, 92, 246, 0.15);
     color: var(--color-purple-secondary);
     transition: all 50ms ease-out;
 }

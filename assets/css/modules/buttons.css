@@ -32,7 +32,7 @@
 /* Primary Button - 濃いパープル背景で高コントラスト */
 .btn-primary,
 .btn-primary-hero {
-    background: linear-gradient(135deg, #7C61C4 0%, #6B4FB8 50%, #5A3FA0 100%);
+    background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 50%, #4C1D95 100%);
     color: #FFFFFF;
     border-color: var(--color-purple-secondary);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -40,7 +40,7 @@
 
 .btn-primary:hover,
 .btn-primary-hero:hover {
-    background: linear-gradient(135deg, #9B7EDE 0%, #8B6DD4 50%, #7C61C4 100%);
+    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%);
     color: #FFFFFF;
     border-color: #FFFFFF;
     transform: translateY(-2px);
@@ -57,7 +57,7 @@
 
 .btn-secondary:hover,
 .btn-secondary-hero:hover {
-    background-color: rgba(124, 97, 196, 0.3);
+    background-color: rgba(109, 40, 217, 0.3);
     border-color: var(--color-purple-secondary);
     color: #FFFFFF;
     transform: translateY(-2px);
@@ -80,7 +80,7 @@
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-2) var(--space-4);
-    background: linear-gradient(135deg, #7C61C4 0%, #6B4FB8 50%, #5A3FA0 100%);
+    background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 50%, #4C1D95 100%);
     border: 1px solid var(--color-purple-vivid);
     color: #FFFFFF;
     font-size: var(--text-base);
@@ -95,7 +95,7 @@
 }
 
 .btn-floating:hover {
-    background: linear-gradient(135deg, #9B7EDE 0%, #8B6DD4 50%, #7C61C4 100%);
+    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%);
     color: #FFFFFF;
     border-color: var(--color-purple-secondary);
     transform: translateY(-2px);
