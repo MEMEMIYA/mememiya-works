@@ -106,7 +106,7 @@
     border: none;
     font-size: var(--text-xs);
     font-weight: 700;
-    letter-spacing: .06em;
+    letter-spacing: 0;
     text-transform: uppercase;
     font-family: var(--font-body);
     line-height: 1;
@@ -139,7 +139,7 @@
     color: var(--color-text-secondary);
     font-size: var(--text-sm);
     font-weight: 500;
-    letter-spacing: .02em;
+    letter-spacing: 0;
     line-height: 1.5;
     font-family: var(--font-body);
     background: rgba(255, 255, 255, 0.02);
@@ -161,14 +161,14 @@
     color: var(--color-text-tertiary);
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: .08em;
+    letter-spacing: 0;
     line-height: 1;
 }
 
 .price-value {
     font-size: var(--text-2xl);
     font-weight: 700;
-    letter-spacing: .02em;
+    letter-spacing: 0;
     font-family: var(--font-mono);
     line-height: 1;
     background: var(--gradient-purple-primary);
@@ -423,8 +423,8 @@
 /* Section Title (共通) */
 .section-title {
     font-size: var(--text-3xl);
-    font-weight: 200;
-    letter-spacing: 0.15em;
+    font-weight: 300;
+    letter-spacing: 0.02em;
     text-align: center;
     margin-bottom: var(--space-4);
     font-family: var(--font-heading);
@@ -523,7 +523,7 @@
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     font-weight: 500;
-    letter-spacing: .02em;
+    letter-spacing: 0;
 }
 
 .pricing-item-value {
@@ -531,7 +531,7 @@
     font-size: var(--text-lg);
     font-weight: 700;
     color: var(--color-purple-primary);
-    letter-spacing: .02em;
+    letter-spacing: 0;
 }
 
 .pricing-note {
@@ -637,7 +637,7 @@
     font-weight: 600;
     color: var(--color-text-tertiary);
     text-transform: uppercase;
-    letter-spacing: .06em;
+    letter-spacing: 0;
 }
 
 .availability-value {
@@ -645,7 +645,7 @@
     font-size: var(--text-sm);
     font-weight: 600;
     color: var(--color-purple-primary);
-    letter-spacing: .02em;
+    letter-spacing: 0;
 }
 
 /* Contact CTA Section */

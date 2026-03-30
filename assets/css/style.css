@@ -4,10 +4,10 @@
    =========================== */
 
 /* Variables & Design Tokens */
-@import url('modules/variables.css');
+@import url('modules/variables.css?v=34');
 
 /* Base & Reset Styles */
-@import url('modules/base.css');
+@import url('modules/base.css?v=34');
 
 /* Components */
 @import url('modules/navigation.css');

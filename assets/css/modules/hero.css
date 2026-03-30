@@ -138,7 +138,7 @@
     font-weight: 600;
     color: var(--color-text-primary);
     margin-bottom: var(--space-6);
-    letter-spacing: var(--tracking-wide);
+    letter-spacing: -0.04em;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 1), 0 0 4px rgba(0, 0, 0, 0.8);
     font-family: var(--font-body);
     text-transform: none;

@@ -20,6 +20,7 @@ body {
     font-size: var(--text-base);
     line-height: var(--leading-normal);
     letter-spacing: var(--tracking-normal);
+    font-feature-settings: "palt";
     color: var(--color-text-primary);
     background: radial-gradient(ellipse at top, #0a0510 0%, #000000 50%);
     background-attachment: fixed;
@@ -313,8 +314,8 @@ section {
     text-align: center;
     margin-bottom: var(--space-6);
     color: var(--color-text-primary);
-    letter-spacing: 0.15em;
-    font-weight: 200;
+    letter-spacing: 0.02em;
+    font-weight: 300;
     position: relative;
     padding-bottom: var(--space-3);
     font-family: var(--font-heading);

@@ -296,7 +296,7 @@
     padding: 4px 12px;
     font-size: var(--text-xs);
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0;
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);

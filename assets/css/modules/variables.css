@@ -42,7 +42,7 @@
     /* タイポグラフィスケール */
     --font-display: 'Bebas Neue', sans-serif;
     --font-body: 'Noto Sans JP', 'Helvetica Neue', Helvetica, 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
-    --font-heading: 'M PLUS 1p', 'Noto Sans JP', sans-serif;
+    --font-heading: 'IBM Plex Sans JP', 'Noto Sans JP', sans-serif;
     --font-mono: 'Azeret Mono', monospace;
     --font-serif: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
 
@@ -70,9 +70,9 @@
     --tracking-tighter: -0.02em;
     --tracking-tight: -0.01em;
     --tracking-normal: 0;
-    --tracking-wide: 0.02em;   /* より控えめに（0.04em → 0.02em） */
-    --tracking-wider: 0.03em;  /* より控えめに（0.04em → 0.03em） */
-    --tracking-widest: 0.06em; /* より控えめに（0.08em → 0.06em） */
+    --tracking-wide: 0.01em;
+    --tracking-wider: 0.02em;
+    --tracking-widest: 0.04em;
 
     /* トランジション - 統一されたイージング（じんわり余韻のある動き） */
     --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);

@@ -9,7 +9,7 @@
     font-weight: 600;
     color: var(--color-text-tertiary);
     line-height: 1.6;
-    letter-spacing: 0.02em;
+    letter-spacing: 0;
     margin: var(--space-2) 0;
     padding: var(--space-2) var(--space-3);
     border-left: 2px solid rgba(155, 126, 222, 0.4);
