@@ -98,6 +98,7 @@
     .footer {
         padding: var(--space-1) 0;
         padding-bottom: calc(var(--space-1) + 60px);
+        margin-top: var(--space-2);
     }
 
     .footer-content {
