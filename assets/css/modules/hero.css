@@ -303,8 +303,8 @@
     }
 
     .btn-hero {
-        padding: 6px 14px !important;
-        font-size: var(--text-xs) !important;
+        padding: 10px 20px !important;
+        font-size: var(--text-sm) !important;
         white-space: nowrap;
         background: rgba(0, 0, 0, 0.4) !important;
         backdrop-filter: blur(8px);

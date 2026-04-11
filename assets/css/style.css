@@ -7,11 +7,11 @@
 @import url('modules/variables.css?v=35');
 
 /* Base & Reset Styles */
-@import url('modules/base.css?v=35');
+@import url('modules/base.css?v=45');
 
 /* Components */
 @import url('modules/navigation.css');
-@import url('modules/hero.css?v=42');
+@import url('modules/hero.css?v=44');
 @import url('modules/profile.css?v=35');
 @import url('modules/works.css?v=35');
 @import url('modules/works-filters.css?v=35');
