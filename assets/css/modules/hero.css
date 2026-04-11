@@ -276,7 +276,7 @@
     }
 
     .hero-logo-img {
-        max-width: 320px;
+        max-width: 200px;
         filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6))
                 drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
     }
@@ -303,13 +303,13 @@
     }
 
     .btn-hero {
-        padding: 5px 10px;
-        font-size: 9px;
+        padding: 6px 14px !important;
+        font-size: var(--text-xs) !important;
         white-space: nowrap;
         background: rgba(0, 0, 0, 0.4) !important;
         backdrop-filter: blur(8px);
-        flex: 1;
-        max-width: 140px;
+        flex: 0 1 auto;
+        max-width: 130px;
     }
 
     .btn-hero:hover {

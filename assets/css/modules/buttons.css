@@ -116,14 +116,20 @@
 
 /* モバイルではフローティングボタンをコンパクトに */
 @media (max-width: 768px) {
+    /* 汎用ボタンをコンパクトに */
+    .btn {
+        padding: 8px var(--space-4);
+        font-size: var(--text-sm);
+    }
+
     .floating-cta {
         bottom: var(--space-3);
         right: 8px;
     }
 
     .btn-floating {
-        padding: var(--space-2) var(--space-3);
-        font-size: var(--text-sm);
+        padding: 6px var(--space-3);
+        font-size: var(--text-xs);
         font-weight: 700;
         white-space: nowrap;
         border-width: 1px;
@@ -134,7 +140,7 @@
     }
 
     .btn-floating-icon {
-        width: var(--icon-lg);
-        height: var(--icon-lg);
+        width: 16px;
+        height: 16px;
     }
 }
