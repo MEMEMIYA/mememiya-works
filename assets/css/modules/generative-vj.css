@@ -14,6 +14,7 @@
     padding: var(--space-2) var(--space-3);
     border-left: 2px solid rgba(139, 92, 246, 0.4);
     background: rgba(139, 92, 246, 0.03);
+    white-space: nowrap;
 }
 
 .generative-vj-note .note-label {
@@ -24,8 +25,10 @@
 /* Responsive */
 @media (max-width: 768px) {
     .generative-vj-note {
-        font-size: var(--text-xs);
-        padding: var(--space-2);
+        font-size: 10px;
+        padding: var(--space-1) var(--space-2);
         margin: var(--space-2) var(--space-3);
+        line-height: 1.4;
+        white-space: normal;
     }
 }
