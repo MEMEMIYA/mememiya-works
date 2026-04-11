@@ -188,8 +188,8 @@
 /* VR VJ Detail Mobile */
 @media (max-width: 768px) {
     .vr-vj-detail-section {
-        padding: var(--space-4) 0;
-        margin-bottom: var(--space-6);
+        padding: var(--space-2) 0;
+        margin-bottom: var(--space-3);
     }
 
     .vr-vj-detail-wrapper {
@@ -197,11 +197,19 @@
         width: 100%;
         margin-left: 0;
         margin-right: 0;
-        margin-top: var(--space-4);
+        margin-top: 0;
     }
 
+    /* services-compactと同じフラットリスト形式 */
     .vr-vj-detail-card {
-        padding: var(--space-3);
+        padding: 14px var(--space-3) !important;
+        background: transparent !important;
+        border: none !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-left: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
     }
 
     .vr-vj-header {
@@ -209,29 +217,29 @@
         align-items: baseline;
         justify-content: space-between;
         gap: var(--space-2);
+        margin-bottom: var(--space-2);
+        padding-bottom: var(--space-2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .vr-vj-title {
-        font-size: var(--text-lg);
-    }
-
-    .vr-vj-price {
-        font-size: var(--text-sm);
-        font-family: var(--font-mono);
+        font-size: var(--text-sm) !important;
         font-weight: 600;
-        color: var(--color-purple-secondary);
-        letter-spacing: 0;
-        white-space: nowrap;
+        letter-spacing: 0.02em;
+        color: rgba(255, 255, 255, 0.35);
     }
 
     .vr-vj-description p {
-        font-size: var(--text-sm);
+        font-size: var(--text-xs) !important;
+        color: rgba(255, 255, 255, 0.3) !important;
+        line-height: 1.4;
     }
 
     .features-title,
     .conditions-title,
     .genre-title {
-        font-size: var(--text-base);
+        font-size: var(--text-xs);
+        margin-bottom: var(--space-2);
     }
 
     .features-list li,
@@ -239,6 +247,16 @@
     .genre-list li {
         padding-left: var(--space-3);
         font-size: var(--text-xs);
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* 取り消し線を細く・控えめに */
+    .service-unavailable .vr-vj-description p,
+    .service-unavailable .features-list li,
+    .service-unavailable .conditions-list li,
+    .service-unavailable .genre-list li,
+    .service-unavailable .conditions-list li small {
+        text-decoration: line-through 1px rgba(255, 255, 255, 0.2) !important;
     }
 }
 

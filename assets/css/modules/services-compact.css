@@ -49,8 +49,8 @@
 @media (max-width: 768px) {
     .services-compact-section,
     .faq-compact-section {
-        margin-bottom: var(--space-6);
-        padding: var(--space-4) 0;
+        margin-bottom: var(--space-3);
+        padding: var(--space-2) 0;
         margin-left: calc(-1 * var(--space-2));
         margin-right: calc(-1 * var(--space-2));
         width: calc(100% + var(--space-4));
@@ -58,24 +58,101 @@
 
     .services-compact-grid {
         grid-template-columns: 1fr;
-        gap: var(--space-2);
+        gap: 0;
         max-width: none;
         width: 100%;
         margin: 0;
     }
 
+    /* カードをフラットなリスト形式にリデザイン */
     .service-compact-card {
-        padding: var(--space-3);
+        padding: 14px var(--space-3) !important;
+        background: transparent !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-left: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .service-compact-card:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+    }
+
+    /* 受付停止カードのオーバーレイを非表示 */
+    .service-compact-card.service-unavailable::before,
+    .service-compact-card.service-unavailable::after {
+        display: none !important;
+    }
+
+    .service-header {
+        margin-bottom: 3px;
+        gap: var(--space-2);
+    }
+
+    .service-name {
+        font-size: var(--text-sm) !important;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+
+    /* 受付停止のサービス名をグレーアウト */
+    .service-unavailable .service-name {
+        color: rgba(255, 255, 255, 0.35) !important;
+    }
+
+    .service-desc {
+        font-size: var(--text-xs) !important;
+        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    /* 受付停止バッジ - くっきりグレー枠 */
+    .service-unavailable-badge {
+        font-size: 9px !important;
+        padding: 2px 6px !important;
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        color: rgba(255, 255, 255, 0.6) !important;
+        background: transparent !important;
+        letter-spacing: 0.1em;
+        white-space: nowrap;
+        text-shadow: none !important;
+        font-weight: 600 !important;
+    }
+
+    /* 取り消し線を細く・控えめに */
+    .service-unavailable .service-desc {
+        text-decoration: line-through 1px rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .service-unavailable .service-name {
+        text-decoration: none !important;
     }
 
     .faq-compact-list {
         max-width: none;
         width: 100%;
         margin: 0;
+        gap: var(--space-1) !important;
     }
 
     .faq-compact-item {
-        padding: var(--space-3);
+        padding: var(--space-2) !important;
+        gap: var(--space-2) !important;
+    }
+
+    .faq-q {
+        font-size: var(--text-sm) !important;
+    }
+
+    .faq-question-text {
+        font-size: var(--text-xs) !important;
+        margin-bottom: 2px;
+    }
+
+    .faq-answer-text {
+        font-size: var(--text-xs) !important;
+        line-height: 1.5;
     }
 }
 
@@ -168,10 +245,6 @@
     color: var(--color-purple-primary);
     letter-spacing: 0;
     white-space: nowrap;
-}
-
-.service-unavailable-badge {
-    color: rgba(220, 80, 80, 0.85);
 }
 
 .service-desc {
@@ -627,17 +700,19 @@
 
 .service-unavailable .service-desc {
     color: #999999;
-    text-decoration: line-through 4px rgba(255, 255, 255, 0.4);
+    text-decoration: line-through 1px rgba(255, 255, 255, 0.25);
 }
 
-/* 受付停止バッジ - パープル系グレーアウト表示 */
+/* 受付停止バッジ */
 .service-unavailable-badge {
-    background: rgba(220, 80, 80, 0.12) !important;
-    color: rgba(220, 80, 80, 0.85) !important;
-    font-weight: 700;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
     padding: 6px 14px;
     font-size: var(--text-xs);
-    letter-spacing: 0;
+    letter-spacing: 0.1em;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    text-shadow: none;
 }
 
 /* 要相談の価格表示 - パープル系で通常通り */
