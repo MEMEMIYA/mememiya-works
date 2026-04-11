@@ -229,6 +229,15 @@ section {
         order: 4 !important;
     }
 
+    #scheduled-events:has(.no-events) {
+        padding-bottom: 0 !important;
+    }
+
+    #scheduled-events:has(.no-events) + #featured {
+        padding-top: var(--space-4) !important;
+        margin-top: 0 !important;
+    }
+
     #featured {
         order: 5 !important;
     }
@@ -515,6 +524,11 @@ section {
     .information-section .info-list {
         padding: 0 var(--space-3);
         gap: 0;
+    }
+
+    /* スマホ版は最新1件のみ表示 */
+    .information-section .info-item:nth-child(n+2) {
+        display: none;
     }
 
     .links-section .container {

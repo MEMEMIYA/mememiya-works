@@ -7,7 +7,7 @@
 @import url('modules/variables.css?v=35');
 
 /* Base & Reset Styles */
-@import url('modules/base.css?v=45');
+@import url('modules/base.css?v=50');
 
 /* Components */
 @import url('modules/navigation.css');
@@ -17,7 +17,7 @@
 @import url('modules/works-filters.css?v=35');
 @import url('modules/works-modal.css');
 @import url('modules/vj-events.css?v=35');
-@import url('modules/upcoming-events.css?v=35');
+@import url('modules/upcoming-events.css?v=48');
 @import url('modules/generative-vj.css?v=35');
 @import url('modules/links-contact.css?v=38');
 @import url('modules/services.css?v=40');

@@ -623,6 +623,25 @@ a.event-hashtag:hover {
         padding: var(--space-3) 0 0 0;
     }
 
+    /* 予定なしのとき省スペース */
+    .upcoming-events-list:has(.no-events) {
+        gap: 0;
+    }
+
+    .upcoming-events-section:has(.no-events) {
+        padding: var(--space-1) 0 0 0 !important;
+    }
+
+    .upcoming-events-section:has(.no-events) .section-title {
+        margin-bottom: var(--space-1) !important;
+    }
+
+    .no-events {
+        font-size: var(--text-xs);
+        padding: var(--space-1) 0;
+        color: var(--color-text-tertiary);
+    }
+
     .upcoming-events-list {
         padding: 0;
         gap: var(--space-2);
