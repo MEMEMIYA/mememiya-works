@@ -7,19 +7,19 @@
 @import url('modules/variables.css?v=36');
 
 /* Base & Reset Styles */
-@import url('modules/base.css?v=51');
+@import url('modules/base.css?v=52');
 
 /* Components */
 @import url('modules/navigation.css');
 @import url('modules/hero.css?v=44');
-@import url('modules/profile.css?v=35');
-@import url('modules/works.css?v=35');
-@import url('modules/works-filters.css?v=35');
+@import url('modules/profile.css?v=36');
+@import url('modules/works.css?v=36');
+@import url('modules/works-filters.css?v=36');
 @import url('modules/works-modal.css');
 @import url('modules/vj-events.css?v=35');
 @import url('modules/upcoming-events.css?v=48');
 @import url('modules/generative-vj.css?v=39');
-@import url('modules/links-contact.css?v=38');
+@import url('modules/links-contact.css?v=39');
 @import url('modules/services.css?v=40');
 @import url('modules/services-compact.css?v=62');
 @import url('modules/vr-vj-detail.css?v=3');

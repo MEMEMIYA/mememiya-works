@@ -190,7 +190,7 @@
     height: 100%;
 }
 
-/* 1枚�EVJフライヤー画像専用モーチE*/
+/* 1枚�EVJフライヤー画像専用モーチE*/
 .work-modal-content.single-flyer-container {
     max-width: 95vw !important;
     width: auto !important;
@@ -340,7 +340,7 @@
     border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* 制作期間、制作形態�E横並びグループ！E列！E*/
+/* 制作期間、制作形態�E横並びグループ！E列！E*/
 .work-modal-meta-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -365,7 +365,7 @@
     border-right: none;
 }
 
-/* 横並びでなぁE��独メタ惁E�� */
+/* 横並びでなぁE��独メタ惁E�� */
 .work-modal-meta>.work-modal-meta-item {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -404,7 +404,7 @@
 
 .work-modal-meta-value .meta-tag {
     display: inline-block;
-    padding: 1px 6px;
+    padding: 2px 6px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.15);
     font-size: var(--text-xs);
@@ -502,7 +502,7 @@
     object-position: center center;
 }
 
-/* タブレチE��最適匁E*/
+/* タブレチE��最適匁E*/
 @media (min-width: 769px) and (max-width: 1024px) {
     .work-modal-content {
         padding: var(--space-6);
@@ -633,7 +633,7 @@
     }
 }
 
-/* アクセシビリチE��: キーボ�Eドフォーカス */
+/* アクセシビリチE��: キーボ�Eドフォーカス */
 .work-modal-close:focus-visible {
     outline: 2px solid var(--color-purple-primary);
     outline-offset: 2px;
@@ -652,7 +652,7 @@
     }
 }
 
-/* スクロールバ�Eのスタイリング */
+/* スクロールバ�Eのスタイリング */
 .work-modal-content::-webkit-scrollbar {
     width: 12px;
 }

@@ -58,7 +58,7 @@
 
 /* Base Filter Button */
 .filter-btn {
-    padding: 6px var(--space-3);
+    padding: 5px 12px;
     background-color: transparent;
     border: solid 1px rgba(255, 255, 255, 0.12);
     color: var(--color-text-secondary);
@@ -94,7 +94,7 @@
     border: solid var(--border-width-thin) rgba(255, 255, 255, 0.3);
     color: var(--color-text-secondary);
     font-weight: 400;
-    padding: 6px var(--space-4);
+    padding: 5px 14px;
 }
 
 .filter-all:hover {
@@ -134,7 +134,7 @@
 
 /* 役職フィルター - アンダーラインスタイル */
 .filter-role {
-    padding: 8px var(--space-2) 6px var(--space-2);
+    padding: 5px 10px;
     background: transparent;
     border: none;
     color: var(--color-text-tertiary);
@@ -142,7 +142,7 @@
     font-weight: 400;
     letter-spacing: var(--tracking-wide);
     position: relative;
-    padding-bottom: 11px;
+    padding-bottom: 10px;
 }
 
 .filter-role::after {
@@ -179,7 +179,7 @@
 
 /* 制作形態フィルター - 細ボ�Eダー、点線で区別 */
 .filter-teamtype {
-    padding: 4px 10px;
+    padding: 5px 10px;
     background-color: transparent;
     border: dashed 1px rgba(255, 255, 255, 0.3);
     color: var(--color-text-secondary);
