@@ -1,5 +1,5 @@
 /* ===========================
-   Button System - 統一デザイン
+   Button System - 統一チE��イン
    =========================== */
 
 .section-cta {
@@ -8,7 +8,7 @@
     margin-top: var(--space-4);
 }
 
-/* ベースボタンスタイル - 統一された基盤 */
+/* ベ�Eスボタンスタイル - 統一された基盤 */
 .btn,
 .btn-hero {
     padding: var(--space-3) var(--space-6);
@@ -29,10 +29,10 @@
     overflow: hidden;
 }
 
-/* Primary Button - 濃いパープル背景で高コントラスト */
+/* Primary Button - 濁E��パ�Eプル背景で高コントラスチE*/
 .btn-primary,
 .btn-primary-hero {
-    background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 50%, #4C1D95 100%);
+    background: var(--gradient-purple-dark);
     color: #FFFFFF;
     border-color: var(--color-purple-secondary);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -40,18 +40,18 @@
 
 .btn-primary:hover,
 .btn-primary-hero:hover {
-    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%);
+    background: var(--gradient-purple-hover);
     color: #FFFFFF;
     border-color: #FFFFFF;
     transform: translateY(-2px);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Secondary Button - 透明背景・明るいパープルボーダーで高コントラスト */
+/* Secondary Button - 透�E背景・明るぁE��ープルボ�Eダーで高コントラスチE*/
 .btn-secondary,
 .btn-secondary-hero {
     background-color: transparent;
-    color: #E0CFFF;
+    color: var(--color-purple-pale);
     border-color: var(--color-purple-secondary);
 }
 
@@ -80,7 +80,7 @@
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-2) var(--space-4);
-    background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 50%, #4C1D95 100%);
+    background: var(--gradient-purple-dark);
     border: 1px solid var(--color-purple-vivid);
     color: #FFFFFF;
     font-size: var(--text-base);
@@ -95,7 +95,7 @@
 }
 
 .btn-floating:hover {
-    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%);
+    background: var(--gradient-purple-hover);
     color: #FFFFFF;
     border-color: var(--color-purple-secondary);
     transform: translateY(-2px);
@@ -107,14 +107,14 @@
     height: 20px;
 }
 
-/* ボタン内アイコンスタイル */
+/* ボタン冁E��イコンスタイル */
 .btn-icon {
     width: var(--icon-sm);
     height: var(--icon-sm);
     margin-left: var(--space-1);
 }
 
-/* モバイルではフローティングボタンをコンパクトに */
+/* モバイルではフローチE��ングボタンをコンパクトに */
 @media (max-width: 768px) {
     /* 汎用ボタンをコンパクトに */
     .btn {

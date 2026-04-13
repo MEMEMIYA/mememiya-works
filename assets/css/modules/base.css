@@ -31,7 +31,7 @@ body {
     overscroll-behavior-x: none;
 }
 
-/* 全ての非テキスト要素の選択を無効化 */
+/* 全ての非テキスト要素の選択を無効匁E*/
 body * {
     user-select: none;
     -webkit-user-select: none;
@@ -39,7 +39,7 @@ body * {
     -ms-user-select: none;
 }
 
-/* テキスト要素のみ選択可能に */
+/* チE��スト要素のみ選択可能に */
 p, h1, h2, h3, h4, h5, h6, span, a, li, td, th, label,
 .description-text, .work-modal-description, .work-modal-meta-value,
 .work-description, .featured-description, .profile-description,
@@ -50,7 +50,7 @@ p, h1, h2, h3, h4, h5, h6, span, a, li, td, th, label,
     -ms-user-select: text;
 }
 
-/* 入力フィールドのみカーソルをtextに */
+/* 入力フィールド�Eみカーソルをtextに */
 input, textarea {
     user-select: text;
     -webkit-user-select: text;
@@ -126,7 +126,7 @@ a {
     pointer-events: none;
 }
 
-/* コンテナ */
+/* コンチE�� */
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -167,27 +167,27 @@ a {
     }
 }
 
-/* セクション共通 */
+/* セクション共送E*/
 section {
     padding: var(--space-8) 0;
     position: relative;
     z-index: 1;
 }
 
-/* Hero セクションは例外（フルスクリーン） */
+/* Hero セクションは例外（フルスクリーン�E�E*/
 .hero-section {
     padding: 0;
 }
 
 /* モバイルではパディングを調整 - 極限コンパクト化 */
 @media (max-width: 768px) {
-    /* スマホ版のセクション順序調整 */
+    /* スマ�E版�Eセクション頁E��調整 */
     body {
         display: flex !important;
         flex-direction: column !important;
     }
 
-    /* 固定要素（ナビ、フッター、浮遊要素など）は表示順序を維持 */
+    /* 固定要素�E�ナビ、フチE��ー、浮遊要素など�E��E表示頁E��を維持E*/
     .main-nav {
         order: -10 !important;
     }
@@ -212,7 +212,7 @@ section {
         order: 103 !important;
     }
 
-    /* セクションの順序（Linksをヒーローの次に） */
+    /* セクションの頁E��！Einksをヒーローの次に�E�E*/
     #hero {
         order: 1 !important;
     }
@@ -262,7 +262,7 @@ section {
         padding: var(--space-4) 0;
     }
 
-    /* Featured セクション - トップマージンを削減 */
+    /* Featured セクション - トップ�Eージンを削渁E*/
     .featured-section {
         padding-top: var(--space-2);
         margin-top: -50px;
@@ -338,7 +338,7 @@ section {
     display: block;
     width: 48px;
     height: 3px;
-    background: linear-gradient(90deg, var(--color-purple-vivid), var(--color-pink-accent));
+    background: linear-gradient(90deg, var(--color-purple-tertiary), var(--color-purple-vivid));
     margin: 0 auto var(--space-3);
 }
 
@@ -375,7 +375,7 @@ section {
     z-index: 10;
 }
 
-/* テキスト選択を有効化 */
+/* チE��スト選択を有効匁E*/
 .information-section,
 .information-section .container,
 .information-section .info-list,
@@ -483,7 +483,7 @@ section {
     }
 }
 
-/* タブレット向け（iPad mini等） */
+/* タブレチE��向け�E�EPad mini等！E*/
 @media (min-width: 769px) and (max-width: 1024px) {
     .info-item {
         padding: 8px var(--space-3);
@@ -506,7 +506,7 @@ section {
         padding-bottom: var(--space-2);
     }
 
-    /* スマホ版のInformationタイトル */
+    /* スマ�E版�EInformationタイトル */
     .information-section .section-title {
         display: none;
     }
@@ -516,7 +516,7 @@ section {
         display: none;
     }
 
-    /* リンクセクションと横幅を統一 - containerのパディングを0にして直接制御 */
+    /* リンクセクションと横幁E��統一 - containerのパディングめEにして直接制御 */
     .information-section .container {
         padding: 0;
     }
@@ -526,7 +526,7 @@ section {
         gap: 0;
     }
 
-    /* スマホ版は最新1件のみ表示 */
+    /* スマ�E版�E最新1件のみ表示 */
     .information-section .info-item:nth-child(n+2) {
         display: none;
     }
@@ -553,7 +553,7 @@ section {
     }
 }
 
-/* カードシステム */
+/* カードシスチE�� */
 .glass-card {
     background: rgba(255, 255, 255, 0.04);
     border: solid 1px rgba(255, 255, 255, 0.12);
@@ -563,7 +563,7 @@ section {
     overflow: hidden;
 }
 
-/* 画像のユーザー選択を無効化 */
+/* 画像�Eユーザー選択を無効匁E*/
 img {
     user-select: none;
     -webkit-user-select: none;
@@ -571,7 +571,7 @@ img {
     -ms-user-select: none;
 }
 
-/* 画像の遅延読み込み視覚化 */
+/* 画像�E遁E��読み込み視覚化 */
 img[loading="lazy"] {
     background: rgba(255, 255, 255, 0.02);
     min-height: 100px;
@@ -597,7 +597,7 @@ img[loading="lazy"]:not([src]) {
     }
 }
 
-/* タグシステム */
+/* タグシスチE�� */
 .tag {
     padding: 4px 8px;
     font-size: var(--text-xs);
@@ -610,12 +610,12 @@ img[loading="lazy"]:not([src]) {
     -webkit-backdrop-filter: blur(8px);
     color: var(--color-text-primary);
     font-family: var(--font-body);
-    line-height: 1;
+    line-height: 1.2;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-    /* ホバー効果なし: 装飾的な要素はクリック不可能 */
+    /* ホバー効果なぁE 裁E��皁E��要素はクリチE��不可能 */
 }
 
-/* スマホ版セクションタイトル - 左右に線 */
+/* スマ�E版セクションタイトル - 左右に緁E*/
 @media (max-width: 768px) {
     .section-title {
         display: flex;

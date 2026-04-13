@@ -2,7 +2,7 @@
    VJ Works & Events Section
    =========================== */
 
-/* VJ情報グリッド */
+/* VJ惁E��グリチE�� */
 .vj-info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -81,7 +81,7 @@
     white-space: nowrap;
 }
 
-/* 全てボタン - 選択時のみ紫塗りつぶし */
+/* 全てボタン - 選択時のみ紫塗りつぶぁE*/
 .filter-btn-compact.filter-all {
     background: transparent;
     border: solid var(--border-width-thin) rgba(255, 255, 255, 0.3);
@@ -98,14 +98,14 @@
 }
 
 .filter-btn-compact.filter-all.active {
-    background: var(--color-purple-primary);
+    background: var(--gradient-purple-dark);
     border-color: var(--color-purple-vivid);
     color: #FFFFFF;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
     transition: all 50ms ease-out;
 }
 
-/* タイプフィルター（VR/Real） - 角ばった白色系ボーダー */
+/* タイプフィルター�E�ER/Real�E�E- 角�Eった白色系ボ�Eダー */
 .filter-btn-compact.filter-type {
     background: transparent;
     border: solid var(--border-width-thin) rgba(255, 255, 255, 0.2);
@@ -126,12 +126,12 @@
 .filter-btn-compact.filter-type.active {
     border-color: var(--color-purple-primary);
     background: transparent;
-    color: var(--color-purple-vivid);
+    color: var(--color-purple-primary);
     box-shadow: inset 0 0 0 var(--border-width-thick) var(--color-purple-primary);
     transition: all 50ms ease-out;
 }
 
-/* 年度フィルター - 点線ボーダーで区別 */
+/* 年度フィルター - 点線�Eーダーで区別 */
 .filter-btn-compact.filter-year {
     font-size: var(--text-xs);
     letter-spacing: 0;
@@ -252,7 +252,7 @@
 
 .event-hashtag {
     display: inline-block;
-    padding: 3px 6px;
+    padding: 3px 8px;
     font-size: var(--text-2xs);
     font-weight: 600;
     font-family: var(--font-mono);
@@ -284,16 +284,16 @@
     text-overflow: ellipsis;
 }
 
-/* タブレット最適化 */
+/* タブレチE��最適匁E*/
 @media (min-width: 769px) and (max-width: 1024px) {
     .event-list-compact {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* モバイル最適化 - 極限コンパクト化 */
+/* モバイル最適匁E- 極限コンパクト化 */
 @media (max-width: 768px) {
-    /* VJ情報グリッドをコンパクト化 */
+    /* VJ惁E��グリチE��をコンパクト化 */
     .vj-info-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-1);
@@ -351,7 +351,7 @@
         font-size: 10px;
     }
 
-    /* イベントリスト - 2列表示 */
+    /* イベントリスチE- 2列表示 */
     .event-list-compact {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-1);
@@ -392,7 +392,7 @@
     }
 
     .event-venue-compact {
-        display: none; /* 会場情報を非表示 */
+        display: none; /* 会場惁E��を非表示 */
     }
 
     .event-tag-compact {

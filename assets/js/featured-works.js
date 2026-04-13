@@ -2,5 +2,5 @@
 // 詳細データはworks-data.jsのallから参照される
 const featuredWorksIds = [
     'nakaniwa',
-    'draw-tokyo-3'
+    'cinema-dining'
 ];

@@ -2,7 +2,7 @@
    Profile Section
    =========================== */
 
-/* パディングはbase.cssのsectionルールで統一管理 */
+/* パディングはbase.cssのsectionルールで統一管琁E*/
 .profile-section {
     position: relative;
 }
@@ -81,7 +81,7 @@
 }
 
 .role-tag {
-    padding: 4px 6px;
+    padding: 4px 8px;
     background: #FFF;
     border: solid 2px #FFF;
     font-size: var(--text-xs);
@@ -129,7 +129,7 @@
     letter-spacing: var(--tracking-wide);
     color: #FFF;
     line-height: 1;
-    /* ホバー効果なし: 装飾的なタグはクリック不可能 */
+    /* ホバー効果なぁE 裁E��皁E��タグはクリチE��不可能 */
 }
 
 .skill-details {
@@ -183,7 +183,7 @@
     letter-spacing: var(--tracking-wide);
     color: var(--color-text-secondary);
     line-height: 1;
-    /* ホバー効果なし: 装飾的なタグはクリック不可能 */
+    /* ホバー効果なぁE 裁E��皁E��タグはクリチE��不可能 */
 }
 
 /* History Section - 控えめな表示 */
@@ -397,7 +397,7 @@
         padding: 0 var(--space-3);
     }
 
-    /* メインスキルのみ表示 - 中央揃え */
+    /* メインスキルのみ表示 - 中央揁E�� */
     .skill-group-main {
         margin-bottom: var(--space-2);
     }
@@ -413,7 +413,7 @@
         padding: 3px 5px;
     }
 
-    /* サブスキル（折りたたみ）も表示 */
+    /* サブスキル�E�折りたたみ�E�も表示 */
     .skill-details-summary {
         font-size: var(--text-sm);
         text-align: center;
