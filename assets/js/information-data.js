@@ -5,14 +5,6 @@ const informationData = [
         text: 'VJ実績・制作物一覧を更新しました'
     },
     {
-        date: '2026/2/16',
-        text: 'CLUB EXCITE (Ep.14) のイベント情報を追加'
-    },
-    {
-        date: '2026/2/08',
-        text: '展示イベント「中庭」でのVJ情報を追加'
-    },
-    {
         date: '2026/1/24',
         text: 'VJブッキングの新規受付を停止しました'
     },
