@@ -46,12 +46,12 @@
     font-weight: 400;
 }
 
-/* 最初�Eフィルターグループ�Eラベルには区刁E��を表示しなぁE*/
+/* 最初�Eフィルターグループ�Eラベルには区刁E��を表示しなぁE*/
 .filter-group-all .filter-group-label::before {
     content: none;
 }
 
-/* フィルターグループ�EのボタンコンチE�� */
+/* フィルターグループ�EのボタンコンチE�� */
 .filter-group-buttons {
     display: contents;
 }
@@ -104,14 +104,14 @@
 }
 
 .filter-all.active {
-    background: var(--color-purple-primary);
+    background: var(--gradient-purple-dark);
     border-color: var(--color-purple-vivid);
     color: #FFFFFF;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
     transition: all 50ms ease-out;
 }
 
-/* 作品形態フィルター - 角�Eった形、白色系ボ�Eダー */
+/* 作品形態フィルター - 角�Eった形、白色系ボ�Eダー */
 .filter-category {
     border: solid var(--border-width-thin) rgba(255, 255, 255, 0.2);
     background: transparent;
@@ -127,7 +127,7 @@
 .filter-category.active {
     background: transparent;
     border-color: var(--color-purple-primary);
-    color: var(--color-purple-secondary);
+    color: var(--color-purple-primary);
     box-shadow: inset 0 0 0 var(--border-width-thick) var(--color-purple-primary);
     transition: all 50ms ease-out;
 }
@@ -166,8 +166,8 @@
 }
 
 .filter-role.active {
-    background: rgba(139, 92, 246, 0.25);
-    color: var(--color-purple-secondary);
+    background: var(--color-accent-mid);
+    color: var(--color-purple-primary);
     font-weight: 400;
 }
 
@@ -177,7 +177,7 @@
     transition: all 50ms ease-out;
 }
 
-/* 制作形態フィルター - 細ボ�Eダー、点線で区別 */
+/* 制作形態フィルター - 細ボ�Eダー、点線で区別 */
 .filter-teamtype {
     padding: 4px 10px;
     background-color: transparent;
@@ -196,8 +196,8 @@
 .filter-teamtype.active {
     border-width: 1px;
     border-color: var(--color-purple-primary);
-    background: rgba(139, 92, 246, 0.15);
-    color: var(--color-purple-secondary);
+    background: var(--color-accent);
+    color: var(--color-purple-primary);
     transition: all 50ms ease-out;
 }
 
@@ -231,7 +231,7 @@
     }
 }
 
-/* タチE��チE��イス対忁E*/
+/* タチE��チE��イス対忁E*/
 @media (hover: none) and (pointer: coarse) {
     .filter-btn:active,
     .filter-btn-compact:active {

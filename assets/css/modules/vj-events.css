@@ -2,7 +2,7 @@
    VJ Works & Events Section
    =========================== */
 
-/* VJ惁E��グリチE�� */
+/* VJ惁E��グリチE�� */
 .vj-info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -98,14 +98,14 @@
 }
 
 .filter-btn-compact.filter-all.active {
-    background: var(--color-purple-primary);
+    background: var(--gradient-purple-dark);
     border-color: var(--color-purple-vivid);
     color: #FFFFFF;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
     transition: all 50ms ease-out;
 }
 
-/* タイプフィルター�E�ER/Real�E�E- 角�Eった白色系ボ�Eダー */
+/* タイプフィルター�E�ER/Real�E�E- 角�Eった白色系ボ�Eダー */
 .filter-btn-compact.filter-type {
     background: transparent;
     border: solid var(--border-width-thin) rgba(255, 255, 255, 0.2);
@@ -126,12 +126,12 @@
 .filter-btn-compact.filter-type.active {
     border-color: var(--color-purple-primary);
     background: transparent;
-    color: var(--color-purple-vivid);
+    color: var(--color-purple-primary);
     box-shadow: inset 0 0 0 var(--border-width-thick) var(--color-purple-primary);
     transition: all 50ms ease-out;
 }
 
-/* 年度フィルター - 点線�Eーダーで区別 */
+/* 年度フィルター - 点線�Eーダーで区別 */
 .filter-btn-compact.filter-year {
     font-size: var(--text-xs);
     letter-spacing: 0;
@@ -284,7 +284,7 @@
     text-overflow: ellipsis;
 }
 
-/* タブレチE��最適匁E*/
+/* タブレチE��最適匁E*/
 @media (min-width: 769px) and (max-width: 1024px) {
     .event-list-compact {
         grid-template-columns: repeat(2, 1fr);
@@ -293,7 +293,7 @@
 
 /* モバイル最適匁E- 極限コンパクト化 */
 @media (max-width: 768px) {
-    /* VJ惁E��グリチE��をコンパクト化 */
+    /* VJ惁E��グリチE��をコンパクト化 */
     .vj-info-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-1);
@@ -392,7 +392,7 @@
     }
 
     .event-venue-compact {
-        display: none; /* 会場惁E��を非表示 */
+        display: none; /* 会場惁E��を非表示 */
     }
 
     .event-tag-compact {

@@ -102,7 +102,7 @@
 
 .plan-badge {
     padding: 6px 12px;
-    background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 50%, #4C1D95 100%);
+    background: var(--gradient-purple-dark);
     border: none;
     font-size: var(--text-xs);
     font-weight: 400;
@@ -579,7 +579,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 50%, #4C1D95 100%);
+    background: var(--gradient-purple-dark);
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     font-weight: 400;

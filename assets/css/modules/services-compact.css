@@ -64,7 +64,7 @@
         margin: 0;
     }
 
-    /* カードをフラチE��なリスト形式にリチE��イン */
+    /* カードをフラチE��なリスト形式にリチE��イン */
     .service-compact-card {
         padding: 14px var(--space-3) !important;
         background: transparent !important;
@@ -79,7 +79,7 @@
         border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
     }
 
-    /* 受付停止カード�Eオーバ�Eレイを非表示 */
+    /* 受付停止カード�Eオーバ�Eレイを非表示 */
     .service-compact-card.service-unavailable::before,
     .service-compact-card.service-unavailable::after {
         display: none !important;
@@ -120,7 +120,7 @@
         font-weight: 400 !important;
     }
 
-    /* 取り消し線を細く�E控えめに */
+    /* 取り消し線を細く�E控えめに */
     .service-unavailable .service-desc {
         text-decoration: line-through 1px rgba(255, 255, 255, 0.2) !important;
     }
@@ -185,7 +185,7 @@
     overflow: hidden;
 }
 
-/* 繊細なグリチE��パターンオーバ�Eレイ */
+/* 繊細なグリチE��パターンオーバ�Eレイ */
 .service-compact-card.service-unavailable::before {
     content: '';
     position: absolute;
@@ -201,7 +201,7 @@
     z-index: 1;
 }
 
-/* グラチE�Eションオーバ�Eレイで暗く */
+/* グラチE�Eションオーバ�Eレイで暗く */
 .service-compact-card.service-unavailable::after {
     content: '';
     position: absolute;
@@ -344,7 +344,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 50%, #4C1D95 100%);
+    background: var(--gradient-purple-dark);
     font-family: var(--font-mono);
     font-size: var(--text-base);
     font-weight: 400;
@@ -715,7 +715,7 @@
     text-shadow: none;
 }
 
-/* 要相諁E�E価格表示 - パ�Eプル系で通常通り */
+/* 要相諁E�E価格表示 - パ�Eプル系で通常通り */
 .service-price:not(.service-unavailable-badge) {
     color: var(--color-purple-secondary);
     font-weight: 400;
@@ -724,7 +724,7 @@
 }
 
 /* ===========================
-   サービス・料��セクション チE��スト選択有効匁E   =========================== */
+   サービス・料��セクション チE��スト選択有効匁E   =========================== */
 .services-compact-section,
 .services-compact-section *,
 .faq-compact-section,
