@@ -33,7 +33,7 @@
 
 .vr-vj-title {
     font-size: var(--text-2xl);
-    font-weight: 400;
+    font-weight: 700;
     font-family: var(--font-body);
     color: var(--color-text-primary);
     margin: 0;
@@ -42,7 +42,7 @@
 
 .vr-vj-price {
     font-size: var(--text-xl);
-    font-weight: 400;
+    font-weight: 700;
     font-family: var(--font-mono);
     color: var(--color-purple-primary);
     letter-spacing: 0;
@@ -58,7 +58,7 @@
     line-height: var(--leading-normal);
     margin: 0 0 var(--space-2) 0;
     font-family: var(--font-body);
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .vr-vj-description p:last-child {
@@ -92,7 +92,7 @@
 .conditions-title,
 .genre-title {
     font-size: var(--text-lg);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0;
     margin: 0 0 var(--space-3) 0;
     font-family: var(--font-body);
@@ -130,7 +130,7 @@
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
     font-family: var(--font-body);
-    font-weight: 400;
+    font-weight: 600;
     position: relative;
 }
 
@@ -141,14 +141,14 @@
     position: absolute;
     left: 0;
     color: var(--color-purple-primary);
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .features-list li strong,
 .conditions-list li strong,
 .genre-list li strong {
     color: var(--color-text-primary);
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .features-list li ul,
@@ -173,7 +173,7 @@
     position: absolute;
     left: 0;
     color: var(--color-text-tertiary);
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .conditions-list li small {
@@ -200,7 +200,7 @@
         margin-top: 0;
     }
 
-    /* services-compactと同じフラチE��リスト形弁E*/
+    /* services-compactと同じフラットリスト形式 */
     .vr-vj-detail-card {
         padding: 14px var(--space-3) !important;
         background: transparent !important;
@@ -224,7 +224,7 @@
 
     .vr-vj-title {
         font-size: var(--text-sm) !important;
-        font-weight: 400;
+        font-weight: 600;
         letter-spacing: 0.02em;
         color: rgba(255, 255, 255, 0.35);
     }
@@ -250,7 +250,7 @@
         color: rgba(255, 255, 255, 0.3);
     }
 
-    /* 取り消し線を細く�E控えめに */
+    /* 取り消し線を細く・控えめに */
     .service-unavailable .vr-vj-description p,
     .service-unavailable .features-list li,
     .service-unavailable .conditions-list li,
@@ -261,7 +261,8 @@
 }
 
 /* ===========================
-   VR VJ Detail チE��スト選択有効匁E   =========================== */
+   VR VJ Detail テキスト選択有効化
+   =========================== */
 .vr-vj-detail-wrapper,
 .vr-vj-detail-wrapper * {
     user-select: text !important;

@@ -22,14 +22,14 @@
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     color: var(--color-text-tertiary);
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .info-row .info-value {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     color: var(--color-purple-primary);
-    font-weight: 400;
+    font-weight: 500;
 }
 
 /* Services Compact Section */
@@ -92,7 +92,7 @@
 
     .service-name {
         font-size: var(--text-sm) !important;
-        font-weight: 400;
+        font-weight: 600;
         letter-spacing: 0.02em;
     }
 
@@ -117,7 +117,7 @@
         letter-spacing: 0.1em;
         white-space: nowrap;
         text-shadow: none !important;
-        font-weight: 400 !important;
+        font-weight: 600 !important;
     }
 
     /* 取り消し線を細く�E控えめに */
@@ -230,7 +230,7 @@
 
 .service-name {
     font-size: var(--text-lg);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0;
     color: var(--color-text-primary);
     font-family: var(--font-body);
@@ -241,7 +241,7 @@
 .service-price {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--color-purple-primary);
     letter-spacing: 0;
     white-space: nowrap;
@@ -286,7 +286,7 @@
     justify-content: center;
     font-family: var(--font-body);
     font-size: var(--text-lg);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--color-purple-primary);
     flex-shrink: 0;
     line-height: 1;
@@ -299,7 +299,7 @@
 
 .faq-question-text {
     font-size: var(--text-base);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--color-text-primary);
     margin: 0 0 var(--space-1) 0;
     font-family: var(--font-body);
@@ -347,7 +347,7 @@
     background: var(--gradient-purple-dark);
     font-family: var(--font-mono);
     font-size: var(--text-base);
-    font-weight: 400;
+    font-weight: 700;
     color: #FFFFFF;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -355,7 +355,7 @@
 .workflow-compact-step p {
     font-size: var(--text-sm);
     color: var(--color-text-primary);
-    font-weight: 400;
+    font-weight: 600;
     margin: 0;
     text-align: center;
     font-family: var(--font-body);
@@ -448,7 +448,7 @@
 
 .workflow-step-enhanced .step-title {
     font-size: var(--text-base);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: var(--tracking-wide);
     margin: 0 0 var(--space-1) 0;
     font-family: var(--font-body);
@@ -519,7 +519,7 @@
 
 .availability-title {
     font-size: var(--text-lg);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: var(--tracking-wide);
     margin: 0 0 var(--space-2) 0;
     font-family: var(--font-body);
@@ -560,7 +560,7 @@
 
 .tool-category-title {
     font-size: var(--text-base);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: var(--tracking-wide);
     margin: 0 0 var(--space-3) 0;
     font-family: var(--font-body);
@@ -579,7 +579,7 @@
     background: rgba(168, 85, 247, 0.1);
     border: 1px solid rgba(168, 85, 247, 0.3);
     font-size: var(--text-xs);
-    font-weight: 400;
+    font-weight: 500;
     color: var(--color-purple-primary);
     font-family: var(--font-mono);
     letter-spacing: 0;
@@ -608,7 +608,7 @@
 
 .stat-number {
     font-size: var(--text-4xl);
-    font-weight: 400;
+    font-weight: 700;
     font-family: var(--font-mono);
     background: var(--gradient-purple-primary);
     -webkit-background-clip: text;
@@ -622,7 +622,7 @@
     color: var(--color-text-secondary);
     font-family: var(--font-body);
     margin: 0;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 0;
 }
 
@@ -655,7 +655,7 @@
 
 .coverage-title {
     font-size: var(--text-lg);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: var(--tracking-wide);
     margin: 0 0 var(--space-2) 0;
     font-family: var(--font-body);
@@ -707,7 +707,7 @@
 .service-unavailable-badge {
     background: transparent;
     color: rgba(255, 255, 255, 0.6);
-    font-weight: 400;
+    font-weight: 600;
     padding: 6px 14px;
     font-size: var(--text-xs);
     letter-spacing: 0.1em;
@@ -718,7 +718,7 @@
 /* 要相諁E�E価格表示 - パ�Eプル系で通常通り */
 .service-price:not(.service-unavailable-badge) {
     color: var(--color-purple-secondary);
-    font-weight: 400;
+    font-weight: 600;
     font-size: var(--text-sm);
     letter-spacing: 0;
 }
