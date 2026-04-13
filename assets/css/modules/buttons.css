@@ -1,5 +1,5 @@
 /* ===========================
-   Button System - 統一デザイン
+   Button System - 統一チE��イン
    =========================== */
 
 .section-cta {
@@ -8,13 +8,13 @@
     margin-top: var(--space-4);
 }
 
-/* ベースボタンスタイル - 統一された基盤 */
+/* ベ�Eスボタンスタイル - 統一された基盤 */
 .btn,
 .btn-hero {
     padding: var(--space-3) var(--space-6);
     font-family: var(--font-body);
     font-size: var(--text-base);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: var(--tracking-wide);
     text-decoration: none;
     display: inline-flex;
@@ -29,7 +29,7 @@
     overflow: hidden;
 }
 
-/* Primary Button - 濃いパープル背景で高コントラスト */
+/* Primary Button - 濁E��パ�Eプル背景で高コントラスチE*/
 .btn-primary,
 .btn-primary-hero {
     background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 50%, #4C1D95 100%);
@@ -47,7 +47,7 @@
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Secondary Button - 透明背景・明るいパープルボーダーで高コントラスト */
+/* Secondary Button - 透�E背景・明るぁE��ープルボ�Eダーで高コントラスチE*/
 .btn-secondary,
 .btn-secondary-hero {
     background-color: transparent;
@@ -84,7 +84,7 @@
     border: 1px solid var(--color-purple-vivid);
     color: #FFFFFF;
     font-size: var(--text-base);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: var(--tracking-wide);
     text-decoration: none;
     transition: all var(--transition-base);
@@ -107,14 +107,14 @@
     height: 20px;
 }
 
-/* ボタン内アイコンスタイル */
+/* ボタン冁E��イコンスタイル */
 .btn-icon {
     width: var(--icon-sm);
     height: var(--icon-sm);
     margin-left: var(--space-1);
 }
 
-/* モバイルではフローティングボタンをコンパクトに */
+/* モバイルではフローチE��ングボタンをコンパクトに */
 @media (max-width: 768px) {
     /* 汎用ボタンをコンパクトに */
     .btn {
@@ -130,7 +130,7 @@
     .btn-floating {
         padding: 6px var(--space-3);
         font-size: var(--text-xs);
-        font-weight: 700;
+        font-weight: 400;
         white-space: nowrap;
         border-width: 1px;
     }

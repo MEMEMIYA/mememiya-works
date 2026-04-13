@@ -1,13 +1,13 @@
 /* ===========================
    Upcoming Events Section
-   今後のイベント出演予定
+   今後�Eイベント�E演予宁E
    =========================== */
 
 /* ===========================
    VJ Schedule Section
    =========================== */
 
-/* テキスト選択を有効化（画像エリアは除外） */
+/* チE��スト選択を有効化（画像エリアは除外！E*/
 .upcoming-events-section .event-content,
 .upcoming-events-section .event-content * {
     user-select: text !important;
@@ -50,7 +50,7 @@
     gap: 0;
     padding: 0;
     border: solid 1px rgba(255, 255, 255, 0.12);
-    /* Rule: 細ボーダー */
+    /* Rule: 細ボ�Eダー */
     border-radius: 0;
     background: transparent;
     /* Rule: 純黒背景 */
@@ -123,7 +123,7 @@
     /* More readable */
     font-size: var(--text-2xl);
     /* Reverted to large size */
-    font-weight: 600;
+    font-weight: 400;
     color: rgba(255, 255, 255, 0.4);
     letter-spacing: 0;
     text-align: center;
@@ -282,14 +282,14 @@
 
 .date-main {
     font-size: 2.4rem;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--color-purple-secondary);
     letter-spacing: -0.02em;
 }
 
 .date-weekday {
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--color-text-secondary);
     margin-left: 2px;
 }
@@ -327,7 +327,7 @@
 .event-title {
     font-family: var(--font-body);
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--color-text-primary);
     letter-spacing: 0;
     line-height: 1.4;
@@ -340,7 +340,7 @@
     font-family: var(--font-body);
     font-size: 0.8rem;
     /* Still prominent but slightly smaller than known titles */
-    font-weight: 500;
+    font-weight: 400;
     color: var(--color-text-secondary);
     letter-spacing: 0;
     line-height: 1.4;
@@ -370,7 +370,7 @@
 }
 
 .event-meta > *:not(.break-row)::before {
-    content: '–';
+    content: ' E;
     position: absolute;
     left: 0;
     color: var(--color-text-tertiary);
@@ -514,7 +514,7 @@
     font-family: var(--font-body);
     font-size: 0.85rem;
     color: var(--color-purple-secondary);
-    font-weight: 500;
+    font-weight: 400;
     margin-top: var(--space-1);
 }
 
@@ -623,7 +623,7 @@ a.event-hashtag:hover {
         padding: var(--space-3) 0 0 0;
     }
 
-    /* 予定なしのとき省スペース */
+    /* 予定なし�Eとき省スペ�Eス */
     .upcoming-events-list:has(.no-events) {
         gap: 0;
     }

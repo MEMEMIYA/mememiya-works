@@ -13,7 +13,7 @@
     padding: var(--space-1) var(--space-2);
 }
 
-/* フィルターグループ */
+/* フィルターグルーチE*/
 .filter-group {
     display: contents;
 }
@@ -31,7 +31,7 @@
 .filter-group-label {
     font-family: var(--font-body);
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: var(--tracking-wide);
     color: var(--color-text-tertiary);
     white-space: nowrap;
@@ -43,15 +43,15 @@
     margin-right: var(--space-2);
     color: var(--color-text-tertiary);
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
-/* 最初のフィルターグループのラベルには区切りを表示しない */
+/* 最初�Eフィルターグループ�Eラベルには区刁E��を表示しなぁE*/
 .filter-group-all .filter-group-label::before {
     content: none;
 }
 
-/* フィルターグループ内のボタンコンテナ */
+/* フィルターグループ�EのボタンコンチE�� */
 .filter-group-buttons {
     display: contents;
 }
@@ -64,7 +64,7 @@
     color: var(--color-text-secondary);
     font-family: var(--font-body);
     font-size: var(--text-xs);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: var(--tracking-wide);
     cursor: pointer;
     transition: all var(--transition-base);
@@ -88,12 +88,12 @@
    Filter Button Type Variations
    =========================== */
 
-/* すべて - 選択時のみ紫塗りつぶし */
+/* すべて - 選択時のみ紫塗りつぶぁE*/
 .filter-all {
     background: transparent;
     border: solid var(--border-width-thin) rgba(255, 255, 255, 0.3);
     color: var(--color-text-secondary);
-    font-weight: 700;
+    font-weight: 400;
     padding: 6px var(--space-4);
 }
 
@@ -111,7 +111,7 @@
     transition: all 50ms ease-out;
 }
 
-/* 作品形態フィルター - 角ばった形、白色系ボーダー */
+/* 作品形態フィルター - 角�Eった形、白色系ボ�Eダー */
 .filter-category {
     border: solid var(--border-width-thin) rgba(255, 255, 255, 0.2);
     background: transparent;
@@ -139,7 +139,7 @@
     border: none;
     color: var(--color-text-tertiary);
     font-size: var(--text-xs);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: var(--tracking-wide);
     position: relative;
     padding-bottom: 11px;
@@ -168,7 +168,7 @@
 .filter-role.active {
     background: rgba(139, 92, 246, 0.25);
     color: var(--color-purple-secondary);
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .filter-role.active::after {
@@ -177,14 +177,14 @@
     transition: all 50ms ease-out;
 }
 
-/* 制作形態フィルター - 細ボーダー、点線で区別 */
+/* 制作形態フィルター - 細ボ�Eダー、点線で区別 */
 .filter-teamtype {
     padding: 4px 10px;
     background-color: transparent;
     border: dashed 1px rgba(255, 255, 255, 0.3);
     color: var(--color-text-secondary);
     font-size: var(--text-xs);
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .filter-teamtype:hover {
@@ -231,7 +231,7 @@
     }
 }
 
-/* タッチデバイス対応 */
+/* タチE��チE��イス対忁E*/
 @media (hover: none) and (pointer: coarse) {
     .filter-btn:active,
     .filter-btn-compact:active {

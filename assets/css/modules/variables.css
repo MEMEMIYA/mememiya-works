@@ -17,7 +17,7 @@
     --color-purple-secondary: #A78BFA;    /* ライトパープル */
     --color-purple-tertiary: #6D28D9;     /* ダークパープル */
     --color-purple-vivid: #A855F7;        /* 鮮やかなパープル（CTA用） */
-    --color-pink-accent: #D580FF;         /* ピンクアクセント */
+    --color-pink-accent: #A855F7;         /* パープルアクセント */
     --color-lavender: #9F7AEA;            /* ラベンダー */
 
     /* グラデーション定義 */
@@ -41,10 +41,10 @@
 
     /* タイポグラフィスケール */
     --font-display: 'Bebas Neue', sans-serif;
-    --font-body: 'Noto Sans JP', 'Helvetica Neue', Helvetica, 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
-    --font-heading: 'IBM Plex Sans JP', 'Noto Sans JP', sans-serif;
+    --font-body: 'Source Sans 3', 'Zen Maru Gothic', 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+    --font-heading: 'Source Sans 3', 'Zen Maru Gothic', 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
     --font-mono: 'Azeret Mono', monospace;
-    --font-serif: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
+    --font-serif: 'Zen Maru Gothic', 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
 
     /* タイポグラフィスケール - 1.25倍率（Major Third）で統一 */
     --text-2xs: 0.64rem;   /* 10.24px - モバイル最小値 */

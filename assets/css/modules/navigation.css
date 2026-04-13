@@ -57,7 +57,7 @@
 .nav-link {
     position: relative;
     font-size: var(--text-sm);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: var(--tracking-wide);
     text-transform: none;
     padding: var(--space-2) var(--space-4);
@@ -92,7 +92,7 @@
 .nav-link.active {
     color: var(--color-text-primary);
     background: rgba(255, 255, 255, 0.2);
-    font-weight: 700;
+    font-weight: 400;
     border-bottom: 2px solid var(--color-text-primary);
 }
 
@@ -155,7 +155,7 @@
         height: 2px;
     }
 
-    /* ハンバーガーメニューボタンを非表示 */
+    /* ハンバ�Eガーメニューボタンを非表示 */
     .nav-toggle {
         display: none;
     }

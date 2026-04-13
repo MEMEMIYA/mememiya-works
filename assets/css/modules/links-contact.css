@@ -3,7 +3,7 @@
    =========================== */
 
 /* Links Section */
-/* パディングはbase.cssのsectionルールで統一管理 */
+/* パディングはbase.cssのsectionルールで統一管琁E*/
 
 .links-grid {
     max-width: 800px;
@@ -58,7 +58,7 @@
 
 .link-card h3 {
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: var(--tracking-wide);
     margin: 0;
     text-transform: none;
@@ -78,7 +78,7 @@
 }
 
 @media (max-width: 768px) {
-    /* Links Section - 4列固定グリッド */
+    /* Links Section - 4列固定グリチE�� */
     .links-section .section-title {
         display: none;
     }
@@ -90,7 +90,7 @@
         padding: 0 var(--space-3);
     }
 
-    /* グリッドアイテムの幅と高さを固定 */
+    /* グリチE��アイチE��の幁E��高さを固宁E*/
     .link-card.glass-card {
         min-width: 0;
         width: 100% !important;
@@ -113,7 +113,7 @@
         box-sizing: border-box !important;
     }
 
-    /* タップ領域をカード全体に拡大 */
+    /* タチE�E領域をカード�E体に拡大 */
     .link-card.glass-card::after {
         content: '' !important;
         position: absolute !important;
@@ -166,7 +166,7 @@
         filter: brightness(0) invert(1) !important;
     }
 
-    /* ViViViT・VRChatの横長ロゴは高さ基準で幅を自動調整 */
+    /* ViViViT・VRChatの横長ロゴは高さ基準で幁E��自動調整 */
     .link-card[href*="vivivit.com"] .link-icon,
     .link-card[href*="vrchat.com"] .link-icon {
         width: auto;
@@ -194,7 +194,7 @@
         height: 32px !important;
     }
 
-    /* Xのロゴを小さく */
+    /* Xのロゴを小さぁE*/
     .link-card[href*="twitter.com"] .link-icon svg {
         width: 22px;
         height: 22px;
@@ -202,7 +202,7 @@
 
     .link-card h3 {
         font-size: var(--text-xs);
-        font-weight: 500;
+        font-weight: 400;
         letter-spacing: 0;
         line-height: 1;
         text-align: center;
@@ -211,7 +211,7 @@
         pointer-events: none;
     }
 
-    /* 子要素のタップイベントを親に伝播させる */
+    /* 子要素のタチE�Eイベントを親に伝播させめE*/
     .link-card *,
     .link-card *::before,
     .link-card *::after {
@@ -250,7 +250,7 @@
     }
 }
 
-/* 小さい画面でも4列を維持 */
+/* 小さぁE��面でめE列を維持E*/
 @media (max-width: 360px) {
     .links-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -279,7 +279,7 @@
     }
 }
 
-/* GitHubリンクをスマホ版で非表示 */
+/* GitHubリンクをスマ�E版で非表示 */
 @media (max-width: 768px) {
     .link-card[href*="github.com"] {
         display: none !important;
@@ -325,7 +325,7 @@
     transition: all var(--transition-base);
     text-decoration: none;
     color: var(--color-text-primary);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: var(--tracking-wide);
     text-align: center;
 }
@@ -366,14 +366,14 @@
 
 .contact-detail-link .btn .btn-text-main {
     font-size: var(--text-base);
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0;
     line-height: 1.3;
 }
 
 .contact-detail-link .btn .btn-text-sub {
     font-size: var(--text-xs);
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0;
     opacity: 0.8;
     line-height: 1.3;
@@ -415,7 +415,7 @@
     margin-bottom: var(--space-4);
     color: var(--color-text-primary);
     letter-spacing: 0;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: none;
     font-family: var(--font-body);
     line-height: 1.1;
@@ -432,7 +432,7 @@
     font-weight: 400;
 }
 
-/* Contact Section Mobile - 依頼・相談ボタン */
+/* Contact Section Mobile - 依頼・相諁E�Eタン */
 @media (max-width: 768px) {
     .contact-detail-link {
         margin-top: var(--space-3);

@@ -13,7 +13,7 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* ヒーローセクション上での視認性向上 - テキストシャドウで対応 */
+/* ヒ�Eローセクション上での視認性向丁E- チE��ストシャドウで対忁E*/
 .table-of-contents.toc-over-hero .toc-dot {
     background: rgba(255, 255, 255, 0.9);
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.8));
@@ -95,7 +95,7 @@
 
 .toc-link.active {
     color: var(--color-purple-secondary);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .toc-link.active .toc-dot {
@@ -125,14 +125,14 @@
     flex: 1;
 }
 
-/* レスポンシブ対応 */
+/* レスポンシブ対忁E*/
 @media (max-width: 1024px) {
     .table-of-contents {
         display: none;
     }
 }
 
-/* タブレット表示 */
+/* タブレチE��表示 */
 @media (min-width: 768px) and (max-width: 1024px) {
     .table-of-contents {
         top: auto;
@@ -176,7 +176,7 @@
     }
 }
 
-/* スムーズスクロール動作 */
+/* スムーズスクロール動佁E*/
 @media (prefers-reduced-motion: no-preference) {
     html {
         scroll-behavior: smooth;
@@ -240,7 +240,7 @@
     transform: scale(1.1);
 }
 
-/* レスポンシブ対応 */
+/* レスポンシブ対忁E*/
 @media (max-width: 1024px) {
     .links-sidebar {
         display: none;

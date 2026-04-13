@@ -1,12 +1,11 @@
 /* ===========================
    Generative VJ Note
-   ジェネVJとは（注釈スタイル）
-   =========================== */
+   ジェネVJとは�E�注釈スタイル�E�E   =========================== */
 
 .generative-vj-note {
     font-family: var(--font-body);
     font-size: var(--text-xs);
-    font-weight: 600;
+    font-weight: 400;
     color: var(--color-text-tertiary);
     line-height: 1.6;
     letter-spacing: 0;
@@ -19,7 +18,7 @@
 
 .generative-vj-note .note-label {
     color: var(--color-purple-secondary);
-    font-weight: 700;
+    font-weight: 400;
 }
 
 /* Responsive */
