@@ -5,21 +5,22 @@
 
 .generative-vj-note {
     font-family: var(--font-body);
-    font-size: var(--text-xs);
-    font-weight: 600;
+    font-size: var(--text-2xs);
+    font-weight: 400;
     color: var(--color-text-tertiary);
-    line-height: 1.6;
+    opacity: 0.5;
+    line-height: 1.5;
     letter-spacing: 0;
-    margin: var(--space-2) 0;
-    padding: var(--space-2) var(--space-3);
-    border-left: 2px solid rgba(139, 92, 246, 0.4);
-    background: rgba(139, 92, 246, 0.03);
+    margin: var(--space-1) 0;
+    padding: 0;
+    border-left: none;
+    background: none;
     white-space: nowrap;
 }
 
 .generative-vj-note .note-label {
-    color: var(--color-purple-secondary);
-    font-weight: 700;
+    color: var(--color-text-tertiary);
+    font-weight: 400;
 }
 
 /* Responsive */

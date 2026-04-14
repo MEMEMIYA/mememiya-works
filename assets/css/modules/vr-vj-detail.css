@@ -32,12 +32,16 @@
 }
 
 .vr-vj-title {
-    font-size: var(--text-2xl);
+    font-size: var(--text-lg);
     font-weight: 700;
     font-family: var(--font-body);
     color: var(--color-text-primary);
     margin: 0;
     letter-spacing: 0;
+}
+
+.service-unavailable .vr-vj-title {
+    color: var(--color-text-secondary);
 }
 
 .vr-vj-price {
@@ -54,11 +58,11 @@
 
 .vr-vj-description p {
     color: var(--color-text-secondary);
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     line-height: var(--leading-normal);
     margin: 0 0 var(--space-2) 0;
     font-family: var(--font-body);
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .vr-vj-description p:last-child {
@@ -70,7 +74,7 @@
 .service-unavailable .conditions-list li,
 .service-unavailable .genre-list li,
 .service-unavailable .conditions-list li small {
-    text-decoration: line-through 4px rgba(255, 255, 255, 0.4);
+    text-decoration: line-through 1px rgba(255, 255, 255, 0.25);
 }
 
 .vr-vj-features,
@@ -130,7 +134,7 @@
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
     font-family: var(--font-body);
-    font-weight: 600;
+    font-weight: 400;
     position: relative;
 }
 

@@ -76,11 +76,13 @@
 
 .profile-roles {
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: var(--space-2);
 }
 
 .role-tag {
+    white-space: nowrap;
     padding: 4px 8px;
     background: #FFF;
     border: solid 2px #FFF;

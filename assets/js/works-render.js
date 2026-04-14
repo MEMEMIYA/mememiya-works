@@ -435,8 +435,17 @@ function initLoadMoreEvents() {
 
     // ボタンのクリックイベント
     loadMoreBtn.addEventListener('click', function() {
-        const hiddenItems = container.querySelectorAll('.event-item-compact.hidden');
-        hiddenItems.forEach(item => item.classList.remove('hidden'));
+        // 全アイテムのhiddenを外してから、アクティブフィルターを再適用
+        container.querySelectorAll('.event-item-compact').forEach(item => item.classList.remove('hidden'));
+        const activeFilter = document.querySelector('.filter-buttons-compact .filter-btn-compact.active');
+        if (activeFilter && activeFilter.dataset.filter !== 'all') {
+            const filter = activeFilter.dataset.filter;
+            container.querySelectorAll('.event-item-compact').forEach(item => {
+                if (item.dataset.type !== filter && item.dataset.year !== filter) {
+                    item.classList.add('hidden');
+                }
+            });
+        }
         this.parentElement.style.display = 'none';
     });
 }
