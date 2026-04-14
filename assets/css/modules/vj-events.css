@@ -157,7 +157,7 @@
 
 .event-list-compact {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
     gap: var(--space-2);
     margin-bottom: var(--space-6);
 }

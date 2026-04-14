@@ -251,8 +251,8 @@ function renderEvents() {
         if (!containerElement) return 3;
 
         const containerWidth = containerElement.offsetWidth;
-        const minCardWidth = 250;
-        const gap = 16; // var(--space-4)の値
+        const minCardWidth = 190;
+        const gap = 16; // var(--space-2)の値
 
         // 実際に表示できる列数を計算
         const cols = Math.floor((containerWidth + gap) / (minCardWidth + gap));
