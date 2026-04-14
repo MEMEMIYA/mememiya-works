@@ -347,25 +347,27 @@
     }
 
     .profile-image-frame {
-        width: 160px;
-        height: 160px;
+        width: 110px;
+        height: 110px;
     }
 
     .profile-name-large {
-        font-size: var(--text-2xl);
+        font-size: var(--text-lg);
     }
 
     .profile-name-reading {
-        font-size: var(--text-base);
+        font-size: var(--text-sm);
     }
 
     .profile-roles {
-        gap: 6px;
+        gap: 5px;
     }
 
     .role-tag {
-        font-size: var(--text-xs);
-        padding: 3px 6px;
+        font-size: var(--text-2xs);
+        font-weight: 600;
+        padding: 2px 5px;
+        border-width: 1px;
     }
 
     .profile-right-column {
