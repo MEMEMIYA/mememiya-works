@@ -50,7 +50,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    min-height: 0; /* base.css の img[loading=lazy] min-height:100px を無効化 */
+    min-height: 0 !important; /* base.css の img[loading=lazy](詳細度0,1,1)を上書き */
 }
 
 .profile-name-large {
