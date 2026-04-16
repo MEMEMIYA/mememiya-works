@@ -69,12 +69,14 @@ function mosaicReveal(container, img, fullSrc) {
         let step = 0;
         const tick = () => {
             if (step >= pixelSteps.length) {
-                // フラッシュを先に付けてからcanvasを外す（間を無くす）
-                container.classList.add('img-revealed');
                 canvas.remove();
                 container.classList.remove('img-upgrading');
-                setTimeout(() => container.classList.remove('img-revealed'), 350);
                 return;
+            }
+            // 最後の1ステップ手前でフラッシュを開始（モザイク終わりかけに重ねる）
+            if (step === pixelSteps.length - 1) {
+                container.classList.add('img-revealed');
+                setTimeout(() => container.classList.remove('img-revealed'), 350);
             }
             drawMosaic(step < halfway ? loImg : hiImg, pixelSteps[step]);
             step++;

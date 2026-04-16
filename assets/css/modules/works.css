@@ -568,7 +568,7 @@
 
 @keyframes img-reveal-flash {
     0%   { opacity: 0; }
-    25%  { opacity: 0.55; }
+    25%  { opacity: 0.28; }
     100% { opacity: 0; }
 }
 
