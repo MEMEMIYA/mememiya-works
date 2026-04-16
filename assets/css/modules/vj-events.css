@@ -424,7 +424,7 @@
 
 @keyframes vj-reveal-flash {
     0%   { opacity: 0; }
-    25%  { opacity: 0.28; }
+    25%  { opacity: 0.12; }
     100% { opacity: 0; }
 }
 
