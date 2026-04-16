@@ -394,13 +394,6 @@
     line-height: 1.3;
 }
 
-.contact-detail-link .btn:hover {
-    background: var(--gradient-purple-hover);
-    border-color: var(--color-purple-secondary);
-    color: #FFFFFF;
-    transform: translateY(-2px);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
 
 /* ===========================
    Contact Page Styles
