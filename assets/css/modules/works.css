@@ -595,6 +595,10 @@
     border-color: rgba(139, 92, 246, 0.35);
 }
 
+.work-item.coming-soon-vivivit .work-thumbnail {
+    display: none;
+}
+
 .work-item.coming-soon-vivivit:hover {
     border-color: var(--color-purple-primary);
 }
