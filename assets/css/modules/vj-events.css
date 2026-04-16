@@ -421,7 +421,7 @@
     animation: vj-img-shimmer 1.5s ease-in-out infinite;
 }
 
-.event-thumb-compact:not(.img-loaded)::after {
+.event-thumb-compact.img-upgrading::after {
     content: '';
     position: absolute;
     top: calc(50% - 10px);

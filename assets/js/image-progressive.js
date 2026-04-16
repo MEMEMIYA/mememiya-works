@@ -21,12 +21,20 @@ function loadFullImage(img) {
     const fullSrc = img.dataset.src;
     if (!fullSrc) return;
 
+    // 高品質版の取得中であることを親コンテナに伝える
+    const container = img.parentElement;
+    if (container) container.classList.add('img-upgrading');
+
     const tempImg = new Image();
     tempImg.onload = () => {
         img.src = fullSrc;
         img.removeAttribute('data-src');
+        if (container) container.classList.remove('img-upgrading');
     };
-    // 高品質版の読み込みに失敗してもそのまま小さい版を維持
+    tempImg.onerror = () => {
+        // 失敗してもスピナーは消す
+        if (container) container.classList.remove('img-upgrading');
+    };
     tempImg.src = fullSrc;
 }
 

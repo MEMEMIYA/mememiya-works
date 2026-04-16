@@ -577,8 +577,8 @@
     animation: skeleton-loading 1.5s ease-in-out infinite;
 }
 
-.featured-media:not(.img-loaded)::after,
-.work-media:not(.img-loaded)::after {
+.featured-media.img-upgrading::after,
+.work-media.img-upgrading::after {
     content: '';
     position: absolute;
     top: calc(50% - 14px);
