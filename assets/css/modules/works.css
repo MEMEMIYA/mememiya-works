@@ -560,10 +560,29 @@
 }
 
 /* ===========================
-   画像読み込み中のシマーアニメーション＆スピナー
+   画像読み込み中のシマーアニメーション＆スピナー＆切替エフェクト
    =========================== */
 @keyframes img-spin {
     to { transform: rotate(360deg); }
+}
+
+@keyframes img-reveal-flash {
+    0%   { opacity: 0; }
+    25%  { opacity: 0.55; }
+    100% { opacity: 0; }
+}
+
+/* 高解像度版に切り替わった瞬間のフラッシュ */
+.featured-media.img-revealed::before,
+.work-media.img-revealed::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: white;
+    animation: img-reveal-flash 0.5s ease-out forwards;
+    z-index: 6;
+    pointer-events: none;
+}
 }
 
 .featured-media:not(.img-loaded),

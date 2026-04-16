@@ -29,10 +29,13 @@ function loadFullImage(img) {
     tempImg.onload = () => {
         img.src = fullSrc;
         img.removeAttribute('data-src');
-        if (container) container.classList.remove('img-upgrading');
+        if (container) {
+            container.classList.remove('img-upgrading');
+            container.classList.add('img-revealed');
+            setTimeout(() => container.classList.remove('img-revealed'), 600);
+        }
     };
     tempImg.onerror = () => {
-        // 失敗してもスピナーは消す
         if (container) container.classList.remove('img-upgrading');
     };
     tempImg.src = fullSrc;
