@@ -11,7 +11,7 @@
 
 /* Components */
 @import url('modules/navigation.css');
-@import url('modules/hero.css?v=44');
+@import url('modules/hero.css?v=45');
 @import url('modules/profile.css?v=36');
 @import url('modules/works.css?v=36');
 @import url('modules/works-filters.css?v=36');
@@ -19,11 +19,11 @@
 @import url('modules/vj-events.css?v=35');
 @import url('modules/upcoming-events.css?v=48');
 @import url('modules/generative-vj.css?v=39');
-@import url('modules/links-contact.css?v=39');
+@import url('modules/links-contact.css?v=42');
 @import url('modules/services.css?v=40');
 @import url('modules/services-compact.css?v=62');
 @import url('modules/vr-vj-detail.css?v=3');
-@import url('modules/buttons.css?v=36');
+@import url('modules/buttons.css?v=38');
 @import url('modules/footer.css?v=3');
 @import url('modules/modal.css?v=35');
 @import url('modules/modal-gallery.css');

@@ -1,6 +1,7 @@
 {
   "devDependencies": {
-    "puppeteer": "^24.25.0"
+    "puppeteer": "^24.25.0",
+    "sharp": "^0.34.5"
   },
   "scripts": {
     "test": "node tests/run-all.js",

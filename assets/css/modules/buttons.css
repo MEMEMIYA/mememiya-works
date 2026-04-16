@@ -11,7 +11,7 @@
 /* ベ�Eスボタンスタイル - 統一された基盤 */
 .btn,
 .btn-hero {
-    padding: var(--space-3) var(--space-6);
+    padding: var(--space-2) var(--space-4);
     font-family: var(--font-body);
     font-size: var(--text-base);
     font-weight: 600;
@@ -120,6 +120,10 @@
     .btn {
         padding: 8px var(--space-4);
         font-size: var(--text-sm);
+    }
+
+    .btn-hero {
+        padding: 5px 12px;
     }
 
     .floating-cta {
