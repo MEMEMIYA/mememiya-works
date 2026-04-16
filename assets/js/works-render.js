@@ -115,10 +115,26 @@ function renderAllWorks() {
         // Coming Soonマーカーの場合は特殊カードを表示
         if (work === 'coming-soon' || work?.type === 'coming-soon') {
             const url = work?.vivivitUrl;
-            const tag = url ? 'a' : 'div';
-            const linkAttrs = url ? `href="${url}" target="_blank" rel="noopener noreferrer"` : '';
+            if (url) {
+                return `
+                <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit" data-category="">
+                    <div class="work-media">
+                        <img src="${comingSoonFallback}" alt="ViViViT" class="work-thumbnail" ${workImgEvents(comingSoonFallback)}>
+                        <div class="vivivit-media-overlay">
+                            <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT" class="vivivit-media-logo">
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <div class="work-header">
+                            <h3 class="work-title">ViViViT 限定</h3>
+                        </div>
+                        <p class="work-description">ログインすると閲覧できます</p>
+                    </div>
+                </a>
+                `;
+            }
             return `
-            <${tag} ${linkAttrs} class="work-item glass-card coming-soon ${url ? '' : 'no-content'}" data-category="">
+            <div class="work-item glass-card coming-soon no-content" data-category="">
                 <div class="work-media">
                     <img src="${comingSoonFallback}" alt="Coming Soon" class="work-thumbnail" ${workImgEvents(comingSoonFallback)}>
                 </div>
@@ -127,9 +143,9 @@ function renderAllWorks() {
                         <h3 class="work-title">Coming Soon</h3>
                         <span class="work-year">-</span>
                     </div>
-                    <p class="work-description">${url ? 'ViViViTで見る' : '準備中です'}</p>
+                    <p class="work-description">準備中です</p>
                 </div>
-            </${tag}>
+            </div>
             `;
         }
 
@@ -189,10 +205,26 @@ function renderAllWorks() {
             // Coming Soonマーカーの場合は特殊カードを表示
             if (work === 'coming-soon' || work?.type === 'coming-soon') {
                 const url = work?.vivivitUrl;
-                const tag = url ? 'a' : 'div';
-                const linkAttrs = url ? `href="${url}" target="_blank" rel="noopener noreferrer"` : '';
+                if (url) {
+                    return `
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit hidden" data-category="">
+                        <div class="work-media">
+                            <img src="${comingSoonFallback}" alt="ViViViT" class="work-thumbnail" ${workImgEvents(comingSoonFallback)}>
+                            <div class="vivivit-media-overlay">
+                                <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT" class="vivivit-media-logo">
+                            </div>
+                        </div>
+                        <div class="work-info">
+                            <div class="work-header">
+                                <h3 class="work-title">ViViViT 限定</h3>
+                            </div>
+                            <p class="work-description">ログインすると閲覧できます</p>
+                        </div>
+                    </a>
+                    `;
+                }
                 return `
-                <${tag} ${linkAttrs} class="work-item glass-card coming-soon hidden ${url ? '' : 'no-content'}" data-category="">
+                <div class="work-item glass-card coming-soon no-content hidden" data-category="">
                     <div class="work-media">
                         <img src="${comingSoonFallback}" alt="Coming Soon" class="work-thumbnail" ${workImgEvents(comingSoonFallback)}>
                     </div>
@@ -201,9 +233,9 @@ function renderAllWorks() {
                             <h3 class="work-title">Coming Soon</h3>
                             <span class="work-year">-</span>
                         </div>
-                        <p class="work-description">${url ? 'ViViViTで見る' : '準備中です'}</p>
+                        <p class="work-description">準備中です</p>
                     </div>
-                </${tag}>
+                </div>
                 `;
             }
 
