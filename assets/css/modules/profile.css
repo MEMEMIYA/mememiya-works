@@ -336,7 +336,7 @@
         text-align: center;
         border-left: none;
         background: none;
-        color: rgba(167, 139, 250, 0.85);
+        color: var(--color-purple-pale);
     }
 
     .profile-layout {
