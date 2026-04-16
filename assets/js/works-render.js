@@ -1,6 +1,15 @@
 // Works Rendering Script
 // データを読み込んで動的にHTMLを生成する
 
+// 元画像パスを small/ フォルダの圧縮版パスに変換
+function _toSmall(src) {
+    const lastSlash = src.lastIndexOf('/');
+    const dir = src.substring(0, lastSlash);
+    const filename = src.substring(lastSlash + 1);
+    const baseName = filename.substring(0, filename.lastIndexOf('.'));
+    return `${dir}/small/${baseName}.jpg`;
+}
+
 // Featured Worksのレンダリング
 function renderFeaturedWorks() {
     const container = document.querySelector('.featured-works-grid');
@@ -36,10 +45,13 @@ function renderFeaturedWorks() {
             return `<span class="work-category-badge">${label}</span>`;
         }).join('') : '';
 
+        const featuredFallback = '/assets/images/fallback/Fallback_Works_ComingSoon_01.png';
+        const featuredSmall = _toSmall(work.thumbnail);
+        const featuredImgEvents = `loading="eager" onload="this.closest('.featured-media').classList.add('img-loaded')" onerror="this.src='${featuredFallback}';this.closest('.featured-media').classList.add('img-loaded')"`;
         return `
         <div class="featured-work-card glass-card ${noContentClass}" ${youtubeAttr} ${galleryAttr}>
             <div class="featured-media">
-                <img src="${work.thumbnail}" alt="${work.title}" class="featured-image" loading="lazy">
+                <img src="${featuredSmall}" data-src="${work.thumbnail}" alt="${work.title}" class="featured-image" ${featuredImgEvents}>
                 ${categoryBadges ? `<div class="work-category-badges">${categoryBadges}</div>` : ''}
             </div>
             <div class="featured-info">
@@ -97,13 +109,15 @@ function renderAllWorks() {
     // Coming Soonカード用のフォールバック画像
     const comingSoonFallback = '/assets/images/fallback/Fallback_Works_ComingSoon_01.png';
 
+    const workImgEvents = (fallback) => `loading="lazy" onload="this.closest('.work-media').classList.add('img-loaded')" onerror="this.src='${fallback}';this.closest('.work-media').classList.add('img-loaded')"`;
+
     container.innerHTML = visibleWorks.map(work => {
         // Coming Soonマーカーの場合は特殊カードを表示
         if (work === 'coming-soon') {
             return `
             <div class="work-item glass-card coming-soon no-content" data-category="">
                 <div class="work-media">
-                    <img src="${comingSoonFallback}" alt="Coming Soon" class="work-thumbnail" loading="lazy">
+                    <img src="${comingSoonFallback}" alt="Coming Soon" class="work-thumbnail" ${workImgEvents(comingSoonFallback)}>
                 </div>
                 <div class="work-info">
                     <div class="work-header">
@@ -132,7 +146,7 @@ function renderAllWorks() {
         return `
         <div class="work-item glass-card ${noContentClass}" data-category="${categories}" data-youtube="${youtubeValue}" ${galleryAttr} ${work.externalVideo ? `data-external-video="${work.externalVideo}"` : ''}>
             <div class="work-media">
-                <img src="${work.thumbnail}" alt="${work.title}" class="work-thumbnail" loading="lazy">
+                <img src="${_toSmall(work.thumbnail)}" data-src="${work.thumbnail}" alt="${work.title}" class="work-thumbnail" ${workImgEvents(comingSoonFallback)}>
                 ${categoryBadges ? `<div class="work-category-badges">${categoryBadges}</div>` : ''}
                 <div class="work-overlay">
                     ${youtubeValue ? `
@@ -174,7 +188,7 @@ function renderAllWorks() {
                 return `
                 <div class="work-item glass-card coming-soon no-content hidden" data-category="">
                     <div class="work-media">
-                        <img src="${comingSoonFallback}" alt="Coming Soon" class="work-thumbnail" loading="lazy">
+                        <img src="${comingSoonFallback}" alt="Coming Soon" class="work-thumbnail" ${workImgEvents(comingSoonFallback)}>
                     </div>
                     <div class="work-info">
                         <div class="work-header">
@@ -203,7 +217,7 @@ function renderAllWorks() {
             return `
             <div class="work-item glass-card hidden ${noContentClass}" data-category="${categories}" data-youtube="${youtubeValue}" ${galleryAttr}>
                 <div class="work-media">
-                    <img src="${work.thumbnail}" alt="${work.title}" class="work-thumbnail" loading="lazy">
+                    <img src="${_toSmall(work.thumbnail)}" data-src="${work.thumbnail}" alt="${work.title}" class="work-thumbnail" ${workImgEvents(comingSoonFallback)}>
                     ${categoryBadges ? `<div class="work-category-badges">${categoryBadges}</div>` : ''}
                     <div class="work-overlay">
                         ${youtubeValue ? `
@@ -273,6 +287,7 @@ function renderEvents() {
         const galleryAttr = event.gallery && event.gallery.length > 0 ? `data-gallery="${event.gallery.join(',')}"` : '';
         // サムネイルが未設定の場合はフォールバック画像を使用
         const thumbnailSrc = event.thumbnail || fallbackImage;
+        const thumbnailSmall = event.thumbnail ? _toSmall(event.thumbnail) : fallbackImage;
         // ハッシュタグ処理: ハッシュタグがある場合のみ表示
         const hashtagsHtml = event.hashtags && event.hashtags.length > 0 ? `
             <div class="event-hashtags">
@@ -282,7 +297,7 @@ function renderEvents() {
         return `
         <div class="event-item-compact glass-card" data-type="${event.type}" data-year="${event.year}" ${galleryAttr}>
             <div class="event-thumb-compact">
-                <img src="${thumbnailSrc}" alt="${event.title}" loading="lazy" onerror="this.src='${fallbackImage}'">
+                <img src="${thumbnailSmall}" data-src="${thumbnailSrc}" alt="${event.title}" loading="lazy" onload="this.closest('.event-thumb-compact').classList.add('img-loaded')" onerror="this.src='${fallbackImage}';this.closest('.event-thumb-compact').classList.add('img-loaded')">
                 <span class="event-tag-compact ${event.type}">${event.type === 'vr' ? 'VR' : 'Real'}</span>
             </div>
             <div class="event-details-compact">
@@ -301,6 +316,7 @@ function renderEvents() {
             const galleryAttr = event.gallery && event.gallery.length > 0 ? `data-gallery="${event.gallery.join(',')}"` : '';
             // サムネイルが未設定の場合はフォールバック画像を使用
             const thumbnailSrc = event.thumbnail || fallbackImage;
+            const thumbnailSmall = event.thumbnail ? _toSmall(event.thumbnail) : fallbackImage;
             // ハッシュタグ処理: ハッシュタグがある場合のみ表示
             const hashtagsHtml = event.hashtags && event.hashtags.length > 0 ? `
                 <div class="event-hashtags">
@@ -310,7 +326,7 @@ function renderEvents() {
             return `
             <div class="event-item-compact glass-card hidden" data-type="${event.type}" data-year="${event.year}" ${galleryAttr}>
                 <div class="event-thumb-compact">
-                    <img src="${thumbnailSrc}" alt="${event.title}" loading="lazy" onerror="this.src='${fallbackImage}'">
+                    <img src="${thumbnailSmall}" data-src="${thumbnailSrc}" alt="${event.title}" loading="lazy" onload="this.closest('.event-thumb-compact').classList.add('img-loaded')" onerror="this.src='${fallbackImage}';this.closest('.event-thumb-compact').classList.add('img-loaded')">
                     <span class="event-tag-compact ${event.type}">${event.type === 'vr' ? 'VR' : 'Real'}</span>
                 </div>
                 <div class="event-details-compact">
@@ -465,8 +481,10 @@ document.addEventListener('DOMContentLoaded', () => {
         initLoadMoreWorks();
         initLoadMoreEvents();
 
-        // イベント委譲を使用しているため、モーダルの再初期化は不要
-        // カーソルホバー効果もイベント委譲で処理されているため、再初期化不要
+        // レンダリング後に高品質版への差し替えを開始
+        if (typeof window.upgradeImages === 'function') {
+            window.upgradeImages();
+        }
     };
 
     if (testLoading) {

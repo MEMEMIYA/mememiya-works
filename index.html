@@ -95,7 +95,7 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="#hero" aria-label="MEMEMIYAホームページ">
-                    <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="nav-logo-img">
+                    <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="nav-logo-img" onerror="this.style.visibility='hidden'">
                 </a>
             </div>
             <ul class="nav-links" id="navLinks" role="menubar">
@@ -126,7 +126,7 @@
 
         <div class="hero-content">
             <div class="hero-logo-wrapper animate-fade-in">
-                <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="hero-logo-img" loading="eager">
+                <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="hero-logo-img" loading="eager" onerror="this.style.visibility='hidden'">
             </div>
             <p class="hero-subtitle animate-slide-up delay-1">映像クリエイター  /  テクニカルディレクター  /  VJ</p>
             <div class="hero-tags animate-slide-up delay-2">
@@ -218,7 +218,7 @@
                 <!-- Profile Header: 画像と基本情報 -->
                 <div class="profile-header">
                     <div class="profile-image-frame">
-                        <img src="assets/images/artistPhoto/MEMEMIYA_promotionPhoto.png" alt="MEMEMIYA" class="profile-photo" loading="lazy">
+                        <img src="assets/images/artistPhoto/small/MEMEMIYA_promotionPhoto.jpg" data-src="assets/images/artistPhoto/MEMEMIYA_promotionPhoto.png" alt="MEMEMIYA" class="profile-photo" loading="lazy" onerror="this.style.opacity='0'">
                     </div>
                     <h3 class="profile-name-large">MEMEMIYA</h3>
                     <p class="profile-name-reading">メメミヤ</p>
@@ -817,7 +817,10 @@
     <!-- Works Data -->
     <script src="assets/js/works-data.js?v=6"></script>
 
+    <!-- Progressive Image Loading -->
+    <script src="assets/js/image-progressive.js"></script>
+
     <!-- Works Rendering -->
-    <script src="assets/js/works-render.js?v=11"></script>
+    <script src="assets/js/works-render.js?v=12"></script>
 </body>
 </html>
