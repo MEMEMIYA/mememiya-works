@@ -618,8 +618,8 @@
 }
 
 .vivivit-media-logo {
-    height: 28px;
-    width: auto;
+    width: 70%;
+    height: auto;
     opacity: 0.75;
     transition: opacity var(--transition-base);
 }
