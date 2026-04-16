@@ -421,22 +421,6 @@
     animation: vj-img-shimmer 1.5s ease-in-out infinite;
 }
 
-/* 高解像度版に切り替わった瞬間のフラッシュ */
-@keyframes vj-reveal-flash {
-    0%   { opacity: 0; }
-    25%  { opacity: 0.55; }
-    100% { opacity: 0; }
-}
-
-.event-thumb-compact.img-revealed::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: white;
-    animation: vj-reveal-flash 0.5s ease-out forwards;
-    z-index: 6;
-    pointer-events: none;
-}
 
 .event-thumb-compact.img-upgrading::after {
     content: '';
