@@ -16,21 +16,21 @@
     --color-purple-primary: #8B5CF6;      /* メインパープル */
     --color-purple-secondary: #A78BFA;    /* ライトパープル */
     --color-purple-tertiary: #6D28D9;     /* ダークパープル */
-    --color-purple-vivid: #A855F7;        /* 鮮やかなパープル（CTA用） */
-    --color-pink-accent: #A855F7;         /* パープルアクセント */
+    --color-purple-vivid: #7C3AED;        /* 鮮やかなパープル（CTA用） */
+    --color-pink-accent: #8B5CF6;         /* パープルアクセント */
     --color-lavender: #9F7AEA;            /* ラベンダー */
     --color-purple-pale: #E0CFFF;         /* ペールパープル（セカンダリーテキスト用） */
 
     /* グラデーション定義 */
-    --gradient-purple-primary: linear-gradient(135deg, #A855F7 0%, #8B5CF6 50%, #6D28D9 100%);
+    --gradient-purple-primary: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 50%, #6D28D9 100%);
     --gradient-purple-dark: linear-gradient(135deg, #6D28D9 0%, #5B21B6 50%, #4C1D95 100%);
     --gradient-purple-hover: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%);
-    --gradient-purple-subtle: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
+    --gradient-purple-subtle: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
 
     /* アクセントカラー（透明度調整） */
     --color-accent: rgba(139, 92, 246, 0.15);
     --color-accent-mid: rgba(139, 92, 246, 0.25);
-    --color-accent-hover: rgba(168, 85, 247, 0.3);
+    --color-accent-hover: rgba(139, 92, 246, 0.3);
 
     /* スペーシングシステム（8pxベース） */
     --space-1: 0.5rem;    /* 8px */
