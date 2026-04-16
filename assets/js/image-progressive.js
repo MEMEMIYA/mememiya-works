@@ -42,8 +42,8 @@ function mosaicReveal(container, img, fullSrc) {
 
     // ブロックサイズの段階：大→小
     // 前半は低解像度画像、後半は高解像度画像を描画
-    const pixelSteps = [32, 20, 12, 7, 3, 1];
-    const halfway    = Math.ceil(pixelSteps.length / 2); // 3
+    const pixelSteps = [24, 10, 3, 1];
+    const halfway    = Math.ceil(pixelSteps.length / 2); // 2
 
     /**
      * ブロック状に縮小→拡大して描画（モザイク効果）
@@ -69,15 +69,16 @@ function mosaicReveal(container, img, fullSrc) {
         let step = 0;
         const tick = () => {
             if (step >= pixelSteps.length) {
+                // フラッシュを先に付けてからcanvasを外す（間を無くす）
+                container.classList.add('img-revealed');
                 canvas.remove();
                 container.classList.remove('img-upgrading');
-                container.classList.add('img-revealed');
-                setTimeout(() => container.classList.remove('img-revealed'), 600);
+                setTimeout(() => container.classList.remove('img-revealed'), 350);
                 return;
             }
             drawMosaic(step < halfway ? loImg : hiImg, pixelSteps[step]);
             step++;
-            setTimeout(tick, 60);
+            setTimeout(tick, 35);
         };
         tick();
     }
