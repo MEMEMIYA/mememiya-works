@@ -10,14 +10,14 @@
 .profile-catchcopy {
     text-align: left;
     font-size: var(--text-base);
-    color: var(--color-purple-pale);
+    color: var(--color-purple-secondary);
     font-weight: 400;
     letter-spacing: 0;
     margin: 0 0 var(--space-2) 0;
     padding: 0 0 0 var(--space-3);
     font-family: var(--font-body);
     line-height: 1.5;
-    border-left: 2px solid rgba(139, 92, 246, 0.5);
+    border-left: 2px solid var(--color-purple-secondary);
     background: none;
 }
 
@@ -336,7 +336,7 @@
         text-align: center;
         border-left: none;
         background: none;
-        color: var(--color-purple-pale);
+        color: var(--color-purple-secondary);
     }
 
     .profile-layout {
