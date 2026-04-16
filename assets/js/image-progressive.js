@@ -46,7 +46,34 @@ function mosaicReveal(container, img, fullSrc) {
     const halfway    = Math.ceil(pixelSteps.length / 2); // 2
 
     /**
+     * object-fit: cover と同じクロップ領域を計算する
+     */
+    function getCoverCrop(source) {
+        const srcW = source.naturalWidth  || source.width;
+        const srcH = source.naturalHeight || source.height;
+        if (!srcW || !srcH) return { sx: 0, sy: 0, sw: srcW, sh: srcH };
+        const srcRatio = srcW / srcH;
+        const dstRatio = W / H;
+        let sx, sy, sw, sh;
+        if (srcRatio > dstRatio) {
+            // 横長：左右をクロップ（縦に合わせる）
+            sh = srcH;
+            sw = srcH * dstRatio;
+            sx = (srcW - sw) / 2;
+            sy = 0;
+        } else {
+            // 縦長：上下をクロップ（横に合わせる）
+            sw = srcW;
+            sh = srcW / dstRatio;
+            sx = 0;
+            sy = (srcH - sh) / 2;
+        }
+        return { sx, sy, sw, sh };
+    }
+
+    /**
      * ブロック状に縮小→拡大して描画（モザイク効果）
+     * object-fit: cover と同じクロップで描画する
      */
     function drawMosaic(source, pixelSize) {
         const cols = Math.max(1, Math.ceil(W / pixelSize));
@@ -56,7 +83,8 @@ function mosaicReveal(container, img, fullSrc) {
         tmp.height = rows;
         const tc   = tmp.getContext('2d');
         tc.imageSmoothingEnabled = false;
-        tc.drawImage(source, 0, 0, cols, rows);
+        const { sx, sy, sw, sh } = getCoverCrop(source);
+        tc.drawImage(source, sx, sy, sw, sh, 0, 0, cols, rows);
         ctx.clearRect(0, 0, W, H);
         ctx.drawImage(tmp, 0, 0, W, H);
     }
