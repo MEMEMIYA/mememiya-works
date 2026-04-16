@@ -251,6 +251,15 @@ function renderAllWorks() {
             `;
         }).join('');
     }
+
+    // ViViViTカードをグリッドの末尾に追加
+    container.innerHTML += `
+    <a href="https://www.vivivit.com/mememiya" target="_blank" rel="noopener noreferrer" class="works-vivivit-card">
+        <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT" class="works-vivivit-logo">
+        <span class="works-vivivit-main">ここに載せられないものはこちらにて</span>
+        <span class="works-vivivit-note">※ 閲覧にはViViViTへのログインが必要です</span>
+    </a>
+    `;
 }
 
 // VJ Eventsのレンダリング（初期表示数を制限）

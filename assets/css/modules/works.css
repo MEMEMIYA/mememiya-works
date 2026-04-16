@@ -411,29 +411,48 @@
     margin-top: var(--space-6);
 }
 
-.works-vivivit-link {
+.works-vivivit-card {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    margin-top: var(--space-3);
+    gap: var(--space-2);
+    padding: var(--space-4);
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    transition: transform var(--transition-slow), border-color var(--transition-slow), color var(--transition-slow);
+    text-align: center;
 }
 
-.works-vivivit-link .btn {
-    flex-direction: column;
-    gap: 4px;
-    text-align: center;
+.works-vivivit-card:hover {
+    border-color: var(--color-purple-primary);
+    transform: translateY(-2px);
+    color: var(--color-text-primary);
+}
+
+.works-vivivit-logo {
+    height: 24px;
+    width: auto;
+    opacity: 0.6;
+    transition: opacity var(--transition-slow);
+}
+
+.works-vivivit-card:hover .works-vivivit-logo {
+    opacity: 1;
 }
 
 .works-vivivit-main {
     font-size: var(--text-sm);
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.4;
 }
 
 .works-vivivit-note {
     font-size: var(--text-2xs);
     font-weight: 400;
-    opacity: 0.6;
-    line-height: 1.3;
+    opacity: 0.5;
+    line-height: 1.4;
 }
 
 /* タブレチE��最適匁E*/
