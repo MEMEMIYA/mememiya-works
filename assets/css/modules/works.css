@@ -592,15 +592,10 @@
 
 .work-item.coming-soon-vivivit {
     opacity: 1;
-    border-color: rgba(139, 92, 246, 0.35);
 }
 
 .work-item.coming-soon-vivivit .work-media {
     background-color: #000;
-}
-
-.work-item.coming-soon-vivivit:hover {
-    border-color: var(--color-purple-primary);
 }
 
 .vivivit-media-overlay {
