@@ -135,9 +135,9 @@ const worksData = {
                 role: '絵コンテ　投影　機材調達　マッピング　PM'
             }
         },
-        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/mememiya' }, // TODO: 正しいURLに差し替え
-        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/mememiya' }, // TODO: 正しいURLに差し替え
-        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/mememiya' }, // TODO: 正しいURLに差し替え
+        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/works/920584' },
+        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/works/916542' },
+        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/works/822778' },
         {
             id: 'digital-floral-flow',
             title: 'Digital Floral Flow',
