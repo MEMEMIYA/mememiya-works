@@ -402,3 +402,36 @@
         right: var(--space-1);
     }
 }
+
+/* ===========================
+   画像読み込み中のシマーアニメーション
+   =========================== */
+@keyframes vj-img-shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: calc(200px + 100%) 0; }
+}
+
+.event-thumb-compact:not(.img-loaded) {
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.04) 25%,
+        rgba(255, 255, 255, 0.09) 50%,
+        rgba(255, 255, 255, 0.04) 75%
+    );
+    background-size: 400% 100%;
+    animation: vj-img-shimmer 1.5s ease-in-out infinite;
+}
+
+.event-thumb-compact:not(.img-loaded)::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-top-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: img-spin 0.75s linear infinite;
+    z-index: 5;
+    pointer-events: none;
+}
