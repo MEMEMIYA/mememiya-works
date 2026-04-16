@@ -422,6 +422,22 @@
 }
 
 
+@keyframes vj-reveal-flash {
+    0%   { opacity: 0; }
+    25%  { opacity: 0.55; }
+    100% { opacity: 0; }
+}
+
+.event-thumb-compact.img-revealed::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: white;
+    animation: vj-reveal-flash 0.5s ease-out forwards;
+    z-index: 8;
+    pointer-events: none;
+}
+
 .event-thumb-compact.img-upgrading::after {
     content: '';
     position: absolute;

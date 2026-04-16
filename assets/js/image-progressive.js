@@ -71,6 +71,8 @@ function mosaicReveal(container, img, fullSrc) {
             if (step >= pixelSteps.length) {
                 canvas.remove();
                 container.classList.remove('img-upgrading');
+                container.classList.add('img-revealed');
+                setTimeout(() => container.classList.remove('img-revealed'), 600);
                 return;
             }
             drawMosaic(step < halfway ? loImg : hiImg, pixelSteps[step]);
