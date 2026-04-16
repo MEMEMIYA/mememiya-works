@@ -116,8 +116,8 @@
     <!-- メインビジュアル: デモ映像背景、タイトル、サブタイトル、タグ -->
     <section id="hero" class="hero-section">
         <!-- 背景ビデオ -->
-        <div class="hero-video-background">
-            <video autoplay muted loop playsinline class="hero-video">
+        <div class="hero-video-background video-loading" id="heroVideoBg">
+            <video autoplay muted loop playsinline class="hero-video" id="heroVideo">
                 <source src="assets/videos/hero-video_04.mp4" type="video/mp4">
             </video>
             <!-- ビデオオーバーレイ（グラデーション） -->
@@ -816,6 +816,19 @@
 
     <!-- Works Data -->
     <script src="assets/js/works-data.js?v=6"></script>
+
+    <!-- Hero Video Loading Spinner -->
+    <script>
+        (function() {
+            const video = document.getElementById('heroVideo');
+            const bg    = document.getElementById('heroVideoBg');
+            if (!video || !bg) return;
+            const done = () => bg.classList.remove('video-loading');
+            video.addEventListener('canplay', done, { once: true });
+            // autoplay がブロックされた場合も一定時間後にスピナーを消す
+            setTimeout(done, 8000);
+        })();
+    </script>
 
     <!-- Progressive Image Loading -->
     <script src="assets/js/image-progressive.js"></script>
