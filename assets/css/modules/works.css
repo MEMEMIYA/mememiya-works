@@ -595,10 +595,6 @@
     border-color: rgba(139, 92, 246, 0.35);
 }
 
-.work-item.coming-soon-vivivit .work-thumbnail {
-    filter: brightness(0);
-}
-
 .work-item.coming-soon-vivivit .work-media {
     background-color: #000;
 }

@@ -119,7 +119,6 @@ function renderAllWorks() {
                 return `
                 <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit" data-category="">
                     <div class="work-media">
-                        <img src="${comingSoonFallback}" alt="ViViViT" class="work-thumbnail" ${workImgEvents(comingSoonFallback)}>
                         <div class="vivivit-media-overlay">
                             <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT" class="vivivit-media-logo">
                         </div>
@@ -209,7 +208,6 @@ function renderAllWorks() {
                     return `
                     <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit hidden" data-category="">
                         <div class="work-media">
-                            <img src="${comingSoonFallback}" alt="ViViViT" class="work-thumbnail" ${workImgEvents(comingSoonFallback)}>
                             <div class="vivivit-media-overlay">
                                 <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT" class="vivivit-media-logo">
                             </div>
