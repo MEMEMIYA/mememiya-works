@@ -130,6 +130,7 @@ function initWorkModals() {
     document.addEventListener('click', (e) => {
         const item = e.target.closest('.work-item, .featured-work-card, .event-card, .event-item-compact, .video-work-card');
         if (!item) return;
+        if (item.classList.contains('coming-soon-vivivit')) return;
 
 
         // Get work data from the clicked item or from data source
