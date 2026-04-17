@@ -50,10 +50,8 @@ if (!gl) {
             // Create circular floor with smooth edges
             float floor = max(floorPlane, distFromCenter - floorRadius);
 
-            // Wireframe cylinder wall - same radius as floor edge, only above floor
-            float cylinderRadius = 30.0;
-            float cylinderThickness = 0.06;
-            float cylinderWall = abs(distFromCenter - cylinderRadius) - cylinderThickness;
+            // Wireframe cylinder wall - inner surface exactly at r=30 (no thickness gap)
+            float cylinderWall = 30.0 - distFromCenter;
             cylinderWall = max(cylinderWall, -(p.y + 2.0)); // clip below floor level
 
             // Return distance and material ID (1.0 = floor, 3.0 = cylinder wall)
@@ -187,15 +185,15 @@ if (!gl) {
                     float fineGridLine = min(fineGrid.x, fineGrid.y);
                     float fineGridPattern = smoothstep(0.005, 0.002, fineGridLine);
 
-                    // Distance-based fade - smooth transition at circular edge
-                    float distFade = 1.0 - smoothstep(22.0, 30.0, distFromCenter);
+                    // Distance-based fade - keep lines visible at edge for seamless junction
+                    float distFade = 1.0 - smoothstep(24.0, 31.0, distFromCenter);
 
                     // Base floor color - deep black
                     col = vec3(0.012);
 
                     // Animated wave pattern traveling from center - subtle
                     float wave = sin(distFromCenter * 2.0 - u_time * 0.8) * 0.5 + 0.5;
-                    float waveIntensity = smoothstep(0.0, 5.0, distFromCenter) * (1.0 - smoothstep(22.0, 30.0, distFromCenter));
+                    float waveIntensity = smoothstep(0.0, 5.0, distFromCenter) * (1.0 - smoothstep(24.0, 31.0, distFromCenter));
                     col += vec3(0.03) * wave * waveIntensity * 0.3;
 
                     // Main grid lines - thin and refined
