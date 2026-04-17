@@ -302,7 +302,7 @@
 .profile-right-column {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-1);
 }
 
 .profile-description {
@@ -315,9 +315,19 @@
     line-height: var(--leading-normal);
     letter-spacing: var(--tracking-normal);
     font-size: var(--text-sm);
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
     font-family: var(--font-serif);
     font-weight: 400;
+}
+
+/* 経歴・受賞歴：本文と性質が違うので前に広め */
+.profile-meta-compact {
+    margin-top: var(--space-3);
+}
+
+/* スキルセット：経歴とは別種なので少し広め */
+.profile-skills {
+    margin-top: var(--space-2);
 }
 
 .description-text.highlight-text {
@@ -391,6 +401,11 @@
     /* メタコンパクトを非表示 */
     .profile-meta-compact {
         display: none;
+        margin-top: 0;
+    }
+
+    .profile-skills {
+        margin-top: 0;
     }
 
     .achievements-title,
