@@ -502,7 +502,7 @@ section {
 @media (max-width: 768px) {
     .information-section {
         margin-top: -50px;
-        padding-top: calc(var(--space-4) + 50px);
+        padding-top: calc(var(--space-2) + 50px);
         padding-bottom: var(--space-2);
     }
 
