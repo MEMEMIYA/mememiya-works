@@ -117,9 +117,11 @@ function renderAllWorks() {
             const url = work?.vivivitUrl;
             if (url) {
                 const categoryStr = work.categories ? work.categories.join(' ') : '';
+                const badgeHtml = work.badge ? `<div class="work-category-badges"><span class="work-category-badge">${work.badge}</span></div>` : '';
                 return `
                 <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit" data-category="${categoryStr}">
                     <div class="work-media">
+                        ${badgeHtml}
                         <div class="vivivit-media-overlay">
                             <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT" class="vivivit-media-logo">
                         </div>
@@ -207,9 +209,11 @@ function renderAllWorks() {
                 const url = work?.vivivitUrl;
                 if (url) {
                     const categoryStr = work.categories ? work.categories.join(' ') : '';
+                    const badgeHtml = work.badge ? `<div class="work-category-badges"><span class="work-category-badge">${work.badge}</span></div>` : '';
                     return `
                     <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit hidden" data-category="${categoryStr}">
                         <div class="work-media">
+                            ${badgeHtml}
                             <div class="vivivit-media-overlay">
                                 <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT" class="vivivit-media-logo">
                             </div>
