@@ -104,7 +104,7 @@
 }
 
 .skills-section-title {
-    font-size: var(--text-lg);
+    font-size: var(--text-sm);
     font-weight: 400;
     letter-spacing: var(--tracking-wide);
     margin-bottom: var(--space-1);
