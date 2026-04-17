@@ -220,7 +220,7 @@
 
 .service-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: baseline;
     gap: var(--space-3);
     margin-bottom: var(--space-2);

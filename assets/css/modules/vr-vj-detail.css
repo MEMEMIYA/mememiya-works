@@ -24,8 +24,9 @@
 
 .vr-vj-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: baseline;
+    gap: var(--space-3);
     margin-bottom: var(--space-4);
     padding-bottom: var(--space-3);
     border-bottom: solid 1px rgba(255, 255, 255, 0.08);
@@ -219,7 +220,7 @@
     .vr-vj-header {
         flex-direction: row;
         align-items: baseline;
-        justify-content: space-between;
+        justify-content: flex-start;
         gap: var(--space-2);
         margin-bottom: var(--space-2);
         padding-bottom: var(--space-2);
