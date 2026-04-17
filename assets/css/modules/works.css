@@ -477,10 +477,12 @@
 
 /* モバイル最適匁E- 極限コンパクト化 */
 @media (max-width: 768px) {
-    /* 作品グリチE�� - 2列表示 */
+    /* 作品グリッド - 2列表示 */
     .works-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-1);
+        min-height: 0;
+        align-items: start;
     }
 
     .work-item {
