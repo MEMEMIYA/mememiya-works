@@ -246,19 +246,17 @@ if (!gl) {
                     col *= distFade;
 
                 } else if(matID == 3.0) {
-                    // Wireframe cylinder wall - Cartesian grid with adaptive AA via fwidth
+                    // Wireframe cylinder wall - x-lines with fwidth AA, fade at grazing angles
                     float gX = abs(fract(p.x * 0.5) - 0.5);
-                    float gZ = abs(fract(p.z * 0.5) - 0.5);
-                    float g = min(gX, gZ);
-                    float fw = fwidth(g);
-                    float wireframe = smoothstep(fw * 2.0, fw * 0.4, g);
+                    float fw = fwidth(gX);
+                    float wireframe = smoothstep(fw * 1.5, fw * 0.3, gX);
 
                     // Height fade - bright near floor, fades toward ceiling
                     float heightFade = 1.0 - smoothstep(3.0, 16.0, p.y + 2.0);
 
-                    // Viewing angle for grazing fade
+                    // Angle fade - fade to 0 at grazing (prevents jagged edges on sides)
                     float viewAngle = abs(dot(n, -rd));
-                    float angleFade = max(0.3, smoothstep(0.0, 0.5, viewAngle));
+                    float angleFade = smoothstep(0.08, 0.45, viewAngle);
 
                     float combinedFade = heightFade * angleFade;
 
