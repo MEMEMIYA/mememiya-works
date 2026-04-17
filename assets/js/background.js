@@ -44,23 +44,24 @@ if (!gl) {
         vec2 map(vec3 p) {
             // Circular grid floor - smoothly transitions to celestial sphere
             float floorPlane = p.y + 2.0;
-            float floorRadius = 29.9;
+            float floorRadius = 30.0;
             float distFromCenter = length(p.xz);
 
             // Create circular floor with smooth edges
             float floor = max(floorPlane, distFromCenter - floorRadius);
 
-            // Wireframe celestial sphere - much further away
-            float celestialRadius = 30.0;
-            float celestialThickness = 0.06;
-            float celestialSphere = abs(sdSphere(p, celestialRadius)) - celestialThickness;
+            // Wireframe cylinder wall - same radius as floor edge, only above floor
+            float cylinderRadius = 30.0;
+            float cylinderThickness = 0.06;
+            float cylinderWall = abs(distFromCenter - cylinderRadius) - cylinderThickness;
+            cylinderWall = max(cylinderWall, -(p.y + 2.0)); // clip below floor level
 
-            // Return distance and material ID (1.0 = floor, 3.0 = celestial sphere)
+            // Return distance and material ID (1.0 = floor, 3.0 = cylinder wall)
             float minDist = floor;
             float matID = 1.0;
 
-            if(celestialSphere < minDist) {
-                minDist = celestialSphere;
+            if(cylinderWall < minDist) {
+                minDist = cylinderWall;
                 matID = 3.0;
             }
 
@@ -246,32 +247,35 @@ if (!gl) {
                     col *= distFade;
 
                 } else if(matID == 3.0) {
-                    // Wireframe celestial sphere - Cartesian grid matching floor spacing exactly
+                    // Wireframe cylinder wall - Cartesian grid matching floor spacing exactly
                     float gX = abs(fract(p.x * 0.5) - 0.5);
                     float gZ = abs(fract(p.z * 0.5) - 0.5);
                     float wireframe = smoothstep(0.012, 0.004, min(gX, gZ));
 
-                    // Viewing angle - minimum 0.35 so horizon stays visible for floor connection
+                    // Height fade - bright near floor, fades toward ceiling
+                    float heightFade = 1.0 - smoothstep(3.0, 16.0, p.y + 2.0);
+
+                    // Viewing angle for grazing fade
                     float viewAngle = abs(dot(n, -rd));
-                    float angleFade = max(0.35, smoothstep(0.0, 0.45, viewAngle));
+                    float angleFade = max(0.3, smoothstep(0.0, 0.5, viewAngle));
+
+                    float combinedFade = heightFade * angleFade;
 
                     // Pulsing
                     float pulse = sin(u_time * 0.2) * 0.5 + 0.5;
 
                     // Base wireframe
-                    col = vec3(0.18) * wireframe * angleFade;
-                    col += vec3(0.10) * wireframe * angleFade * 0.5;
-
-                    // Pulsing
-                    col += vec3(0.08) * wireframe * angleFade * pulse * 0.4;
+                    col = vec3(0.18) * wireframe * combinedFade;
+                    col += vec3(0.10) * wireframe * combinedFade * 0.5;
+                    col += vec3(0.08) * wireframe * combinedFade * pulse * 0.4;
 
                     // Shimmer
                     float shimmer1 = sin(p.x * 3.0 + u_time * 1.8) * sin(p.z * 3.0 - u_time * 1.3) * 0.5 + 0.5;
-                    col += vec3(0.06) * shimmer1 * wireframe * angleFade * 0.25;
+                    col += vec3(0.06) * shimmer1 * wireframe * combinedFade * 0.25;
 
-                    // Fresnel glow
+                    // Fresnel glow at base
                     float fresnel1 = pow(1.0 - viewAngle, 2.0);
-                    col += vec3(0.11) * fresnel1 * 0.4;
+                    col += vec3(0.11) * fresnel1 * heightFade * 0.4;
                 }
 
                 // Atmospheric fog - subtle depth
