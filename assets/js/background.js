@@ -185,15 +185,15 @@ if (!gl) {
                     float fineGridLine = min(fineGrid.x, fineGrid.y);
                     float fineGridPattern = smoothstep(0.005, 0.002, fineGridLine);
 
-                    // Distance-based fade - keep lines visible at edge for seamless junction
-                    float distFade = 1.0 - smoothstep(24.0, 31.0, distFromCenter);
+                    // No fade - floor is clipped at r=30 by cylinder wall, no need to fade
+                    float distFade = 1.0 - smoothstep(30.5, 32.0, distFromCenter);
 
                     // Base floor color - deep black
                     col = vec3(0.012);
 
                     // Animated wave pattern traveling from center - subtle
                     float wave = sin(distFromCenter * 2.0 - u_time * 0.8) * 0.5 + 0.5;
-                    float waveIntensity = smoothstep(0.0, 5.0, distFromCenter) * (1.0 - smoothstep(24.0, 31.0, distFromCenter));
+                    float waveIntensity = smoothstep(0.0, 5.0, distFromCenter) * (1.0 - smoothstep(30.5, 32.0, distFromCenter));
                     col += vec3(0.03) * wave * waveIntensity * 0.3;
 
                     // Main grid lines - thin and refined
@@ -245,10 +245,9 @@ if (!gl) {
                     col *= distFade;
 
                 } else if(matID == 3.0) {
-                    // Wireframe cylinder wall - Cartesian grid matching floor spacing exactly
+                    // Wireframe cylinder wall - x-lines only to match floor z-direction lines cleanly
                     float gX = abs(fract(p.x * 0.5) - 0.5);
-                    float gZ = abs(fract(p.z * 0.5) - 0.5);
-                    float wireframe = smoothstep(0.012, 0.004, min(gX, gZ));
+                    float wireframe = smoothstep(0.018, 0.005, gX);
 
                     // Height fade - bright near floor, fades toward ceiling
                     float heightFade = 1.0 - smoothstep(3.0, 16.0, p.y + 2.0);
