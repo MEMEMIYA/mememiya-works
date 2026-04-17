@@ -246,58 +246,54 @@ if (!gl) {
                     col *= distFade;
 
                 } else if(matID == 3.0) {
-                    // Wireframe celestial sphere - Cartesian world-space grid
-                    // Same coordinate system as floor for seamless line connection
+                    // Wireframe celestial sphere - lat/lon grid aligned to floor spacing
+                    vec3 spherePos = normalize(p);
+                    float theta = atan(spherePos.z, spherePos.x);
+                    float phi = asin(spherePos.y);
 
-                    // Main grid (scale 0.5 = 2-unit spacing, matches floor main grid)
-                    float gX = abs(fract(p.x * 0.5) - 0.5);
-                    float gZ = abs(fract(p.z * 0.5) - 0.5);
-                    float gY = abs(fract(p.y * 0.5) - 0.5);
-                    float wireframe = smoothstep(0.012, 0.004, min(min(gX, gZ), gY));
+                    // Longitude lines aligned to floor x-grid (2-unit spacing at radius 30)
+                    // asin(2/30)*lonLines/PI gives integer counts matching floor
+                    float lonLines = 32.0;
+                    float latLines = 18.0;
+                    float lon = abs(fract(theta / (2.0 * PI) * lonLines) - 0.5);
+                    float lat = abs(fract(phi / PI * latLines) - 0.5);
+                    float lonPattern = smoothstep(0.010, 0.003, lon);
+                    float latPattern = smoothstep(0.010, 0.003, lat);
+                    float wireframe = max(lonPattern, latPattern);
 
-                    // Medium grid (scale 1.0 = 1-unit spacing, matches floor medium grid)
-                    float mgX = abs(fract(p.x * 1.0) - 0.5);
-                    float mgZ = abs(fract(p.z * 1.0) - 0.5);
-                    float mgY = abs(fract(p.y * 1.0) - 0.5);
-                    float medWireframe = smoothstep(0.008, 0.003, min(min(mgX, mgZ), mgY));
+                    // Fine detail
+                    float fineLon = abs(fract(theta / (2.0 * PI) * lonLines * 2.0) - 0.5);
+                    float fineLat = abs(fract(phi / PI * latLines * 2.0) - 0.5);
+                    float fineWireframe = max(smoothstep(0.006, 0.002, fineLon), smoothstep(0.006, 0.002, fineLat));
 
-                    // Fine grid (scale 2.0 = 0.5-unit spacing, matches floor fine grid)
-                    float fgX = abs(fract(p.x * 2.0) - 0.5);
-                    float fgZ = abs(fract(p.z * 2.0) - 0.5);
-                    float fgY = abs(fract(p.y * 2.0) - 0.5);
-                    float fineWireframe = smoothstep(0.005, 0.002, min(min(fgX, fgZ), fgY));
+                    // Intersection nodes
+                    float intersection = lonPattern * latPattern;
+                    float fineIntersection = smoothstep(0.006, 0.002, fineLon) * smoothstep(0.006, 0.002, fineLat);
 
-                    // Intersection nodes (x∩z lines, same as floor intersections)
-                    float intersection = smoothstep(0.012, 0.004, gX) * smoothstep(0.012, 0.004, gZ);
-                    float fineIntersection = smoothstep(0.008, 0.003, mgX) * smoothstep(0.008, 0.003, mgZ);
-                    float ultraFineIntersection = smoothstep(0.005, 0.002, fgX) * smoothstep(0.005, 0.002, fgZ);
-
-                    // Viewing angle fade
+                    // Viewing angle - minimum 0.35 so horizon stays visible for floor connection
                     float viewAngle = abs(dot(n, -rd));
-                    float angleFade = smoothstep(0.0, 0.5, viewAngle);
+                    float angleFade = max(0.35, smoothstep(0.0, 0.45, viewAngle));
 
-                    // Pulsing effects
+                    // Pulsing
                     float pulse = sin(u_time * 0.2) * 0.5 + 0.5;
                     float fastPulse = sin(u_time * 0.4) * 0.5 + 0.5;
 
                     // Base wireframe
                     col = vec3(0.18) * wireframe * angleFade;
                     col += vec3(0.10) * wireframe * angleFade * 0.5;
-                    col += vec3(0.10) * medWireframe * angleFade * 0.4;
-                    col += vec3(0.05) * fineWireframe * angleFade * 0.25;
+                    col += vec3(0.08) * fineWireframe * angleFade * 0.4;
 
                     // Intersection highlights
                     col += vec3(0.22) * intersection * angleFade * 0.8;
                     col += vec3(0.14) * intersection * angleFade * 0.6;
-                    col += vec3(0.11) * fineIntersection * angleFade * 0.4;
-                    col += vec3(0.07) * ultraFineIntersection * angleFade * 0.25;
+                    col += vec3(0.09) * fineIntersection * angleFade * 0.4;
 
                     // Pulsing
                     col += vec3(0.08) * wireframe * angleFade * pulse * 0.4;
-                    col += vec3(0.05) * medWireframe * angleFade * fastPulse * 0.3;
+                    col += vec3(0.05) * fineWireframe * angleFade * fastPulse * 0.3;
 
-                    // Shimmer using world-space coords
-                    float shimmer1 = sin(p.x * 2.0 + u_time * 1.8) * sin(p.z * 2.0 - u_time * 1.3) * 0.5 + 0.5;
+                    // Shimmer
+                    float shimmer1 = sin(theta * 8.0 + u_time * 1.8) * sin(phi * 7.0 - u_time * 1.3) * 0.5 + 0.5;
                     col += vec3(0.06) * shimmer1 * wireframe * angleFade * 0.25;
 
                     // Fresnel glow
