@@ -231,10 +231,11 @@
     }
 }
 
-/* タチE��チE��イス対忁E*/
+/* タッチデバイス対応 */
 @media (hover: none) and (pointer: coarse) {
     .filter-btn:active,
     .filter-btn-compact:active {
-        transform: scale(0.95);
+        opacity: 0.55;
+        transition: opacity 60ms linear;
     }
 }
