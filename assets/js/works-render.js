@@ -116,8 +116,9 @@ function renderAllWorks() {
         if (work === 'coming-soon' || work?.type === 'coming-soon') {
             const url = work?.vivivitUrl;
             if (url) {
+                const categoryStr = work.categories ? work.categories.join(' ') : '';
                 return `
-                <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit" data-category="">
+                <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit" data-category="${categoryStr}">
                     <div class="work-media">
                         <div class="vivivit-media-overlay">
                             <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT" class="vivivit-media-logo">
@@ -205,8 +206,9 @@ function renderAllWorks() {
             if (work === 'coming-soon' || work?.type === 'coming-soon') {
                 const url = work?.vivivitUrl;
                 if (url) {
+                    const categoryStr = work.categories ? work.categories.join(' ') : '';
                     return `
-                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit hidden" data-category="">
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit hidden" data-category="${categoryStr}">
                         <div class="work-media">
                             <div class="vivivit-media-overlay">
                                 <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT" class="vivivit-media-logo">

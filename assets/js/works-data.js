@@ -135,9 +135,9 @@ const worksData = {
                 role: '絵コンテ　投影　機材調達　マッピング　PM'
             }
         },
-        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/works/920584' },
-        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/works/916542' },
-        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/works/822778' },
+        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/works/920584', categories: ['プロジェクションマッピング', 'ライブ', 'アプリ内演出制作', 'チーム制作'] },
+        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/works/916542', categories: ['ミュージックビデオ', 'モーションキャプチャー', 'ディレクション', 'チーム制作'] },
+        { type: 'coming-soon', vivivitUrl: 'https://www.vivivit.com/works/822778', categories: ['WebAR', 'モデリング', 'プログラミング', 'ディレクション', '個人制作'] },
         {
             id: 'digital-floral-flow',
             title: 'Digital Floral Flow',
