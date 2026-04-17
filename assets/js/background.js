@@ -25,6 +25,7 @@ if (!gl) {
     `;
 
     const fragmentShaderSource = `
+        #extension GL_OES_standard_derivatives : enable
         precision highp float;
         uniform float u_time;
         uniform vec2 u_resolution;
@@ -245,9 +246,12 @@ if (!gl) {
                     col *= distFade;
 
                 } else if(matID == 3.0) {
-                    // Wireframe cylinder wall - x-lines only to match floor z-direction lines cleanly
+                    // Wireframe cylinder wall - Cartesian grid with adaptive AA via fwidth
                     float gX = abs(fract(p.x * 0.5) - 0.5);
-                    float wireframe = smoothstep(0.018, 0.005, gX);
+                    float gZ = abs(fract(p.z * 0.5) - 0.5);
+                    float g = min(gX, gZ);
+                    float fw = fwidth(g);
+                    float wireframe = smoothstep(fw * 2.0, fw * 0.4, g);
 
                     // Height fade - bright near floor, fades toward ceiling
                     float heightFade = 1.0 - smoothstep(3.0, 16.0, p.y + 2.0);
@@ -332,6 +336,7 @@ if (!gl) {
         return program;
     }
 
+    gl.getExtension('OES_standard_derivatives');
     const vs = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
     const fs = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
     const program = createProgram(gl, vs, fs);
