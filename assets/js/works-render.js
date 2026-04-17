@@ -407,8 +407,8 @@ function initWorksFilter() {
 
                 if (filter === 'all') {
                     item.classList.remove('hidden');
-                } else if (isComingSoon) {
-                    // Coming Soonはall以外では非表示
+                } else if (isComingSoon && !item.dataset.category) {
+                    // カテゴリ未設定のComing Soonはall以外では非表示
                     item.classList.add('hidden');
                 } else if (item.dataset.category.includes(filter)) {
                     item.classList.remove('hidden');
