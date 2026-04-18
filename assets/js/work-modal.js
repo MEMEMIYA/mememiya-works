@@ -312,10 +312,11 @@ function initWorkModals() {
                 return cleaned.toLowerCase();
             };
 
-            // サムネイル画像を追加
+            // サムネイル画像を追加（data-srcがあれば元画像パスを使用）
             if (img) {
-                const normalizedPath = normalizePath(img.src);
-                allImages.push({ src: img.src, normalizedPath: normalizedPath });
+                const imgSrc = img.dataset.src || img.src;
+                const normalizedPath = normalizePath(imgSrc);
+                allImages.push({ src: imgSrc, normalizedPath: normalizedPath });
             }
 
             // ギャラリー画像を追加（サムネイルと重複する場合は除外）
