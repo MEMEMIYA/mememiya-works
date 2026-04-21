@@ -226,33 +226,28 @@ section {
         order: 3 !important;
     }
 
-    #scheduled-events {
+    #featured {
         order: 4 !important;
+    }
+
+    #about {
+        order: 5 !important;
+    }
+
+    #works {
+        order: 6 !important;
+    }
+
+    #process {
+        order: 7 !important;
+    }
+
+    #scheduled-events {
+        order: 8 !important;
     }
 
     #scheduled-events:has(.no-events) {
         padding-bottom: 0 !important;
-    }
-
-    #scheduled-events:has(.no-events) + #featured {
-        padding-top: var(--space-4) !important;
-        margin-top: 0 !important;
-    }
-
-    #featured {
-        order: 5 !important;
-    }
-
-    #about {
-        order: 6 !important;
-    }
-
-    #works {
-        order: 7 !important;
-    }
-
-    #process {
-        order: 8 !important;
     }
 
     #blogs {
