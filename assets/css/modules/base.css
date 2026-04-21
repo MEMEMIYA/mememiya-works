@@ -255,8 +255,12 @@ section {
         order: 8 !important;
     }
 
-    #contact {
+    #blogs {
         order: 9 !important;
+    }
+
+    #contact {
+        order: 10 !important;
     }
 
     section {
