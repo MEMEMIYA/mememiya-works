@@ -291,24 +291,19 @@
 .lt-video-block {
     flex: 1;
     min-width: 0;
-}
-
-.lt-video-label-text {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    font-family: var(--font-mono);
-    color: var(--color-text-tertiary);
-    margin-bottom: var(--space-3);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    border: solid 2px rgba(255, 255, 255, 0.12);
+    overflow: hidden;
 }
 
 .lt-video-embed-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 160px;
+    flex-shrink: 0;
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
 }
 
 .lt-video-embed-wrapper iframe {
