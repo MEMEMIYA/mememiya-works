@@ -54,6 +54,7 @@
     min-width: 450px;
     align-self: stretch;
     background-size: cover;
+    position: relative;
     background-position: center center;
     background-repeat: no-repeat;
     background-color: rgba(255, 255, 255, 0.03);
