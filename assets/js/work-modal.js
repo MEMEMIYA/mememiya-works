@@ -92,6 +92,21 @@ function initWorkModals() {
         scrollTopBtn.classList.remove('visible');
     }
 
+    // プログレッシブ画像読み込み：small版をsrcに、フル版をdata-srcにセット
+    function setImgSrc(imgEl, fullSrc) {
+        if (!fullSrc) return;
+        if (fullSrc.startsWith('http') || fullSrc.startsWith('//') || typeof toSmallSrc !== 'function') {
+            imgEl.src = fullSrc;
+            return;
+        }
+        imgEl.dataset.src = fullSrc;
+        imgEl.src = toSmallSrc(fullSrc);
+        imgEl.addEventListener('error', function() {
+            this.removeAttribute('data-src');
+            this.src = fullSrc;
+        }, { once: true });
+    }
+
     // Scroll to top button functionality
     scrollTopBtn.addEventListener('click', () => {
         modalContent.scrollTo({
@@ -344,9 +359,10 @@ function initWorkModals() {
                 mediaContainer.classList.add('single-flyer-mode');
 
                 const imgClone = document.createElement('img');
-                imgClone.src = allImages[0].src;
                 imgClone.alt = title;
                 imgClone.className = 'single-flyer-image';
+                mediaContainer.style.position = 'relative';
+                setImgSrc(imgClone, allImages[0].src);
 
                 // インラインスタイルは削除 - CSSに完全に任せる
                 mediaContainer.appendChild(imgClone);
@@ -358,11 +374,12 @@ function initWorkModals() {
                 allImages.forEach((img, index) => {
                     const imgWrapper = document.createElement('div');
                     imgWrapper.className = 'gallery-grid-item';
+                    imgWrapper.style.position = 'relative';
 
                     const imgElement = document.createElement('img');
-                    imgElement.src = img.src;
                     imgElement.alt = `${title} - Image ${index + 1}`;
                     imgElement.loading = 'lazy';
+                    setImgSrc(imgElement, img.src);
 
                     imgWrapper.appendChild(imgElement);
                     galleryGrid.appendChild(imgWrapper);
@@ -388,11 +405,12 @@ function initWorkModals() {
                     imageUrls.forEach((imgUrl, index) => {
                         const imgWrapper = document.createElement('div');
                         imgWrapper.className = 'gallery-grid-item';
+                        imgWrapper.style.position = 'relative';
 
                         const imgElement = document.createElement('img');
-                        imgElement.src = imgUrl;
                         imgElement.alt = `${title} - Image ${index + 1}`;
                         imgElement.loading = 'lazy';
+                        setImgSrc(imgElement, imgUrl);
 
                         // 画像読み込み後にアスペクト比を判定
                         imgElement.onload = function() {
@@ -442,10 +460,11 @@ function initWorkModals() {
             else if (!youtubeData && img && !galleryData) {
                 mediaContainer.style.display = 'block';
                 const imgClone = document.createElement('img');
-                imgClone.src = img.src;
                 imgClone.alt = title;
                 imgClone.style.cursor = 'default';
                 imgClone.style.pointerEvents = 'none';
+                mediaContainer.style.position = 'relative';
+                setImgSrc(imgClone, img.dataset.src || img.src);
 
                 // 画像読み込み後にアスペクト比を判定
                 imgClone.onload = function() {
@@ -656,11 +675,12 @@ function initWorkModals() {
 
             if (img) {
                 thumbnailContainer.classList.add('active');
+                thumbnailContainer.style.position = 'relative';
                 const thumbnailImg = document.createElement('img');
-                thumbnailImg.src = img.src;
                 thumbnailImg.alt = title;
                 thumbnailImg.className = 'work-modal-thumbnail-image';
                 thumbnailImg.style.height = '';
+                setImgSrc(thumbnailImg, img.dataset.src || img.src);
                 thumbnailContainer.innerHTML = '';
                 thumbnailContainer.appendChild(thumbnailImg);
             } else {
@@ -796,6 +816,11 @@ function initWorkModals() {
                     thumbnailImg.style.height = `${height}px`;
                 }
             }
+        }
+
+        // モーダル内の画像にプログレッシブローディングを適用
+        if (typeof loadFullImage === 'function') {
+            modal.querySelectorAll('img[data-src]').forEach(img => loadFullImage(img));
         }
 
         // 次のフレームでモーダルを実際に表示

@@ -174,8 +174,9 @@ function upgradeImages() {
     }
 }
 
-window.upgradeImages = upgradeImages;
-window.toSmallSrc    = toSmallSrc;
+window.upgradeImages  = upgradeImages;
+window.toSmallSrc     = toSmallSrc;
+window.loadFullImage  = loadFullImage;
 
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(upgradeImages, 100);
