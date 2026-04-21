@@ -7,9 +7,17 @@
     margin-top: var(--space-4);
 }
 
-.work-modal-tweets .twitter-tweet {
-    margin: 0 auto !important;
+.work-modal-tweets .tweet-wrapper {
     max-width: 550px;
+    margin: 0 auto;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.work-modal-tweets .tweet-wrapper iframe {
+    filter: brightness(0.75) contrast(1.05) !important;
+    display: block;
 }
 
 .work-modal-blog {
