@@ -798,7 +798,7 @@ function initWorkModals() {
                 blogContainer.style.display = 'none';
             }
 
-            // ツイート埋め込み（oEmbed API経由）
+            // ツイート埋め込み（blockquote + widgets.js）
             const tweetsContainer = modal.querySelector('.work-modal-tweets');
             if (tweetUrls && tweetUrls.length > 0 && tweetsContainer) {
                 tweetsContainer.style.display = 'block';
@@ -806,22 +806,41 @@ function initWorkModals() {
                 tweetUrls.forEach(url => {
                     const wrapper = document.createElement('div');
                     wrapper.className = 'tweet-wrapper';
+                    const blockquote = document.createElement('blockquote');
+                    blockquote.className = 'twitter-tweet';
+                    blockquote.setAttribute('data-theme', 'dark');
+                    blockquote.setAttribute('data-lang', 'ja');
+                    const a = document.createElement('a');
+                    a.href = url.replace('x.com', 'twitter.com');
+                    blockquote.appendChild(a);
+                    wrapper.appendChild(blockquote);
                     tweetsContainer.appendChild(wrapper);
-                    fetch(`https://publish.twitter.com/oembed?url=${encodeURIComponent(url)}&theme=dark&lang=ja`)
-                        .then(r => r.json())
-                        .then(data => {
-                            const range = document.createRange();
-                            range.selectNode(document.body);
-                            const fragment = range.createContextualFragment(data.html);
-                            wrapper.appendChild(fragment);
-                            if (window.twttr && window.twttr.widgets) {
-                                window.twttr.widgets.load(wrapper);
-                            }
-                        })
-                        .catch(() => {
-                            wrapper.innerHTML = `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color:var(--color-text-secondary)">Xポストを見る →</a>`;
-                        });
                 });
+
+                const renderTweets = () => {
+                    if (window.twttr && window.twttr.widgets) {
+                        window.twttr.widgets.load(tweetsContainer);
+                    }
+                };
+
+                if (window.twttr && window.twttr.widgets) {
+                    renderTweets();
+                } else if (!document.querySelector('script[src*="widgets.js"]')) {
+                    const script = document.createElement('script');
+                    script.src = 'https://platform.twitter.com/widgets.js';
+                    script.async = true;
+                    script.onload = renderTweets;
+                    document.head.appendChild(script);
+                } else {
+                    // スクリプト読み込み中 → 準備完了まで待機
+                    const wait = setInterval(() => {
+                        if (window.twttr && window.twttr.widgets) {
+                            clearInterval(wait);
+                            renderTweets();
+                        }
+                    }, 100);
+                    setTimeout(() => clearInterval(wait), 8000);
+                }
             } else if (tweetsContainer) {
                 tweetsContainer.innerHTML = '';
                 tweetsContainer.style.display = 'none';
