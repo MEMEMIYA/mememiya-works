@@ -150,7 +150,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 1px;
+    height: 2px;
     background: rgba(255, 255, 255, 0.2);
     transition: all var(--transition-base);
 }
@@ -172,7 +172,7 @@
 
 .filter-role.active::after {
     background: var(--color-purple-primary);
-    height: 1.5px;
+    height: 2.5px;
     transition: all 50ms ease-out;
 }
 
