@@ -281,9 +281,6 @@
     padding: var(--space-6) 0;
 }
 
-.blogs-section .section-description {
-    margin-bottom: var(--space-2);
-}
 
 .blogs-row {
     display: flex;
