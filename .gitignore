@@ -14,6 +14,9 @@ tmpclaude-*
 # Work in progress files
 assets/memo.txt
 assets/videos/*_02.mp4
+assets/videos/*_03.mp4
+assets/videos/*_06.mp4
+assets/videos/*_05.mp4
 assets/thirdparty
 docs/No-Commit Documents
 .claude/
