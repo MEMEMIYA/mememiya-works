@@ -32,6 +32,7 @@ function initWorkModals() {
                 <div class="work-modal-media"></div>
                 <div class="work-modal-gallery-grid"></div>
                 <div class="work-modal-blog"></div>
+                <div class="work-modal-tweets"></div>
             </div>
         `;
         document.body.appendChild(modal);
@@ -54,6 +55,7 @@ function initWorkModals() {
         const headerContainer = modal.querySelector('.work-modal-header');
         const descriptionContainer = modal.querySelector('.work-modal-description');
         const blogContainer = modal.querySelector('.work-modal-blog');
+        const tweetsContainer = modal.querySelector('.work-modal-tweets');
 
         mediaContainer.innerHTML = '';
         galleryGrid.innerHTML = '';
@@ -85,6 +87,10 @@ function initWorkModals() {
         if (blogContainer) {
             blogContainer.innerHTML = '';
             blogContainer.style.display = '';
+        }
+        if (tweetsContainer) {
+            tweetsContainer.innerHTML = '';
+            tweetsContainer.style.display = '';
         }
 
         // Reset scroll position and hide scroll top button
@@ -157,6 +163,7 @@ function initWorkModals() {
         let tags = Array.from(item.querySelectorAll('.work-tag, .featured-tags .tag, .video-tools .tool-tag')).map(tag => tag.textContent);
         let metaData = null;
         let blogUrls = null;
+        let tweetUrls = null;
         let categories = [];
         let yearMonth = null; // モーダル用の年月データ
 
@@ -168,9 +175,9 @@ function initWorkModals() {
                 tags = workData.tags || tags;
                 metaData = workData.meta || null;
                 categories = workData.categories || [];
-                yearMonth = workData.yearMonth || null; // 年月データを取得
-                // blogUrl(旧形式)とblogUrls(新形式)の両方に対応
+                yearMonth = workData.yearMonth || null;
                 blogUrls = workData.blogUrls || (workData.blogUrl ? [workData.blogUrl] : null);
+                tweetUrls = workData.tweetUrls || null;
             }
         }
 
@@ -182,9 +189,9 @@ function initWorkModals() {
                 tags = workData.tags || tags;
                 metaData = workData.meta || null;
                 categories = workData.categories || [];
-                yearMonth = workData.yearMonth || null; // 年月データを取得
-                // blogUrl(旧形式)とblogUrls(新形式)の両方に対応
+                yearMonth = workData.yearMonth || null;
                 blogUrls = workData.blogUrls || (workData.blogUrl ? [workData.blogUrl] : null);
+                tweetUrls = workData.tweetUrls || null;
             }
         }
 
@@ -789,6 +796,35 @@ function initWorkModals() {
             } else {
                 blogContainer.innerHTML = '';
                 blogContainer.style.display = 'none';
+            }
+
+            // ツイート埋め込み
+            const tweetsContainer = modal.querySelector('.work-modal-tweets');
+            if (tweetUrls && tweetUrls.length > 0 && tweetsContainer) {
+                tweetsContainer.style.display = 'block';
+                tweetsContainer.innerHTML = '';
+                tweetUrls.forEach(url => {
+                    const blockquote = document.createElement('blockquote');
+                    blockquote.className = 'twitter-tweet';
+                    blockquote.setAttribute('data-theme', 'dark');
+                    blockquote.setAttribute('data-lang', 'ja');
+                    const a = document.createElement('a');
+                    a.href = url;
+                    blockquote.appendChild(a);
+                    tweetsContainer.appendChild(blockquote);
+                });
+                if (window.twttr && window.twttr.widgets) {
+                    window.twttr.widgets.load(tweetsContainer);
+                } else if (!document.querySelector('script[src*="widgets.js"]')) {
+                    const script = document.createElement('script');
+                    script.src = 'https://platform.twitter.com/widgets.js';
+                    script.async = true;
+                    script.onload = () => window.twttr && window.twttr.widgets.load(tweetsContainer);
+                    document.head.appendChild(script);
+                }
+            } else if (tweetsContainer) {
+                tweetsContainer.innerHTML = '';
+                tweetsContainer.style.display = 'none';
             }
         }
 

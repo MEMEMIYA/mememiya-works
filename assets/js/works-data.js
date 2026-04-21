@@ -19,7 +19,8 @@ const worksData = {
             meta: {
                 制作形態: '個人制作',
                 tools: 'Unity　Sound2Light　TouchDesigner'
-            }
+            },
+            tweetUrls: ['https://x.com/_MEMEMIYA/status/2039111747911524558']
         },
         {
             id: 'not-applicable',

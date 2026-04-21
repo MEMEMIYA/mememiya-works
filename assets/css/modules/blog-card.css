@@ -2,6 +2,16 @@
    Blog Card (Works Modal)
    =========================== */
 
+.work-modal-tweets {
+    display: none;
+    margin-top: var(--space-4);
+}
+
+.work-modal-tweets .twitter-tweet {
+    margin: 0 auto !important;
+    max-width: 550px;
+}
+
 .work-modal-blog {
     margin-top: var(--space-6);
     display: none;
