@@ -1,14 +1,8 @@
 // Works Rendering Script
 // データを読み込んで動的にHTMLを生成する
 
-// 元画像パスを small/ フォルダの圧縮版パスに変換
-function _toSmall(src) {
-    const lastSlash = src.lastIndexOf('/');
-    const dir = src.substring(0, lastSlash);
-    const filename = src.substring(lastSlash + 1);
-    const baseName = filename.substring(0, filename.lastIndexOf('.'));
-    return `${dir}/small/${baseName}.jpg`;
-}
+// image-progressive.js で定義・エクスポートされた toSmallSrc を使用
+const _toSmall = toSmallSrc;
 
 // --- 共通定数 ---
 
@@ -22,7 +16,8 @@ const _CATEGORY_LABELS = {
     'TouchDesigner': 'TouchDesigner',
     'Kinect': 'Kinect',
     'kinect': 'Kinect',
-    '3dcg': '3DCG'
+    '3dcg': '3DCG',
+    'webar': 'WebAR'
 };
 
 const _COMING_SOON_FALLBACK = '/assets/images/fallback/Fallback_Works_ComingSoon_01.png';

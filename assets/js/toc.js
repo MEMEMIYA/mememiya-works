@@ -155,16 +155,7 @@ function initTableOfContents() {
             const target = document.querySelector(targetId);
 
             if (target) {
-                const navHeight = document.querySelector('.main-nav')?.offsetHeight || 72;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = targetPosition - navHeight - 20;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-
-                // Update active state immediately
+                scrollToSection(target);
                 tocLinks.forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
             }

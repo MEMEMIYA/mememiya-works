@@ -2,6 +2,13 @@
 // Navigation
 // ===========================
 
+// ナビゲーションオフセットを考慮したスムーススクロール（toc.jsからも使用）
+function scrollToSection(target) {
+    const navHeight = document.querySelector('.main-nav')?.offsetHeight || 72;
+    const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+}
+
 // Update active navigation link
 function updateActiveNavLink(targetId) {
     const navLinks = document.querySelectorAll('.nav-link');
@@ -27,16 +34,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
         const target = document.querySelector(targetId);
         if (target) {
-            const navHeight = document.querySelector('.main-nav')?.offsetHeight || 72;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = targetPosition - navHeight - 20; // 20px extra padding
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-
-            // Update active nav link
+            scrollToSection(target);
             updateActiveNavLink(targetId);
         }
     });
