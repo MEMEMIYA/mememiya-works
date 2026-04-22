@@ -131,6 +131,7 @@ function renderAllWorks() {
                             <h3 class="work-title">ViViViT 限定</h3>
                         </div>
                         <p class="work-description">ログインすると閲覧できます</p>
+                        <p class="work-description" style="font-size: 0.75em; opacity: 0.55; margin-top: 4px;">※ 外部サイトに飛びます</p>
                     </div>
                 </a>
                 `;
@@ -223,6 +224,7 @@ function renderAllWorks() {
                                 <h3 class="work-title">ViViViT 限定</h3>
                             </div>
                             <p class="work-description">ログインすると閲覧できます</p>
+                        <p class="work-description" style="font-size: 0.75em; opacity: 0.55; margin-top: 4px;">※ 外部サイトに飛びます</p>
                         </div>
                     </a>
                     `;
@@ -300,6 +302,7 @@ function renderAllWorks() {
         <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT" class="works-vivivit-logo">
         <span class="works-vivivit-main">ここに載せられないものはこちらにて</span>
         <span class="works-vivivit-note">※ 閲覧にはViViViTへのログインが必要です</span>
+        <span class="works-vivivit-note">※ 外部サイトに飛びます</span>
     </a>
     `;
 }
