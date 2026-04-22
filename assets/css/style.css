@@ -15,7 +15,7 @@
 @import url('modules/profile.css?v=36');
 @import url('modules/works.css?v=36');
 @import url('modules/works-filters.css?v=36');
-@import url('modules/works-modal.css');
+@import url('modules/works-modal.css?v=2');
 @import url('modules/vj-events.css?v=35');
 @import url('modules/upcoming-events.css?v=48');
 @import url('modules/generative-vj.css?v=39');
@@ -25,7 +25,7 @@
 @import url('modules/vr-vj-detail.css?v=3');
 @import url('modules/buttons.css?v=38');
 @import url('modules/footer.css?v=3');
-@import url('modules/modal.css?v=35');
+@import url('modules/modal.css?v=36');
 @import url('modules/modal-gallery.css');
 @import url('modules/blog-card.css?v=35');
 @import url('modules/table-of-contents.css?v=35');

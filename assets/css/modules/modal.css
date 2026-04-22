@@ -437,7 +437,7 @@
 /* Description */
 .work-modal-description {
     color: var(--color-text-secondary);
-    font-size: var(--text-lg);
+    font-size: var(--text-xs);
     line-height: 1.8;
     letter-spacing: 0;
     font-family: var(--font-body);
@@ -623,7 +623,7 @@
     }
 
     .work-modal-description {
-        font-size: 11px;
+        font-size: 8px;
         line-height: 1.5;
     }
 

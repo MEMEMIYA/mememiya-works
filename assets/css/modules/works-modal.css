@@ -221,4 +221,9 @@
     .work-modal-title {
         font-size: var(--text-base);
     }
+
+    .work-modal-description {
+        font-size: 8px;
+        line-height: 1.5;
+    }
 }
