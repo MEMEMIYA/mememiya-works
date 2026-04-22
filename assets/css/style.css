@@ -7,7 +7,7 @@
 @import url('modules/variables.css?v=36');
 
 /* Base & Reset Styles */
-@import url('modules/base.css?v=52');
+@import url('modules/base.css?v=53');
 
 /* Components */
 @import url('modules/navigation.css');
@@ -19,7 +19,7 @@
 @import url('modules/vj-events.css?v=35');
 @import url('modules/upcoming-events.css?v=48');
 @import url('modules/generative-vj.css?v=39');
-@import url('modules/links-contact.css?v=42');
+@import url('modules/links-contact.css?v=43');
 @import url('modules/services.css?v=40');
 @import url('modules/services-compact.css?v=62');
 @import url('modules/vr-vj-detail.css?v=3');

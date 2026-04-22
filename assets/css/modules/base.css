@@ -213,7 +213,7 @@ section {
         order: 103 !important;
     }
 
-    /* セクションの頁E��！Einksをヒーローの次に�E�E*/
+    /* セクションの順序 - PC版準拠（LinksはHeroの直後に配置） */
     #hero {
         order: 1 !important;
     }
@@ -222,28 +222,24 @@ section {
         order: 2 !important;
     }
 
-    #information {
+    #featured {
         order: 3 !important;
     }
 
-    #featured {
+    #about {
         order: 4 !important;
     }
 
-    #about {
+    #works {
         order: 5 !important;
     }
 
-    #works {
+    #process {
         order: 6 !important;
     }
 
-    #process {
-        order: 7 !important;
-    }
-
     #scheduled-events {
-        order: 8 !important;
+        order: 7 !important;
     }
 
     #scheduled-events:has(.no-events) {
@@ -251,6 +247,10 @@ section {
     }
 
     #blogs {
+        order: 8 !important;
+    }
+
+    #information {
         order: 9 !important;
     }
 
@@ -273,8 +273,15 @@ section {
         padding-top: var(--space-1);
         padding-bottom: var(--space-2);
         margin-top: 0;
+        margin-bottom: 0;
         position: relative;
         z-index: 10;
+    }
+
+    /* Featured セクション上余白を詰める */
+    .featured-section {
+        margin-top: 0 !important;
+        padding-top: var(--space-2) !important;
     }
 
     /* Profile セクション */

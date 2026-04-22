@@ -149,12 +149,18 @@
         font-size: 0.9rem;
         line-height: 1;
         margin-top: 6px;
+        color: var(--color-purple-primary);
     }
 
     .link-card:active {
         transform: translateY(1px);
         background: rgba(139, 92, 246, 0.1);
         border-color: var(--color-purple-primary);
+    }
+
+    .links-section {
+        padding-bottom: var(--space-2) !important;
+        margin-bottom: 0 !important;
     }
 
     .link-icon {
