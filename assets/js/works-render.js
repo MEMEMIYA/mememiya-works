@@ -307,6 +307,9 @@ function renderAllWorks() {
     `;
 }
 
+// 「もっと見る」が押されたかのフラグ
+let eventsExpanded = false;
+
 // VJ Eventsのレンダリング（初期表示数を制限）
 function renderEvents() {
     const container = document.querySelector('.event-list-compact');
@@ -329,7 +332,7 @@ function renderEvents() {
         return Math.max(cols, 2) * 2; // 最小2列×2行
     };
 
-    const initialCount = getInitialCount();
+    const initialCount = eventsExpanded ? worksData.events.length : getInitialCount();
     const visibleEvents = worksData.events.slice(0, initialCount);
     const hiddenEvents = worksData.events.slice(initialCount);
 
@@ -505,6 +508,7 @@ function initLoadMoreEvents() {
 
     // ボタンのクリックイベント
     loadMoreBtn.addEventListener('click', function() {
+        eventsExpanded = true;
         // 全アイテムのhiddenを外してから、アクティブフィルターを再適用
         container.querySelectorAll('.event-item-compact').forEach(item => item.classList.remove('hidden'));
         const activeFilter = document.querySelector('.filter-buttons-compact .filter-btn-compact.active');
