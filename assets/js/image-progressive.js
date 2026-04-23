@@ -144,6 +144,7 @@ function loadFullImage(img) {
     if (!fullSrc) return;
 
     const container = img.parentElement;
+    if (container && container.classList.contains('img-upgrading')) return;
     if (container) container.classList.add('img-upgrading');
 
     mosaicReveal(container, img, fullSrc);

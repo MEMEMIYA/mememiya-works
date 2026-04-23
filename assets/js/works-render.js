@@ -24,7 +24,7 @@ const _COMING_SOON_FALLBACK = '/assets/images/fallback/Fallback_Works_ComingSoon
 const _FALLBACK_FLYER = '/assets/images/fallback/Fallback_Flyer_NoImage_03.png';
 
 const _workImgEvents = (fallback) =>
-    `loading="lazy" onload="this.closest('.work-media').classList.add('img-loaded')" onerror="this.src='${fallback}';this.closest('.work-media').classList.add('img-loaded')"`;
+    `onload="this.closest('.work-media').classList.add('img-loaded')" onerror="this.src='${fallback}';this.closest('.work-media').classList.add('img-loaded')"`;
 
 // --- カード生成ヘルパー ---
 
@@ -144,7 +144,7 @@ function _buildEventCard(event, isHidden) {
     return `
     <div class="event-item-compact glass-card${hiddenClass}" data-type="${event.type}" data-year="${event.year}" ${galleryAttr}>
         <div class="event-thumb-compact">
-            <img src="${thumbnailSmall}" data-src="${thumbnailSrc}" alt="${event.title}" loading="lazy" onload="this.closest('.event-thumb-compact').classList.add('img-loaded')" onerror="this.src='${_FALLBACK_FLYER}';this.closest('.event-thumb-compact').classList.add('img-loaded')">
+            <img src="${thumbnailSmall}" data-src="${thumbnailSrc}" alt="${event.title}" onload="this.closest('.event-thumb-compact').classList.add('img-loaded')" onerror="this.src='${_FALLBACK_FLYER}';this.closest('.event-thumb-compact').classList.add('img-loaded')">
             <span class="event-tag-compact ${event.type}">${event.type === 'vr' ? 'VR' : 'Real'}</span>
         </div>
         <div class="event-details-compact">
