@@ -9,7 +9,7 @@ const worksData = {
             year: '2026',
             yearMonth: '2026年3月',
             categories: ['ジェネVJ', 'ライブ', '個人制作'],
-            thumbnail: 'assets/images/thumbnails/Thumbnail_nakaniwa.png',
+            thumbnail: 'assets/images/thumbnails/Thumbnail_nakaniwa.jpg',
             youtubeIds: ['kkovyf6ik-Q'],
             gallery: [
                 'assets/images/subImage/nakaniwa_combine_01.png'
