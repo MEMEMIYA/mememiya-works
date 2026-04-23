@@ -19,8 +19,9 @@ function toSmallSrc(src) {
  * 大きいブロック（低解像度側） → 小さいブロック（高解像度側） → 完了
  */
 function mosaicReveal(container, img, fullSrc) {
-    const W = container.offsetWidth;
-    const H = container.offsetHeight;
+    const rect = container.getBoundingClientRect();
+    const W = rect.width;
+    const H = rect.height;
 
     // サイズが取れない場合はそのまま差し替え
     if (!W || !H) {
@@ -31,9 +32,10 @@ function mosaicReveal(container, img, fullSrc) {
     }
 
     // キャンバスをコンテナに重ねる
+    // Math.ceil で CSS 表示サイズ（小数含む）を完全にカバーし、歪みを防ぐ
     const canvas = document.createElement('canvas');
-    canvas.width  = W;
-    canvas.height = H;
+    canvas.width  = Math.ceil(W);
+    canvas.height = Math.ceil(H);
     canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;z-index:7;pointer-events:none;';
     container.appendChild(canvas);
 
@@ -85,8 +87,8 @@ function mosaicReveal(container, img, fullSrc) {
         tc.imageSmoothingEnabled = false;
         const { sx, sy, sw, sh } = getCoverCrop(source);
         tc.drawImage(source, sx, sy, sw, sh, 0, 0, cols, rows);
-        ctx.clearRect(0, 0, W, H);
-        ctx.drawImage(tmp, 0, 0, W, H);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(tmp, 0, 0, canvas.width, canvas.height);
     }
 
     function startAnimation(loImg, hiImg) {
