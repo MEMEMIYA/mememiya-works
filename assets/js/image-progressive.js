@@ -10,8 +10,10 @@ function toSmallSrc(src) {
     const lastSlash = src.lastIndexOf('/');
     const dir = src.substring(0, lastSlash);
     const filename = src.substring(lastSlash + 1);
-    const baseName = filename.substring(0, filename.lastIndexOf('.'));
-    return `${dir}/small/${baseName}.jpg`;
+    const dotIdx = filename.lastIndexOf('.');
+    const baseName = dotIdx !== -1 ? filename.substring(0, dotIdx) : filename;
+    const ext = dotIdx !== -1 ? filename.substring(dotIdx) : '.jpg';
+    return `${dir}/small/${baseName}${ext}`;
 }
 
 /**
@@ -78,6 +80,7 @@ function mosaicReveal(container, img, fullSrc) {
      * object-fit: cover と同じクロップで描画する
      */
     function drawMosaic(source, pixelSize) {
+        if (!source.complete || source.naturalWidth === 0) return;
         const cols = Math.max(1, Math.ceil(W / pixelSize));
         const rows = Math.max(1, Math.ceil(H / pixelSize));
         const tmp  = document.createElement('canvas');
