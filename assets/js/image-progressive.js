@@ -13,7 +13,9 @@ function toSmallSrc(src) {
     const dotIdx = filename.lastIndexOf('.');
     const baseName = dotIdx !== -1 ? filename.substring(0, dotIdx) : filename;
     const ext = dotIdx !== -1 ? filename.substring(dotIdx) : '.jpg';
-    return `${dir}/small/${baseName}${ext}`;
+    // subImageはsharpで変換しないので元の拡張子を維持、それ以外はjpgに統一
+    const smallExt = dir.includes('/subImage') ? ext : '.jpg';
+    return `${dir}/small/${baseName}${smallExt}`;
 }
 
 /**
