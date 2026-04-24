@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node tests/run-all.js",
     "test:e2e": "node tests/e2e.test.js",
-    "test:comprehensive": "node tests/comprehensive.test.js"
+    "test:comprehensive": "node tests/comprehensive.test.js",
+    "test:extra": "node tests/extra.test.js"
   }
 }
