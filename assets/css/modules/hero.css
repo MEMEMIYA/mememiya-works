@@ -166,7 +166,7 @@
 }
 
 .hero-catchcopy {
-    font-size: var(--text-xl);
+    font-size: var(--text-sm);
     font-weight: 400;
     color: var(--color-purple-secondary);
     margin-bottom: var(--space-3);
