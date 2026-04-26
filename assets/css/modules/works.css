@@ -6,7 +6,7 @@
 /* パディングはbase.cssのsectionルールで統一管琁E*/
 .featured-section {
     margin-top: -100px;
-    padding-top: calc(var(--space-8) + 100px);
+    padding-top: calc(var(--space-2) + 100px);
 }
 
 .featured-works-grid {
