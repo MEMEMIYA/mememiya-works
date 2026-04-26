@@ -166,18 +166,15 @@
 }
 
 .hero-catchcopy {
-    font-size: var(--text-base);
+    font-size: var(--text-2xl);
     font-weight: 400;
     color: var(--color-purple-secondary);
     margin-bottom: var(--space-3);
+    letter-spacing: 0.05em;
     font-family: var(--font-body);
     line-height: 1.5;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 1), 0 0 4px rgba(0, 0, 0, 0.8);
-    width: 100%;
-    max-width: 500px;
-    display: block;
-    text-align: justify;
-    text-align-last: justify;
+    text-align: center;
 }
 
 .hero-tags {
