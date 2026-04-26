@@ -48,6 +48,8 @@ function renderBookingStatus() {
 
     const { accepting, acceptingNote, suspendedNote } = bookingConfig;
 
+    card.classList.toggle('booking-card-accepting', accepting);
+
     card.innerHTML = accepting ? `
         <div class="info-label">ブッキング</div>
         <div class="info-value booking-accepting">受付中</div>
