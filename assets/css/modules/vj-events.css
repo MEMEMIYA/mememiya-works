@@ -453,45 +453,9 @@
     pointer-events: none;
 }
 
-/* ===========================
-   ブッキング状況カード
-   =========================== */
-
-.booking-status-card {
-    border-color: rgba(139, 92, 246, 0.3) !important;
-}
-
-.booking-suspended {
-    color: rgba(255, 255, 255, 0.5) !important;
-    text-decoration: line-through;
-    text-decoration-color: rgba(255, 255, 255, 0.3);
-}
-
-.booking-exception {
-    margin-top: var(--space-2);
-    padding: var(--space-2) var(--space-3);
-    background: rgba(139, 92, 246, 0.15);
-    border: 1px solid rgba(139, 92, 246, 0.5);
-    border-left: 3px solid var(--color-purple-primary);
-    font-size: var(--text-xs);
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-}
-
-.booking-exception strong {
-    color: var(--color-purple-primary);
-    font-weight: 700;
-}
-
-.booking-exception-badge {
-    display: inline-block;
-    padding: 1px 6px;
-    background: var(--color-purple-primary);
-    color: #fff;
-    font-size: var(--text-2xs);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    margin-right: var(--space-1);
-    vertical-align: middle;
+/* ブッキング例外表示 */
+.booking-exception-note {
+    color: var(--color-purple-primary) !important;
+    margin-top: var(--space-1);
 }
 
