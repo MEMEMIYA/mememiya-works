@@ -61,7 +61,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,0.45) 80%, rgba(0,0,0,0.72) 100%);
+    background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,0.28) 80%, rgba(0,0,0,0.52) 100%);
     z-index: 2;
 }
 
@@ -293,7 +293,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,0.45) 80%, rgba(0,0,0,0.72) 100%);
+    background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,0.28) 80%, rgba(0,0,0,0.52) 100%);
     z-index: 2;
 }
 
