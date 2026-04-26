@@ -1,3 +1,13 @@
+// ============================================================
+// ブッキング設定 - ここを変えるだけで表示が切り替わる
+// ============================================================
+const bookingConfig = {
+    accepting: true,           // true = 受付中 / false = 停止中
+    acceptingNote: 'リアル開催に限り 6月末開催分まで',  // 受付中の場合の補足
+    suspendedNote: '再開時期は未定です',               // 停止中の場合の補足
+};
+// ============================================================
+
 // Information Data - お知らせ情報
 const informationData = [
     {
@@ -31,5 +41,26 @@ function renderInformation() {
     `).join('');
 }
 
+// ブッキング状況カードをレンダリング
+function renderBookingStatus() {
+    const card = document.querySelector('.booking-status-card');
+    if (!card) return;
+
+    const { accepting, acceptingNote, suspendedNote } = bookingConfig;
+
+    card.innerHTML = accepting ? `
+        <div class="info-label">ブッキング</div>
+        <div class="info-value booking-accepting">受付中</div>
+        <div class="info-detail">${acceptingNote}</div>
+    ` : `
+        <div class="info-label">ブッキング</div>
+        <div class="info-value booking-suspended">新規受付停止中</div>
+        <div class="info-detail">${suspendedNote}</div>
+    `;
+}
+
 // DOM読み込み後に実行
-document.addEventListener('DOMContentLoaded', renderInformation);
+document.addEventListener('DOMContentLoaded', () => {
+    renderInformation();
+    renderBookingStatus();
+});

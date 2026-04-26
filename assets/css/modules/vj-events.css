@@ -453,9 +453,12 @@
     pointer-events: none;
 }
 
-/* ブッキング例外表示 */
-.booking-exception-note {
+/* ブッキング状況 */
+.booking-accepting {
     color: var(--color-purple-primary) !important;
-    margin-top: var(--space-1);
+}
+
+.booking-suspended {
+    color: var(--color-text-tertiary) !important;
 }
 
