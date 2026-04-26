@@ -31,6 +31,15 @@
     will-change: transform;
 }
 
+.featured-work-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,0.45) 80%, rgba(0,0,0,0.72) 100%);
+    z-index: 1;
+}
+
 .featured-work-card:hover {
     border: 1px solid var(--color-purple-primary) !important;
     transform: translateY(-2px);
@@ -79,6 +88,7 @@
     flex-direction: column;
     gap: var(--space-1);
     padding: var(--space-3);
+    z-index: 2;
     background: linear-gradient(
         to top,
         rgba(0, 0, 0, 0.88) 0%,
