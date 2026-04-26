@@ -170,12 +170,24 @@
     font-weight: 400;
     color: var(--color-purple-secondary);
     margin-bottom: var(--space-6);
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
     font-family: var(--font-body);
     line-height: 1.5;
-    border-left: 2px solid var(--color-purple-secondary);
-    padding-left: var(--space-3);
     text-shadow: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    justify-content: center;
+}
+
+.hero-catchcopy::before,
+.hero-catchcopy::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--color-purple-secondary);
+    opacity: 0.7;
 }
 
 .hero-tags {
@@ -329,6 +341,7 @@
     .hero-catchcopy {
         font-size: var(--text-xs);
         margin-bottom: var(--space-4);
+        gap: var(--space-2);
     }
 
     .hero-tags {
