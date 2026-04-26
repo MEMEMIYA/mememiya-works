@@ -453,8 +453,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 var(--space-4);
-    background: rgba(255, 255, 255, 0.02);
-    border-left: 3px solid var(--color-purple-primary);
+    background: transparent;
 }
 
 .work-modal-description p {
