@@ -15,7 +15,7 @@ const worksData = {
                 'assets/images/subImage/nakaniwa_combine_01.png'
             ],
             description: '南青山のPot Galleryで行われたグループ展『中庭』の一日目に開催されたオープニングイベントにて、PinieonさんのジェネVJを担当しました。',
-            tags: ['ジェネVJ', 'グループ展'],
+            tags: ['ジェネVJ', 'Unity'],
             meta: {
                 制作形態: '個人制作',
                 tools: 'Unity　Sound2Light　TouchDesigner'

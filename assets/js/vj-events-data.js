@@ -15,7 +15,7 @@ const vjEventsData = [
         hashtags: ['中庭']
     },
     {
-        id: 'uchiiwa-20260315',
+        id: 'uchiwa-20260315',
         title: 'The Third Graduation After Party',
         date: '2026.3.15',
         year: '2026',
