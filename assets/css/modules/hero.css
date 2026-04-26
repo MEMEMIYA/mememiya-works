@@ -178,6 +178,7 @@
     display: block;
     text-align: justify;
     text-align-last: justify;
+    white-space: nowrap;
 }
 
 .hero-tags {
