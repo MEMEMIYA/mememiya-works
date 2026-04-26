@@ -456,7 +456,6 @@
 /* ブッキング状況 */
 .booking-card-accepting {
     background: rgba(139, 92, 246, 0.12) !important;
-    border-color: var(--color-purple-primary) !important;
 }
 
 .booking-accepting {
