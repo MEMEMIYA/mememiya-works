@@ -257,7 +257,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.7);
+    background: radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(0,0,0,0.65) 70%, rgba(0,0,0,0.9) 100%);
     z-index: 1;
 }
 
