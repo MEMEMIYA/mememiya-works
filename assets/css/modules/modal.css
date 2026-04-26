@@ -452,8 +452,7 @@
     margin-bottom: var(--space-8);
     margin-left: auto;
     margin-right: auto;
-    padding: 0 var(--space-4);
-    background: transparent;
+    padding: 0;
 }
 
 .work-modal-description p {
