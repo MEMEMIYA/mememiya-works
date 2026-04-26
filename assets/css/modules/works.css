@@ -262,6 +262,20 @@
     padding: 0;
 }
 
+.work-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0);
+    transition: background var(--transition-base);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.work-item:hover::after {
+    background: rgba(255, 255, 255, 0.06);
+}
+
 .work-item.hidden {
     display: none;
 }
