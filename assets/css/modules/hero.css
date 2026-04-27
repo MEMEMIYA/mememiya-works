@@ -309,10 +309,8 @@
     }
 
     .hero-main-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: fit-content;
+        display: inline-grid;
+        grid-template-columns: min-content;
         max-width: 90vw;
     }
 
@@ -321,9 +319,15 @@
         max-width: unset;
     }
 
+    .hero-main-block .hero-logo-wrapper {
+        width: 100%;
+        min-width: 0;
+    }
+
     .hero-main-block .hero-logo-img {
         width: 100%;
         max-width: unset;
+        min-width: 0;
     }
 
     .hero-content {
