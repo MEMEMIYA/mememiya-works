@@ -182,10 +182,6 @@
     white-space: nowrap;
 }
 
-.hero-catchcopy .sp-br {
-    display: none;
-}
-
 .hero-catchcopy::before,
 .hero-catchcopy::after {
     content: '';
@@ -350,11 +346,8 @@
         white-space: normal;
         text-align: center;
         justify-content: center;
+        text-wrap: balance;
         gap: var(--space-2);
-    }
-
-    .hero-catchcopy .sp-br {
-        display: inline;
     }
 
     .hero-catchcopy::before,
