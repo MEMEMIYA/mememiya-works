@@ -376,7 +376,7 @@
 
     .hero-catchcopy::before,
     .hero-catchcopy::after {
-        display: none;
+        min-width: var(--space-2);
     }
 
     .hero-tags {
