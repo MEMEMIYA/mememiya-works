@@ -10,6 +10,10 @@ const upcomingEventsData = [
     // }
 ];
 
+const _eventsEscapeHtml = window.securityUtils?.escapeHtml || ((value) => String(value ?? ''));
+const _eventsEscapeAttr = window.securityUtils?.escapeAttr || _eventsEscapeHtml;
+const _eventsSafeUrl = window.securityUtils?.safeUrl || ((value, fallback = '#') => value || fallback);
+
 // 日付をフォーマット（年を小さく、月/日を大きく、曜日を追加）
 function formatDate(dateString) {
     const [year, month, day] = dateString.split('/');
@@ -17,7 +21,7 @@ function formatDate(dateString) {
     const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
     const weekday = weekdays[date.getDay()];
 
-    return `<span class="date-year">${year}</span><span class="date-main-line"><span class="date-main">${month}/${day}</span><span class="date-weekday">(${weekday})</span></span>`;
+    return `<span class="date-year">${_eventsEscapeHtml(year)}</span><span class="date-main-line"><span class="date-main">${_eventsEscapeHtml(month)}/${_eventsEscapeHtml(day)}</span><span class="date-weekday">(${weekday})</span></span>`;
 }
 
 // イベント予定をレンダリング
@@ -36,8 +40,8 @@ function renderUpcomingEvents() {
             return `
                 <div class="upcoming-event-item glass-card event-hidden${event.image ? ' has-image' : ''}">
                     <div class="event-tags-top-right">
-                        ${event.role ? `<span class="tag event-role-tag">${event.role}</span>` : ''}
-                        ${event.venue_type ? `<span class="tag event-venue-type-tag">${event.venue_type}</span>` : ''}
+                        ${event.role ? `<span class="tag event-role-tag">${_eventsEscapeHtml(event.role)}</span>` : ''}
+                        ${event.venue_type ? `<span class="tag event-venue-type-tag">${_eventsEscapeHtml(event.venue_type)}</span>` : ''}
                     </div>
                     ${event.image ? `
                     <div class="event-thumb-upcoming ${event.image === 'placeholder' ? 'event-thumb-placeholder' : ''}">
@@ -45,7 +49,7 @@ function renderUpcomingEvents() {
                         `<div class="placeholder-content">
                                 <div class="placeholder-text">Coming Soon</div>
                             </div>` :
-                        `<img src="${event.image}" alt="イベントフライヤー" loading="lazy">`
+                        `<img src="${_eventsEscapeAttr(_eventsSafeUrl(event.image, ''))}" alt="イベントフライヤー" loading="lazy">`
                     }
                     </div>
                     ` : ''}
@@ -54,7 +58,7 @@ function renderUpcomingEvents() {
                             <div class="event-date">${formatDate(event.date)}</div>
                         </div>
                         <div class="event-details">
-                            <h3 class="event-title event-title-hidden">${event.title ? event.title : 'VJ出演（詳細は後日公開）'}</h3>
+                            <h3 class="event-title event-title-hidden">${event.title ? _eventsEscapeHtml(event.title) : 'VJ出演（詳細は後日公開）'}</h3>
                         </div>
                     </div>
                 </div>
@@ -64,16 +68,16 @@ function renderUpcomingEvents() {
             return `
                 <div class="upcoming-event-item glass-card${event.image ? ' has-image' : ''}">
                     <div class="event-tags-top-right">
-                        ${event.role ? `<span class="tag event-role-tag">${event.role}</span>` : ''}
-                        ${event.venue_type ? `<span class="tag event-venue-type-tag">${event.venue_type}</span>` : ''}
+                        ${event.role ? `<span class="tag event-role-tag">${_eventsEscapeHtml(event.role)}</span>` : ''}
+                        ${event.venue_type ? `<span class="tag event-venue-type-tag">${_eventsEscapeHtml(event.venue_type)}</span>` : ''}
                     </div>
                     ${event.gallery && event.gallery.length > 1 ? `
                     <div class="event-thumb-upcoming event-gallery">
-                        ${event.gallery.map((img, i) => `<img src="${img}" alt="${event.title} フライヤー ${i + 1}" loading="lazy">`).join('')}
+                        ${event.gallery.map((img, i) => `<img src="${_eventsEscapeAttr(_eventsSafeUrl(img, ''))}" alt="${_eventsEscapeAttr(event.title)} フライヤー ${i + 1}" loading="lazy">`).join('')}
                     </div>
                     ` : event.image ? `
                     <div class="event-thumb-upcoming">
-                        <img src="${event.image}" alt="${event.title} フライヤー" loading="lazy">
+                        <img src="${_eventsEscapeAttr(_eventsSafeUrl(event.image, ''))}" alt="${_eventsEscapeAttr(event.title)} フライヤー" loading="lazy">
                     </div>
                     ` : ''}
                     <div class="event-content">
@@ -81,28 +85,28 @@ function renderUpcomingEvents() {
                             <div class="event-date-group">
                                 <div class="event-date">${formatDate(event.date)}</div>
                                 ${event.hours || event.myRole || event.period ? `<div class="event-time-info">
-                                    ${event.period ? `<span class="event-period">${event.period}</span>` : ''}
-                                    ${event.hours ? `<span class="event-hours">${event.hours}</span>` : ''}
-                                    ${event.myRole ? `<span class="event-my-role">${event.myRole}</span>` : ''}
+                                    ${event.period ? `<span class="event-period">${_eventsEscapeHtml(event.period)}</span>` : ''}
+                                    ${event.hours ? `<span class="event-hours">${_eventsEscapeHtml(event.hours)}</span>` : ''}
+                                    ${event.myRole ? `<span class="event-my-role">${_eventsEscapeHtml(event.myRole)}</span>` : ''}
                                 </div>` : ''}
                             </div>
                         </div>
                         <div class="event-details">
-                            <h3 class="event-title">${event.title}</h3>
-                            ${event.description ? `<p class="event-description">${event.description}</p>` : ''}
+                            <h3 class="event-title">${_eventsEscapeHtml(event.title)}</h3>
+                            ${event.description ? `<p class="event-description">${_eventsEscapeHtml(event.description)}</p>` : ''}
                             <div class="event-meta">
-                                ${event.venue ? `<span class="event-venue">${event.venue}</span>` : ''}
-                                ${event.officialAccount ? `<a href="${event.officialAccount}" class="event-official-account" target="_blank" rel="noopener noreferrer"><svg class="button-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> ${event.officialAccountName || ''} 公式アカウント</a>` : ''}
+                                ${event.venue ? `<span class="event-venue">${_eventsEscapeHtml(event.venue)}</span>` : ''}
+                                ${event.officialAccount ? `<a href="${_eventsEscapeAttr(_eventsSafeUrl(event.officialAccount))}" class="event-official-account" target="_blank" rel="noopener noreferrer"><svg class="button-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> ${_eventsEscapeHtml(event.officialAccountName || '')} 公式アカウント</a>` : ''}
                                 ${event.hashtag ? `${event.hashtagSearchUrl ?
-                        `<a href="${event.hashtagSearchUrl}" class="event-hashtag" target="_blank" rel="noopener noreferrer">${event.hashtag}</a>` :
-                        `<div class="event-hashtag">${event.hashtag}</div>`}` : ''}
-                                ${event.participants ? `<span class="event-participants">${event.participants.replace(' / ', '<br>')}</span>` : ''}
-                                ${event.openingParty ? `<div class="event-opening-party">${event.openingParty}</div>` : ''}
+                        `<a href="${_eventsEscapeAttr(_eventsSafeUrl(event.hashtagSearchUrl))}" class="event-hashtag" target="_blank" rel="noopener noreferrer">${_eventsEscapeHtml(event.hashtag)}</a>` :
+                        `<div class="event-hashtag">${_eventsEscapeHtml(event.hashtag)}</div>`}` : ''}
+                                ${event.participants ? `<span class="event-participants">${_eventsEscapeHtml(event.participants).replace(' / ', '<br>')}</span>` : ''}
+                                ${event.openingParty ? `<div class="event-opening-party">${_eventsEscapeHtml(event.openingParty)}</div>` : ''}
                             </div>
                             <div class="event-buttons">
-                                ${event.groupUrl ? `<a href="${event.groupUrl}" class="event-link-button" target="_blank" rel="noopener noreferrer"><img class="button-icon" src="assets/images/logo/VRChat_Logo_Outline_White.png" alt="VRChat"> VRChatグループに参加</a>` : ''}
-                                ${event.link ? `<a href="${event.link}" class="event-link-button" target="_blank" rel="noopener noreferrer">${event.linkText || 'イベント詳細はこちら'}</a>` : ''}
-                                ${event.tweetUrl ? `<a href="${event.tweetUrl}" class="event-link-button" target="_blank" rel="noopener noreferrer"><svg class="button-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> 告知ツイート</a>` : ''}
+                                ${event.groupUrl ? `<a href="${_eventsEscapeAttr(_eventsSafeUrl(event.groupUrl))}" class="event-link-button" target="_blank" rel="noopener noreferrer"><img class="button-icon" src="assets/images/logo/VRChat_Logo_Outline_White.png" alt="VRChat"> VRChatグループに参加</a>` : ''}
+                                ${event.link ? `<a href="${_eventsEscapeAttr(_eventsSafeUrl(event.link))}" class="event-link-button" target="_blank" rel="noopener noreferrer">${_eventsEscapeHtml(event.linkText || 'イベント詳細はこちら')}</a>` : ''}
+                                ${event.tweetUrl ? `<a href="${_eventsEscapeAttr(_eventsSafeUrl(event.tweetUrl))}" class="event-link-button" target="_blank" rel="noopener noreferrer"><svg class="button-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> 告知ツイート</a>` : ''}
                             </div>
                         </div>
                     </div>
@@ -137,14 +141,14 @@ function initImageLightbox() {
             lightboxImg.src = img.src;
             lightboxImg.alt = img.alt;
             lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.body.classList.add('is-scroll-locked');
         }
     });
 
     // 閉じる処理
     const closeLightbox = () => {
         lightbox.classList.remove('active');
-        document.body.style.overflow = '';
+        document.body.classList.remove('is-scroll-locked');
     };
 
     closeBtn.addEventListener('click', closeLightbox);

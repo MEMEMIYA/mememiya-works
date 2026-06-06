@@ -23,8 +23,7 @@ function initTableOfContents() {
 
         // If no hero section (like Contact page), always show TOC
         if (!heroSection) {
-            toc.style.opacity = '1';
-            toc.style.visibility = 'visible';
+            toc.classList.remove('toc-is-hidden');
             return;
         }
 
@@ -79,11 +78,9 @@ function initTableOfContents() {
 
         // Hide TOC if overlapping, show if not
         if (hasOverlap) {
-            toc.style.opacity = '0';
-            toc.style.visibility = 'hidden';
+            toc.classList.add('toc-is-hidden');
         } else {
-            toc.style.opacity = '1';
-            toc.style.visibility = 'visible';
+            toc.classList.remove('toc-is-hidden');
         }
     }
 

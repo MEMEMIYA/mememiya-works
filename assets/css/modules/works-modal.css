@@ -22,6 +22,11 @@
     opacity: 1;
 }
 
+.work-modal.is-measuring {
+    opacity: 0;
+    visibility: visible;
+}
+
 .work-modal-content {
     position: relative;
     width: 100%;
@@ -89,6 +94,37 @@
 .work-modal-media img {
     cursor: default;
     pointer-events: none;
+}
+
+.external-video-link-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16/9;
+    background: rgb(20, 20, 20);
+}
+
+.external-video-link {
+    font-size: 1rem;
+}
+
+.external-video-link .button-icon {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.youtube-embed-fill {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.youtube-embed-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    margin-bottom: 20px;
 }
 
 /* Gallery Grid Display */

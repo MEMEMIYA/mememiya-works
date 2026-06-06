@@ -13,6 +13,11 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.table-of-contents.toc-is-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* ヒーローセクション上での視認性向上 - テキストシャドウで対応 */
 .table-of-contents.toc-over-hero .toc-dot {
     background: rgba(255, 255, 255, 0.9);

@@ -1,2 +1,6 @@
 /*
-  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.youtube.com https://www.youtube-nocookie.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://cloudflareinsights.com; worker-src 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; object-src 'none'; worker-src 'none'; script-src 'self' 'sha256-zfCfe9S74ch+oq5S+i9jIq4b/miFDdkNUSH93LS0WA8=' https://static.cloudflareinsights.com https://platform.twitter.com https://www.youtube.com https://www.youtube-nocookie.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self'; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://platform.twitter.com; connect-src 'self' https://cloudflareinsights.com https://api.allorigins.win
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY

@@ -6,7 +6,7 @@ const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
 
 if (!gl) {
     console.warn('WebGL not supported');
-    document.body.style.background = '#000000';
+    document.body.classList.add('webgl-unavailable');
 } else {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;

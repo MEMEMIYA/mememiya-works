@@ -7,9 +7,14 @@ const ogpCache = new Map();
 
 // OGP情報を取得（キャッシュ付き）
 async function fetchOGP(url) {
+    const safeTargetUrl = window.securityUtils?.safeUrl(url, '');
+    if (!safeTargetUrl) {
+        return { title: '', description: '', image: '' };
+    }
+
     // キャッシュチェック
-    if (ogpCache.has(url)) {
-        return ogpCache.get(url);
+    if (ogpCache.has(safeTargetUrl)) {
+        return ogpCache.get(safeTargetUrl);
     }
 
     try {
@@ -18,7 +23,7 @@ async function fetchOGP(url) {
         const timeoutId = setTimeout(() => controller.abort(), 5000); // 5秒でタイムアウト
 
         // alloriginsプロキシを使用してOGP情報を取得
-        const apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+        const apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(safeTargetUrl)}`;
         const proxyResponse = await fetch(apiUrl, { signal: controller.signal });
         clearTimeout(timeoutId);
 
@@ -50,14 +55,14 @@ async function fetchOGP(url) {
         };
 
         // キャッシュに保存
-        ogpCache.set(url, result);
+        ogpCache.set(safeTargetUrl, result);
         return result;
     } catch (error) {
-        console.error('Failed to fetch OGP:', url, error);
+        console.error('Failed to fetch OGP:', safeTargetUrl, error);
 
         // エラー時は空の結果をキャッシュに保存（再試行を防ぐ）
         const emptyResult = { title: '', description: '', image: '' };
-        ogpCache.set(url, emptyResult);
+        ogpCache.set(safeTargetUrl, emptyResult);
         return emptyResult;
     }
 }

@@ -22,19 +22,42 @@ const _CATEGORY_LABELS = {
 
 const _COMING_SOON_FALLBACK = '/assets/images/fallback/Fallback_Works_ComingSoon_01.png';
 const _FALLBACK_FLYER = '/assets/images/fallback/Fallback_Flyer_NoImage_03.png';
+const _escapeHtml = window.securityUtils?.escapeHtml || ((value) => String(value ?? ''));
+const _escapeAttr = window.securityUtils?.escapeAttr || _escapeHtml;
+const _safeUrl = window.securityUtils?.safeUrl || ((value, fallback = '#') => value || fallback);
 
-const _workImgEvents = (fallback) =>
-    `onload="this.closest('.work-media').classList.add('img-loaded')" onerror="this.src='${fallback}';this.closest('.work-media').classList.add('img-loaded')"`;
+function _bindGeneratedImageState(root = document) {
+    root.querySelectorAll('img[data-load-parent]').forEach(img => {
+        if (img.dataset.loadStateBound === 'true') return;
+        img.dataset.loadStateBound = 'true';
+
+        const markLoaded = () => {
+            const parent = img.closest(img.dataset.loadParent);
+            if (parent) parent.classList.add('img-loaded');
+        };
+
+        img.addEventListener('load', markLoaded);
+        img.addEventListener('error', () => {
+            const fallback = img.dataset.fallback;
+            if (fallback && img.src !== fallback) {
+                img.src = fallback;
+            }
+            markLoaded();
+        });
+
+        if (img.complete) markLoaded();
+    });
+}
 
 // --- カード生成ヘルパー ---
 
 function _buildComingSoonCard(work, isHidden) {
     const hiddenClass = isHidden ? ' hidden' : '';
-    const url = work?.vivivitUrl;
+    const url = work?.vivivitUrl ? _safeUrl(work.vivivitUrl) : '';
     if (url) {
-        const categoryStr = work.categories ? work.categories.join(' ') : '';
+        const categoryStr = work.categories ? _escapeAttr(work.categories.join(' ')) : '';
         const badgeHtml = work.badge
-            ? `<div class="work-category-badges"><span class="work-category-badge">${work.badge}</span></div>`
+            ? `<div class="work-category-badges"><span class="work-category-badge">${_escapeHtml(work.badge)}</span></div>`
             : '';
         return `
         <a href="${url}" target="_blank" rel="noopener noreferrer" class="work-item glass-card coming-soon coming-soon-vivivit${hiddenClass}" data-category="${categoryStr}">
@@ -49,7 +72,7 @@ function _buildComingSoonCard(work, isHidden) {
                     <h3 class="work-title">ViViViT 限定</h3>
                 </div>
                 <p class="work-description">ログインすると閲覧できます</p>
-                <p class="work-description" style="font-size: 0.75em; opacity: 0.55; margin-top: 4px;">※ 外部サイトに飛びます</p>
+                <p class="work-description work-description-note">※ 外部サイトに飛びます</p>
             </div>
         </a>
         `;
@@ -57,7 +80,7 @@ function _buildComingSoonCard(work, isHidden) {
     return `
     <div class="work-item glass-card coming-soon no-content${hiddenClass}" data-category="">
         <div class="work-media">
-            <img src="${_COMING_SOON_FALLBACK}" alt="Coming Soon" class="work-thumbnail" ${_workImgEvents(_COMING_SOON_FALLBACK)}>
+            <img src="${_COMING_SOON_FALLBACK}" alt="Coming Soon" class="work-thumbnail" data-load-parent=".work-media" data-fallback="${_COMING_SOON_FALLBACK}">
         </div>
         <div class="work-info">
             <div class="work-header">
@@ -75,27 +98,29 @@ function _buildWorkCard(work, isHidden) {
         return _buildComingSoonCard(work, isHidden);
     }
 
-    const categories = work.categories.join(' ');
-    const primaryCategory = work.categories[0];
+    const categories = _escapeAttr(work.categories.join(' '));
+    const primaryCategory = _escapeAttr(work.categories[0]);
     const galleryAttr = work.gallery && work.gallery.length > 0
-        ? `data-gallery="${work.gallery.join(',')}"`
+        ? `data-gallery="${_escapeAttr(work.gallery.map(url => _safeUrl(url, '')).filter(Boolean).join(','))}"`
         : '';
     const youtubeValue = (work.youtubeIds && work.youtubeIds.length > 0)
         ? work.youtubeIds.join(',')
         : (work.youtube || '');
+    const safeYoutubeValue = _escapeAttr(youtubeValue);
+    const safeExternalVideo = work.externalVideo ? _safeUrl(work.externalVideo, '') : '';
     const hasContent = youtubeValue || work.externalVideo || (work.gallery && work.gallery.length > 0);
     const noContentClass = hasContent ? '' : 'no-content';
     const hiddenClass = isHidden ? ' hidden' : '';
 
     const categoryBadges = work.categories.slice(0, 1).map(cat => {
         const label = _CATEGORY_LABELS[cat] || cat;
-        return `<span class="work-category-badge">${label}</span>`;
+        return `<span class="work-category-badge">${_escapeHtml(label)}</span>`;
     }).join('');
 
     return `
-    <div class="work-item glass-card${hiddenClass} ${noContentClass}" data-category="${categories}" data-youtube="${youtubeValue}" ${galleryAttr} ${work.externalVideo ? `data-external-video="${work.externalVideo}"` : ''}>
+    <div class="work-item glass-card${hiddenClass} ${noContentClass}" data-category="${categories}" data-youtube="${safeYoutubeValue}" ${galleryAttr} ${safeExternalVideo ? `data-external-video="${_escapeAttr(safeExternalVideo)}"` : ''}>
         <div class="work-media">
-            <img src="${_toSmall(work.thumbnail)}" data-src="${work.thumbnail}" alt="${work.title}" class="work-thumbnail" ${_workImgEvents(_COMING_SOON_FALLBACK)}>
+            <img src="${_escapeAttr(_toSmall(work.thumbnail))}" data-src="${_escapeAttr(work.thumbnail)}" alt="${_escapeAttr(work.title)}" class="work-thumbnail" data-load-parent=".work-media" data-fallback="${_COMING_SOON_FALLBACK}">
             ${categoryBadges ? `<div class="work-category-badges">${categoryBadges}</div>` : ''}
             <div class="work-overlay">
                 ${youtubeValue ? `
@@ -107,21 +132,21 @@ function _buildWorkCard(work, isHidden) {
                 </div>
                 ` : `
                 <div class="work-info-overlay">
-                    <span class="overlay-date">${work.year}</span>
+                    <span class="overlay-date">${_escapeHtml(work.year)}</span>
                 </div>
                 `}
             </div>
         </div>
         <div class="work-info">
             <div class="work-header">
-                <h3 class="work-title">${work.title}</h3>
-                <span class="work-year">${work.year}</span>
+                <h3 class="work-title">${_escapeHtml(work.title)}</h3>
+                <span class="work-year">${_escapeHtml(work.year)}</span>
             </div>
-            <p class="work-description">${work.description}</p>
+            <p class="work-description">${_escapeHtml(work.description)}</p>
             <div class="work-meta">
                 ${work.tags.map((tag, index) => {
                     const tagClass = index === 0 ? `work-tag ${primaryCategory}` : 'work-tag';
-                    return `<span class="${tagClass}">${tag}</span>`;
+                    return `<span class="${tagClass}">${_escapeHtml(tag)}</span>`;
                 }).join('')}
             </div>
         </div>
@@ -131,25 +156,25 @@ function _buildWorkCard(work, isHidden) {
 
 function _buildEventCard(event, isHidden) {
     const galleryAttr = event.gallery && event.gallery.length > 0
-        ? `data-gallery="${event.gallery.join(',')}"`
+        ? `data-gallery="${_escapeAttr(event.gallery.map(url => _safeUrl(url, '')).filter(Boolean).join(','))}"`
         : '';
     const thumbnailSrc = event.thumbnail || _FALLBACK_FLYER;
     const thumbnailSmall = event.thumbnail ? _toSmall(event.thumbnail) : _FALLBACK_FLYER;
     const hiddenClass = isHidden ? ' hidden' : '';
     const hashtagsHtml = event.hashtags && event.hashtags.length > 0 ? `
         <div class="event-hashtags">
-            ${event.hashtags.map(tag => `<a href="https://x.com/search?q=%23${encodeURIComponent(tag)}&src=typed_query&f=live" target="_blank" rel="noopener noreferrer" class="event-hashtag" onclick="event.stopPropagation()">#${tag}</a>`).join('')}
+            ${event.hashtags.map(tag => `<a href="https://x.com/search?q=%23${encodeURIComponent(tag)}&src=typed_query&f=live" target="_blank" rel="noopener noreferrer" class="event-hashtag" data-stop-card-click="true">#${_escapeHtml(tag)}</a>`).join('')}
         </div>
     ` : '';
     return `
-    <div class="event-item-compact glass-card${hiddenClass}" data-type="${event.type}" data-year="${event.year}" ${galleryAttr}>
+    <div class="event-item-compact glass-card${hiddenClass}" data-type="${_escapeAttr(event.type)}" data-year="${_escapeAttr(event.year)}" ${galleryAttr}>
         <div class="event-thumb-compact">
-            <img src="${thumbnailSmall}" data-src="${thumbnailSrc}" alt="${event.title}" onload="this.closest('.event-thumb-compact').classList.add('img-loaded')" onerror="this.src='${_FALLBACK_FLYER}';this.closest('.event-thumb-compact').classList.add('img-loaded')">
-            <span class="event-tag-compact ${event.type}">${event.type === 'vr' ? 'VR' : 'Real'}</span>
+            <img src="${_escapeAttr(thumbnailSmall)}" data-src="${_escapeAttr(thumbnailSrc)}" alt="${_escapeAttr(event.title)}" data-load-parent=".event-thumb-compact" data-fallback="${_FALLBACK_FLYER}">
+            <span class="event-tag-compact ${_escapeAttr(event.type)}">${event.type === 'vr' ? 'VR' : 'Real'}</span>
         </div>
         <div class="event-details-compact">
-            <div class="event-date-compact">${event.date}</div>
-            <h4 class="event-title-compact">${event.title}</h4>
+            <div class="event-date-compact">${_escapeHtml(event.date)}</div>
+            <h4 class="event-title-compact">${_escapeHtml(event.title)}</h4>
             ${hashtagsHtml}
         </div>
     </div>
@@ -166,40 +191,41 @@ function renderFeaturedWorks() {
     container.querySelectorAll('.skeleton-card').forEach(el => el.remove());
 
     container.innerHTML = worksData.featured.map(work => {
-        const galleryAttr = work.gallery && work.gallery.length > 0 ? `data-gallery="${work.gallery.join(',')}"` : '';
-        const youtubeAttr = work.youtubeIds && work.youtubeIds.length > 0 ? `data-youtube="${work.youtubeIds.join(',')}"` : '';
+        const galleryAttr = work.gallery && work.gallery.length > 0 ? `data-gallery="${_escapeAttr(work.gallery.map(url => _safeUrl(url, '')).filter(Boolean).join(','))}"` : '';
+        const youtubeAttr = work.youtubeIds && work.youtubeIds.length > 0 ? `data-youtube="${_escapeAttr(work.youtubeIds.join(','))}"` : '';
         const hasContent = (work.youtubeIds && work.youtubeIds.length > 0) || (work.gallery && work.gallery.length > 0);
         const noContentClass = hasContent ? '' : 'no-content';
 
         const categoryBadges = work.categories ? work.categories.slice(0, 1).map(cat => {
             const label = _CATEGORY_LABELS[cat] || cat;
-            return `<span class="work-category-badge">${label}</span>`;
+            return `<span class="work-category-badge">${_escapeHtml(label)}</span>`;
         }).join('') : '';
 
         const featuredFallback = '/assets/images/fallback/Fallback_Works_ComingSoon_01.png';
         const featuredSmall = _toSmall(work.thumbnail);
-        const featuredImgEvents = `loading="eager" onload="this.closest('.featured-media').classList.add('img-loaded')" onerror="this.src='${featuredFallback}';this.closest('.featured-media').classList.add('img-loaded')"`;
         return `
         <div class="featured-work-card glass-card ${noContentClass}" ${youtubeAttr} ${galleryAttr}>
             <div class="featured-media">
-                <img src="${featuredSmall}" data-src="${work.thumbnail}" alt="${work.title}" class="featured-image" ${featuredImgEvents}>
+                <img src="${_escapeAttr(featuredSmall)}" data-src="${_escapeAttr(work.thumbnail)}" alt="${_escapeAttr(work.title)}" class="featured-image" loading="eager" data-load-parent=".featured-media" data-fallback="${featuredFallback}">
                 ${categoryBadges ? `<div class="work-category-badges">${categoryBadges}</div>` : ''}
             </div>
             <div class="featured-info">
                 <div class="featured-header">
-                    <h3 class="featured-title">${work.title}</h3>
-                    <span class="featured-year">${work.year}</span>
+                    <h3 class="featured-title">${_escapeHtml(work.title)}</h3>
+                    <span class="featured-year">${_escapeHtml(work.year)}</span>
                 </div>
-                ${work.description ? `<p class="featured-description">${work.description}</p>` : ''}
+                ${work.description ? `<p class="featured-description">${_escapeHtml(work.description)}</p>` : ''}
                 ${work.tags && work.tags.length > 0 ? `
                     <div class="featured-tags">
-                        ${work.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        ${work.tags.map(tag => `<span class="tag">${_escapeHtml(tag)}</span>`).join('')}
                     </div>
                 ` : ''}
             </div>
         </div>
         `;
     }).join('');
+
+    _bindGeneratedImageState(container);
 }
 
 // All Worksのレンダリング（初期表示数を制限）
@@ -224,6 +250,8 @@ function renderAllWorks() {
         <span class="works-vivivit-note">※ 外部サイトに飛びます</span>
     </a>
     `;
+
+    _bindGeneratedImageState(container);
 }
 
 // 「もっと見る」が押されたかのフラグ
@@ -249,6 +277,8 @@ function renderEvents() {
     container.innerHTML = worksData.events
         .map((event, index) => _buildEventCard(event, index >= initialCount))
         .join('');
+
+    _bindGeneratedImageState(container);
 }
 
 // フィルター機能（All Works）
@@ -312,7 +342,7 @@ function initLoadMoreWorks() {
 
     const hiddenWorks = container.querySelectorAll('.work-item.hidden');
     if (hiddenWorks.length === 0) {
-        loadMoreSection.style.display = 'none';
+        loadMoreSection.classList.add('is-hidden');
         return;
     }
 
@@ -321,7 +351,7 @@ function initLoadMoreWorks() {
 
     loadMoreBtn.addEventListener('click', function() {
         container.querySelectorAll('.work-item.hidden').forEach(item => item.classList.remove('hidden'));
-        loadMoreSection.style.display = 'none';
+        loadMoreSection.classList.add('is-hidden');
     });
 }
 
@@ -338,8 +368,7 @@ function initLoadMoreEvents() {
     let loadMoreBtn = section.querySelector('#loadMoreEventsBtn');
     if (!loadMoreBtn) {
         const loadMoreDiv = document.createElement('div');
-        loadMoreDiv.className = 'works-load-more';
-        loadMoreDiv.style.marginTop = 'var(--space-3)';
+        loadMoreDiv.className = 'works-load-more with-top-space';
         loadMoreDiv.innerHTML = '<button class="btn btn-secondary" id="loadMoreEventsBtn">もっと見る</button>';
         container.parentNode.insertBefore(loadMoreDiv, container.nextSibling);
         loadMoreBtn = document.getElementById('loadMoreEventsBtn');
@@ -357,7 +386,7 @@ function initLoadMoreEvents() {
                 }
             });
         }
-        this.parentElement.style.display = 'none';
+        this.parentElement.classList.add('is-hidden');
     });
 }
 
@@ -365,6 +394,12 @@ function initLoadMoreEvents() {
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const testLoading = urlParams.get('test-loading') === 'true';
+
+    document.addEventListener('click', (event) => {
+        if (event.target.closest('[data-stop-card-click="true"]')) {
+            event.stopPropagation();
+        }
+    });
 
     const renderContent = () => {
         renderFeaturedWorks();

@@ -258,6 +258,10 @@
     z-index: 2;
 }
 
+.service-desc-note {
+    opacity: 0.7;
+}
+
 /* FAQ Compact Section */
 .faq-compact-section {
     margin-bottom: var(--space-6);

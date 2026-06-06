@@ -175,6 +175,95 @@ section {
     z-index: 1;
 }
 
+body.webgl-unavailable {
+    background: #000000;
+}
+
+body.is-scroll-locked {
+    overflow: hidden;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.with-top-space {
+    margin-top: var(--space-3);
+}
+
+section.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+section.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-top-button {
+    position: fixed;
+    right: 48px;
+    bottom: 130px;
+    width: 48px;
+    height: 48px;
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-top-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.scroll-top-button:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+.scroll-top-button.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top-button.is-contact-page {
+    bottom: 48px;
+}
+
+.floating-cta {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.floating-cta.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .scroll-top-button {
+        right: 8px;
+        bottom: 90px;
+    }
+
+    .scroll-top-button.is-contact-page {
+        bottom: 16px;
+    }
+}
+
 /* Hero セクションは例外（フルスクリーン�E�E*/
 .hero-section {
     padding: 0;
@@ -578,6 +667,14 @@ img {
     -ms-user-select: none;
 }
 
+img.image-error-hidden {
+    visibility: hidden;
+}
+
+img.image-error-transparent {
+    opacity: 0;
+}
+
 /* 画像�E遁E��読み込み視覚化 */
 img[loading="lazy"] {
     background: rgba(255, 255, 255, 0.02);
@@ -593,6 +690,15 @@ img[loading="lazy"]:not([src]) {
     );
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
+}
+
+.progressive-image-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+    pointer-events: none;
 }
 
 @keyframes shimmer {

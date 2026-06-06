@@ -71,6 +71,30 @@
     display: none;
 }
 
+.link-icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.link-icon-img-wide {
+    width: auto;
+    height: 28px;
+    object-fit: contain;
+}
+
+.link-icon-img-vivivit {
+    width: auto;
+    height: 20px;
+    object-fit: contain;
+}
+
+.link-external-note {
+    font-size: 0.7em;
+    opacity: 0.6;
+    margin-top: 4px;
+}
+
 @media (min-width: 769px) {
     .links-grid {
         grid-template-columns: repeat(5, 80px);

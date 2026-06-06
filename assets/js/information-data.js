@@ -36,11 +36,12 @@ const informationData = [
 function renderInformation() {
     const container = document.querySelector('.info-list');
     if (!container) return;
+    const escapeHtml = window.securityUtils?.escapeHtml || ((value) => String(value ?? ''));
 
     container.innerHTML = informationData.map(item => `
         <p class="info-item">
-            <span class="info-date">${item.date}</span>
-            <span class="info-text">${item.text}</span>
+            <span class="info-date">${escapeHtml(item.date)}</span>
+            <span class="info-text">${escapeHtml(item.text)}</span>
         </p>
     `).join('');
 }
@@ -51,17 +52,18 @@ function renderBookingStatus() {
     if (!card) return;
 
     const { accepting, acceptingNote, suspendedNote } = bookingConfig;
+    const escapeHtml = window.securityUtils?.escapeHtml || ((value) => String(value ?? ''));
 
     card.classList.toggle('booking-card-accepting', accepting);
 
     card.innerHTML = accepting ? `
         <div class="info-label">ブッキング</div>
         <div class="info-value booking-accepting">受付中</div>
-        <div class="info-detail">${acceptingNote}</div>
+        <div class="info-detail">${escapeHtml(acceptingNote)}</div>
     ` : `
         <div class="info-label">ブッキング</div>
         <div class="info-value booking-suspended">新規受付停止中</div>
-        <div class="info-detail">${suspendedNote}</div>
+        <div class="info-detail">${escapeHtml(suspendedNote)}</div>
     `;
 }
 

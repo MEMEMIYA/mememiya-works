@@ -95,7 +95,7 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="#hero" aria-label="MEMEMIYAホームページ">
-                    <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="nav-logo-img" onerror="this.style.visibility='hidden'">
+                    <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="nav-logo-img" data-error-action="hide">
                 </a>
             </div>
             <ul class="nav-links" id="navLinks" role="menubar">
@@ -128,7 +128,7 @@
             <div class="hero-main-block">
                 <p class="hero-catchcopy animate-slide-up delay-1">トラウマによる脳内ノイズを掻き消す「映像と音楽」をVJから作る</p>
                 <div class="hero-logo-wrapper animate-fade-in">
-                    <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="hero-logo-img" loading="eager" onerror="this.style.visibility='hidden'">
+                    <img src="assets/images/LOGO_MEMEMIYA.png" alt="MEMEMIYA Logo" class="hero-logo-img" loading="eager" data-error-action="hide">
                 </div>
                 <p class="hero-subtitle animate-slide-up delay-2">映像クリエイター  /  テクニカルディレクター  /  VJ</p>
             </div>
@@ -182,7 +182,7 @@
                 <!-- Profile Header: 画像と基本情報 -->
                 <div class="profile-header">
                     <div class="profile-image-frame">
-                        <img src="assets/images/artistPhoto/small/MEMEMIYA_promotionPhoto.jpg" data-src="assets/images/artistPhoto/MEMEMIYA_promotionPhoto.jpg" alt="MEMEMIYA" class="profile-photo" loading="lazy" onerror="this.style.opacity='0'">
+                        <img src="assets/images/artistPhoto/small/MEMEMIYA_promotionPhoto.jpg" data-src="assets/images/artistPhoto/MEMEMIYA_promotionPhoto.jpg" alt="MEMEMIYA" class="profile-photo" loading="lazy" data-error-action="transparent">
                     </div>
                     <h3 class="profile-name-large">MEMEMIYA</h3>
                     <p class="profile-name-reading">メメミヤ</p>
@@ -541,29 +541,29 @@
                 </a>
                 <a href="https://note.com/mememiya" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
                     <div class="link-icon">
-                        <img src="assets/images/logo/note_icon.png" alt="note Logo" style="width: 24px; height: 24px; object-fit: contain;">
+                        <img src="assets/images/logo/note_icon.png" alt="note Logo" class="link-icon-img">
                     </div>
                     <h3>note</h3>
                     <p>技術記事・制作ノート</p>
                 </a>
                 <a href="https://qiita.com/MEMEMIYA" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
                     <div class="link-icon">
-                        <img src="assets/images/logo/qiita-white-icon.png" alt="Qiita Logo" style="width: 24px; height: 24px; object-fit: contain;">
+                        <img src="assets/images/logo/qiita-white-icon.png" alt="Qiita Logo" class="link-icon-img">
                     </div>
                     <h3>Qiita</h3>
                     <p>技術記事を投稿</p>
                 </a>
                 <a href="https://www.vivivit.com/mememiya" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
                     <div class="link-icon">
-                        <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT Logo" style="height: 20px; width: auto; object-fit: contain;">
+                        <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT Logo" class="link-icon-img-vivivit">
                     </div>
                     <h3>ViViViT</h3>
                     <p>ポートフォリオをまとめています</p>
-                    <p style="font-size: 0.7em; opacity: 0.6; margin-top: 4px;">※ 外部サイトに飛びます</p>
+                    <p class="link-external-note">※ 外部サイトに飛びます</p>
                 </a>
                 <a href="https://vrchat.com/home/user/usr_18f25113-51f7-4edd-819a-a68203d54c01" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
                     <div class="link-icon">
-                        <img src="assets/images/logo/VRChat_Logo_Outline_White.png" alt="VRChat Logo" style="height: 28px; width: auto; object-fit: contain;">
+                        <img src="assets/images/logo/VRChat_Logo_Outline_White.png" alt="VRChat Logo" class="link-icon-img-wide">
                     </div>
                     <h3>VRChat</h3>
                     <p>VR空間で活動中</p>
@@ -579,7 +579,7 @@
                 </a>
                 <a href="https://www.iwakenlab.jp/MEMEMIYA-7a885da8744540a4908c0af15f7974ad" target="_blank" rel="noopener noreferrer" class="link-card glass-card">
                     <div class="link-icon">
-                        <img src="assets/images/logo/Iwaken_Lab._logo_icon.png" alt="IwakenLab Logo" style="width: 24px; height: 24px; object-fit: contain; filter: brightness(0) invert(1);">
+                        <img src="assets/images/logo/Iwaken_Lab._logo_icon.png" alt="IwakenLab Logo" class="link-icon-img social-icon-img-muted">
                     </div>
                     <h3>IwakenLab</h3>
                     <p>ポートフォリオ・活動情報</p>
@@ -666,7 +666,7 @@
                         </svg>
                     </a>
                     <a href="https://note.com/mememiya" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="note">
-                        <img src="assets/images/logo/note_icon.png" alt="note Logo" style="width: 18px; height: 18px; object-fit: contain; filter: brightness(0.6);">
+                        <img src="assets/images/logo/note_icon.png" alt="note Logo" class="footer-social-icon-img footer-social-icon-muted">
                     </a>
                 </div>
             </div>
@@ -768,16 +768,16 @@
             </svg>
         </a>
         <a href="https://note.com/mememiya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="note">
-            <img src="assets/images/logo/note_icon.png" alt="note Logo" style="width: 28px; height: 28px; object-fit: contain;">
+            <img src="assets/images/logo/note_icon.png" alt="note Logo" class="social-icon-img">
         </a>
         <a href="https://qiita.com/MEMEMIYA" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Qiita">
-            <img src="assets/images/logo/qiita-white-icon.png" alt="Qiita Logo" style="width: 28px; height: 28px; object-fit: contain;">
+            <img src="assets/images/logo/qiita-white-icon.png" alt="Qiita Logo" class="social-icon-img">
         </a>
         <a href="https://www.vivivit.com/mememiya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="ViViViT">
-            <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT Logo" style="width: 50px; height: 50px; object-fit: contain;">
+            <img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="ViViViT Logo" class="social-icon-img-large">
         </a>
         <a href="https://vrchat.com/home/user/usr_18f25113-51f7-4edd-819a-a68203d54c01" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="VRChat">
-            <img src="assets/images/logo/VRChat_Logo_Outline_White.png" alt="VRChat Logo" style="width: 50px; height: 50px; object-fit: contain;">
+            <img src="assets/images/logo/VRChat_Logo_Outline_White.png" alt="VRChat Logo" class="social-icon-img-large">
         </a>
         <a href="https://github.com/MEMEMIYA" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -785,7 +785,7 @@
             </svg>
         </a>
         <a href="https://www.iwakenlab.jp/MEMEMIYA-7a885da8744540a4908c0af15f7974ad" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="IwakenLab">
-            <img src="assets/images/logo/Iwaken_Lab._logo_icon.png" alt="IwakenLab Logo" style="width: 28px; height: 28px; object-fit: contain; filter: brightness(0) invert(1);">
+            <img src="assets/images/logo/Iwaken_Lab._logo_icon.png" alt="IwakenLab Logo" class="social-icon-img social-icon-img-muted">
         </a>
     </div>
 
@@ -801,6 +801,8 @@
 
     <!-- 3D背景シェーダー -->
     <script src="assets/js/background.js"></script>
+    <script src="assets/js/security-utils.js"></script>
+    <script src="assets/js/image-error-handlers.js"></script>
 
     <!-- Information Data (分離ファイル) -->
     <script src="assets/js/information-data.js?v=3"></script>
@@ -826,17 +828,7 @@
     <script src="assets/js/works-data.js?v=6"></script>
 
     <!-- Hero Video Loading Spinner -->
-    <script>
-        (function() {
-            const video = document.getElementById('heroVideo');
-            const bg    = document.getElementById('heroVideoBg');
-            if (!video || !bg) return;
-            const done = () => bg.classList.remove('video-loading');
-            video.addEventListener('canplay', done, { once: true });
-            // autoplay がブロックされた場合も一定時間後にスピナーを消す
-            setTimeout(done, 8000);
-        })();
-    </script>
+    <script src="assets/js/hero-video.js"></script>
 
     <!-- Progressive Image Loading -->
     <script src="assets/js/image-progressive.js"></script>

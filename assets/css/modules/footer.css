@@ -94,6 +94,32 @@
     height: 12px;
 }
 
+.footer-social-icon-img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.footer-social-icon-muted {
+    filter: brightness(0.6);
+}
+
+.social-icon-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.social-icon-img-large {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.social-icon-img-muted {
+    filter: brightness(0) invert(1);
+}
+
 @media (max-width: 768px) {
     .footer {
         padding: var(--space-1) 0;

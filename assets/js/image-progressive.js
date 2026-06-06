@@ -40,7 +40,7 @@ function mosaicReveal(container, img, fullSrc) {
     const canvas = document.createElement('canvas');
     canvas.width  = Math.ceil(W);
     canvas.height = Math.ceil(H);
-    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;z-index:7;pointer-events:none;';
+    canvas.className = 'progressive-image-canvas';
     container.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');

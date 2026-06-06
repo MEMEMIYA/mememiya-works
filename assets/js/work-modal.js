@@ -2,6 +2,10 @@
 // Work Detail Modal
 // ===========================
 
+const _modalEscapeHtml = window.securityUtils?.escapeHtml || ((value) => String(value ?? ''));
+const _modalEscapeAttr = window.securityUtils?.escapeAttr || _modalEscapeHtml;
+const _modalSafeUrl = window.securityUtils?.safeUrl || ((value, fallback = '#') => value || fallback);
+
 function initWorkModals() {
     // Create modal element if it doesn't exist
     let modal = document.getElementById('workModal');
@@ -45,7 +49,7 @@ function initWorkModals() {
     // Close modal function
     function closeModal() {
         modal.classList.remove('active');
-        document.body.style.overflow = '';
+        document.body.classList.remove('is-scroll-locked');
 
         // Clear content and reset styles
         const mediaContainer = modal.querySelector('.work-modal-media');
@@ -223,10 +227,12 @@ function initWorkModals() {
 
         // External video (埋め込み不可の動画) - リンクボタンで表示
         if (externalVideo) {
+            const safeExternalVideo = _modalSafeUrl(externalVideo, '');
+            if (!safeExternalVideo) return;
             mediaContainer.style.display = 'block';
             const linkContainer = document.createElement('div');
-            linkContainer.style.cssText = 'display: flex; align-items: center; justify-content: center; aspect-ratio: 16/9; background: rgba(20, 20, 20, 1);';
-            linkContainer.innerHTML = `<a href="${externalVideo}" target="_blank" rel="noopener noreferrer" class="event-link-button" style="font-size: 1rem;"><svg class="button-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:1.2em;height:1.2em;"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg> YouTubeで見る</a>`;
+            linkContainer.className = 'external-video-link-container';
+            linkContainer.innerHTML = `<a href="${_modalEscapeAttr(safeExternalVideo)}" target="_blank" rel="noopener noreferrer" class="event-link-button external-video-link"><svg class="button-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg> YouTubeで見る</a>`;
             mediaContainer.appendChild(linkContainer);
         }
         // YouTube video handling - 複数対応
@@ -285,18 +291,18 @@ function initWorkModals() {
 
                 if (!isShorts && youtubeIds.length === 1) {
                     // 通常の動画で1つの場合のみ絶対配置
-                    youtubeEmbed.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%;';
+                    youtubeEmbed.classList.add('youtube-embed-fill');
                     mediaContainer.appendChild(youtubeEmbed);
                 } else if (youtubeIds.length > 1) {
                     // 複数動画の場合はラッパーで包む
                     const videoWrapper = document.createElement('div');
-                    videoWrapper.style.cssText = 'position: relative; width: 100%; padding-bottom: 56.25%; margin-bottom: 20px;';
-                    youtubeEmbed.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%;';
+                    videoWrapper.className = 'youtube-embed-wrapper';
+                    youtubeEmbed.classList.add('youtube-embed-fill');
                     videoWrapper.appendChild(youtubeEmbed);
                     mediaContainer.appendChild(videoWrapper);
                 } else {
                     // ショート動画
-                    youtubeEmbed.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%;';
+                    youtubeEmbed.classList.add('youtube-embed-fill');
                     mediaContainer.appendChild(youtubeEmbed);
                 }
             });
@@ -510,7 +516,10 @@ function initWorkModals() {
 
             // 説明文の表示
             if (description) {
-                descriptionContainer.innerHTML = `<p>${description}</p>`;
+                descriptionContainer.innerHTML = '';
+                const descriptionParagraph = document.createElement('p');
+                descriptionParagraph.textContent = description;
+                descriptionContainer.appendChild(descriptionParagraph);
                 descriptionContainer.style.display = 'block';
             } else {
                 descriptionContainer.innerHTML = '';
@@ -571,7 +580,7 @@ function initWorkModals() {
 
                 if (categoryArray.length > 0) {
                     // 最初のカテゴリのみ表示
-                    const firstCategory = `<span class="category-main">${categoryArray[0]}</span>`;
+                    const firstCategory = `<span class="category-main">${_modalEscapeHtml(categoryArray[0])}</span>`;
                     categoryContainer.innerHTML = firstCategory;
                 } else {
                     categoryContainer.textContent = categoryText;
@@ -623,22 +632,23 @@ function initWorkModals() {
 
             // 全角スペース区切りの値をタグ化する関数
             const formatMetaValue = (value) => {
+                const safeValue = String(value ?? '');
                 // 全角スペースで区切られている場合はタグ化
-                if (value.includes('　')) {
-                    const tags = value.split('　').filter(tag => tag.trim());
+                if (safeValue.includes('　')) {
+                    const tags = safeValue.split('　').filter(tag => tag.trim());
                     if (tags.length > 1) {
-                        const tagsHTML = tags.map(tag => `<span class="meta-tag">${tag}</span>`).join('');
+                        const tagsHTML = tags.map(tag => `<span class="meta-tag">${_modalEscapeHtml(tag)}</span>`).join('');
                         return `<span class="work-modal-meta-value has-tags">${tagsHTML}</span>`;
                     }
                 }
-                return `<span class="work-modal-meta-value">${value}</span>`;
+                return `<span class="work-modal-meta-value">${_modalEscapeHtml(safeValue)}</span>`;
             };
 
             // 1行目: 制作年（単独）
             if (yearItem) {
                 metaHTML += `
                     <div class="work-modal-meta-item">
-                        <span class="work-modal-meta-label">${yearItem.label}</span>
+                        <span class="work-modal-meta-label">${_modalEscapeHtml(yearItem.label)}</span>
                         ${formatMetaValue(yearItem.value)}
                     </div>
                 `;
@@ -650,7 +660,7 @@ function initWorkModals() {
                 secondRowItems.forEach(item => {
                     metaHTML += `
                         <div class="work-modal-meta-item">
-                            <span class="work-modal-meta-label">${item.label}</span>
+                            <span class="work-modal-meta-label">${_modalEscapeHtml(item.label)}</span>
                             ${formatMetaValue(item.value)}
                         </div>
                     `;
@@ -662,7 +672,7 @@ function initWorkModals() {
             otherMetaItems.forEach(item => {
                 metaHTML += `
                     <div class="work-modal-meta-item">
-                        <span class="work-modal-meta-label">${item.label}</span>
+                        <span class="work-modal-meta-label">${_modalEscapeHtml(item.label)}</span>
                         ${formatMetaValue(item.value)}
                     </div>
                 `;
@@ -672,7 +682,7 @@ function initWorkModals() {
 
             // Populate tags
             const tagsContainer = modal.querySelector('.work-modal-tags');
-            tagsContainer.innerHTML = tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+            tagsContainer.innerHTML = tags.map(tag => `<span class="tag">${_modalEscapeHtml(tag)}</span>`).join('');
 
             // Populate thumbnail if available (常に表示、一番最後)
             const thumbnailContainer = modal.querySelector('.work-modal-thumbnail');
@@ -735,7 +745,8 @@ function initWorkModals() {
                     const cardsHTML = await Promise.all(blogUrls.map(async (item) => {
                         // 文字列かオブジェクトかを判定
                         const isManual = typeof item === 'object' && item.url;
-                        const url = isManual ? item.url : item;
+                        const rawUrl = isManual ? item.url : item;
+                        const url = _modalSafeUrl(rawUrl);
                         const platform = getPlatform(url);
 
                         let title, description, image;
@@ -759,23 +770,17 @@ function initWorkModals() {
                             image = ogp.image || '';
                         }
 
-                        // HTMLエンティティをエスケープ（テキストコンテンツ用）
-                        const escapeHtml = (str) => {
-                            const div = document.createElement('div');
-                            div.textContent = str;
-                            return div.innerHTML;
-                        };
-
                         // 画像HTML（imgタグを使用してブラウザに自動デコードさせる）
-                        const imageHTML = image ? `<div class="blog-card-image"><img src="${escapeHtml(image)}" alt="${escapeHtml(title)}" loading="lazy"></div>` : '';
+                        const safeImage = image ? _modalSafeUrl(image, '') : '';
+                        const imageHTML = safeImage ? `<div class="blog-card-image"><img src="${_modalEscapeAttr(safeImage)}" alt="${_modalEscapeAttr(title)}" loading="lazy"></div>` : '';
 
                         return `
-                            <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="blog-card">
+                            <a href="${_modalEscapeAttr(url)}" target="_blank" rel="noopener noreferrer" class="blog-card">
                                 ${imageHTML}
                                 <div class="blog-card-content">
-                                    <div class="blog-card-platform">${platform}</div>
-                                    <h3 class="blog-card-title">${title}</h3>
-                                    <p class="blog-card-description">${description}</p>
+                                    <div class="blog-card-platform">${_modalEscapeHtml(platform)}</div>
+                                    <h3 class="blog-card-title">${_modalEscapeHtml(title)}</h3>
+                                    <p class="blog-card-description">${_modalEscapeHtml(description)}</p>
                                     <span class="blog-card-link">
                                         記事を読む
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -804,6 +809,8 @@ function initWorkModals() {
                 tweetsContainer.style.display = 'block';
                 tweetsContainer.innerHTML = '';
                 tweetUrls.forEach(url => {
+                    const safeTweetUrl = _modalSafeUrl(url, '');
+                    if (!safeTweetUrl) return;
                     const wrapper = document.createElement('div');
                     wrapper.className = 'tweet-wrapper';
                     const blockquote = document.createElement('blockquote');
@@ -811,7 +818,7 @@ function initWorkModals() {
                     blockquote.setAttribute('data-theme', 'dark');
                     blockquote.setAttribute('data-lang', 'ja');
                     const a = document.createElement('a');
-                    a.href = url.replace('x.com', 'twitter.com');
+                    a.href = safeTweetUrl.replace('x.com', 'twitter.com');
                     blockquote.appendChild(a);
                     wrapper.appendChild(blockquote);
                     tweetsContainer.appendChild(wrapper);
@@ -848,8 +855,7 @@ function initWorkModals() {
         }
 
         // モーダルを一時的に表示して高さを計算（opacity: 0で非表示のまま）
-        modal.style.opacity = '0';
-        modal.style.visibility = 'visible';
+        modal.classList.add('is-measuring');
         modal.classList.add('active');
 
         // サムネイルの高さをメタデータに合わせる
@@ -880,9 +886,8 @@ function initWorkModals() {
 
         // 次のフレームでモーダルを実際に表示
         requestAnimationFrame(() => {
-            modal.style.opacity = '';
-            modal.style.visibility = '';
-            document.body.style.overflow = 'hidden';
+            modal.classList.remove('is-measuring');
+            document.body.classList.add('is-scroll-locked');
         });
     });
 }
