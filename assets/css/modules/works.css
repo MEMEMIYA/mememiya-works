@@ -676,18 +676,6 @@
     100% { opacity: 0; }
 }
 
-.featured-media.img-revealed::before,
-.work-media.img-revealed::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: white;
-    animation: img-reveal-flash 0.3s ease-out forwards;
-    z-index: 8;
-    pointer-events: none;
-}
-}
-
 .featured-media:not(.img-loaded),
 .work-media:not(.img-loaded) {
     background: linear-gradient(90deg,
@@ -712,5 +700,21 @@
     border-radius: 50%;
     animation: img-spin 0.75s linear infinite;
     z-index: 5;
+    pointer-events: none;
+}
+
+.featured-media .progressive-image-canvas,
+.work-media .progressive-image-canvas {
+    z-index: 1;
+}
+
+.featured-media.img-revealed::after,
+.work-media.img-revealed::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: white;
+    animation: img-reveal-flash 0.3s ease-out forwards;
+    z-index: 1;
     pointer-events: none;
 }
