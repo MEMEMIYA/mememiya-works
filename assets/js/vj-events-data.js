@@ -1,6 +1,20 @@
 // VJ Events Data - イベント出演履歴
 const vjEventsData = [
     {
+        id: 'ensei-pajamageddon-vol0',
+        title: '怨世パジャマゲドン vol.0',
+        date: '2026.8.2',
+        year: '2026',
+        type: 'vr',
+        thumbnail: 'assets/images/events/ensei-pajamageddon/flyer.jpg',
+        gallery: [
+            'assets/images/events/ensei-pajamageddon/flyer.jpg'
+        ],
+        venue: 'VRChat | MEMEMIYA主催。ジェネVJ・パーティクル演出を担当',
+        hashtags: ['怨世パジャマゲドン', '怨パジャ'],
+        detailUrl: 'event-ensei-pajamageddon.html'
+    },
+    {
         id: 'nakaniwa',
         title: 'グループ展「中庭」',
         date: '2026.3.21',

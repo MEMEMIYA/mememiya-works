@@ -152,6 +152,21 @@ function loadFullImage(img) {
 
     const container = img.parentElement;
     if (container && container.classList.contains('img-upgrading')) return;
+
+    // data-progressive-upgrade="instant" の画像は高解像度版を読み込み後、演出なしで差し替える
+    if (img.dataset.progressiveUpgrade === 'instant') {
+        const hiImg = new Image();
+        hiImg.onload = () => {
+            img.src = fullSrc;
+            img.removeAttribute('data-src');
+        };
+        hiImg.onerror = () => {
+            img.removeAttribute('data-src');
+        };
+        hiImg.src = fullSrc;
+        return;
+    }
+
     if (container) container.classList.add('img-upgrading');
 
     mosaicReveal(container, img, fullSrc);

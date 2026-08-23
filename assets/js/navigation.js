@@ -12,9 +12,11 @@ function scrollToSection(target) {
 // Update active navigation link
 function updateActiveNavLink(targetId) {
     const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => link.classList.remove('active'));
     const active = Array.from(navLinks).find(link => link.getAttribute('href') === targetId);
-    if (active) active.classList.add('active');
+    if (!active) return;
+
+    navLinks.forEach(link => link.classList.remove('active'));
+    active.classList.add('active');
 }
 
 // Smooth scroll with navbar offset

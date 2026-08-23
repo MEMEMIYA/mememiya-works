@@ -4,7 +4,7 @@
 
 const isMobileDevice = window.innerWidth <= 768;
 
-if (!isMobileDevice) {
+if (!isMobileDevice && document.body.dataset.scrollReveal !== 'disabled') {
     const fadeInObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

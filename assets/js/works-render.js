@@ -166,6 +166,9 @@ function _buildEventCard(event, isHidden) {
             ${event.hashtags.map(tag => `<a href="https://x.com/search?q=%23${encodeURIComponent(tag)}&src=typed_query&f=live" target="_blank" rel="noopener noreferrer" class="event-hashtag" data-stop-card-click="true">#${_escapeHtml(tag)}</a>`).join('')}
         </div>
     ` : '';
+    const detailLinkHtml = event.detailUrl ? `
+        <a href="${_escapeAttr(_safeUrl(event.detailUrl))}" class="event-detail-link" data-stop-card-click="true">イベントレポートを見る →</a>
+    ` : '';
     return `
     <div class="event-item-compact glass-card${hiddenClass}" data-type="${_escapeAttr(event.type)}" data-year="${_escapeAttr(event.year)}" ${galleryAttr}>
         <div class="event-thumb-compact">
@@ -176,6 +179,7 @@ function _buildEventCard(event, isHidden) {
             <div class="event-date-compact">${_escapeHtml(event.date)}</div>
             <h4 class="event-title-compact">${_escapeHtml(event.title)}</h4>
             ${hashtagsHtml}
+            ${detailLinkHtml}
         </div>
     </div>
     `;

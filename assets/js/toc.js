@@ -12,7 +12,7 @@ function initTableOfContents() {
     const targetSections = Array.from(tocLinks).map(link => {
         const sectionId = link.getAttribute('data-section');
         return document.getElementById(sectionId);
-    }).filter(section => section !== null);
+    }).filter(section => section !== null).sort((a, b) => a.offsetTop - b.offsetTop);
 
     if (targetSections.length === 0) return;
 
