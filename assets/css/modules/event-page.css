@@ -3,6 +3,17 @@
    （怨世パジャマゲドン等、単独イベントページ共通スタイル）
    =========================== */
 
+/* パーティクルレイヤー（怨世パジャマゲドン専用: 本文左右にのみ漂う） */
+#particleLayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
 /* イベントページ内のテキストはコピー・選択可能にする */
 .event-page-hero,
 .event-page-hero *,
