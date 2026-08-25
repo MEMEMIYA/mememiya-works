@@ -10,7 +10,7 @@
 @import url('modules/base.css?v=53');
 
 /* Components */
-@import url('modules/navigation.css');
+@import url('modules/navigation.css?v=1');
 @import url('modules/hero.css?v=55');
 @import url('modules/profile.css?v=36');
 @import url('modules/works.css?v=50');
@@ -29,7 +29,7 @@
 @import url('modules/modal-gallery.css');
 @import url('modules/blog-card.css?v=35');
 @import url('modules/table-of-contents.css?v=35');
-@import url('modules/event-page.css?v=42');
+@import url('modules/event-page.css?v=43');
 
 /* Animations & Utilities */
 @import url('modules/animations.css');
