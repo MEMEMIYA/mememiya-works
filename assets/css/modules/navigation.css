@@ -55,6 +55,7 @@
 }
 
 .nav-link {
+    display: inline-block;
     position: relative;
     font-size: var(--text-sm);
     font-weight: 600;
@@ -139,7 +140,8 @@
 
     .nav-link {
         font-size: var(--text-xs);
-        padding: 6px var(--space-2);
+        padding: 6px 10px;
+        white-space: nowrap;
         border-right: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
     }
 
