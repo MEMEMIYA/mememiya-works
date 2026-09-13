@@ -71,7 +71,7 @@ function _buildComingSoonCard(work, isHidden) {
                 <div class="work-header">
                     <h3 class="work-title">ViViViT 限定</h3>
                 </div>
-                <p class="work-description">ログインすると閲覧できます</p>
+                <p class="work-description">ログインなしで閲覧できます</p>
                 <p class="work-description work-description-note">※ 外部サイトに飛びます</p>
             </div>
         </a>
