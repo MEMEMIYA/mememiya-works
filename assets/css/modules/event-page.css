@@ -875,18 +875,30 @@ img.event-staff-avatar {
 }
 
 .event-page-marquee-track {
+    /* 1セット分の幅 = 列数 x (タイル幅 + 余白)。
+       これだけ動かせば継ぎ目がぴったり合い、残り3セット分が常に右側を埋める */
+    --marquee-cell: 160px;
+    --marquee-gap: 16px;
+    --marquee-shift: calc(-1 * var(--marquee-columns) * (var(--marquee-cell) + var(--marquee-gap)));
+
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: repeat(2, 160px);
-    grid-auto-columns: 160px;
-    gap: var(--space-2);
+    grid-template-rows: repeat(2, var(--marquee-cell));
+    grid-auto-columns: var(--marquee-cell);
+    gap: var(--marquee-gap);
     width: max-content;
     animation: event-marquee-left 52s linear infinite;
     will-change: transform;
     backface-visibility: hidden;
 }
 
+/* 各段の1セットが占める列数（大タイルは2列分） */
+.event-page-marquee-row--left .event-page-marquee-track {
+    --marquee-columns: 9;
+}
+
 .event-page-marquee-row--right .event-page-marquee-track {
+    --marquee-columns: 8;
     animation-name: event-marquee-right;
     animation-duration: 44s;
 }
@@ -928,18 +940,19 @@ img.event-staff-avatar {
     transform: scale(1.08);
 }
 
+/* 4セット並べたうちの1セット分だけ動かす。右端が空かず、継ぎ目もぴったり合う */
 @keyframes event-marquee-left {
     from {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-50%);
+        transform: translateX(var(--marquee-shift));
     }
 }
 
 @keyframes event-marquee-right {
     from {
-        transform: translateX(-50%);
+        transform: translateX(var(--marquee-shift));
     }
     to {
         transform: translateX(0);
@@ -948,8 +961,7 @@ img.event-staff-avatar {
 
 @media (max-width: 640px) {
     .event-page-marquee-track {
-        grid-template-rows: repeat(2, 110px);
-        grid-auto-columns: 110px;
+        --marquee-cell: 110px;
     }
 }
 

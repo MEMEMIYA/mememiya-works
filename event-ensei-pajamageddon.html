@@ -46,19 +46,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600&family=Azeret+Mono:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/style.css?v=137">
+    <link rel="stylesheet" href="assets/css/style.css?v=138">
 
     <!-- フォトギャラリーのマーキーはstyle.cssの@importチェーンの最後で読み込まれるため、
          読み込み中に未整形のまま一瞬表示されるのを防ぐための最小限のクリティカルCSS -->
     <style>
         .event-page-marquee { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; width: 100%; }
         .event-page-marquee-row { overflow: hidden; }
-        .event-page-marquee-track { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, 160px); grid-auto-columns: 160px; gap: 16px; width: max-content; }
+        .event-page-marquee-track { --marquee-cell: 160px; display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, var(--marquee-cell)); grid-auto-columns: var(--marquee-cell); gap: 16px; width: max-content; }
         .event-page-marquee-item { position: relative; overflow: hidden; }
         .event-page-marquee-item--big { grid-column: span 2; grid-row: span 2; }
         .event-page-marquee-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
         @media (max-width: 640px) {
-            .event-page-marquee-track { grid-template-rows: repeat(2, 110px); grid-auto-columns: 110px; }
+            .event-page-marquee-track { --marquee-cell: 110px; }
         }
     </style>
 
@@ -218,31 +218,85 @@
                         <img src="assets/images/events/ensei-pajamageddon/small/photo-08.jpg" data-src="assets/images/events/ensei-pajamageddon/photo-08.png" alt="青と紫の光の線が会場を包む様子" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/photo-01.jpg" data-src="assets/images/events/ensei-pajamageddon/photo-01.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-01.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/photo-03.jpg" data-src="assets/images/events/ensei-pajamageddon/photo-03.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-03.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/photo-02.jpg" data-src="assets/images/events/ensei-pajamageddon/photo-02.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-02.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/photo-04.jpg" data-src="assets/images/events/ensei-pajamageddon/photo-04.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-04.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/photo-06.jpg" data-src="assets/images/events/ensei-pajamageddon/photo-06.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-06.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/photo-05.jpg" data-src="assets/images/events/ensei-pajamageddon/photo-05.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-05.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/photo-07.png" data-src="assets/images/events/ensei-pajamageddon/photo-07.png" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-07.png" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/photo-09.jpg" data-src="assets/images/events/ensei-pajamageddon/photo-09.png" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-09.png" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/photo-08.jpg" data-src="assets/images/events/ensei-pajamageddon/photo-08.png" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-08.png" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-01.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-03.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-02.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-04.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-06.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-05.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-07.png" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-09.png" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-08.png" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-01.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-03.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-02.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-04.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-06.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-05.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-07.png" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-09.png" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/photo-08.png" alt="" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -279,34 +333,94 @@
                         <img src="assets/images/events/ensei-pajamageddon/small/marquee-04.jpg" data-src="assets/images/events/ensei-pajamageddon/marquee-04.jpg" alt="ピンクのリボンが渦巻くパーティクル演出とステージ全景" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/visual-01.jpg" data-src="assets/images/events/ensei-pajamageddon/visual-01.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-01.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/visual-02.jpg" data-src="assets/images/events/ensei-pajamageddon/visual-02.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-02.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/visual-03.jpg" data-src="assets/images/events/ensei-pajamageddon/visual-03.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-03.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/visual-04.jpg" data-src="assets/images/events/ensei-pajamageddon/visual-04.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-04.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/visual-05.jpg" data-src="assets/images/events/ensei-pajamageddon/visual-05.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-05.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/visual-06.jpg" data-src="assets/images/events/ensei-pajamageddon/visual-06.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-06.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/marquee-01.jpg" data-src="assets/images/events/ensei-pajamageddon/marquee-01.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-01.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/marquee-02.jpg" data-src="assets/images/events/ensei-pajamageddon/marquee-02.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-02.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/marquee-03.jpg" data-src="assets/images/events/ensei-pajamageddon/marquee-03.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-03.jpg" alt="" loading="lazy">
                     </div>
                     <div class="event-page-marquee-item" aria-hidden="true">
-                        <img src="assets/images/events/ensei-pajamageddon/small/marquee-04.jpg" data-src="assets/images/events/ensei-pajamageddon/marquee-04.jpg" alt="" loading="lazy">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-04.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-01.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-02.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-03.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-04.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-05.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-06.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-01.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-02.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-03.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-04.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-01.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-02.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-03.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-04.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-05.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/visual-06.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-01.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item event-page-marquee-item--big" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-02.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-03.jpg" alt="" loading="lazy">
+                    </div>
+                    <div class="event-page-marquee-item" aria-hidden="true">
+                        <img src="assets/images/events/ensei-pajamageddon/marquee-04.jpg" alt="" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -650,10 +764,26 @@
             lightboxImg.classList.remove('is-switching');
         });
 
+        // 同じ画像を指すか判定する（複製タイルはdata-srcを持たず、元タイルは読込後にsrcが原寸へ差し替わる）
+        function fullPathOf(el) {
+            return el.dataset.src || el.getAttribute('src') || '';
+        }
+
         function openLightbox(img, trigger) {
             const group = img.closest('[data-lightbox-gallery]');
-            currentGroup = group ? Array.from(group.querySelectorAll('img')) : [img];
+            if (group) {
+                const all = Array.from(group.querySelectorAll('img'));
+                // ループ用の複製を除いた実質の枚数だけを送り先にする
+                const unique = all.filter((el) => !el.closest('[aria-hidden="true"]'));
+                currentGroup = unique.length ? unique : all;
+            } else {
+                currentGroup = [img];
+            }
             currentIndex = currentGroup.indexOf(img);
+            if (currentIndex === -1) {
+                const key = fullPathOf(img);
+                currentIndex = Math.max(0, currentGroup.findIndex((el) => fullPathOf(el) === key));
+            }
             previouslyFocused = trigger || document.activeElement;
             renderImage();
             lightbox.classList.add('active');
