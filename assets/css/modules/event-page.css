@@ -861,6 +861,217 @@ img.event-staff-avatar {
 
 }
 
+/* ---------- Gallery marquee (モザイクグリッドを左右に流す・ページ全幅) ---------- */
+.event-page-marquee {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+.event-page-marquee-row {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+}
+
+.event-page-marquee-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 160px);
+    grid-auto-columns: 160px;
+    gap: var(--space-2);
+    width: max-content;
+    animation: event-marquee-left 52s linear infinite;
+}
+
+.event-page-marquee-row--right .event-page-marquee-track {
+    animation-name: event-marquee-right;
+    animation-duration: 44s;
+}
+
+.event-page-marquee-row:hover .event-page-marquee-track {
+    animation-play-state: paused;
+}
+
+.event-page-marquee-item {
+    position: relative;
+    overflow: hidden;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* モザイク: 一部タイルを2x2に大きくしてリズムをつける */
+.event-page-marquee-item--big {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.event-page-marquee-item:hover,
+.event-page-marquee-item:focus-visible {
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(139, 92, 246, 0.25);
+}
+
+.event-page-marquee-item:focus-visible {
+    outline: 2px solid var(--color-purple-secondary);
+    outline-offset: 3px;
+}
+
+.event-page-marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-slow);
+}
+
+.event-page-marquee-item:hover img {
+    transform: scale(1.08);
+}
+
+@keyframes event-marquee-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes event-marquee-right {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .event-page-marquee-track {
+        grid-template-rows: repeat(2, 110px);
+        grid-auto-columns: 110px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .event-page-marquee-track {
+        animation: none;
+    }
+
+    .event-page-marquee-row {
+        overflow-x: auto;
+    }
+}
+
+/* ---------- Photo lightbox (フォトギャラリー専用の拡張) ---------- */
+.event-photo-lightbox .lightbox-backdrop {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.event-photo-lightbox .lightbox-content {
+    opacity: 0;
+    transform: scale(0.94);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.event-photo-lightbox.active .lightbox-content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.event-photo-lightbox .lightbox-image {
+    transition: opacity 220ms var(--ease-in-out-smooth);
+}
+
+.event-photo-lightbox .lightbox-image.is-switching {
+    opacity: 0;
+}
+
+.event-photo-lightbox .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    border: solid 1px rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.event-photo-lightbox .lightbox-nav:hover {
+    background: var(--color-purple-primary);
+    border-color: var(--color-purple-primary);
+}
+
+.event-photo-lightbox .lightbox-nav[hidden] {
+    display: none;
+}
+
+.event-photo-lightbox .lightbox-prev {
+    left: -56px;
+}
+
+.event-photo-lightbox .lightbox-next {
+    right: -56px;
+}
+
+.event-photo-lightbox .lightbox-counter {
+    position: absolute;
+    bottom: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-tertiary);
+}
+
+.event-photo-lightbox .lightbox-counter[hidden] {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .event-photo-lightbox .lightbox-prev {
+        left: 8px;
+    }
+
+    .event-photo-lightbox .lightbox-next {
+        right: 8px;
+    }
+
+    .event-photo-lightbox .lightbox-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 1.4rem;
+        background: rgba(0, 0, 0, 0.55);
+    }
+
+    .event-photo-lightbox .lightbox-counter {
+        bottom: -30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .event-photo-lightbox .lightbox-content,
+    .event-photo-lightbox .lightbox-image {
+        transition: none;
+    }
+}
+
 /* ---------- Flyer (vol.0 実績 + 次回Coming Soon) ---------- */
 .event-page-flyer-grid {
     display: flex;
