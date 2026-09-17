@@ -882,6 +882,8 @@ img.event-staff-avatar {
     gap: var(--space-2);
     width: max-content;
     animation: event-marquee-left 52s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .event-page-marquee-row--right .event-page-marquee-track {
