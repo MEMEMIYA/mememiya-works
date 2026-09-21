@@ -758,6 +758,13 @@ img.event-staff-avatar {
     border: 0;
 }
 
+.event-page-video-wrapper--vertical {
+    aspect-ratio: 9 / 16;
+    width: 100%;
+    max-width: 100%;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+}
+
 .event-page-video-note {
     color: var(--color-text-tertiary);
     font-size: var(--text-sm);
