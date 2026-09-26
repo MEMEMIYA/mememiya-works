@@ -482,38 +482,6 @@
     color: var(--color-text-primary);
 }
 
-/* ---------- Concept: manifesto-style text ---------- */
-.concept-text {
-    position: relative;
-    max-width: 640px;
-    margin: 0 auto;
-}
-
-.concept-text p {
-    position: relative;
-    z-index: 1;
-}
-
-.event-page-body-text p.concept-emphasis {
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    font-weight: 300;
-    color: var(--color-text-secondary);
-    letter-spacing: normal;
-    line-height: var(--leading-relaxed);
-    text-align: center;
-}
-
-.event-page-body-text p.concept-closing {
-    margin: 0 0 var(--space-4);
-    padding-top: 0;
-    border-top: 0;
-    text-align: center;
-    color: var(--color-purple-secondary);
-    font-weight: 600;
-    letter-spacing: var(--tracking-wide);
-}
-
 /* ---------- About panel (overview / how-to-join / next) ---------- */
 .about-panel {
     margin-top: var(--space-4);
