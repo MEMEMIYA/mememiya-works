@@ -1,0 +1,115 @@
+/* ===========================
+   Light Theme
+   html[data-theme="light"] のときだけ適用。
+   白系の rgba は --rgb-fg 経由なので、ここで反転させるだけで全体が追従する。
+   =========================== */
+
+html[data-theme="light"] {
+    --rgb-fg: 58, 53, 72;
+    --rgb-bg: 211, 201, 236;
+
+    --color-bg: #D3C9EC;
+    --color-surface: #DED6F1;
+    --color-border: #B8AADD;
+
+    --color-text-primary: #3A3548;
+    --color-text-secondary: #4F4963;
+    --color-text-tertiary: #554E6C;
+
+    --color-purple-pale: #5B21B6;
+    --color-purple-secondary: #5B21B6;
+    --color-purple-primary: #6D28D9;
+    --color-pink-accent: #6D28D9;
+    --border-color-default: rgba(24, 18, 40, 0.14);
+
+    color-scheme: light;
+}
+
+html[data-theme="light"] body {
+    background: radial-gradient(ellipse at top, #DDD5F1 0%, #CBC0E6 60%);
+    background-attachment: fixed;
+}
+
+html[data-theme="light"] body.webgl-unavailable {
+    background: #D3C9EC;
+}
+
+/* --- ナビ --- */
+html[data-theme="light"] .main-nav,
+html[data-theme="light"] .main-nav.scrolled {
+    background: rgba(214, 205, 238, 0.82);
+    border-bottom-color: rgba(24, 18, 40, 0.08);
+}
+
+html[data-theme="light"] .nav-links,
+html[data-theme="light"] .theme-toggle {
+    background: rgba(220, 211, 241, 0.85);
+}
+
+html[data-theme="light"] .nav-logo-img {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* --- 黒ベースのパネル類 --- */
+html[data-theme="light"] .scroll-top-button {
+    background: rgba(220, 211, 241, 0.92);
+    color: var(--color-text-primary);
+}
+
+/* --- 常にダーク配色のまま使う領域（映像・画像の上に載る要素） --- */
+html[data-theme="light"] .hero-section,
+html[data-theme="light"] .work-category-badge,
+html[data-theme="light"] .work-overlay,
+html[data-theme="light"] .work-info-overlay,
+html[data-theme="light"] .vivivit-media-overlay,
+html[data-theme="light"] .featured-media {
+    --rgb-fg: 255, 255, 255;
+    --rgb-bg: 0, 0, 0;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #CCCCCC;
+    --color-text-tertiary: #999999;
+    --color-purple-pale: #E0CFFF;
+    --color-purple-secondary: #A78BFA;
+    --color-purple-primary: #8B5CF6;
+    --color-pink-accent: #8B5CF6;
+}
+
+/* --- リンク/SNSアイコン ---
+   PNGは白の透過シルエットなので、ライトでは文字色(#3A3548相当・紫がかったグレー)に染め直してSVGと揃える。
+   ※ ソリューション内のViViViTロゴは暗いサムネ上に載るため対象外 */
+html[data-theme="light"] .link-icon img,
+html[data-theme="light"] .social-link img,
+html[data-theme="light"] .footer-social-link img,
+html[data-theme="light"] .footer-social-icon-img,
+html[data-theme="light"] .social-icon-img-muted {
+    filter: brightness(0) invert(0.12) sepia(1) hue-rotate(214deg) saturate(1.1) brightness(1.5) !important;
+}
+
+/* --- 右側の目次 ---
+   ヒーロー映像の上ではダーク配色(白文字)、それ以外ではライト背景に合わせた濃い文字にする(背景パネルは無し) */
+html[data-theme="light"] .table-of-contents.toc-over-hero {
+    --rgb-fg: 255, 255, 255;
+    --color-purple-secondary: #A78BFA;
+}
+
+html[data-theme="light"] .table-of-contents:not(.toc-over-hero) .toc-link {
+    color: var(--color-text-secondary);
+}
+
+html[data-theme="light"] .table-of-contents:not(.toc-over-hero) .toc-dot {
+    background: rgba(var(--rgb-fg), 0.5);
+}
+
+html[data-theme="light"] .table-of-contents:not(.toc-over-hero) .toc-link:hover {
+    color: var(--color-purple-secondary);
+    background: rgba(109, 40, 217, 0.14);
+}
+
+html[data-theme="light"] .table-of-contents:not(.toc-over-hero) .toc-link.active {
+    color: var(--color-purple-secondary);
+    font-weight: 700;
+}
+
+html[data-theme="light"] .table-of-contents:not(.toc-over-hero) .toc-link.active .toc-dot {
+    background: var(--color-purple-primary);
+}

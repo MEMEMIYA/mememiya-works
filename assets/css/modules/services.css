@@ -31,7 +31,7 @@
     flex-direction: column;
     transition: all var(--transition-slow);
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(var(--rgb-fg), 0.08);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -142,7 +142,7 @@
     letter-spacing: 0;
     line-height: 1.5;
     font-family: var(--font-body);
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--rgb-fg), 0.02);
 }
 
 .plan-pricing {
@@ -223,7 +223,7 @@
     text-align: center;
     padding: var(--space-6);
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.06) 0%, rgba(139, 92, 246, 0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(var(--rgb-fg), 0.08);
     transition: all var(--transition-slow);
     position: relative;
 }
@@ -286,7 +286,7 @@
 .workflow-arrow {
     width: 24px;
     height: 24px;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(var(--rgb-fg), 0.3);
 }
 
 @media (max-width: 768px) {
@@ -444,7 +444,7 @@
 .workflows-container {
     margin-bottom: var(--space-12);
     padding: var(--space-8) 0;
-    background: rgba(255, 255, 255, 0.01);
+    background: rgba(var(--rgb-fg), 0.01);
 }
 
 /* Pricing Guide Section */
@@ -464,7 +464,7 @@
 .pricing-card {
     padding: var(--space-6);
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(var(--rgb-fg), 0.08);
     transition: all var(--transition-slow);
     position: relative;
     overflow: hidden;
@@ -514,8 +514,8 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--space-3);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(var(--rgb-fg), 0.02);
+    border: 1px solid rgba(var(--rgb-fg), 0.06);
 }
 
 .pricing-item-name {
@@ -549,7 +549,7 @@
 .faq-section {
     margin-bottom: var(--space-12);
     padding: var(--space-8) 0;
-    background: rgba(255, 255, 255, 0.01);
+    background: rgba(var(--rgb-fg), 0.01);
 }
 
 .faq-grid {
@@ -563,7 +563,7 @@
 .faq-card {
     padding: var(--space-6);
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(var(--rgb-fg), 0.08);
 }
 
 .faq-question {
@@ -729,8 +729,8 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--space-2);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(var(--rgb-fg), 0.02);
+    border: 1px solid rgba(var(--rgb-fg), 0.08);
 }
 
 .contact-cta-card .info-label {

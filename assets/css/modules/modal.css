@@ -8,7 +8,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.97);
+    background: rgba(var(--rgb-bg), 0.97);
     backdrop-filter: blur(24px);
     z-index: 10000;
     display: flex;
@@ -33,7 +33,7 @@
     max-width: 1200px;
     max-height: calc(100vh - var(--space-6) * 2);
     background: #000000;
-    border: solid 2px rgba(255, 255, 255, 0.2);
+    border: solid 2px rgba(var(--rgb-fg), 0.2);
     padding: var(--space-8);
     transform: scale(0.95) translateY(40px);
     transition: transform 450ms var(--ease-out-cubic),
@@ -93,8 +93,8 @@
     min-width: 56px;
     min-height: 56px;
     flex-shrink: 0;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(var(--rgb-fg), 0.2);
+    background: rgba(var(--rgb-bg), 0.8);
     color: var(--color-text-primary);
     font-size: 36px;
     font-weight: 300;
@@ -124,8 +124,8 @@
     height: 48px;
     min-width: 48px;
     min-height: 48px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(var(--rgb-fg), 0.2);
+    background: rgba(var(--rgb-bg), 0.8);
     backdrop-filter: blur(8px);
     color: var(--color-text-primary);
     cursor: pointer;
@@ -148,7 +148,7 @@
 }
 
 .work-modal-scroll-top:hover {
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(var(--rgb-fg), 0.6);
     transform: translateY(-2px);
 }
 
@@ -297,7 +297,7 @@
 .work-modal-header {
     margin-bottom: var(--space-8);
     padding-bottom: var(--space-6);
-    border-bottom: solid 2px rgba(255, 255, 255, 0.08);
+    border-bottom: solid 2px rgba(var(--rgb-fg), 0.08);
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
@@ -337,7 +337,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 0;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(var(--rgb-fg), 0.12);
 }
 
 /* 制作期間、制作形態�E横並びグループ！E列！E*/
@@ -346,7 +346,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
     width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(var(--rgb-fg), 0.12);
 }
 
 .work-modal-meta-row:last-child {
@@ -358,7 +358,7 @@
     flex-direction: column;
     gap: 2px;
     padding: var(--space-2);
-    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    border-right: 1px solid rgba(var(--rgb-fg), 0.12);
 }
 
 .work-modal-meta-item:last-child {
@@ -368,7 +368,7 @@
 /* 横並びでなぁE��独メタ惁E�� */
 .work-modal-meta>.work-modal-meta-item {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(var(--rgb-fg), 0.12);
 }
 
 .work-modal-meta>.work-modal-meta-item:last-child {
@@ -405,8 +405,8 @@
 .work-modal-meta-value .meta-tag {
     display: inline-block;
     padding: 2px 6px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(var(--rgb-fg), 0.05);
+    border: 1px solid rgba(var(--rgb-fg), 0.15);
     font-size: var(--text-xs);
     color: var(--color-text-secondary);
     white-space: nowrap;
@@ -427,8 +427,8 @@
     font-size: var(--text-sm);
     font-weight: 600;
     font-family: var(--font-mono);
-    background: rgba(255, 255, 255, 0.02);
-    border: solid 1px rgba(255, 255, 255, 0.15);
+    background: rgba(var(--rgb-fg), 0.02);
+    border: solid 1px rgba(var(--rgb-fg), 0.15);
     color: var(--color-text-secondary);
     letter-spacing: 0;
     transition: none;
@@ -487,7 +487,7 @@
     left: 0;
     width: 30%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to right, rgba(var(--rgb-bg), 1) 0%, rgba(var(--rgb-bg), 0) 100%);
     pointer-events: none;
     z-index: 1;
 }
@@ -596,7 +596,7 @@
     .work-modal-meta-item {
         padding: var(--space-2);
         border-right: none !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        border-bottom: 1px solid rgba(var(--rgb-fg), 0.12);
     }
 
     .work-modal-meta-item:last-child {
@@ -656,8 +656,8 @@
 }
 
 .work-modal-content::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(var(--rgb-bg), 0.5);
+    border-left: 1px solid rgba(var(--rgb-fg), 0.05);
 }
 
 .work-modal-content::-webkit-scrollbar-thumb {
@@ -665,7 +665,7 @@
             var(--color-purple-primary),
             var(--color-purple-tertiary));
     border-radius: 0;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(var(--rgb-fg), 0.1);
 }
 
 .work-modal-content::-webkit-scrollbar-thumb:hover {

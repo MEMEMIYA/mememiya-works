@@ -45,7 +45,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@200;300;400;500;600&family=Azeret+Mono:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&family=M+PLUS+1p:wght@100;200;300&family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/style.css?v=115">
+        <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
+    <link rel="stylesheet" href="assets/css/style.css?v=185">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -103,6 +104,10 @@
                 <li role="none"><a href="event-ensei-pajamageddon.html" class="nav-link" role="menuitem">イベント</a></li>
                 <li role="none"><a href="contact.html" class="nav-link" role="menuitem">依頼・相談</a></li>
             </ul>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="ライトモードに切り替え" aria-pressed="false" title="ライトモード / ダークモード">
+                <svg class="theme-toggle-icon theme-toggle-icon--sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                <svg class="theme-toggle-icon theme-toggle-icon--moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            </button>
             <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを開く" aria-expanded="false" aria-controls="navLinks">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -134,7 +139,7 @@
                 <p class="hero-subtitle animate-slide-up delay-2">映像クリエイター  /  テクニカルディレクター  /  VJ</p>
             </div>
 <div class="hero-cta animate-slide-up delay-3">
-                <a href="#works" class="btn-hero btn-primary-hero">作品を見る</a>
+                <a href="#solutions" class="btn-hero btn-primary-hero">作品を見る</a>
                 <a href="contact.html" class="btn-hero btn-primary-hero">依頼・相談</a>
             </div>
         </div>
@@ -172,98 +177,137 @@
     </section>
 
     <!-- ===========================
-         Profile Section
+         Solutions Section
          =========================== -->
-    <!-- プロフィール: 画像、名前、バッジ、自己紹介 -->
-    <section id="about" class="profile-section">
+    <!-- 提供ソリューション: VJ演出・ライブ演出統括・照明制御・パーティクルジョッキーシステム -->
+    <section id="solutions" class="solutions-section">
         <div class="container">
-            <h2 class="section-title" data-text="Profile">プロフィール</h2>
+            <h2 class="section-title" data-text="Solutions">ソリューション・制作物一覧</h2>
 
-            <div class="profile-layout">
-                <!-- Profile Header: 画像と基本情報 -->
-                <div class="profile-header">
-                    <div class="profile-image-frame">
-                        <img src="assets/images/artistPhoto/small/MEMEMIYA_promotionPhoto.jpg" data-src="assets/images/artistPhoto/MEMEMIYA_promotionPhoto.jpg" alt="MEMEMIYA" class="profile-photo" loading="lazy" data-error-action="transparent">
+            <!-- 表示切り替え: ソリューション別 / 制作物一覧 -->
+            <div class="view-switch" role="tablist" aria-label="表示形態の切り替え">
+                <button type="button" class="view-switch-btn active" role="tab" id="tab-solutions" aria-selected="true" aria-controls="view-solutions" data-view="solutions">
+                    <svg class="view-switch-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    <span class="view-switch-text"><span class="view-switch-label">ソリューション別</span><span class="view-switch-sub">できることから探す</span></span>
+                </button>
+                <button type="button" class="view-switch-btn" role="tab" id="tab-works" aria-selected="false" aria-controls="view-works" data-view="works">
+                    <svg class="view-switch-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                    <span class="view-switch-text"><span class="view-switch-label">制作物一覧</span><span class="view-switch-sub">実績をすべて見る</span></span>
+                </button>
+            </div>
+
+            <div class="view-panel is-active" id="view-solutions" role="tabpanel" aria-labelledby="tab-solutions">
+            <div class="solutions-grid">
+                <div class="solution-card glass-card">
+                    <span class="solution-index">01</span>
+                    <div class="solution-icon">
+                        <img src="assets/images/icons/solution-icon-vj-temp.png" alt="ジェネVJ演出アイコン" class="solution-icon-img" loading="lazy">
                     </div>
-                    <h3 class="profile-name-large">MEMEMIYA</h3>
-                    <p class="profile-name-reading">メメミヤ</p>
+                    <h3 class="solution-name">ジェネVJ演出</h3>
+                    <p class="solution-desc solution-desc-full">プリレンダ・ジェネラティブ両方の手法を使い分け、楽曲やその場の空気に連動したリアルタイム映像演出を行います。リアル・VRどちらも対応可能。</p>
+                    <p class="solution-desc solution-desc-short">楽曲や場の空気に連動したリアルタイム映像演出。リアル・VR対応。</p>
+                    <div class="solution-works">
+                        <span class="solution-works-label">主な実績</span>
+                        <ul class="solution-works-list">
+                            <li><button type="button" class="solution-work-link" data-work-title="グループ展「中庭」"><img src="assets/images/thumbnails/small/Thumbnail_nakaniwa.jpg" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">グループ展「中庭」</span></button></li>
+                            <li><button type="button" class="solution-work-link" data-work-title="Not Applicable"><img src="assets/images/thumbnails/small/Thumbnail_NotApplicable.jpg" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">Not Applicable</span></button></li>
+                            <li><button type="button" class="solution-work-link" data-work-title="draw(tokyo);#3"><img src="assets/images/thumbnails/small/Thumbnail_drawTokyo03_02.jpg" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">draw(tokyo);#3</span></button></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Right Column: Description and Skills -->
-<div class="profile-right-column">
-                    <!-- Description -->
-                    <div class="profile-description">
-                        <p class="description-text">　3DCGを用いた映像クリエイター兼VJとして活動。音楽に連動する映像表現が得意で、MVやライブ映像、インタラクティブ映像などを手掛けています。センサーを用いた演出やプロジェクションマッピングも得意としており、企画から制作まで一貫して行えるのが強みです。VJとしては関東圏のDJVJイベントやVRChat・Cluster等のVR空間で活動中。プリレンダVJとジェネラティブVJ（ジェネVJ）の両手法を使い分け、TouchDesigner、Unity、Resolume Arenaを駆使したリアルタイムの映像演出を提供します。</p>
-                        <p class="description-text">　今後はジェネVJとしての技術を磨き、映像やライブ演出の側面からイベントの熱量を高める演出を追求していきます。これまで取り組んできた音と映像の連動やセンサー活用、XRライブといった領域をさらに拡張し、あわせてジェネVJという手法の認知拡大とコミュニティの活性化にも尽力してまいります。</p>
-                        <p class="generative-vj-note"><span class="note-label">※ジェネVJとは：</span>プログラムやアルゴリズムを用いてリアルタイムに映像を生成するVJスタイル。</p>
+                <div class="solution-card glass-card">
+                    <span class="solution-index">02</span>
+                    <div class="solution-icon"></div>
+                    <h3 class="solution-name">VJ演出</h3>
+                    <p class="solution-desc solution-desc-full">プリレンダ映像やリアルタイム映像を用いた、DJ・VJイベントでの映像演出を行います。VRChatやClusterなどのVR空間にも対応します。あわせて技術記事やLT登壇による知見の発信も行っています。</p>
+                    <p class="solution-desc solution-desc-short">DJ・VJイベントでの映像演出。VR空間対応。技術記事・LTでの発信も。</p>
+                    <div class="solution-works">
+                        <span class="solution-works-label">実績・ブログ・LT</span>
+                        <ul class="solution-works-list">
+                            <li><button type="button" class="solution-work-link" data-work-title="歌舞伎町遊戯祭KEREN〜外連〜"><img src="assets/images/thumbnails/small/Thumbnail_keren.jpg" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">歌舞伎町遊戯祭KEREN〜外連〜</span></button></li>
+                            <li><a href="https://note.com/mememiya/n/n7284ce7b9d73" target="_blank" rel="noopener noreferrer" class="solution-work-link"><img src="https://assets.st-note.com/production/uploads/images/237962470/rectangle_large_type_2_e04f6d716fd8826d293a91e0f95942cd.png?width=400" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">『draw(tokyo);#3』振り返り&amp;解説</span></a></li>
+                            <li><a href="https://note.com/mememiya/n/n19e94df9b14b" target="_blank" rel="noopener noreferrer" class="solution-work-link"><img src="https://assets.st-note.com/production/uploads/images/166665980/rectangle_large_type_2_94bac0efd34ecaf91aa38754bebaa56f.jpeg?width=400" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">ClusterでVJをする際のポイント</span></a></li>
+                        </ul>
                     </div>
+                </div>
 
-                    <!-- 経歴・受賞歴 -->
-                    <div class="profile-meta-compact">
-                        <div class="meta-row">
-                            <span class="meta-label">経歴</span>
-                            <span class="meta-content">2026年3月 大学卒業 / 2023年10月 Iwaken Lab.加入 / 2022年9月 VJ活動開始</span>
-                        </div>
-                        <div class="meta-row">
-                            <span class="meta-label">受賞歴</span>
-                            <span class="meta-content">第16回TOHOシネマズ学生映画祭 ファイナリスト</span>
-                        </div>
+                <div class="solution-card glass-card">
+                    <span class="solution-index">03</span>
+                    <div class="solution-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="8" x2="12" y2="40"/>
+                            <line x1="24" y1="8" x2="24" y2="40"/>
+                            <line x1="36" y1="8" x2="36" y2="40"/>
+                            <circle cx="12" cy="18" r="3" fill="currentColor"/>
+                            <circle cx="24" cy="30" r="3" fill="currentColor"/>
+                            <circle cx="36" cy="14" r="3" fill="currentColor"/>
+                        </svg>
                     </div>
+                    <h3 class="solution-name">映像制作</h3>
+                    <p class="solution-desc solution-desc-full">ライブ用の背景映像やプロモーションビデオ等を制作します。</p>
+                    <p class="solution-desc solution-desc-short">ライブ背景映像やプロモーションビデオ。ミュージックビデオなど、多様な映像コンテンツを制作。</p>
+                    <div class="solution-works">
+                        <span class="solution-works-label">主な実績</span>
+                        <ul class="solution-works-list">
+                            <li><button type="button" class="solution-work-link" data-work-title="ここでしか味わえないをもっと！"><img src="assets/images/thumbnails/small/Thumbnail_TOHO_02.jpg" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">ここでしか味わえないをもっと！</span></button></li>
+                            <li><a href="https://www.vivivit.com/works/916542" target="_blank" rel="noopener noreferrer" class="solution-work-link"><span class="solution-work-thumb solution-work-thumb-logo"><img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="" loading="lazy"></span><span class="solution-work-name">ViViViT MV</span></a></li>
+                        </ul>
+                    </div>
+                </div>
 
-                    <!-- Skills Section - コンパクト -->
-                    <div class="profile-skills">
-                        <h4 class="skills-section-title">スキルセット</h4>
+                <div class="solution-card glass-card">
+                    <span class="solution-index">04</span>
+                    <div class="solution-icon">
+                        <img src="assets/images/icons/solution-icon-lighting-temp.png" alt="照明制御システムアイコン" class="solution-icon-img" loading="lazy">
+                    </div>
+                    <h3 class="solution-name">インタラクティブ<wbr>映像</h3>
+                    <p class="solution-desc solution-desc-full">UnityやTouchDesigner等を用いた体験型映像を制作します。音楽・映像とシンクロした自動演出や、当日のリアルタイム操作に対応します。</p>
+                    <p class="solution-desc solution-desc-short">TouchDesigner等を用いた体験型映像。自動演出とリアルタイム操作に対応。</p>
+                    <div class="solution-works">
+                        <span class="solution-works-label">主な実績</span>
+                        <ul class="solution-works-list">
+                            <li><button type="button" class="solution-work-link" data-work-title="和菓子のシネマダイニング"><img src="assets/images/thumbnails/small/Thumbnail_JapaneseSweets_01.jpg" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">和菓子のシネマダイニング</span></button></li>
+                            <li><button type="button" class="solution-work-link" data-work-title="Digital Floral Flow"><img src="assets/images/thumbnails/small/Thumbnail_DFF.jpg" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">Digital Floral Flow</span></button></li>
+                            <li><a href="https://www.vivivit.com/works/822778" target="_blank" rel="noopener noreferrer" class="solution-work-link"><span class="solution-work-thumb solution-work-thumb-logo"><img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="" loading="lazy"></span><span class="solution-work-name">ViViViT WebAR</span></a></li>
+                        </ul>
+                    </div>
+                </div>
 
-                        <!-- メインスキル -->
-                        <div class="skill-group-main">
-                            <div class="skill-tags-main">
-                                <span class="skill-tag main">TouchDesigner</span>
-                                <span class="skill-tag main">Premiere Pro</span>
-                                <span class="skill-tag main">Blender</span>
-                                <span class="skill-tag main">Unity</span>
-                                <span class="skill-tag main">Resolume Arena</span>
-                            </div>
-                        </div>
-
-                        <!-- サブスキル（折りたたみ可能） -->
-                        <details class="skill-details">
-                            <summary class="skill-details-summary">その他のスキル</summary>
-                            <div class="skill-tags-sub">
-                                <span class="skill-tag sub">After Effects</span>
-                                <span class="skill-tag sub">Python</span>
-                                <span class="skill-tag sub">Maya</span>
-                                <span class="skill-tag sub">Photoshop</span>
-                                <span class="skill-tag sub">Illustrator</span>
-                                <span class="skill-tag sub">LightRoom</span>
-                                <span class="skill-tag sub">Substance Painter</span>
-                                <span class="skill-tag sub">Audition</span>
-                                <span class="skill-tag sub">DaVinci Resolve</span>
-                                <span class="skill-tag sub">YMM4</span>
-                                <span class="skill-tag sub">Unreal Engine</span>
-                                <span class="skill-tag sub">GLSL</span>
-                                <span class="skill-tag sub">HTML</span>
-                                <span class="skill-tag sub">CSS</span>
-                                <span class="skill-tag sub">JavaScript</span>
-                                <span class="skill-tag sub">C#</span>
-                                <span class="skill-tag sub">Github</span>
-                                <span class="skill-tag sub">Fork</span>
-                            </div>
-                        </details>
+                <div class="solution-card glass-card">
+                    <span class="solution-index">05</span>
+                    <div class="solution-icon">
+                        <img src="assets/images/icons/solution-icon-particle-temp.png" alt="パーティクルジョッキーシステムアイコン" class="solution-icon-img" loading="lazy">
+                    </div>
+                    <h3 class="solution-name">パーティクル<wbr>ジョッキー<wbr>システム</h3>
+                    <p class="solution-desc solution-desc-full">独自開発のリアルタイムパーティクル演出システム。OSC/MIDIで制御し、豊富な演出パターンをライブ中に自在に切り替えます。</p>
+                    <p class="solution-desc solution-desc-short">独自開発のリアルタイムパーティクル演出システム。OSC/MIDIで自在に制御。</p>
+                    <div class="solution-works">
+                        <span class="solution-works-label">主な実績</span>
+                        <ul class="solution-works-list">
+                            <li><button type="button" class="solution-work-link" data-work-title="怨世パジャマゲドン vol.0"><img src="assets/images/events/ensei-pajamageddon/small/marquee-03.jpg" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">怨世パジャマゲドン vol.0</span></button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-card glass-card">
+                    <span class="solution-index">06</span>
+                    <div class="solution-icon"></div>
+                    <h3 class="solution-name">ライブ演出</h3>
+                    <p class="solution-desc solution-desc-full">アプリ内ライブやARライブ、VRChatのイベントなど、リアル・バーチャルを問わずライブ全体の映像演出を手がけます。</p>
+                    <p class="solution-desc solution-desc-short">アプリ内・AR・VRChatなど、多様なライブの映像演出。</p>
+                    <div class="solution-works">
+                        <span class="solution-works-label">主な実績</span>
+                        <ul class="solution-works-list">
+                            <li><a href="https://www.vivivit.com/works/920584" target="_blank" rel="noopener noreferrer" class="solution-work-link"><span class="solution-work-thumb solution-work-thumb-logo"><img src="assets/images/logo/vivivit_service_logo_RGB_white.png" alt="" loading="lazy"></span><span class="solution-work-name">ViViViT アプリ内ライブ演出</span></a></li>
+                            <li><button type="button" class="solution-work-link" data-work-title="新入生歓迎会でのARライブ"><img src="assets/images/thumbnails/small/Thumbnail_新入生歓迎会_03.jpg" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">新入生歓迎会でのARライブ</span></button></li>
+                            <li><button type="button" class="solution-work-link" data-work-title="怨世パジャマゲドン vol.0"><img src="assets/images/events/ensei-pajamageddon/small/marquee-03.jpg" alt="" class="solution-work-thumb" loading="lazy"><span class="solution-work-name">怨世パジャマゲドン vol.0</span></button></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            </div>
 
-    <!-- ===========================
-         Works Section (統合: VJ/Video/VR)
-         =========================== -->
-    <!-- 全作品一覧: フィルター機能付き -->
-    <section id="works" class="works-section">
-        <div class="container">
-            <h2 class="section-title" data-text="Works">制作物一覧</h2>
-            <p class="section-description">これまで手がけてきた制作物や、特徴的なVJ演出事例をまとめています。</p>
-
+            <div class="view-panel works-panel" id="view-works" role="tabpanel" aria-labelledby="tab-works" hidden>
             <!-- フィルターボタン -->
             <div class="works-filter-buttons">
                 <!-- すべて表示ボタン -->
@@ -360,7 +404,91 @@
             <div class="works-load-more">
                 <button class="btn btn-secondary">もっと見る</button>
             </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ===========================
+         Profile Section
+         =========================== -->
+    <!-- プロフィール: 画像、名前、バッジ、自己紹介 -->
+    <section id="about" class="profile-section">
+        <div class="container">
+            <h2 class="section-title" data-text="Profile">プロフィール</h2>
+
+            <div class="profile-layout">
+                <!-- Profile Header: 画像と基本情報 -->
+                <div class="profile-header">
+                    <div class="profile-image-frame">
+                        <img src="assets/images/artistPhoto/small/MEMEMIYA_promotionPhoto.jpg" data-src="assets/images/artistPhoto/MEMEMIYA_promotionPhoto.jpg" alt="MEMEMIYA" class="profile-photo" loading="lazy" data-error-action="transparent">
+                    </div>
+                    <h3 class="profile-name-large">MEMEMIYA</h3>
+                    <p class="profile-name-reading">メメミヤ</p>
+                </div>
+
+                <!-- Right Column: Description and Skills -->
+<div class="profile-right-column">
+                    <!-- Description -->
+                    <div class="profile-description">
+                        <p class="description-text">　3DCGを用いた映像クリエイター兼VJとして活動。音楽に連動する映像表現が得意で、MVやライブ映像、インタラクティブ映像などを手掛けています。センサーを用いた演出やプロジェクションマッピングも得意としており、企画から制作まで一貫して行えるのが強みです。VJとしては関東圏のDJVJイベントやVRChat・Cluster等のVR空間で活動中。プリレンダVJとジェネラティブVJ（ジェネVJ）の両手法を使い分け、TouchDesigner、Unity、Resolume Arenaを駆使したリアルタイムの映像演出を提供します。</p>
+                        <p class="description-text">　今後はジェネVJとしての技術を磨き、映像やライブ演出の側面からイベントの熱量を高める演出を追求していきます。これまで取り組んできた音と映像の連動やセンサー活用、XRライブといった領域をさらに拡張し、あわせてジェネVJという手法の認知拡大とコミュニティの活性化にも尽力してまいります。</p>
+                        <p class="generative-vj-note"><span class="note-label">※ジェネVJとは：</span>プログラムやアルゴリズムを用いてリアルタイムに映像を生成するVJスタイル。</p>
+                    </div>
+
+                    <!-- 経歴・受賞歴 -->
+                    <div class="profile-meta-compact">
+                        <div class="meta-row">
+                            <span class="meta-label">経歴</span>
+                            <span class="meta-content">2026年3月 大学卒業 / 2023年10月 Iwaken Lab.加入 / 2022年9月 VJ活動開始</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">受賞歴</span>
+                            <span class="meta-content">第16回TOHOシネマズ学生映画祭 ファイナリスト</span>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section - コンパクト -->
+                    <div class="profile-skills">
+                        <h4 class="skills-section-title">スキルセット</h4>
+
+                        <!-- メインスキル -->
+                        <div class="skill-group-main">
+                            <div class="skill-tags-main">
+                                <span class="skill-tag main">TouchDesigner</span>
+                                <span class="skill-tag main">Premiere Pro</span>
+                                <span class="skill-tag main">Blender</span>
+                                <span class="skill-tag main">Unity</span>
+                                <span class="skill-tag main">Resolume Arena</span>
+                            </div>
+                        </div>
+
+                        <!-- サブスキル（折りたたみ可能） -->
+                        <details class="skill-details">
+                            <summary class="skill-details-summary">その他のスキル</summary>
+                            <div class="skill-tags-sub">
+                                <span class="skill-tag sub">After Effects</span>
+                                <span class="skill-tag sub">Python</span>
+                                <span class="skill-tag sub">Maya</span>
+                                <span class="skill-tag sub">Photoshop</span>
+                                <span class="skill-tag sub">Illustrator</span>
+                                <span class="skill-tag sub">LightRoom</span>
+                                <span class="skill-tag sub">Substance Painter</span>
+                                <span class="skill-tag sub">Audition</span>
+                                <span class="skill-tag sub">DaVinci Resolve</span>
+                                <span class="skill-tag sub">YMM4</span>
+                                <span class="skill-tag sub">Unreal Engine</span>
+                                <span class="skill-tag sub">GLSL</span>
+                                <span class="skill-tag sub">HTML</span>
+                                <span class="skill-tag sub">CSS</span>
+                                <span class="skill-tag sub">JavaScript</span>
+                                <span class="skill-tag sub">C#</span>
+                                <span class="skill-tag sub">Github</span>
+                                <span class="skill-tag sub">Fork</span>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -694,15 +822,15 @@
                 </a>
             </li>
             <li class="toc-item">
-                <a href="#about" class="toc-link" data-section="about">
+                <a href="#solutions" class="toc-link" data-section="solutions">
                     <span class="toc-dot"></span>
-                    <span class="toc-text">プロフィール</span>
+                    <span class="toc-text">ソリューション・制作物</span>
                 </a>
             </li>
             <li class="toc-item">
-                <a href="#works" class="toc-link" data-section="works">
+                <a href="#about" class="toc-link" data-section="about">
                     <span class="toc-dot"></span>
-                    <span class="toc-text">制作物一覧</span>
+                    <span class="toc-text">プロフィール</span>
                 </a>
             </li>
             <li class="toc-item">
@@ -802,32 +930,33 @@
     </div>
 
     <!-- 3D背景シェーダー -->
-    <script src="assets/js/background.js"></script>
+    <script src="assets/js/background.js?v=3"></script>
     <script src="assets/js/security-utils.js"></script>
     <script src="assets/js/image-error-handlers.js"></script>
 
     <!-- Information Data (分離ファイル) -->
-    <script src="assets/js/information-data.js?v=4"></script>
+    <script src="assets/js/information-data.js?v=3"></script>
 
     <!-- Scheduled Events Data (分離ファイル) -->
     <script src="assets/js/upcoming-events-data.js?v=2"></script>
 
     <!-- Featured Works Data (分離ファイル) - script.jsより先に読み込む -->
-    <script src="assets/js/featured-works.js?v=2"></script>
+    <script src="assets/js/featured-works.js?v=3"></script>
 
     <!-- VJ Events Data (分離ファイル) - works-data.jsより先に読み込む -->
-    <script src="assets/js/vj-events-data.js?v=3"></script>
+    <script src="assets/js/vj-events-data.js?v=5"></script>
 
     <!-- UI・インタラクション（分割ファイル） -->
     <script src="assets/js/ogp.js"></script>
     <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/scroll-effects.js"></script>
     <script src="assets/js/work-modal.js?v=2"></script>
     <script src="assets/js/toc.js"></script>
     <script src="assets/js/hero-cursor.js"></script>
 
     <!-- Works Data -->
-    <script src="assets/js/works-data.js?v=6"></script>
+    <script src="assets/js/works-data.js?v=7"></script>
 
     <!-- Hero Video Loading Spinner -->
     <script src="assets/js/hero-video.js"></script>
@@ -837,5 +966,27 @@
 
     <!-- Works Rendering -->
     <script src="assets/js/works-render.js?v=13"></script>
+
+    <!-- Solutions: 実績リンク（制作物一覧のモーダルを開く） -->
+    <script src="assets/js/solution-works.js"></script>
+<script>
+(function () {
+    var tabs = document.querySelectorAll('.view-switch-btn');
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            tabs.forEach(function (t) {
+                var on = t === tab;
+                t.classList.toggle('active', on);
+                t.setAttribute('aria-selected', String(on));
+                var panel = document.getElementById('view-' + t.dataset.view);
+                if (panel) {
+                    panel.hidden = !on;
+                    panel.classList.toggle('is-active', on);
+                }
+            });
+        });
+    });
+})();
+</script>
 </body>
 </html>

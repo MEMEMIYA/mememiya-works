@@ -1,0 +1,673 @@
+/* ===========================
+   Solutions Section
+   VJ演出・ライブ演出統括・照明制御・パーティクルジョッキーシステム
+   =========================== */
+
+.solutions-section {
+    margin-top: -100px;
+    padding-top: calc(var(--space-2) + 100px);
+    position: relative;
+    z-index: 4;
+}
+
+.solutions-section .container {
+    max-width: 1100px;
+}
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.solution-card {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--space-1);
+    background: rgba(var(--rgb-fg), 0.05);
+    border: 1px solid rgba(var(--rgb-fg), 0.08);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+
+.solution-index {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-purple-secondary);
+    opacity: 0.7;
+}
+
+.solution-icon {
+    display: none;
+}
+
+.solution-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.solution-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.solution-name {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wide);
+    font-family: var(--font-body);
+    text-transform: none;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+    margin: 0;
+    position: relative;
+    padding-bottom: var(--space-2);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.solution-name::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 28px;
+    height: 2px;
+    background: var(--color-purple-primary);
+    opacity: 0.5;
+}
+
+.solution-desc {
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+    line-height: var(--leading-normal);
+    font-family: var(--font-serif);
+    font-weight: 400;
+    margin: 0;
+}
+
+.solution-desc-short {
+    display: none;
+}
+
+.solution-works {
+    margin-top: var(--space-2);
+    padding-top: var(--space-2);
+    border-top: 1px dotted rgba(var(--rgb-fg), 0.15);
+    width: 100%;
+}
+
+.solution-works-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-purple-secondary);
+    opacity: 0.8;
+    margin-bottom: var(--space-1);
+}
+
+.solution-works-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-2);
+}
+
+.solution-work-link {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    line-height: 1.4;
+    text-align: left;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    word-break: break-word;
+    transition: color 0.2s;
+}
+
+.solution-work-thumb-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: rgba(var(--rgb-fg), 0.05);
+    border: 1px solid rgba(var(--rgb-fg), 0.15);
+    transition: border-color 0.2s;
+}
+
+.solution-work-thumb-logo img {
+    width: 70%;
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+}
+
+a.solution-work-link {
+    text-decoration: none;
+}
+
+.solution-work-link:hover .solution-work-thumb-logo,
+.solution-work-link:focus-visible .solution-work-thumb-logo {
+    border-color: var(--color-purple-primary);
+}
+
+img.solution-work-thumb {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid rgba(var(--rgb-fg), 0.15);
+    transition: border-color 0.2s;
+}
+
+.solution-work-link:hover,
+.solution-work-link:focus-visible {
+    color: var(--color-text-primary);
+}
+
+.solution-work-link:hover .solution-work-thumb,
+.solution-work-link:focus-visible .solution-work-thumb {
+    border-color: var(--color-purple-primary);
+}
+
+@media (max-width: 768px) {
+    .solutions-section {
+        margin-top: 0;
+        padding-top: var(--space-6);
+    }
+
+    .solutions-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2);
+    }
+
+    .solution-card {
+        padding: var(--space-3);
+        gap: var(--space-1);
+    }
+
+    .solution-index {
+        font-size: var(--text-xs);
+    }
+
+    .solution-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .solution-name {
+        font-size: var(--text-lg);
+        padding-bottom: var(--space-1);
+    }
+
+    .solution-desc {
+        font-size: var(--text-2xs);
+    }
+
+    .solution-desc-full {
+        display: none;
+    }
+
+    .solution-desc-short {
+        display: block;
+    }
+}
+
+/* ===========================
+   Solutions - Visual polish
+   =========================== */
+
+.solution-card {
+    background:
+        radial-gradient(120% 90% at 100% 0%, rgba(139, 92, 246, 0.10) 0%, transparent 55%),
+        linear-gradient(160deg, rgba(var(--rgb-fg), 0.06) 0%, rgba(var(--rgb-fg), 0.02) 100%);
+    border-color: rgba(var(--rgb-fg), 0.10);
+}
+
+/* 上端のグラデーションライン */
+.solution-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-purple-primary), transparent);
+}
+
+/* 番号は右上の大きなゴースト数字に */
+.solution-index {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-3);
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(167, 139, 250, 0.45);
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.solution-name {
+    letter-spacing: 0.06em;
+    padding-bottom: var(--space-2);
+}
+
+.solution-name::after {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-purple-primary), var(--color-purple-secondary));
+    opacity: 0.9;
+}
+
+.solution-desc {
+    line-height: 1.9;
+    color: rgba(var(--rgb-fg), 0.68);
+}
+
+/* 「主な実績」ラベル：末尾に細いラインを伸ばす */
+.solution-works {
+    border-top: none;
+    margin-top: var(--space-3);
+    padding-top: 0;
+}
+
+.solution-works-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    letter-spacing: 0.24em;
+    opacity: 0.9;
+}
+
+.solution-works-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(167, 139, 250, 0.45), transparent);
+}
+
+/* サムネイル */
+.solution-work-link {
+    letter-spacing: 0.02em;
+    transition: color var(--transition-base);
+}
+
+img.solution-work-thumb,
+.solution-work-thumb-logo {
+    border-radius: 3px;
+    border-color: rgba(var(--rgb-fg), 0.12);
+    filter: saturate(0.85) brightness(0.88);
+    transition: filter var(--transition-base), border-color var(--transition-base);
+}
+
+.solution-work-link:hover .solution-work-thumb,
+.solution-work-link:focus-visible .solution-work-thumb {
+    border-color: var(--color-purple-secondary);
+}
+
+/* 外部リンクには矢印を付ける */
+a.solution-work-link .solution-work-name::after {
+    content: ' \2197';
+    color: var(--color-purple-secondary);
+}
+
+@media (max-width: 768px) {
+    .solution-index {
+        top: var(--space-1);
+        right: var(--space-2);
+        font-size: 2.6rem;
+    }
+
+    .solution-works {
+        margin-top: var(--space-2);
+    }
+}
+
+/* ===========================
+   Solutions - 配色は他セクションのパープルに統一 / ホバーは色の変化のみ
+   =========================== */
+
+/* 上端ライン */
+.solution-card::before {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-purple-primary), var(--color-purple-secondary) 60%, transparent);
+}
+
+/* ゴースト数字 */
+.solution-index {
+    font-size: 6rem;
+    background: linear-gradient(160deg, rgba(167, 139, 250, 0.35), rgba(139, 92, 246, 0.08));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1px rgba(167, 139, 250, 0.6);
+    opacity: 0.8;
+}
+
+.solution-name {
+    color: var(--color-text-primary);
+}
+
+.solution-name::after {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-purple-primary), var(--color-purple-secondary));
+}
+
+/* 「主な実績」ラベルのひし形 */
+.solution-works-label {
+    color: var(--color-purple-secondary);
+}
+
+.solution-works-label::before {
+    content: '';
+    order: -1;
+    width: 8px;
+    height: 8px;
+    background: var(--color-purple-primary);
+    transform: rotate(45deg);
+    flex: none;
+}
+
+img.solution-work-thumb,
+.solution-work-thumb-logo {
+    filter: none;
+}
+
+@media (max-width: 768px) {
+    .solution-index {
+        font-size: 3rem;
+    }
+}
+
+/* ===========================
+   Solutions - カード内の余白を最小限に
+   =========================== */
+
+.solutions-grid {
+    gap: 16px;
+}
+
+.solution-card {
+    padding: 10px 12px 12px;
+    gap: 2px;
+}
+
+.solution-index {
+    top: 2px;
+    right: 8px;
+}
+
+.solution-name {
+    padding-bottom: 6px;
+    line-height: 1.2;
+}
+
+.solution-desc {
+    line-height: 1.6;
+}
+
+.solution-works {
+    margin-top: 6px;
+}
+
+.solution-works-label {
+    margin-bottom: 4px;
+    gap: 6px;
+}
+
+.solution-works-list {
+    gap: 6px;
+}
+
+.solution-work-link {
+    gap: 3px;
+    line-height: 1.25;
+}
+
+@media (max-width: 768px) {
+    .solutions-grid {
+        gap: 10px;
+    }
+
+    .solution-card {
+        padding: 8px 10px 10px;
+    }
+
+    .solution-index {
+        top: 0;
+        right: 6px;
+    }
+
+    .solution-works {
+        margin-top: 4px;
+    }
+}
+
+/* 実績が空のスロット: 斜線パターン + 紫グラデーション + COMING SOON */
+.solution-work-thumb-empty {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background:
+        repeating-linear-gradient(135deg,
+            rgba(var(--rgb-fg), 0.035) 0 1px,
+            transparent 1px 8px),
+        radial-gradient(90% 120% at 100% 0%, rgba(139, 92, 246, 0.22) 0%, transparent 65%),
+        linear-gradient(160deg, #0d0b14 0%, #000 100%);
+    border: 1px dashed rgba(167, 139, 250, 0.35);
+}
+
+.solution-work-thumb-empty::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-purple-primary), transparent);
+}
+
+.solution-work-thumb-empty::after {
+    content: 'COMING SOON';
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    letter-spacing: 0.2em;
+    color: rgba(167, 139, 250, 0.7);
+}
+
+/* ===========================
+   Solutions - カード装飾をシンプルに（背景・ゴースト数字・ライン・ひし形などを撤去）
+   =========================== */
+
+.solution-card {
+    background: rgba(var(--rgb-fg), 0.03);
+    border: 1px solid rgba(var(--rgb-fg), 0.12);
+}
+
+.solution-card::before,
+.solution-name::after,
+.solution-works-label::before,
+.solution-works-label::after {
+    content: none;
+}
+
+/* 番号は名前の上に小さく表示 */
+.solution-index {
+    position: static;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-text-secondary);
+    background: none;
+    -webkit-text-stroke: 0;
+    opacity: 1;
+}
+
+.solution-name {
+    padding-bottom: 0;
+}
+
+.solution-works-label {
+    display: block;
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-text-secondary);
+    opacity: 1;
+}
+
+.solution-works {
+    border-top: 1px solid rgba(var(--rgb-fg), 0.12);
+    padding-top: 8px;
+}
+
+img.solution-work-thumb,
+.solution-work-thumb-logo {
+    border-radius: 0;
+}
+
+a.solution-work-link .solution-work-name::after {
+    color: inherit;
+}
+
+/* COMING SOON スロット */
+.solution-work-thumb-empty {
+    background: transparent;
+    border: 1px dashed rgba(var(--rgb-fg), 0.25);
+}
+
+.solution-work-thumb-empty::before {
+    content: none;
+}
+
+.solution-work-thumb-empty::after {
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+    .solution-index {
+        font-size: var(--text-2xs);
+    }
+}
+
+/* 「主な実績」ラベルとその上のラインを非表示 */
+.solution-works-label {
+    display: none;
+}
+
+.solution-works {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* 紫のアクセント（シンプルに：左ボーダー・サムネイル枠） */
+.solution-card {
+    border-left: 3px solid var(--color-purple-primary);
+}
+
+.solution-index {
+    color: var(--color-purple-secondary);
+}
+
+img.solution-work-thumb,
+.solution-work-thumb-logo {
+    border-color: rgba(167, 139, 250, 0.35);
+}
+
+.solution-work-thumb-empty {
+    border-color: rgba(167, 139, 250, 0.45);
+}
+
+.solution-work-thumb-empty::after {
+    color: var(--color-purple-secondary);
+}
+
+/* 番号（01, 02…）を非表示 */
+.solution-index {
+    display: none;
+}
+
+/* ViViViT ロゴサムネイルの背景を紫に */
+.solution-work-thumb-logo {
+    background: var(--gradient-purple-dark);
+    border-color: rgba(167, 139, 250, 0.6);
+}
+
+/* ===========================
+   Solutions - スマホ: 1列表示で情報量を整理（短い説明文・実績名は2行まで）
+   =========================== */
+@media (max-width: 768px) {
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .solution-card {
+        padding: 12px 14px 14px;
+        gap: 6px;
+    }
+
+    .solution-name {
+        font-size: var(--text-lg);
+    }
+
+    .solution-desc {
+        font-size: var(--text-xs);
+        line-height: 1.6;
+    }
+
+    .solution-works {
+        margin-top: 6px;
+    }
+
+    .solution-works-list {
+        gap: 8px;
+    }
+
+    .solution-work-link {
+        gap: 4px;
+        font-size: var(--text-2xs);
+        line-height: 1.35;
+    }
+
+    .solution-work-name {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .solution-work-thumb-empty::after {
+        font-size: 0.5rem;
+        letter-spacing: 0.1em;
+    }
+}

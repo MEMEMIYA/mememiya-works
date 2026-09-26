@@ -20,12 +20,12 @@
 
 /* ヒーローセクション上での視認性向上 - テキストシャドウで対応 */
 .table-of-contents.toc-over-hero .toc-dot {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(var(--rgb-fg), 0.9);
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 .table-of-contents.toc-over-hero .toc-link {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(var(--rgb-fg), 0.9);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
@@ -59,7 +59,7 @@
 }
 
 .toc-list::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(var(--rgb-fg), 0.05);
 }
 
 .toc-list::-webkit-scrollbar-thumb {
@@ -84,7 +84,7 @@
     gap: 10px;
     padding: 8px 12px;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(var(--rgb-fg), 0.5);
     font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 400;
@@ -110,13 +110,13 @@
 .toc-dot {
     width: 4px;
     height: 4px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(var(--rgb-fg), 0.3);
     flex-shrink: 0;
     transition: all var(--transition-base);
 }
 
 .toc-link:hover .toc-dot {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(var(--rgb-fg), 0.6);
     transform: scale(1.5);
 }
 
@@ -217,8 +217,8 @@
     align-items: center;
     justify-content: center;
     color: var(--color-text-secondary);
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(var(--rgb-fg), 0.03);
+    border: 1px solid rgba(var(--rgb-fg), 0.08);
     transition: none;
     text-decoration: none;
 }

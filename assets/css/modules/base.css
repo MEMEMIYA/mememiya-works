@@ -12,6 +12,31 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     overscroll-behavior-x: none;
+    scrollbar-color: var(--color-purple-primary) var(--color-bg);
+    scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+    border-left: 1px solid var(--color-border);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg,
+            var(--color-purple-primary),
+            var(--color-purple-tertiary));
+    border-radius: 0;
+    border-left: 1px solid rgba(var(--rgb-fg), 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            var(--color-purple-secondary),
+            var(--color-purple-primary));
 }
 
 body {
@@ -82,6 +107,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+    font-family: var(--font-mincho-demibold);
+    font-weight: 600;
     font-size: var(--text-5xl);
     letter-spacing: var(--tracking-tight);
 }
@@ -191,13 +218,15 @@ body.is-scroll-locked {
     margin-top: var(--space-3);
 }
 
-section.scroll-reveal {
+/* section自体ではなく内側の子要素だけをフェードインさせる。
+   section本体（背景・区切り線）は常に静止させ、線がスクロールで浮き上がって見えないようにする */
+section.scroll-reveal > * {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.8s, transform 0.8s;
 }
 
-section.scroll-reveal.is-visible {
+section.scroll-reveal.is-visible > * {
     opacity: 1;
     transform: translateY(0);
 }
@@ -209,9 +238,9 @@ section.scroll-reveal.is-visible {
     width: 48px;
     height: 48px;
     border-radius: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(var(--rgb-bg), 0.8);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(var(--rgb-fg), 0.2);
     color: #fff;
     cursor: pointer;
     opacity: 0;
@@ -229,7 +258,7 @@ section.scroll-reveal.is-visible {
 }
 
 .scroll-top-button:hover {
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(var(--rgb-fg), 0.6);
     transform: translateY(-2px);
 }
 
@@ -269,6 +298,113 @@ section.scroll-reveal.is-visible {
     padding: 0;
 }
 
+/* セクションごとに背景を「白っぽい」「グレーっぽい」で交互に切り替える */
+/* 背後のWebGLシェーダー(#shaderCanvas)が透けて見えるよう半透明にする */
+/* PC版のDOM順（Hero除く）: featured, solutions, about, process, scheduled-events, blogs, information, links, contact */
+#about,
+#scheduled-events,
+#contact {
+    background: rgba(var(--rgb-fg), 0.03);
+}
+
+/* FeaturedはHeroが margin-bottom:-35vh で上に重なっているため、
+   境目が急に切り替わらないよう上端はグラデーションで透明からフェードインする */
+#featured {
+    background: linear-gradient(to bottom,
+        transparent 0,
+        rgba(var(--rgb-fg), 0.03) 35vh,
+        rgba(var(--rgb-fg), 0.03) 100%);
+}
+
+#process,
+#blogs,
+#links {
+    background: rgba(var(--rgb-bg), 0.35);
+}
+
+/* Solutions/Informationは前のセクションに margin-top で重なっているため、
+   フラットな色をそのまま敷くと前セクション末尾のコンテンツに重なった色が乗って見えてしまう。
+   重なり分だけ透明→本来の色へフェードさせ、前セクションの内容を隠さないようにする */
+#solutions {
+    background: linear-gradient(to bottom,
+        transparent 0,
+        rgba(var(--rgb-bg), 0.35) 100px,
+        rgba(var(--rgb-bg), 0.35) 100%);
+}
+
+#information {
+    background: linear-gradient(to bottom,
+        transparent 0,
+        rgba(var(--rgb-fg), 0.03) 200px,
+        rgba(var(--rgb-fg), 0.03) 100%);
+}
+
+/* セクション間の色の境目に、画面幅いっぱいの細い横線を入れる */
+#solutions,
+#featured,
+#about,
+#process,
+#scheduled-events,
+#blogs,
+#information,
+#links,
+#contact {
+    border-top: 1px dotted rgba(var(--rgb-fg), 0.3);
+}
+
+/* Solutions/Informationは前のセクションに margin で重なっているため、
+   border-top をそのまま使うと重なった分だけ線が上にずれてしまう。
+   ::before に置き換え、重なり分だけ下にずらして本来の境目に合わせる */
+#solutions,
+#information {
+    border-top: none;
+    position: relative;
+}
+
+#solutions::before,
+#information::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-top: 1px dotted rgba(var(--rgb-fg), 0.3);
+}
+
+/* PC版: FeaturedはHeroの重なり(35vh)分だけ下げて表示、Solutions/Informationも重なり分(100px/200px)を補正 */
+@media (min-width: 769px) {
+    #featured {
+        border-top: none;
+        position: relative;
+    }
+
+    #featured::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(var(--space-6) + 18vh - var(--space-8));
+        height: 0;
+        border-top: 1px dotted rgba(var(--rgb-fg), 0.3);
+    }
+
+    #solutions::before {
+        top: 100px;
+    }
+
+    #information::before {
+        top: 200px;
+    }
+}
+
+/* モバイル: Solutions/Informationの重なり(50px)を補正 */
+@media (max-width: 768px) {
+    #solutions::before,
+    #information::before {
+        top: 50px;
+    }
+}
+
 /* モバイルではパディングを調整 - 極限コンパクト化 */
 @media (max-width: 768px) {
     /* スマ�E版�Eセクション頁E��調整 */
@@ -302,7 +438,7 @@ section.scroll-reveal.is-visible {
         order: 103 !important;
     }
 
-    /* セクションの順序 - PC版準拠（LinksはHeroの直後に配置） */
+    /* セクションの順序 - PC版準拠（LinksはHeroの直後に配置、SolutionsはLinksの直後に配置） */
     #hero {
         order: 1 !important;
     }
@@ -315,20 +451,48 @@ section.scroll-reveal.is-visible {
         order: 3 !important;
     }
 
-    #about {
+    #solutions {
         order: 4 !important;
     }
 
-    #works {
+    #about {
         order: 5 !important;
     }
 
     #process {
-        order: 6 !important;
+        order: 7 !important;
     }
 
     #scheduled-events {
-        order: 7 !important;
+        order: 8 !important;
+    }
+
+    /* モバイルはLinksがHero直後に入るため、交互背景の白/グレーを入れ替える */
+    #featured,
+    #about,
+    #scheduled-events {
+        background: rgba(var(--rgb-bg), 0.35) !important;
+    }
+
+    #process,
+    #blogs,
+    #contact {
+        background: rgba(var(--rgb-fg), 0.03) !important;
+    }
+
+    /* モバイルは重なりが50pxのため、その分だけ透明にしてフェードさせる */
+    #solutions {
+        background: linear-gradient(to bottom,
+            transparent 0,
+            rgba(var(--rgb-fg), 0.03) 50px,
+            rgba(var(--rgb-fg), 0.03) 100%) !important;
+    }
+
+    #information {
+        background: linear-gradient(to bottom,
+            transparent 0,
+            rgba(var(--rgb-bg), 0.35) 50px,
+            rgba(0, 0, 0, 0.35) 100%) !important;
     }
 
     #scheduled-events:has(.no-events) {
@@ -336,15 +500,15 @@ section.scroll-reveal.is-visible {
     }
 
     #blogs {
-        order: 8 !important;
-    }
-
-    #information {
         order: 9 !important;
     }
 
-    #contact {
+    #information {
         order: 10 !important;
+    }
+
+    #contact {
+        order: 11 !important;
     }
 
     section {
@@ -378,11 +542,6 @@ section.scroll-reveal.is-visible {
         padding-top: var(--space-3);
     }
 
-    /* Works セクション */
-    .works-section {
-        padding-top: var(--space-3);
-    }
-
     /* VJ Works セクション */
     .process-section {
         padding-top: var(--space-3);
@@ -403,7 +562,7 @@ section.scroll-reveal.is-visible {
         display: block;
         width: 100vw;
         height: 0;
-        border-top: 1px dashed rgba(255, 255, 255, 0.4);
+        border-top: 1px dashed rgba(var(--rgb-fg), 0.4);
         background: none;
         margin: 0 auto var(--space-2);
         margin-left: calc(-50vw + 50%);
@@ -489,16 +648,16 @@ section.scroll-reveal.is-visible {
     align-items: flex-start;
     gap: var(--space-2);
     padding: 10px var(--space-3);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(var(--rgb-fg), 0.03);
     border: none;
-    border-bottom: solid 1px rgba(255, 255, 255, 0.08);
+    border-bottom: solid 1px rgba(var(--rgb-fg), 0.08);
     position: relative;
     z-index: 10;
     margin: 0;
 }
 
 .info-item:first-child {
-    border-top: solid 1px rgba(255, 255, 255, 0.08);
+    border-top: solid 1px rgba(var(--rgb-fg), 0.08);
 }
 
 .info-date {
@@ -523,8 +682,8 @@ section.scroll-reveal.is-visible {
     align-items: center;
     gap: var(--space-3);
     padding: var(--space-3) var(--space-4);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(var(--rgb-fg), 0.04);
+    border: 1px solid rgba(var(--rgb-fg), 0.08);
 }
 
 .skeleton-date {
@@ -532,9 +691,9 @@ section.scroll-reveal.is-visible {
     height: 16px;
     background: linear-gradient(
         90deg,
-        rgba(255, 255, 255, 0.03) 0%,
-        rgba(255, 255, 255, 0.08) 50%,
-        rgba(255, 255, 255, 0.03) 100%
+        rgba(var(--rgb-fg), 0.03) 0%,
+        rgba(var(--rgb-fg), 0.08) 50%,
+        rgba(var(--rgb-fg), 0.03) 100%
     );
     background-size: 200px 100%;
     animation: skeleton-shimmer 1.5s ease-in-out infinite;
@@ -546,9 +705,9 @@ section.scroll-reveal.is-visible {
     height: 16px;
     background: linear-gradient(
         90deg,
-        rgba(255, 255, 255, 0.03) 0%,
-        rgba(255, 255, 255, 0.08) 50%,
-        rgba(255, 255, 255, 0.03) 100%
+        rgba(var(--rgb-fg), 0.03) 0%,
+        rgba(var(--rgb-fg), 0.08) 50%,
+        rgba(var(--rgb-fg), 0.03) 100%
     );
     background-size: 200px 100%;
     animation: skeleton-shimmer 1.5s ease-in-out infinite;
@@ -651,8 +810,8 @@ section.scroll-reveal.is-visible {
 
 /* カードシスチE�� */
 .glass-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: solid 1px rgba(255, 255, 255, 0.12);
+    background: rgba(var(--rgb-fg), 0.04);
+    border: solid 1px rgba(var(--rgb-fg), 0.12);
     padding: var(--space-3);
     transition: transform var(--transition-base), box-shadow var(--transition-base);
     position: relative;
@@ -677,16 +836,16 @@ img.image-error-transparent {
 
 /* 画像�E遁E��読み込み視覚化 */
 img[loading="lazy"] {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--rgb-fg), 0.02);
     min-height: 100px;
 }
 
 img[loading="lazy"]:not([src]) {
     background: linear-gradient(
         90deg,
-        rgba(255, 255, 255, 0.02) 25%,
-        rgba(255, 255, 255, 0.04) 50%,
-        rgba(255, 255, 255, 0.02) 75%
+        rgba(var(--rgb-fg), 0.02) 25%,
+        rgba(var(--rgb-fg), 0.04) 50%,
+        rgba(var(--rgb-fg), 0.02) 75%
     );
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
@@ -717,8 +876,8 @@ img[loading="lazy"]:not([src]) {
     font-weight: 600;
     letter-spacing: var(--tracking-wide);
     text-transform: none;
-    border: solid 1px rgba(255, 255, 255, 0.4);
-    background: rgba(0, 0, 0, 0.6);
+    border: solid 1px rgba(var(--rgb-fg), 0.4);
+    background: rgba(var(--rgb-bg), 0.6);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     color: var(--color-text-primary);
@@ -742,7 +901,7 @@ img[loading="lazy"]:not([src]) {
         content: '';
         flex: 1;
         height: 1px;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(var(--rgb-fg), 0.3);
         margin: 0;
         display: block;
         width: auto;

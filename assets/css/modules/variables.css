@@ -3,6 +3,8 @@
    =========================== */
 
 :root {
+    --rgb-fg: 255, 255, 255;   /* 前景色(白系)のRGB。ライトモードで反転 */
+    --rgb-bg: 0, 0, 0;         /* 背景色(黒系)のRGB */
     /* ダークパープル カラーシステム - MEMEMIYA Brand */
     --color-bg: #000000;
     --color-surface: #0A0A0A;
@@ -37,6 +39,7 @@
     --space-2: 1rem;      /* 16px */
     --space-3: 1.5rem;    /* 24px */
     --space-4: 2rem;      /* 32px */
+    --space-5: 2.5rem;    /* 40px */
     --space-6: 3rem;      /* 48px */
     --space-8: 4rem;      /* 64px */
     --space-12: 6rem;     /* 96px */
@@ -45,10 +48,11 @@
 
     /* タイポグラフィスケール */
     --font-display: 'Bebas Neue', sans-serif;
-    --font-body: 'Noto Sans JP', 'Helvetica Neue', Helvetica, 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
-    --font-heading: 'IBM Plex Sans JP', 'Noto Sans JP', sans-serif;
+    --font-body: 'Yu Gothic Medium', 'Yu Gothic', YuGothic, '游ゴシック体', '游ゴシック', 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
+    --font-heading: 'Yu Gothic Medium', 'Yu Gothic', YuGothic, '游ゴシック体', '游ゴシック', 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
     --font-mono: 'Azeret Mono', monospace;
-    --font-serif: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
+    --font-serif: 'Yu Gothic Medium', 'Yu Gothic', YuGothic, '游ゴシック体', '游ゴシック', 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
+    --font-mincho-demibold: 'Yu Mincho Demibold', 'YuMincho Demibold', 'Yu Mincho', YuMincho, '游明朝体Demibold', '游明朝体', '游明朝', 'Noto Serif JP', serif;
 
     /* タイポグラフィスケール - 1.25倍率（Major Third）で統一 */
     --text-2xs: 0.64rem;   /* 10.24px - モバイル最小値 */
@@ -94,7 +98,7 @@
     /* ボーダーシステム */
     --border-width-thin: 1px;
     --border-width-thick: 2px;
-    --border-color-default: rgba(255, 255, 255, 0.12);
+    --border-color-default: rgba(var(--rgb-fg), 0.12);
     --border-color-hover: var(--color-purple-primary);
 
     /* アニメーション遅延システム */

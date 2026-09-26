@@ -1,7 +1,7 @@
 // VJ Events Data - イベント出演履歴
 const vjEventsData = [
     {
-        id: 'ensei-pajamageddon-vol0',
+        id: 'ensei-pajamageddon',
         title: '怨世パジャマゲドン vol.0',
         date: '2026.8.2',
         year: '2026',
@@ -10,8 +10,7 @@ const vjEventsData = [
         gallery: [
             'assets/images/events/ensei-pajamageddon/flyer.jpg'
         ],
-        venue: 'VRChat | MEMEMIYA主催。ジェネVJ・パーティクル演出を担当',
-        hashtags: ['怨世パジャマゲドン', '怨パジャ'],
+        venue: 'VRChat | MEMEMIYA主催。新システム「パーティクルジョッキー(仮)」のデモお披露目会。ジェネVJ・パーティクル演出を担当',
         detailUrl: 'event-ensei-pajamageddon.html'
     },
     {

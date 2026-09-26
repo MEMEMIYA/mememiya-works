@@ -30,6 +30,7 @@ if (!gl) {
         uniform float u_time;
         uniform vec2 u_resolution;
         uniform vec2 u_mouse;
+        uniform float u_light; // 1.0 = ライトモード
 
         #define PI 3.14159265359
         #define MAX_STEPS 120
@@ -306,6 +307,14 @@ if (!gl) {
             // Keep it appropriately dark
             col *= 0.7;
 
+            // ライトモード: 明るさを線の強度として、薄紫の地に紫の線を描く
+            if(u_light > 0.5) {
+                float intensity = clamp(dot(col, vec3(0.3333)) / 0.3, 0.0, 1.0);
+                vec3 lightBg = vec3(0.827, 0.788, 0.925);
+                vec3 lineCol = vec3(0.427, 0.157, 0.851);
+                col = mix(lightBg, lineCol, intensity * 0.5);
+            }
+
             gl_FragColor = vec4(col, 1.0);
         }
     `;
@@ -348,6 +357,14 @@ if (!gl) {
         const timeLoc = gl.getUniformLocation(program, 'u_time');
         const resLoc = gl.getUniformLocation(program, 'u_resolution');
         const mouseLoc = gl.getUniformLocation(program, 'u_mouse');
+        const lightLoc = gl.getUniformLocation(program, 'u_light');
+
+        // テーマ切り替え(html[data-theme="light"])に追従
+        const root = document.documentElement;
+        let isLight = root.getAttribute('data-theme') === 'light';
+        new MutationObserver(() => {
+            isLight = root.getAttribute('data-theme') === 'light';
+        }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
 
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
@@ -360,13 +377,14 @@ if (!gl) {
 
         function render() {
             gl.viewport(0, 0, canvas.width, canvas.height);
-            gl.clearColor(0, 0, 0, 1);
+            gl.clearColor(isLight ? 0.827 : 0, isLight ? 0.788 : 0, isLight ? 0.925 : 0, 1);
             gl.clear(gl.COLOR_BUFFER_BIT);
 
             gl.useProgram(program);
             gl.uniform1f(timeLoc, (Date.now() - start) / 1000);
             gl.uniform2f(resLoc, canvas.width, canvas.height);
             gl.uniform2f(mouseLoc, mouseX, mouseY);
+            gl.uniform1f(lightLoc, isLight ? 1.0 : 0.0);
 
             gl.enableVertexAttribArray(posLoc);
             gl.bindBuffer(gl.ARRAY_BUFFER, buffer);

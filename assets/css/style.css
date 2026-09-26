@@ -4,32 +4,36 @@
    =========================== */
 
 /* Variables & Design Tokens */
-@import url('modules/variables.css?v=36');
+@import url('modules/variables.css?v=138');
 
 /* Base & Reset Styles */
-@import url('modules/base.css?v=53');
+@import url('modules/base.css?v=175');
 
 /* Components */
-@import url('modules/navigation.css?v=1');
-@import url('modules/hero.css?v=55');
-@import url('modules/profile.css?v=36');
-@import url('modules/works.css?v=50');
-@import url('modules/works-filters.css?v=36');
-@import url('modules/works-modal.css?v=2');
-@import url('modules/vj-events.css?v=41');
-@import url('modules/upcoming-events.css?v=48');
-@import url('modules/generative-vj.css?v=39');
-@import url('modules/links-contact.css?v=43');
-@import url('modules/services.css?v=40');
-@import url('modules/services-compact.css?v=62');
-@import url('modules/vr-vj-detail.css?v=3');
-@import url('modules/buttons.css?v=38');
-@import url('modules/footer.css?v=3');
-@import url('modules/modal.css?v=38');
-@import url('modules/modal-gallery.css');
-@import url('modules/blog-card.css?v=35');
-@import url('modules/table-of-contents.css?v=35');
-@import url('modules/event-page.css?v=50');
+@import url('modules/navigation.css?v=5');
+@import url('modules/hero.css?v=162');
+@import url('modules/solutions.css?v=132');
+@import url('modules/profile.css?v=137');
+@import url('modules/works.css?v=151');
+@import url('modules/works-filters.css?v=137');
+@import url('modules/works-modal.css?v=102');
+@import url('modules/vj-events.css?v=141');
+@import url('modules/upcoming-events.css?v=148');
+@import url('modules/generative-vj.css?v=139');
+@import url('modules/links-contact.css?v=162');
+@import url('modules/services.css?v=140');
+@import url('modules/services-compact.css?v=163');
+@import url('modules/vr-vj-detail.css?v=103');
+@import url('modules/buttons.css?v=138');
+@import url('modules/footer.css?v=104');
+@import url('modules/modal.css?v=138');
+@import url('modules/modal-gallery.css?v=1');
+@import url('modules/blog-card.css?v=135');
+@import url('modules/table-of-contents.css?v=135');
+@import url('modules/event-page.css?v=155');
 
 /* Animations & Utilities */
-@import url('modules/animations.css');
+@import url('modules/animations.css?v=1');
+
+/* Light Theme (ヘッダーのトグルで切り替え) */
+@import url('modules/light-theme.css?v=11');

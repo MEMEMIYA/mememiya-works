@@ -71,7 +71,7 @@ function _buildComingSoonCard(work, isHidden) {
                 <div class="work-header">
                     <h3 class="work-title">ViViViT 限定</h3>
                 </div>
-                <p class="work-description">ログインなしで閲覧できます</p>
+                <p class="work-description">ログインすると閲覧できます</p>
                 <p class="work-description work-description-note">※ 外部サイトに飛びます</p>
             </div>
         </a>
@@ -267,12 +267,8 @@ function renderEvents() {
     if (!container || !worksData.events) return;
 
     const getInitialCount = () => {
-        const containerElement = container.parentElement;
-        if (!containerElement) return 3;
-        const containerWidth = containerElement.offsetWidth;
-        const minCardWidth = 190;
-        const gap = 16;
-        const cols = Math.floor((containerWidth + gap) / (minCardWidth + gap));
+        // 実際のCSSグリッドの列数から算出（2行分でキリの良い枚数にする）
+        const cols = getComputedStyle(container).gridTemplateColumns.split(' ').length;
         return Math.max(cols, 2) * 2;
     };
 
@@ -340,7 +336,7 @@ function initEventsFilter() {
 // 「もっと見る」ボタン機能（All Works）
 function initLoadMoreWorks() {
     const container = document.querySelector('.works-grid');
-    const loadMoreSection = document.querySelector('.works-section .works-load-more');
+    const loadMoreSection = document.querySelector('.works-panel .works-load-more');
 
     if (!container || !loadMoreSection) return;
 

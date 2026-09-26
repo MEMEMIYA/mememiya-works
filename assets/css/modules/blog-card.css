@@ -35,7 +35,7 @@
 .blog-card {
     display: flex;
     align-items: stretch;
-    border: solid 2px rgba(255, 255, 255, 0.12);
+    border: solid 2px rgba(var(--rgb-fg), 0.12);
     overflow: hidden;
     text-decoration: none;
     transition: all 300ms var(--ease-out-cubic);
@@ -57,8 +57,8 @@
     position: relative;
     background-position: center center;
     background-repeat: no-repeat;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-right: 2px solid rgba(255, 255, 255, 0.08);
+    background-color: rgba(var(--rgb-fg), 0.03);
+    border-right: 2px solid rgba(var(--rgb-fg), 0.08);
     flex-shrink: 0;
     overflow: hidden;
 }
@@ -141,7 +141,7 @@
 .blog-card-skeleton {
     display: flex;
     align-items: stretch;
-    border: solid 2px rgba(255, 255, 255, 0.12);
+    border: solid 2px rgba(var(--rgb-fg), 0.12);
     overflow: hidden;
     background: transparent;
     min-height: 168px;
@@ -151,12 +151,12 @@
     width: 450px;
     min-width: 450px;
     background: linear-gradient(90deg,
-            rgba(255, 255, 255, 0.03) 0%,
-            rgba(255, 255, 255, 0.06) 50%,
-            rgba(255, 255, 255, 0.03) 100%);
+            rgba(var(--rgb-fg), 0.03) 0%,
+            rgba(var(--rgb-fg), 0.06) 50%,
+            rgba(var(--rgb-fg), 0.03) 100%);
     background-size: 200% 100%;
     animation: skeleton-loading 1.5s ease-in-out infinite;
-    border-right: 2px solid rgba(255, 255, 255, 0.08);
+    border-right: 2px solid rgba(var(--rgb-fg), 0.08);
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -207,9 +207,9 @@
     width: 80%;
     height: 24px;
     background: linear-gradient(90deg,
-            rgba(255, 255, 255, 0.03) 0%,
-            rgba(255, 255, 255, 0.06) 50%,
-            rgba(255, 255, 255, 0.03) 100%);
+            rgba(var(--rgb-fg), 0.03) 0%,
+            rgba(var(--rgb-fg), 0.06) 50%,
+            rgba(var(--rgb-fg), 0.03) 100%);
     background-size: 200% 100%;
     animation: skeleton-loading 1.5s ease-in-out infinite;
 }
@@ -218,9 +218,9 @@
     width: 100%;
     height: 16px;
     background: linear-gradient(90deg,
-            rgba(255, 255, 255, 0.03) 0%,
-            rgba(255, 255, 255, 0.06) 50%,
-            rgba(255, 255, 255, 0.03) 100%);
+            rgba(var(--rgb-fg), 0.03) 0%,
+            rgba(var(--rgb-fg), 0.06) 50%,
+            rgba(var(--rgb-fg), 0.03) 100%);
     background-size: 200% 100%;
     animation: skeleton-loading 1.5s ease-in-out infinite;
 }
@@ -234,9 +234,9 @@
     height: 16px;
     margin-top: auto;
     background: linear-gradient(90deg,
-            rgba(255, 255, 255, 0.03) 0%,
-            rgba(255, 255, 255, 0.06) 50%,
-            rgba(255, 255, 255, 0.03) 100%);
+            rgba(var(--rgb-fg), 0.03) 0%,
+            rgba(var(--rgb-fg), 0.06) 50%,
+            rgba(var(--rgb-fg), 0.03) 100%);
     background-size: 200% 100%;
     animation: skeleton-loading 1.5s ease-in-out infinite;
 }
@@ -262,7 +262,7 @@
         min-width: 100%;
         height: 200px;
         border-right: none;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 2px solid rgba(var(--rgb-fg), 0.08);
     }
 
     .blog-card-content {
@@ -279,7 +279,7 @@
         min-width: 100%;
         height: 200px;
         border-right: none;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 2px solid rgba(var(--rgb-fg), 0.08);
     }
 
     .blog-card-skeleton-icon {
@@ -313,7 +313,7 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
-    border: solid 2px rgba(255, 255, 255, 0.12);
+    border: solid 2px rgba(var(--rgb-fg), 0.12);
     overflow: hidden;
 }
 
@@ -321,8 +321,8 @@
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: rgba(255, 255, 255, 0.03);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+    background: rgba(var(--rgb-fg), 0.03);
+    border-bottom: 2px solid rgba(var(--rgb-fg), 0.08);
 }
 
 .lt-video-embed-wrapper iframe {
@@ -343,7 +343,7 @@
     min-width: 100%;
     aspect-ratio: 16 / 9;
     border-right: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid rgba(var(--rgb-fg), 0.08);
 }
 
 .blogs-row .blog-card .blog-card-content,

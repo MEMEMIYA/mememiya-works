@@ -10,15 +10,15 @@
     height: 56px;
     background: transparent;
     backdrop-filter: blur(4px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(var(--rgb-fg), 0.02);
     z-index: 1000;
     transition: all var(--transition-base);
 }
 
 .main-nav.scrolled {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(var(--rgb-bg), 0.1);
     backdrop-filter: blur(8px);
-    border-bottom-color: rgba(255, 255, 255, 0.04);
+    border-bottom-color: rgba(var(--rgb-fg), 0.04);
 }
 
 .nav-container {
@@ -48,14 +48,13 @@
     gap: 0;
     margin: 0;
     padding: 0;
-    background: rgba(0, 0, 0, 0.5);
-    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.3);
+    background: rgba(var(--rgb-bg), 0.5);
+    border: var(--border-width-thin) solid rgba(var(--rgb-fg), 0.3);
     border-radius: 4px 4px 0 0;
     overflow: hidden;
 }
 
 .nav-link {
-    display: inline-block;
     position: relative;
     font-size: var(--text-sm);
     font-weight: 600;
@@ -66,7 +65,7 @@
     color: var(--color-text-secondary);
     background: transparent;
     line-height: var(--leading-tight);
-    border-right: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
+    border-right: var(--border-width-thin) solid rgba(var(--rgb-fg), 0.2);
 }
 
 .nav-links li:last-child .nav-link {
@@ -87,12 +86,12 @@
 
 .nav-link:hover {
     color: var(--color-text-primary);
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(var(--rgb-fg), 0.08);
 }
 
 .nav-link.active {
     color: var(--color-text-primary);
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(var(--rgb-fg), 0.2);
     font-weight: 700;
     border-bottom: 2px solid var(--color-text-primary);
 }
@@ -133,16 +132,16 @@
         display: flex;
         flex-direction: row;
         gap: 0;
-        background: rgba(0, 0, 0, 0.6);
-        border: var(--border-width-thin) solid rgba(255, 255, 255, 0.25);
+        background: rgba(var(--rgb-bg), 0.6);
+        border: var(--border-width-thin) solid rgba(var(--rgb-fg), 0.25);
         border-radius: 0;
     }
 
     .nav-link {
         font-size: var(--text-xs);
-        padding: 6px 10px;
         white-space: nowrap;
-        border-right: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
+        padding: 6px var(--space-2);
+        border-right: var(--border-width-thin) solid rgba(var(--rgb-fg), 0.2);
     }
 
     .nav-links li:last-child .nav-link {
@@ -161,4 +160,125 @@
     .nav-toggle {
         display: none;
     }
+}
+
+/* ===========================
+   Theme Toggle (ライト/ダーク スライドスイッチ)
+   左=ライト(太陽) / 右=ナイト(月)。つまみが左右にスライドする
+   =========================== */
+
+.nav-links {
+    margin-left: auto;
+}
+
+.theme-toggle {
+    --toggle-w: 60px;
+    --toggle-h: 30px;
+    --thumb: 22px;
+    --pad: 3px;
+    position: relative;
+    flex-shrink: 0;
+    width: var(--toggle-w);
+    height: var(--toggle-h);
+    margin-left: calc(var(--space-4) * -1);
+    padding: 0;
+    color: var(--color-text-secondary);
+    background: rgba(var(--rgb-bg), 0.5);
+    border: var(--border-width-thin) solid rgba(var(--rgb-fg), 0.3);
+    border-radius: 0;
+    cursor: pointer;
+    transition: background var(--transition-base), border-color var(--transition-base);
+}
+
+.theme-toggle:hover {
+    border-color: var(--color-purple-primary);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--color-purple-secondary);
+    outline-offset: 2px;
+}
+
+/* つまみ（ダーク時は右） */
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: var(--pad);
+    width: var(--thumb);
+    height: var(--thumb);
+    border-radius: 0;
+    background: var(--color-purple-primary);
+    transform: translate(calc(var(--toggle-w) - var(--thumb) - var(--pad) * 2 - 2px), -50%);
+    transition: transform var(--transition-base) var(--ease-out-cubic);
+}
+
+html[data-theme="light"] .theme-toggle::before {
+    transform: translate(0, -50%);
+}
+
+/* アイコンは両端に固定。つまみが乗っている側は白、反対側は控えめに */
+.theme-toggle-icon {
+    position: absolute;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    z-index: 1;
+    pointer-events: none;
+    transition: color var(--transition-base), opacity var(--transition-base);
+}
+
+.theme-toggle-icon--sun  { left: 7px;  color: var(--color-text-tertiary); opacity: 0.8; }
+.theme-toggle-icon--moon { right: 7px; color: #FFFFFF; display: block; }
+
+html[data-theme="light"] .theme-toggle-icon--sun  { color: #FFFFFF; opacity: 1; display: block; }
+html[data-theme="light"] .theme-toggle-icon--moon { color: var(--color-text-tertiary); opacity: 0.8; }
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        --toggle-w: 52px;
+        --toggle-h: 26px;
+        --thumb: 18px;
+        margin-left: calc(var(--space-2) * -1);
+    }
+    .theme-toggle-icon { width: 12px; height: 12px; margin-top: -6px; }
+    .theme-toggle-icon--sun  { left: 6px; }
+    .theme-toggle-icon--moon { right: 6px; }
+}
+
+/* 小型スマホ: ロゴ・リンク・トグルを1行に収める */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 var(--space-2);
+        gap: var(--space-2);
+    }
+    .nav-logo {
+        flex-shrink: 1;
+        min-width: 0;
+    }
+    .nav-logo-img {
+        height: 22px;
+        max-width: 100%;
+    }
+    .nav-link {
+        font-size: 11px;
+        letter-spacing: 0;
+        padding: 6px 6px;
+    }
+    .theme-toggle {
+        --toggle-w: 44px;
+        --toggle-h: 24px;
+        --thumb: 16px;
+        --pad: 3px;
+        margin-left: 0;
+    }
+    .theme-toggle-icon { width: 10px; height: 10px; margin-top: -5px; }
+    .theme-toggle-icon--sun  { left: 5px; }
+    .theme-toggle-icon--moon { right: 5px; }
+}
+
+@media (max-width: 360px) {
+    .nav-logo-img { height: 18px; }
+    .nav-link { font-size: 10px; padding: 6px 4px; }
 }

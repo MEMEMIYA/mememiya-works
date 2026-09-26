@@ -4,6 +4,35 @@ const worksData = {
     all: [
         // Featured Works用の作品
         {
+            id: 'ensei-pajamageddon',
+            title: '怨世パジャマゲドン',
+            year: '2026',
+            yearMonth: '2026年8月',
+            categories: ['DJVJイベント', 'VJ', 'ライブ', '個人制作'],
+            thumbnail: 'assets/images/events/ensei-pajamageddon/marquee-03.jpg',
+            youtubeIds: ['b6TdXNUQISU'],
+            gallery: [
+                'assets/images/events/ensei-pajamageddon/flyer.jpg',
+                'assets/images/events/ensei-pajamageddon/visual-01.jpg',
+                'assets/images/events/ensei-pajamageddon/visual-02.jpg',
+                'assets/images/events/ensei-pajamageddon/photo-04.jpg'
+            ],
+            description: 'VRChatで自主開催したDJVJイベント『怨世パジャマゲドン vol.0』のイベント主催&VJ&ワールド設定&フライヤーイラストです。新システム「パーティクルジョッキー(仮)」のデモお披露目会として、パーティクル演出・照明・スクリーン投影用ジェネVJを一括制御し、VJ・PJ・LJ・ワールド設定を担当しました。',
+            tags: ['ジェネVJ', 'VRChat', 'パーティクルジョッキー'],
+            meta: {
+                制作形態: '個人制作',
+                tools: 'パーティクルジョッキー(仮)'
+            },
+            blogUrls: [
+                {
+                    url: 'event-ensei-pajamageddon.html',
+                    title: '怨世パジャマゲドン vol.0 イベントレポート',
+                    description: 'コンセプト・開催概要・使用システムをまとめたイベントページです。',
+                    image: 'assets/images/events/ensei-pajamageddon/ogp.jpg'
+                }
+            ]
+        },
+        {
             id: 'nakaniwa',
             title: 'グループ展「中庭」',
             year: '2026',
