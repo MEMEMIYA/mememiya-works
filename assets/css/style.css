@@ -7,33 +7,33 @@
 @import url('modules/variables.css?v=138');
 
 /* Base & Reset Styles */
-@import url('modules/base.css?v=175');
+@import url('modules/base.css?v=181');
 
 /* Components */
-@import url('modules/navigation.css?v=5');
+@import url('modules/navigation.css?v=6');
 @import url('modules/hero.css?v=162');
-@import url('modules/solutions.css?v=132');
-@import url('modules/profile.css?v=137');
-@import url('modules/works.css?v=151');
-@import url('modules/works-filters.css?v=137');
+@import url('modules/solutions.css?v=141');
+@import url('modules/profile.css?v=156');
+@import url('modules/works.css?v=152');
+@import url('modules/works-filters.css?v=140');
 @import url('modules/works-modal.css?v=102');
 @import url('modules/vj-events.css?v=141');
-@import url('modules/upcoming-events.css?v=148');
+@import url('modules/upcoming-events.css?v=149');
 @import url('modules/generative-vj.css?v=139');
-@import url('modules/links-contact.css?v=162');
+@import url('modules/links-contact.css?v=167');
 @import url('modules/services.css?v=140');
-@import url('modules/services-compact.css?v=163');
-@import url('modules/vr-vj-detail.css?v=103');
+@import url('modules/services-compact.css?v=166');
+@import url('modules/vr-vj-detail.css?v=105');
 @import url('modules/buttons.css?v=138');
 @import url('modules/footer.css?v=104');
 @import url('modules/modal.css?v=138');
 @import url('modules/modal-gallery.css?v=1');
 @import url('modules/blog-card.css?v=135');
 @import url('modules/table-of-contents.css?v=135');
-@import url('modules/event-page.css?v=155');
+@import url('modules/event-page.css?v=174');
 
 /* Animations & Utilities */
 @import url('modules/animations.css?v=1');
 
 /* Light Theme (ヘッダーのトグルで切り替え) */
-@import url('modules/light-theme.css?v=11');
+@import url('modules/light-theme.css?v=12');

@@ -629,7 +629,7 @@ a.event-hashtag:hover {
     }
 
     .upcoming-events-section:has(.no-events) {
-        padding: var(--space-1) 0 0 0 !important;
+        padding: var(--space-3) 0 0 0 !important;
     }
 
     .upcoming-events-section:has(.no-events) .section-title {

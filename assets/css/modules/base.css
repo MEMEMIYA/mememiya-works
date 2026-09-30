@@ -176,7 +176,7 @@ a {
         padding: 0 var(--space-4);
     }
 
-    .section-title {
+    .section-title-jp {
         font-size: var(--text-xl);
     }
 }
@@ -186,7 +186,7 @@ a {
         padding: 0 var(--space-3);
     }
 
-    .section-title {
+    .section-title-jp {
         font-size: var(--text-xl);
     }
 
@@ -397,11 +397,16 @@ section.scroll-reveal.is-visible > * {
     }
 }
 
-/* モバイル: Solutions/Informationの重なり(50px)を補正 */
+/* モバイル: Informationは重なり(50px)を補正 */
 @media (max-width: 768px) {
-    #solutions::before,
     #information::before {
         top: 50px;
+    }
+
+    /* Solutionsはモバイルで重なりがない(margin-top:0)ため、区切り線はセクション最上部に置く。
+       50pxのままだと見出しのすぐ上に線が来て余白ゼロに見えてしまう */
+    #solutions::before {
+        top: 0;
     }
 }
 
@@ -480,19 +485,17 @@ section.scroll-reveal.is-visible > * {
         background: rgba(var(--rgb-fg), 0.03) !important;
     }
 
-    /* モバイルは重なりが50pxのため、その分だけ透明にしてフェードさせる */
+    /* モバイルは margin-top:0 (重なりなし) のため、フェードさせず上端から色を敷いて
+       paddingの余白がちゃんと見えるようにする */
     #solutions {
-        background: linear-gradient(to bottom,
-            transparent 0,
-            rgba(var(--rgb-fg), 0.03) 50px,
-            rgba(var(--rgb-fg), 0.03) 100%) !important;
+        background: rgba(var(--rgb-fg), 0.03) !important;
     }
 
     #information {
         background: linear-gradient(to bottom,
             transparent 0,
             rgba(var(--rgb-bg), 0.35) 50px,
-            rgba(0, 0, 0, 0.35) 100%) !important;
+            rgba(var(--rgb-bg), 0.35) 100%) !important;
     }
 
     #scheduled-events:has(.no-events) {
@@ -552,20 +555,27 @@ section.scroll-reveal.is-visible > * {
     }
 
     .section-title {
-        font-size: var(--text-sm);
-        margin-bottom: var(--space-2);
-        padding-bottom: var(--space-1);
+        gap: var(--space-2);
+        margin-bottom: var(--space-3);
     }
 
-    .section-title::before {
-        content: '';
-        display: block;
-        width: 100vw;
-        height: 0;
-        border-top: 1px dashed rgba(var(--rgb-fg), 0.4);
-        background: none;
-        margin: 0 auto var(--space-2);
-        margin-left: calc(-50vw + 50%);
+    .section-title-num {
+        font-size: 1.75rem;
+    }
+
+    .section-title-line {
+        height: 2rem;
+    }
+
+    .section-title-en {
+        font-size: 9px;
+        letter-spacing: 0.2em;
+    }
+
+    .section-title-jp,
+    .section-title-text .section-title-jp {
+        font-size: var(--text-lg);
+        white-space: nowrap;
     }
 
     .section-description {
@@ -573,28 +583,65 @@ section.scroll-reveal.is-visible > * {
     }
 }
 
+/* セクションタイトル - 通し番号 + 縦線 + 英字/和文見出し */
+body {
+    counter-reset: section-index;
+}
+
 .section-title {
-    font-size: var(--text-3xl);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
     margin-bottom: var(--space-6);
     color: var(--color-text-primary);
-    letter-spacing: 0.02em;
-    font-weight: 300;
-    position: relative;
-    padding-bottom: var(--space-3);
     font-family: var(--font-heading);
-    text-transform: none;
     line-height: var(--leading-tight);
 }
 
-/* セクションタイトル - 紫のアクセントライン */
-.section-title::before {
-    content: '';
-    display: block;
-    width: 48px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-purple-tertiary), var(--color-purple-vivid));
-    margin: 0 auto var(--space-3);
+.section-title-num {
+    counter-increment: section-index;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--color-purple-primary);
+    flex-shrink: 0;
+}
+
+.section-title-num::before {
+    content: counter(section-index, decimal-leading-zero);
+}
+
+.section-title-line {
+    width: 1px;
+    height: 2.75rem;
+    background: rgba(var(--rgb-fg), 0.25);
+    flex-shrink: 0;
+}
+
+.section-title-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    text-align: left;
+}
+
+.section-title-en {
+    font-family: var(--font-body);
+    font-size: var(--text-2xs);
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+}
+
+.section-title-jp {
+    font-family: var(--font-mincho-demibold);
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: var(--color-text-primary);
 }
 
 .section-description {
@@ -887,23 +934,3 @@ img[loading="lazy"]:not([src]) {
     /* ホバー効果なぁE 裁E��皁E��要素はクリチE��不可能 */
 }
 
-/* スマ�E版セクションタイトル - 左右に緁E*/
-@media (max-width: 768px) {
-    .section-title {
-        display: flex;
-        align-items: center;
-        gap: var(--space-2);
-        font-size: var(--text-sm) !important;
-    }
-
-    .section-title::before,
-    .section-title::after {
-        content: '';
-        flex: 1;
-        height: 1px;
-        background: rgba(var(--rgb-fg), 0.3);
-        margin: 0;
-        display: block;
-        width: auto;
-    }
-}

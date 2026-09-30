@@ -624,7 +624,7 @@
 }
 
 .work-item.coming-soon-vivivit .work-media {
-    background-color: #000;
+    background: var(--gradient-purple-dark);
 }
 
 .vivivit-media-overlay {
@@ -638,12 +638,12 @@
 .vivivit-media-logo {
     width: 70%;
     height: auto;
-    opacity: 0.3;
+    opacity: 0.9;
     transition: opacity var(--transition-base);
 }
 
 .work-item.coming-soon-vivivit:hover .vivivit-media-logo {
-    opacity: 0.7;
+    opacity: 1;
 }
 
 .work-item.coming-soon .work-thumbnail {

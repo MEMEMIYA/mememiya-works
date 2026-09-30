@@ -739,3 +739,92 @@
     cursor: text !important;
     pointer-events: auto !important;
 }
+
+/* ===========================
+   FAQ - 罫線リスト型（A案）：箱・グラデーション背景を外し、上の罫線だけで区切る
+   =========================== */
+
+.faq-compact-item {
+    padding: var(--space-3) 0 !important;
+    background: none;
+    border: none;
+    border-top: 1px solid rgba(var(--rgb-fg), 0.15);
+}
+
+.faq-q {
+    font-family: var(--font-mincho-demibold);
+    font-weight: 400;
+    font-size: var(--text-sm);
+    color: var(--color-purple-primary);
+    padding-top: 0;
+}
+
+.faq-question-text {
+    font-family: var(--font-mincho-demibold);
+    font-weight: 400;
+    font-size: var(--text-base);
+    letter-spacing: 0.03em;
+    color: var(--color-text-primary);
+}
+
+.faq-answer-text {
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+}
+
+/* ===========================
+   サービス・料金 - 罫線リスト型（A案）：箱・左線を外し、上の罫線だけで区切る
+   =========================== */
+
+.service-compact-card {
+    background: none;
+    border: none;
+    border-top: 1px solid rgba(var(--rgb-fg), 0.15);
+    padding: var(--space-3) 0 !important;
+}
+
+.service-compact-card.service-unavailable {
+    background: none !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(var(--rgb-fg), 0.15) !important;
+    opacity: 1;
+    filter: none;
+}
+
+.service-compact-card.service-unavailable::before,
+.service-compact-card.service-unavailable::after {
+    content: none;
+}
+
+.service-name {
+    font-family: var(--font-mincho-demibold);
+    font-weight: 400;
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+}
+
+.service-price:not(.service-unavailable-badge) {
+    font-family: var(--font-body);
+    font-size: var(--text-2xs);
+    letter-spacing: 0.1em;
+    color: var(--color-purple-primary);
+    font-weight: 600;
+}
+
+.service-unavailable-badge {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: var(--text-2xs);
+    color: var(--color-text-tertiary);
+}
+
+.service-unavailable .service-name,
+.service-unavailable .service-desc {
+    color: var(--color-text-tertiary) !important;
+}
+
+.service-unavailable .service-desc {
+    text-decoration: line-through;
+    text-decoration-color: rgba(var(--rgb-fg), 0.3);
+}

@@ -2,7 +2,7 @@
    Profile Section
    =========================== */
 
-/* パディングはbase.cssのsectionルールで統一管琁E*/
+/* パディングはbase.cssのsectionルールで統一管理 */
 .profile-section {
     position: relative;
 }
@@ -23,35 +23,62 @@
 
 .profile-layout {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--space-8);
-    max-width: 900px;
+    grid-template-columns: 320px 1fr;
+    gap: var(--space-5);
+    max-width: 960px;
     margin: 0 auto;
     align-items: start;
 }
 
-/* Profile Header */
-.profile-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-    text-align: center;
-}
-
 .profile-image-frame {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 756px;
     overflow: hidden;
-    border: none;
-    position: relative; /* モザイクCanvasをフレーム内に収める */
+    position: relative;
 }
 
 .profile-photo {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: 30% 15%;
     min-height: 0 !important; /* base.css の img[loading=lazy](詳細度0,1,1)を上書き */
+}
+
+/* Bio カラム - 名前・紹介文・タイル。skill-details は含めず高さを可変にしない */
+.profile-bio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.profile-header-inline {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.profile-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid rgba(var(--rgb-fg), 0.15);
+}
+
+.profile-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 0 !important;
+}
+
+.profile-name-block {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-2);
 }
 
 .profile-name-large {
@@ -66,14 +93,12 @@
 }
 
 .profile-name-reading {
-    font-size: var(--text-lg);
+    font-size: var(--text-sm);
     color: var(--color-text-tertiary);
     font-weight: 400;
     font-family: var(--font-serif);
-    font-style: italic;
     letter-spacing: var(--tracking-wide);
     margin: 0;
-    margin-top: calc(var(--space-1) * -1);
 }
 
 .profile-roles {
@@ -97,12 +122,12 @@
     line-height: 1;
 }
 
-/* Skills Section */
+/* 3枚のタイルの下に配置 */
 .profile-skills {
     width: 100%;
-    opacity: 0.45;
 }
 
+/* Skills Section - サブスキル(折りたたみ) */
 .skills-section-title {
     font-size: var(--text-sm);
     font-weight: 400;
@@ -112,33 +137,6 @@
     text-align: left;
     font-family: var(--font-body);
     line-height: var(--leading-tight);
-}
-
-.skill-group-main {
-    margin-bottom: var(--space-1);
-}
-
-.skill-tags-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1);
-}
-
-.skill-tag.main {
-    padding: 3px 6px;
-    background: transparent;
-    border: solid 1px var(--color-text-primary);
-    border-radius: 0;
-    font-size: var(--text-xs);
-    font-weight: 400;
-    letter-spacing: var(--tracking-wide);
-    color: var(--color-text-primary);
-    line-height: 1;
-    /* ホバー効果なぁE 裁E��皁E��タグはクリチE��不可能 */
-}
-
-.skill-details {
-    margin-top: var(--space-2);
 }
 
 .skill-details-summary {
@@ -188,10 +186,9 @@
     letter-spacing: var(--tracking-wide);
     color: var(--color-text-secondary);
     line-height: 1;
-    /* ホバー効果なぁE 裁E��皁E��タグはクリチE��不可能 */
 }
 
-/* History Section - 控えめな表示 */
+/* History Section - 控えめな表示（未使用だが既存のまま維持） */
 .profile-history {
     width: 100%;
     opacity: 0.6;
@@ -222,7 +219,7 @@
     margin-bottom: 0;
 }
 
-/* Achievements - 控えめな表示 */
+/* Achievements - 控えめな表示（未使用だが既存のまま維持） */
 .profile-achievements {
     width: 100%;
     opacity: 0.6;
@@ -266,45 +263,6 @@
     font-weight: 400;
 }
 
-/* Meta Compact - 経歴・受賞歴の1行表示 */
-.profile-meta-compact {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    opacity: 0.45;
-}
-
-.meta-row {
-    display: flex;
-    gap: var(--space-2);
-    align-items: baseline;
-    font-size: var(--text-2xs);
-    line-height: var(--leading-normal);
-}
-
-.meta-label {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    color: var(--color-text-tertiary);
-    min-width: 60px;
-    flex-shrink: 0;
-}
-
-.meta-content {
-    font-family: var(--font-mono);
-    font-weight: 400;
-    color: var(--color-text-secondary);
-    letter-spacing: var(--tracking-normal);
-}
-
-/* Right Column */
-.profile-right-column {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-}
-
 .profile-description {
     margin: 0;
     text-align: left;
@@ -320,14 +278,8 @@
     font-weight: 400;
 }
 
-/* 経歴・受賞歴：本文と性質が違うので前に広め */
-.profile-meta-compact {
-    margin-top: var(--space-3);
-}
-
-/* スキルセット：経歴とは別種なので少し広め */
-.profile-skills {
-    margin-top: var(--space-2);
+.profile-description > *:last-child {
+    margin-bottom: 0;
 }
 
 .description-text.highlight-text {
@@ -335,6 +287,39 @@
     font-weight: 500;
     font-style: normal;
     margin-top: 0;
+}
+
+/* 経歴・受賞歴・スキルを罫線リストのタイルにまとめる */
+.profile-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+}
+
+.profile-tile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-2) 0 0;
+    background: none;
+    border: none;
+    border-top: 2px solid rgba(var(--rgb-fg), 0.18);
+}
+
+.profile-tile-label {
+    font-family: var(--font-mincho-demibold);
+    font-weight: 400;
+    font-size: var(--text-sm);
+    letter-spacing: 0.1em;
+    color: var(--color-text-primary);
+}
+
+.profile-tile-value {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    line-height: var(--leading-normal);
 }
 
 /* Responsive - 極限コンパクト化 */
@@ -351,21 +336,27 @@
 
     .profile-layout {
         grid-template-columns: 1fr;
-        gap: var(--space-1);
+        gap: var(--space-3);
         text-align: center;
     }
 
-    .profile-header {
-        gap: var(--space-1);
+    .profile-image-frame {
+        height: auto;
+        aspect-ratio: 4 / 3;
+        max-width: 320px;
+        margin: 0 auto;
     }
 
-    .profile-image-frame {
-        width: 80px;
-        height: 80px;
+    .profile-photo {
+        object-position: 38% 38%;
+    }
+
+    .profile-header-inline {
+        justify-content: center;
     }
 
     .profile-name-large {
-        font-size: var(--text-base);
+        font-size: var(--text-xl);
         font-weight: 600;
     }
 
@@ -384,10 +375,6 @@
         border-width: 1px;
     }
 
-    .profile-right-column {
-        gap: var(--space-2);
-    }
-
     /* 経歴を非表示 */
     .profile-history {
         display: none;
@@ -396,16 +383,6 @@
     /* 受賞歴を非表示 */
     .profile-achievements {
         display: none;
-    }
-
-    /* メタコンパクトを非表示 */
-    .profile-meta-compact {
-        display: none;
-        margin-top: 0;
-    }
-
-    .profile-skills {
-        margin-top: 0;
     }
 
     .achievements-title,
@@ -419,26 +396,24 @@
         font-size: var(--text-xs);
         line-height: var(--leading-normal);
         margin-bottom: var(--space-1);
-        padding: 0 var(--space-3);
     }
 
-    /* メインスキルのみ表示 - 中央揁E�� */
-    .skill-group-main {
-        margin-bottom: var(--space-2);
+    /* タイルは経歴・受賞歴を省き、メインスキルのみ表示 */
+    .profile-tiles {
+        grid-template-columns: 1fr;
     }
 
-    .skill-tags-main {
-        justify-content: center;
-        gap: var(--space-1);
-        padding: 0 var(--space-2);
+    .profile-tile:nth-child(1),
+    .profile-tile:nth-child(2) {
+        display: none;
     }
 
-    .skill-tag.main {
-        font-size: var(--text-2xs);
-        padding: 3px 5px;
+    .profile-tile {
+        align-items: center;
+        text-align: center;
     }
 
-    /* サブスキル�E�折りたたみ�E�も表示 */
+    /* サブスキル（折りたたみ）も表示 */
     .skill-details-summary {
         font-size: var(--text-sm);
         text-align: center;

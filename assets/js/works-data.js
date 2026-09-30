@@ -8,16 +8,18 @@ const worksData = {
             title: '怨世パジャマゲドン',
             year: '2026',
             yearMonth: '2026年8月',
-            categories: ['DJVJイベント', 'VJ', 'ライブ', '個人制作'],
-            thumbnail: 'assets/images/events/ensei-pajamageddon/marquee-03.jpg',
-            youtubeIds: ['b6TdXNUQISU'],
+            categories: ['DJVJイベント', 'VJ', 'ライブ', '個人制作(カメラ・DJは別の方)'],
+            thumbnail: 'assets/images/events/ensei-pajamageddon/photo-11.jpg',
+            youtubeIds: ['QMku6AkCkU8'],
             gallery: [
-                'assets/images/events/ensei-pajamageddon/flyer.jpg',
-                'assets/images/events/ensei-pajamageddon/visual-01.jpg',
-                'assets/images/events/ensei-pajamageddon/visual-02.jpg',
-                'assets/images/events/ensei-pajamageddon/photo-04.jpg'
+                'assets/images/events/ensei-pajamageddon/photo-10.jpg',
+                'assets/images/events/ensei-pajamageddon/photo-12.jpg',
+                'assets/images/events/ensei-pajamageddon/photo-13.jpg',
+                'assets/images/events/ensei-pajamageddon/photo-04.jpg',
+                'assets/images/events/ensei-pajamageddon/photo-05.jpg',
+                'assets/images/events/ensei-pajamageddon/photo-06.jpg'
             ],
-            description: 'VRChatで自主開催したDJVJイベント『怨世パジャマゲドン vol.0』のイベント主催&VJ&ワールド設定&フライヤーイラストです。新システム「パーティクルジョッキー(仮)」のデモお披露目会として、パーティクル演出・照明・スクリーン投影用ジェネVJを一括制御し、VJ・PJ・LJ・ワールド設定を担当しました。',
+            description: 'VRChatで主催したDJVJイベント『怨世パジャマゲドン』。2026/8/2には"vol.0"として新システム「パーティクルジョッキー(仮)」のデモお披露目会を開催しました。私はパーティクル演出・照明・スクリーン投影用ジェネVJを一括制御し、ワールド設定・フライヤーイラスト・ディレクション担当しました。次回も近々開催予定です。',
             tags: ['ジェネVJ', 'VRChat', 'パーティクルジョッキー'],
             meta: {
                 制作形態: '個人制作',
@@ -26,7 +28,7 @@ const worksData = {
             blogUrls: [
                 {
                     url: 'event-ensei-pajamageddon.html',
-                    title: '怨世パジャマゲドン vol.0 イベントレポート',
+                    title: '怨世パジャマゲドン イベントページ',
                     description: 'コンセプト・開催概要・使用システムをまとめたイベントページです。',
                     image: 'assets/images/events/ensei-pajamageddon/ogp.jpg'
                 }

@@ -14,11 +14,12 @@
 }
 
 .vr-vj-detail-card {
-    padding: var(--space-6);
-    padding-right: var(--space-4);
-    background: transparent;
-    border-left: solid 3px var(--color-purple-primary);
-    border-bottom: solid 1px rgba(var(--rgb-fg), 0.08);
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: 1px solid rgba(var(--rgb-fg), 0.15);
+    padding: var(--space-4) 0;
     position: relative;
     margin-top: var(--space-4);
 }
@@ -35,11 +36,11 @@
 
 .vr-vj-title {
     font-size: var(--text-lg);
-    font-weight: 700;
-    font-family: var(--font-body);
+    font-weight: 400;
+    font-family: var(--font-mincho-demibold);
     color: var(--color-text-primary);
     margin: 0;
-    letter-spacing: 0;
+    letter-spacing: 0.03em;
 }
 
 .service-unavailable .vr-vj-title {
@@ -277,3 +278,5 @@
     cursor: text !important;
     pointer-events: auto !important;
 }
+
+/* vr-vj-detail-card / vr-vj-title の罫線リスト型スタイルは冒頭の定義に統合済み */

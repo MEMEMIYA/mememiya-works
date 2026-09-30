@@ -11,17 +11,3 @@
         if (target) target.click();
     });
 })();
-
-// 実績が3件未満のカードは、空きスロットを黒いプレースホルダーで埋める
-(function () {
-    const SLOTS = 3;
-    document.querySelectorAll('.solution-works-list').forEach(list => {
-        for (let i = list.children.length; i < SLOTS; i++) {
-            const li = document.createElement('li');
-            li.className = 'solution-work-empty';
-            li.setAttribute('aria-hidden', 'true');
-            li.innerHTML = '<span class="solution-work-thumb-empty"></span>';
-            list.appendChild(li);
-        }
-    });
-})();
