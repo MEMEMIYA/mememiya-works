@@ -61,7 +61,9 @@ html[data-theme="light"] .work-category-badge,
 html[data-theme="light"] .work-overlay,
 html[data-theme="light"] .work-info-overlay,
 html[data-theme="light"] .vivivit-media-overlay,
-html[data-theme="light"] .featured-media {
+html[data-theme="light"] .featured-media,
+html[data-theme="light"] .featured-info,
+html[data-theme="light"] .event-page-hero {
     --rgb-fg: 255, 255, 255;
     --rgb-bg: 0, 0, 0;
     --color-text-primary: #FFFFFF;

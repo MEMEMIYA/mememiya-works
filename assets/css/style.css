@@ -10,12 +10,12 @@
 @import url('modules/base.css?v=182');
 
 /* Components */
-@import url('modules/navigation.css?v=6');
+@import url('modules/navigation.css?v=7');
 @import url('modules/hero.css?v=193');
 @import url('modules/solutions.css?v=142');
 @import url('modules/profile.css?v=156');
 @import url('modules/works.css?v=153');
-@import url('modules/works-filters.css?v=140');
+@import url('modules/works-filters.css?v=141');
 @import url('modules/works-modal.css?v=102');
 @import url('modules/vj-events.css?v=141');
 @import url('modules/upcoming-events.css?v=149');
@@ -25,15 +25,15 @@
 @import url('modules/services-compact.css?v=169');
 @import url('modules/vr-vj-detail.css?v=108');
 @import url('modules/buttons.css?v=138');
-@import url('modules/footer.css?v=104');
+@import url('modules/footer.css?v=105');
 @import url('modules/modal.css?v=138');
 @import url('modules/modal-gallery.css?v=1');
 @import url('modules/blog-card.css?v=135');
 @import url('modules/table-of-contents.css?v=135');
-@import url('modules/event-page.css?v=174');
+@import url('modules/event-page.css?v=175');
 
 /* Animations & Utilities */
 @import url('modules/animations.css?v=1');
 
 /* Light Theme (ヘッダーのトグルで切り替え) */
-@import url('modules/light-theme.css?v=12');
+@import url('modules/light-theme.css?v=13');
