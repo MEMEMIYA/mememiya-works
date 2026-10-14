@@ -168,7 +168,8 @@ img.solution-work-thumb,
 .solution-work-thumb-logo,
 .solution-work-thumb-empty {
     aspect-ratio: auto;
-    height: 82px;
+    height: 100px;
+    min-height: 100px;
 }
 
 img.solution-work-thumb {
