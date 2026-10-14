@@ -455,12 +455,12 @@
 }
 
 .hero-catchcopy::before {
-    background: linear-gradient(to right, transparent, var(--color-purple-secondary));
+    background: var(--color-purple-secondary);
     transform-origin: right center;
 }
 
 .hero-catchcopy::after {
-    background: linear-gradient(to left, transparent, var(--color-purple-secondary));
+    background: var(--color-purple-secondary);
     transform-origin: left center;
 }
 

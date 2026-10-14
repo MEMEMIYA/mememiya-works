@@ -571,6 +571,8 @@
 .contact-page-section + .footer {
     margin-top: 0;
     padding-top: var(--space-12);
+    /* 他のゾーン境目と同じ太さの点線にそろえる（フッター標準は1px） */
+    border-top: 2px dotted rgba(var(--rgb-fg), 0.3);
 }
 
 @media (max-width: 768px) {
@@ -715,6 +717,21 @@
 /* 上のCTAボタンとの間隔 */
 .contact-section .contact-detail-link {
     margin-top: var(--space-4);
+}
+
+/* index.html: Contactの次のゾーンとしてフッターを着色し、色の切り替わりと点線(footerのborder-top)を同じ位置にそろえる。
+   footerのmargin-topで隙間が空くと、色の終わりと点線の位置がずれるため0にしてpaddingへ置き換える */
+#main-content + .footer {
+    margin-top: 0;
+    padding-top: var(--space-6);
+    background: rgba(var(--rgb-bg), 0.35);
+}
+
+@media (max-width: 768px) {
+    #main-content + .footer {
+        margin-top: 0;
+        padding-top: var(--space-3);
+    }
 }
 
 /* 依頼・相談ボタン: 横長・低背 */
