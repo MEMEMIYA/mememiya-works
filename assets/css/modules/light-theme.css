@@ -41,7 +41,6 @@ html[data-theme="light"] .main-nav.scrolled {
     border-bottom-color: rgba(24, 18, 40, 0.08);
 }
 
-html[data-theme="light"] .nav-links,
 html[data-theme="light"] .theme-toggle {
     background: rgba(220, 211, 241, 0.85);
 }

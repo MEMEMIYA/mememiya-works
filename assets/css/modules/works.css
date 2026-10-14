@@ -10,6 +10,15 @@
     z-index: 4;
 }
 
+/* ヒーロー下部に重なる透明な余白がCTAのクリックを奪わないよう、セクション自体は貫通させる */
+.featured-section {
+    pointer-events: none;
+}
+
+.featured-section > .container {
+    pointer-events: auto;
+}
+
 .featured-works-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

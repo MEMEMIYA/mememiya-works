@@ -828,3 +828,85 @@
     text-decoration: line-through;
     text-decoration-color: rgba(var(--rgb-fg), 0.3);
 }
+
+/* ===========================
+   サービス・料金 - 紙片座布団：各サービスに1枚ずつ板を敷く
+   受付中は黒地の反転プレート、受付停止はグレーに落としたプレート
+   =========================== */
+
+.services-compact-grid .service-compact-card {
+    background: var(--zb-on-bg) !important;
+    color: var(--zb-on-fg);
+    border: 1px solid var(--zb-on-fg) !important;
+    border-radius: 0 !important;
+    padding: var(--space-3) var(--space-4) !important;
+}
+
+.services-compact-grid .service-compact-card.service-unavailable {
+    background: var(--zb-off-bg) !important;
+    border: 1px solid var(--zb-off-border) !important;
+}
+
+.services-compact-grid .service-compact-card .service-name {
+    color: var(--zb-on-fg) !important;
+}
+
+.services-compact-grid .service-compact-card .service-desc {
+    color: rgba(var(--zb-on-fg-rgb), 0.75) !important;
+}
+
+.services-compact-grid .service-compact-card .service-price {
+    color: var(--zb-on-fg);
+    border: 1px solid currentColor;
+    padding: 1px 7px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+}
+
+.services-compact-grid .service-compact-card.service-unavailable .service-name,
+.services-compact-grid .service-compact-card.service-unavailable .service-desc,
+.services-compact-grid .service-compact-card.service-unavailable .service-price {
+    color: var(--zb-off-fg) !important;
+}
+
+@media (max-width: 768px) {
+    .services-compact-grid {
+        gap: var(--space-2);
+    }
+
+    .services-compact-grid .service-compact-card,
+    .services-compact-grid .service-compact-card:first-child {
+        background: var(--zb-on-bg) !important;
+        border: 1px solid var(--zb-on-fg) !important;
+    }
+
+    .services-compact-grid .service-compact-card.service-unavailable {
+        background: var(--zb-off-bg) !important;
+        border: 1px solid var(--zb-off-border) !important;
+    }
+}
+
+/* 座布団の配色トークン（ダーク：黒プレート / ライト：紙プレート） */
+:root {
+    --zb-on-bg: #111;
+    --zb-on-fg: #ebe7df;
+    --zb-on-fg-rgb: 235, 231, 223;
+    --zb-off-bg: #2a2733;
+    --zb-off-border: #4a4655;
+    --zb-off-fg: #8d889a;
+}
+
+html[data-theme="light"] {
+    --zb-on-bg: #f6f3ec;
+    --zb-on-fg: #1c1828;
+    --zb-on-fg-rgb: 28, 24, 40;
+    --zb-off-bg: #c4b9e2;
+    --zb-off-border: #9a8cc4;
+    --zb-off-fg: #6b6585;
+}
+
+/* 受付停止の座布団の透明度を VR空間でのVJ（.service-unavailable 既定値）に揃える */
+.services-compact-grid .service-compact-card.service-unavailable {
+    opacity: 0.8;
+    filter: grayscale(0.3);
+}

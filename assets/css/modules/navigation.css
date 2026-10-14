@@ -46,64 +46,69 @@
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 0;
+    gap: var(--space-4);
     margin: 0;
     padding: 0;
-    background: rgba(var(--rgb-bg), 0.5);
-    border: var(--border-width-thin) solid rgba(var(--rgb-fg), 0.3);
-    border-radius: 4px 4px 0 0;
-    overflow: hidden;
 }
 
+/* Jost（Futura系）の英字ナビ。現在地は白、日本語ラベルは現在地/ホバーで下に出る */
 .nav-link {
     position: relative;
     display: flex;
     align-items: center;
     height: var(--toggle-h, 30px);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    letter-spacing: var(--tracking-wide);
-    text-transform: none;
-    padding: 0 var(--space-4);
-    transition: all var(--transition-base);
-    color: var(--color-text-secondary);
-    background: transparent;
-    line-height: var(--leading-tight);
-    border-right: var(--border-width-thin) solid rgba(var(--rgb-fg), 0.2);
-    box-sizing: border-box;
+    font-family: 'Jost', var(--font-body);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 0;
+    color: rgba(var(--rgb-fg), 0.5);
+    transition: color var(--transition-base);
+    white-space: nowrap;
+    /* フォント読み込み前後・状態切替で幅/字面が変わらないよう、幅を固定して中央寄せ */
+    justify-content: center;
+    font-synthesis: none;
 }
 
-.nav-links li:last-child .nav-link {
-    border-right: none;
-}
+.nav-links li:nth-child(1) .nav-link { width: 3.8em; }
+.nav-links li:nth-child(2) .nav-link { width: 4.15em; }
+.nav-links li:nth-child(3) .nav-link { width: 5.95em; }
 
-.nav-link::after {
-    content: '';
+.nav-link-jp {
     position: absolute;
-    bottom: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: var(--color-purple-primary);
-    transform: scaleX(0);
-    transition: transform var(--transition-base) var(--ease-out-cubic);
+    bottom: -9px;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: none;
+    color: var(--color-purple-secondary);
+    opacity: 0;
+    transition: opacity var(--transition-base);
 }
 
 .nav-link:hover {
-    color: var(--color-text-primary);
-    background: rgba(var(--rgb-fg), 0.08);
+    color: var(--color-purple-secondary);
 }
 
 .nav-link.active {
     color: var(--color-text-primary);
-    background: rgba(var(--rgb-fg), 0.2);
-    font-weight: 700;
-    border-bottom: 2px solid var(--color-text-primary);
 }
 
-.nav-link.active::after {
-    transform: scaleX(1);
-    height: 3px;
+.nav-link:hover .nav-link-jp,
+.nav-link.active .nav-link-jp,
+.nav-link:focus-visible .nav-link-jp {
+    opacity: 1;
+}
+
+.nav-link:focus-visible {
+    outline: 2px solid var(--color-purple-secondary);
+    outline-offset: 4px;
 }
 
 .nav-toggle {
@@ -137,29 +142,12 @@
     .nav-links {
         display: flex;
         flex-direction: row;
-        gap: 0;
-        background: rgba(var(--rgb-bg), 0.6);
-        border: var(--border-width-thin) solid rgba(var(--rgb-fg), 0.25);
-        border-radius: 0;
+        gap: var(--space-2);
     }
 
     .nav-link {
-        font-size: var(--text-xs);
-        white-space: nowrap;
-        padding: 0 var(--space-2);
-        border-right: var(--border-width-thin) solid rgba(var(--rgb-fg), 0.2);
-    }
-
-    .nav-links li:last-child .nav-link {
-        border-right: none;
-    }
-
-    .nav-link::after {
-        height: 2px;
-    }
-
-    .nav-link.active::after {
-        height: 2px;
+        font-size: 13px;
+        letter-spacing: 0.18em;
     }
 
     /* ハンバーガーメニューボタンを非表示 */
@@ -246,7 +234,7 @@ html[data-theme="light"] .theme-toggle-icon--moon { color: var(--color-text-tert
         --toggle-w: 52px;
         --toggle-h: 26px;
         --thumb: 18px;
-        margin-left: calc(var(--space-2) * -1);
+        margin-left: 0;
     }
     .theme-toggle-icon { width: 12px; height: 12px; margin-top: -6px; }
     .theme-toggle-icon--sun  { left: 6px; }
@@ -268,10 +256,16 @@ html[data-theme="light"] .theme-toggle-icon--moon { color: var(--color-text-tert
         height: 22px;
         max-width: 100%;
     }
+    .nav-links {
+        gap: 10px;
+    }
     .nav-link {
         font-size: 11px;
-        letter-spacing: 0;
-        padding: 0 6px;
+        letter-spacing: 0.12em;
+    }
+    .nav-link-jp {
+        font-size: 7px;
+        letter-spacing: 0.15em;
     }
     .theme-toggle {
         --toggle-w: 44px;
@@ -287,5 +281,6 @@ html[data-theme="light"] .theme-toggle-icon--moon { color: var(--color-text-tert
 
 @media (max-width: 360px) {
     .nav-logo-img { height: 18px; }
-    .nav-link { font-size: 10px; padding: 0 4px; }
+    .nav-links { gap: 8px; }
+    .nav-link { font-size: 10px; letter-spacing: 0.08em; }
 }

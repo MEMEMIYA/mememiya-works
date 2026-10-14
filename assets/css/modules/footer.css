@@ -23,6 +23,18 @@
     padding: 0 calc(var(--space-4) + 100px);
 }
 
+@media (min-width: 1440px) {
+    .footer-content {
+        max-width: 1360px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .footer-content {
+        max-width: 1640px;
+    }
+}
+
 .footer-section {
     display: flex;
     align-items: center;
@@ -110,10 +122,17 @@
     object-fit: contain;
 }
 
-.social-icon-img-large {
-    width: 50px;
-    height: 50px;
+/* 横長ロゴ(ViViViT/VRChat): 正方形アイコンと見た目の大きさを揃えるため、枠(44px)からはみ出す幅にする */
+.social-link img.social-icon-img-large {
+    flex: none;
+    width: 54px;
+    height: auto;
+    max-width: none;
     object-fit: contain;
+}
+
+.social-link[aria-label="VRChat"] img.social-icon-img-large {
+    width: 56px;
 }
 
 .social-icon-img-muted {

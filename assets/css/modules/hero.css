@@ -143,14 +143,17 @@
 }
 
 .hero-logo-wrapper {
-    margin-bottom: var(--space-4);
+    margin: 0 0 var(--space-4);
+    width: min(500px, 100%);
 }
 
 .hero-logo-img {
-    max-width: 500px;
-    width: 100%;
+    /* 加工画像(1992x766)は周囲に余白とにじみがあり、文字部分は x:134〜1859 (1725px)。
+       文字の左右端がカラム幅(100%)にぴったり重なるよう拡大・位置合わせする */
+    width: 115.48%;   /* 1992 / 1725 */
+    max-width: none;
     height: auto;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    margin: -5.58% -7.71% -5.58% -7.77%;
 }
 
 .hero-subtitle {
@@ -258,8 +261,8 @@
 
 /* タブレット最適化 */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .hero-logo-img {
-        max-width: 400px;
+    .hero-logo-wrapper {
+        width: min(400px, 100%);
     }
 
     .hero-subtitle {
@@ -308,10 +311,12 @@
         -webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, rgba(0,0,0,0.5) 70%, transparent 95%);
     }
 
+    /* コピー・ロゴ・肩書き・ボタンを同じ幅のカラムに揃える */
     .hero-main-block {
-        display: inline-grid;
-        grid-template-columns: min-content;
-        max-width: 90vw;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        width: min(var(--hero-col-m), 100%);
+        max-width: none;
     }
 
     .hero-main-block .hero-catchcopy {
@@ -325,7 +330,7 @@
     }
 
     .hero-main-block .hero-logo-img {
-        width: 100%;
+        width: 115.48%;
         max-width: unset;
         min-width: 0;
     }
@@ -336,7 +341,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: var(--space-1) var(--space-2);
+        padding: var(--space-1) 28px;   /* 左右に余白を残してカラム幅を揃える */
         padding-top: calc(var(--nav-height) + var(--space-2));
         padding-bottom: var(--space-3);
         z-index: 3;
@@ -349,11 +354,6 @@
 
     .hero-logo-wrapper {
         margin-bottom: var(--space-2);
-    }
-
-    .hero-logo-img {
-        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6))
-                drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
     }
 
     .hero-subtitle {
@@ -384,12 +384,12 @@
     }
 
     .hero-cta {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        gap: var(--space-2);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        width: min(var(--hero-col-m), 100%);
         margin-top: 0;
-        padding: 0 var(--space-4);
+        padding: 0;
     }
 
     .btn-hero {
@@ -398,8 +398,9 @@
         white-space: nowrap;
         background: rgba(0, 0, 0, 0.4) !important;
         backdrop-filter: blur(8px);
-        flex: 0 1 auto;
-        max-width: 130px;
+        width: 100%;
+        max-width: none;
+        justify-content: center;
     }
 
     .btn-hero:hover {
@@ -417,5 +418,442 @@
     .btn-hero {
         padding: 4px 8px;
         font-size: 8px;
+    }
+}
+
+/* ===========================
+   Hero Polish (デザイン強化)
+   =========================== */
+
+/* ロゴ: 左→右へ走査線のように現れる */
+@keyframes heroLogoReveal {
+    0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
+    12%  { opacity: 1; }
+    100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+/* キャッチコピー両端の罫線: 中央が濃く外側へ消えるグラデーション + 菱形の端点 */
+@keyframes heroRuleGrow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+.hero-logo-img {
+    animation: heroLogoReveal 1.1s var(--ease-out-expo) 0.15s both;
+}
+
+.hero-catchcopy {
+    letter-spacing: 0.1em;
+    font-feature-settings: "palt";
+}
+
+.hero-catchcopy::before,
+.hero-catchcopy::after {
+    height: 1px;
+    opacity: 1;
+    animation: heroRuleGrow 1.2s var(--ease-out-expo) 0.4s both;
+}
+
+.hero-catchcopy::before {
+    background: linear-gradient(to right, transparent, var(--color-purple-secondary));
+    transform-origin: right center;
+}
+
+.hero-catchcopy::after {
+    background: linear-gradient(to left, transparent, var(--color-purple-secondary));
+    transform-origin: left center;
+}
+
+.hero-subtitle {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    color: var(--color-purple-pale);
+}
+
+@media (min-width: 769px) {
+    .hero-subtitle {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-6);
+    }
+
+    /* CTA: ラベルタブ + 斜線パターン + 矢印（角丸なし） */
+    .hero-cta {
+        gap: 18px;
+        padding-top: 10px;
+    }
+
+    .hero-cta a.btn-hero {
+        padding: 18px 32px 16px;
+        gap: 12px;
+        font-size: 16px;
+        letter-spacing: 0.12em;
+        color: #fff;
+        text-shadow: none;
+        overflow: visible;
+        border: 1px solid #4a4a55;
+        background-color: #0d0a18;
+        background-image: none;
+        transition: border-color 0.3s;
+    }
+
+    /* buttons.css の :hover（グラデーション背景）に負けないよう詳細度を上げる */
+    .hero-cta a.btn-hero:hover {
+        color: #fff;
+        text-shadow: none;
+        background-image: none;
+        border-color: #c4b5fd;
+        transform: none;
+    }
+
+    .hero-cta a.btn-primary-hero:hover,
+    .hero-cta a.btn-secondary-hero:hover {
+        background-color: #0d0a18;
+    }
+
+    .hero-cta a.btn-hero em {
+        position: absolute;
+        top: -10px;
+        left: 12px;
+        padding: 2px 8px;
+        background: #a78bfa;
+        color: #1a1040;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        font-style: normal;
+        letter-spacing: 0.12em;
+        line-height: 1.4;
+        text-shadow: none;
+    }
+
+    .hero-cta a.btn-hero::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        transform: rotate(45deg);
+        transition: transform 0.35s;
+    }
+
+    .hero-cta a.btn-hero:hover::after {
+        transform: translateX(4px) rotate(45deg);
+    }
+
+    /* 「作品を見る」は下向き矢印 */
+    .hero-cta a.btn-primary-hero::after {
+        transform: rotate(135deg);
+    }
+
+    .hero-cta a.btn-primary-hero:hover::after {
+        transform: translateY(4px) rotate(135deg);
+    }
+}
+
+/* モバイルは従来のコンパクト指定を維持 */
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+    }
+
+    .hero-catchcopy {
+        letter-spacing: 0.05em;
+    }
+}
+
+/* ヒーローの文字は明朝体 */
+.hero-catchcopy,
+.hero-subtitle,
+.hero-cta .btn-hero {
+    font-family: var(--font-mincho-demibold);
+}
+
+@media (max-width: 768px) {
+    .hero-cta a.btn-hero em {
+        display: none;
+    }
+}
+
+/* キャッチコピー: キーワードをマーカー塗り（両側の罫線は維持） */
+.hero-catchcopy-mark {
+    padding: 2px 8px;
+    background: #a78bfa;
+    color: #1a1040;
+    font-weight: 600;
+    text-shadow: none;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+@media (min-width: 769px) {
+    .hero-catchcopy {
+        max-width: 680px;
+    }
+}
+
+/* キャッチコピーの改行: デスクトップは1行、モバイルは「映像と音楽」の手前で折り返す */
+.hero-br {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hero-br {
+        display: inline;
+    }
+
+    .hero-catchcopy {
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        gap: 6px;
+    }
+
+    /* 罫線を伸ばして、コピーをカラムの両端まで届かせる */
+    .hero-catchcopy::before,
+    .hero-catchcopy::after {
+        flex: 1 1 0;
+        min-width: 10px;
+    }
+
+    .hero-catchcopy-mark {
+        white-space: nowrap;
+    }
+}
+
+/* ===========================
+   Hero: 横幅統一 + HUD（トンボ）
+   =========================== */
+:root {
+    --hero-col: 520px;      /* デスクトップのカラム幅 */
+    --hero-col-m: 256px;    /* モバイルのカラム幅（上限） */
+}
+
+.hero-subtitle {
+    display: flex;
+    justify-content: center;
+    gap: 0.6em;
+}
+
+.hero-subtitle i {
+    font-style: normal;
+    color: var(--color-purple-secondary);
+}
+
+.hero-hud {
+    display: none;
+}
+
+@keyframes heroHudIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@media (min-width: 769px) {
+    /* コピー・ロゴ・肩書き・ボタンを同じ幅のカラムに揃える */
+    .hero-catchcopy,
+    .hero-logo-wrapper,
+    .hero-subtitle,
+    .hero-cta {
+        width: min(var(--hero-col), 100%);
+        max-width: none;
+    }
+
+    .hero-subtitle {
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .hero-cta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .hero-cta a.btn-hero {
+        width: 100%;
+        min-width: 0;
+        justify-content: center;
+    }
+
+    /* HUD: 四隅・辺の中央にプラス記号、上下に細線、REGラベル */
+    .hero-hud {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: calc(var(--nav-height) + 24px);
+        bottom: 18vh;
+        left: clamp(80px, calc(50% - 520px), 210px);   /* 左のSNSバー・右の目次に重ならない位置 */
+        right: clamp(80px, calc(50% - 520px), 210px);
+        pointer-events: none;
+        color: #fff;
+        animation: heroHudIn 1.2s ease 0.5s both;
+    }
+
+    .hud-line {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        height: 1px;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.35) 60%, rgba(255, 255, 255, 0.12));
+    }
+
+    .hud-line-top {
+        top: 0;
+        background: rgba(255, 255, 255, 0.35);   /* 右上は薄くしない */
+    }
+    .hud-line-bottom { bottom: 0; }
+
+    .hud-plus {
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        transform: translate(-50%, -50%);
+        background:
+            linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat,
+            linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat;
+    }
+
+    .hud-label {
+        position: absolute;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.2em;
+        line-height: 1;
+    }
+
+    .hud-label-tl { top: 18px; left: 20px; }
+    .hud-label-br { bottom: 18px; right: 20px; }
+}
+
+/* 右側の目次と近い部分は薄くする */
+@media (min-width: 769px) {
+    .hud-r {
+        opacity: 0.3;
+    }
+}
+
+/* モバイル: 肩書きもカラム幅いっぱいに均等配置 */
+@media (max-width: 768px) {
+    .hero-subtitle {
+        justify-content: space-between;
+        gap: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-subtitle {
+        font-size: 12px;
+    }
+}
+
+/* 肩書き: 最後の文字の後ろに付く字間分を打ち消し、右端をカラム端に揃える */
+.hero-subtitle span:last-of-type {
+    margin-right: -0.16em;
+}
+
+@media (max-width: 768px) {
+    .hero-subtitle span:last-of-type {
+        margin-right: 0.04em;
+    }
+}
+
+/* カラム幅を狭めた分、文字サイズを調整して1行に収める */
+@media (min-width: 769px) {
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .hero-catchcopy {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 11.5px;
+    }
+}
+
+@media (max-width: 340px) {
+    .hero-subtitle {
+        font-size: 9.5px;
+    }
+}
+
+/* スマホ: HUD（トンボ）を小さく表示。ラベル文字はコピーと重なるため省略 */
+@media (max-width: 768px) {
+    .hero-hud {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: calc(var(--nav-height) + 6px);
+        bottom: 14px;
+        left: 14px;
+        right: 14px;
+        pointer-events: none;
+        color: #fff;
+        animation: heroHudIn 1.2s ease 0.5s both;
+    }
+
+    .hud-line {
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .hud-line-top { top: 0; }
+    .hud-line-bottom { bottom: 0; }
+
+    .hud-plus {
+        position: absolute;
+        width: 11px;
+        height: 11px;
+        transform: translate(-50%, -50%);
+        background:
+            linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+            linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat;
+    }
+
+    /* Hero直下の区切り線は、HeroのHUDの線と重なるため表示しない */
+    #featured {
+        border-top: none;
+    }
+
+    .hud-label {
+        display: none;
+    }
+}
+
+/* スマホ: 縦の余白を詰める（ロゴ画像の上下の余白も文字ぎりぎりまで削る） */
+@media (max-width: 768px) {
+    .hero-content {
+        padding-top: calc(var(--nav-height) + 36px);   /* 上のHUD線(ナビ+6px)との間 約30px */
+        padding-bottom: 44px;                          /* 下のHUD線(下端-14px)との間 約30px */
+        min-height: 0;
+    }
+
+    .hero-section {
+        min-height: 0;
+    }
+
+    .hero-catchcopy {
+        margin-bottom: 12px;
+    }
+
+    .hero-logo-wrapper {
+        margin-bottom: 12px;
+    }
+
+    .hero-main-block .hero-logo-img {
+        margin: -8.58% -7.71% -7.65% -7.77%;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 14px;
     }
 }

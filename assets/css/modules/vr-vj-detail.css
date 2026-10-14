@@ -280,3 +280,103 @@
 }
 
 /* vr-vj-detail-card / vr-vj-title の罫線リスト型スタイルは冒頭の定義に統合済み */
+
+/* ===========================
+   VR VJ Detail - 紙片座布団（受付中）：サービス・料金の各カードと同じ反転プレート
+   =========================== */
+.vr-vj-detail-wrapper .vr-vj-detail-card {
+    background: var(--zb-on-bg) !important;
+    border: 1px solid var(--zb-on-fg) !important;
+    border-radius: 0 !important;
+    padding: var(--space-4) var(--space-4) !important;
+    color: var(--zb-on-fg);
+}
+
+.vr-vj-detail-wrapper .vr-vj-title,
+.vr-vj-detail-wrapper .features-list li strong,
+.vr-vj-detail-wrapper .conditions-list li strong,
+.vr-vj-detail-wrapper .genre-list li strong {
+    color: var(--zb-on-fg);
+}
+
+.vr-vj-detail-wrapper .vr-vj-header {
+    border-bottom-color: rgba(var(--zb-on-fg-rgb), 0.25);
+}
+
+.vr-vj-detail-wrapper .vr-vj-description p,
+.vr-vj-detail-wrapper .features-list li,
+.vr-vj-detail-wrapper .conditions-list li,
+.vr-vj-detail-wrapper .genre-list li {
+    color: rgba(var(--zb-on-fg-rgb), 0.8) !important;
+}
+
+.vr-vj-detail-wrapper .vr-vj-features,
+.vr-vj-detail-wrapper .vr-vj-conditions,
+.vr-vj-detail-wrapper .vr-vj-genre {
+    border-bottom-color: rgba(var(--zb-on-fg-rgb), 0.15);
+}
+
+.vr-vj-detail-wrapper .conditions-list li small {
+    color: rgba(var(--zb-on-fg-rgb), 0.6);
+}
+
+.vr-vj-detail-wrapper .vr-vj-header .service-price {
+    color: var(--zb-on-fg);
+    border: 1px solid currentColor;
+    padding: 1px 7px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .vr-vj-detail-wrapper .vr-vj-detail-card {
+        background: var(--zb-on-bg) !important;
+        border: 1px solid var(--zb-on-fg) !important;
+        margin-top: var(--space-2);
+    }
+
+    .vr-vj-detail-wrapper .vr-vj-title {
+        color: var(--zb-on-fg);
+    }
+}
+
+/* VR VJ Detail - 受付停止：サービス・料金の受付停止カードと同じ暗いプレート */
+.vr-vj-detail-wrapper .vr-vj-detail-card.service-unavailable {
+    background: var(--zb-off-bg) !important;
+    border: 1px solid var(--zb-off-border) !important;
+    color: var(--zb-off-fg);
+}
+
+.vr-vj-detail-wrapper .service-unavailable .vr-vj-title,
+.vr-vj-detail-wrapper .service-unavailable .features-list li strong,
+.vr-vj-detail-wrapper .service-unavailable .conditions-list li strong,
+.vr-vj-detail-wrapper .service-unavailable .genre-list li strong,
+.vr-vj-detail-wrapper .service-unavailable .vr-vj-description p,
+.vr-vj-detail-wrapper .service-unavailable .features-list li,
+.vr-vj-detail-wrapper .service-unavailable .conditions-list li,
+.vr-vj-detail-wrapper .service-unavailable .genre-list li,
+.vr-vj-detail-wrapper .service-unavailable .conditions-list li small,
+.vr-vj-detail-wrapper .service-unavailable .vr-vj-header .service-price {
+    color: var(--zb-off-fg) !important;
+}
+
+.vr-vj-detail-wrapper .service-unavailable .vr-vj-header {
+    border-bottom-color: var(--zb-off-border);
+}
+
+.vr-vj-detail-wrapper .service-unavailable .vr-vj-features,
+.vr-vj-detail-wrapper .service-unavailable .vr-vj-conditions,
+.vr-vj-detail-wrapper .service-unavailable .vr-vj-genre {
+    border-bottom-color: var(--zb-off-border);
+}
+
+@media (max-width: 768px) {
+    .vr-vj-detail-wrapper .vr-vj-detail-card.service-unavailable {
+        background: var(--zb-off-bg) !important;
+        border: 1px solid var(--zb-off-border) !important;
+    }
+
+    .vr-vj-detail-wrapper .service-unavailable .vr-vj-title {
+        color: var(--zb-off-fg) !important;
+    }
+}

@@ -165,8 +165,15 @@ a {
 
 @media (min-width: 1440px) {
     .container {
-        max-width: 1000px;
-        padding: 0 var(--space-4);
+        max-width: 1360px;
+        padding: 0 var(--space-6);
+    }
+}
+
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1640px;
+        padding: 0 var(--space-8);
     }
 }
 
@@ -378,14 +385,9 @@ section.scroll-reveal.is-visible > * {
         position: relative;
     }
 
+    /* Hero直下の区切り線は、HeroのHUD（トンボ）の線と重なるため表示しない */
     #featured::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: calc(var(--space-6) + 18vh - var(--space-8));
-        height: 0;
-        border-top: 1px dotted rgba(var(--rgb-fg), 0.3);
+        content: none;
     }
 
     #solutions::before {
@@ -934,3 +936,19 @@ img[loading="lazy"]:not([src]) {
     /* ホバー効果なぁE 裁E��皁E��要素はクリチE��不可能 */
 }
 
+
+/* スキップリンク（キーボード操作時のみ表示） */
+.skip-link {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    padding: 10px 16px;
+    background: var(--color-bg);
+    color: #fff;
+    border: 1px solid currentColor;
+    transform: translateY(-120%);
+}
+.skip-link:focus {
+    transform: translateY(0);
+}

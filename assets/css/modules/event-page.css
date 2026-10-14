@@ -640,6 +640,28 @@
     max-width: 800px;
 }
 
+@media (min-width: 1440px) {
+    .event-page-section .container {
+        max-width: 1100px;
+    }
+
+    .event-page-overview-card,
+    .event-page-join-card {
+        max-width: 1000px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .event-page-section .container {
+        max-width: 1280px;
+    }
+
+    .event-page-overview-card,
+    .event-page-join-card {
+        max-width: 1160px;
+    }
+}
+
 .event-page-section-title {
     font-size: var(--text-3xl);
     font-weight: 300;

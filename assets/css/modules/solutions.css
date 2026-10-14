@@ -10,7 +10,7 @@
 
 .solutions-section {
     margin-top: -100px;
-    padding-top: calc(var(--space-2) + 100px);
+    padding-top: calc(var(--space-8) + 100px);
     position: relative;
     z-index: 4;
 }
