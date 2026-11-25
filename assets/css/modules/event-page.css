@@ -1704,7 +1704,7 @@
     }
 }
 
-/* ---------- Flyer (vol.0 実績 + 次回Coming Soon) ---------- */
+/* ---------- Flyer (vol.0 + vol.1) ---------- */
 .event-page-flyer-grid {
     display: flex;
     flex-wrap: wrap;
@@ -1731,53 +1731,8 @@
     display: block;
 }
 
-.event-page-flyer-comingsoon {
-    width: calc((100% - var(--space-4)) / 2);
-    max-width: 100%;
-    aspect-ratio: 1100 / 1556;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    padding: var(--space-4);
-    text-align: center;
-    border: 0;
-    background: rgba(var(--rgb-fg), 0.12);
-    cursor: default;
-}
-
-.flyer-comingsoon-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0;
-    border: 0;
-    background: none;
-    color: var(--color-purple-secondary);
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: var(--tracking-wider);
-    font-weight: 300;
-}
-
-.flyer-comingsoon-vol {
-    font-family: 'Work Sans', sans-serif;
-    font-size: var(--text-xl);
-    font-weight: 300;
-    color: var(--color-text-primary);
-    letter-spacing: 0.12em;
-}
-
-.flyer-comingsoon-text {
-    color: var(--color-text-tertiary);
-    font-size: var(--text-sm);
-    line-height: var(--leading-relaxed);
-}
-
 @media (max-width: 640px) {
-    .event-page-flyer-frame,
-    .event-page-flyer-comingsoon {
+    .event-page-flyer-frame {
         width: 220px;
     }
 }
